@@ -12,9 +12,14 @@ $(document).ready(function(){
         $vm.library_path    =window.location.protocol+'//'+window.location.host;
         $vm.debug		    =true;
     }
-    else{
-        $vm.repository      ="business-portal";
-        $vm.hosting_path    ="http://datalinkedin.com";
+    else if (window.location.hostname.indexOf('datalinkedin.com')!=-1){
+        $vm.repository      ="";
+		$vm.hosting_path    ="datalinkedin.com/"+$vm.repository;
+        $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
+    }
+	else if (window.location.hostname.indexOf('cbs.wappsystem.com')!=-1){
+        $vm.repository      ="vmiis/business-portal";
+		$vm.hosting_path    ="https://cbs.wappsystem.com/dev/github/"+$vm.repository;
         $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
     }
     //--------------------------------------------------------
