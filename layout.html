@@ -5,6 +5,8 @@
               <li id=image1__ID style="background: url('__HOST__/images/empty.gif');"></li>
               <li id=image2__ID style="background: url('__HOST__/images/empty.gif');"></li>
               <li id=image3__ID style="background: url('__HOST__/images/empty.gif');"></li>
+			  <li id=image4__ID style="background: url('__HOST__/images/empty.gif');"></li>
+			  <li id=image5__ID style="background: url('__HOST__/images/empty.gif');"></li>
           </ul>
         </div>
         <a id="control_next__ID"></a>
@@ -29,6 +31,7 @@
             <ul id=ul__ID>
                 <li data-name=home id=home_page>Home</li>
                 <li data-name=main id=main>Business Portal</li>
+				<li data-name=about id=main>About</li>
                 <li id=signin__ID data-b='1'>Sign In</li>
                 <li id=signout__ID data-b='2'>Sign Out</li>
             </ul>
@@ -41,8 +44,8 @@
     function F__ID(){
         //------------------------------------
         //title and footer
-        document.title="Tom Li Business Portal";
-        $('#footer__ID').html("Copyright © "+(new Date()).getFullYear()+", tomli113@gmail.com");
+        document.title="Business Portal";
+		$('#footer__ID').html("Copyright © "+(new Date()).getFullYear()+", zzm.vmiis@gmail.com<span id=long_footer__ID>, Zhiming Zhou, expert in business portal development, setup from scratch on Github or Amazon cloud servers and ongoing maintenance.</span>");
         //------------------------------------
         //slider
         if( $('#slider__ID').length!==0 ){
@@ -79,15 +82,21 @@
         var $downloadingImage2 = $("<img>");
         var $downloadingImage3 = $("<img>");
         var $downloadingImage4 = $("<img>");
+		var $downloadingImage5 = $("<img>");
         $downloadingImage1.load(function(){ $("#image1__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image1__ID").css("background-size", "cover");  });
         $downloadingImage2.load(function(){ $("#image2__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image2__ID").css("background-size", "cover");  });
         $downloadingImage3.load(function(){ $("#image3__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image3__ID").css("background-size", "cover");  });
-        $downloadingImage1.attr("src", "__HOST__/images/bk1.jpg");
-        $downloadingImage2.attr("src", "__HOST__/images/bk2.jpg");
-        $downloadingImage3.attr("src", "__HOST__/images/bk3.jpg");
+		$downloadingImage4.load(function(){ $("#image4__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image4__ID").css("background-size", "cover");  });
+		$downloadingImage5.load(function(){ $("#image5__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image5__ID").css("background-size", "cover");  });
+        $downloadingImage1.attr("src", "__HOST__/images/bk2.jpg");
+        $downloadingImage2.attr("src", "__HOST__/images/bk5.jpg");
+        $downloadingImage3.attr("src", "__HOST__/images/bk4.jpg");
+		$downloadingImage4.attr("src", "__HOST__/images/bk1.jpg");
+		$downloadingImage5.attr("src", "__HOST__/images/bk3.jpg");
         //------------------------------------
         $vm.module_list['home']={url:'__HOST__/home.html'}
-        $vm.module_list['main']={url:'__HOST__/panel.html'}
+        $vm.module_list['main']={url:'__HOST__/panel.main.html'}
+		$vm.module_list['about']={url:'__HOST__/panel.about.html'}
         //------------------------------------
         var on_load=function(){
             layout_resize();
