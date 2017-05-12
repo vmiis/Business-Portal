@@ -7,26 +7,31 @@ $(document).ready(function(){
     document.title="Woolcock Institute of Medical Research";
     //--------------------------------------------------------
     if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-        $vm.repository      ="tomli113/business-portal";
+        $vm.repository      ="vmiis/business-portal";
         $vm.hosting_path    =window.location.protocol+'//'+window.location.host+'/'+$vm.repository;
         $vm.library_path    =window.location.protocol+'//'+window.location.host;
         $vm.debug		    =true;
     }
     else{
         $vm.repository      ="business-portal";
-        $vm.hosting_path    ="https://tomli113.github.io/"+$vm.repository;
+        $vm.hosting_path    ="https://vmiis.github.io/"+$vm.repository;
         $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
-        if(window.location.toString().indexOf('d=1')!=-1) $vm.debug=true;
     }
     //--------------------------------------------------------
-    $vm.server		        ="production";
-    $VmAPI.api_base	        ="https://cbs.wappsystem.com/pro/";
+    $vm.server		        ="development";
+    $VmAPI.api_base	        ="https://cbs.wappsystem.com/dev/";
     $vm.debug_message	    =true;
     //--------------------------------------------------------
 	var start=function(){
-		var url=$vm.url('__HOST__/version.html?_=')+new Date().getTime();
-		if($vm.debug_message===true) console.log('load module from '+url);
-        $.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_vmapi();},'text')
+		$vm.version=new Date().getTime().toString();
+		var url=$vm.url('__HOST__/version.html?_=')+$vm.version;
+		if(window.location.toString().indexOf('debug=1')==-1){
+			if($vm.debug_message===true) console.log('load module from '+url);
+			$.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_vmapi();},'text')
+		}
+		else{
+		    load_vmapi();
+		}
 	}
 	//--------------------------------------------------------
     var load_vmapi   =function(){ load_js($vm.url('__LIB__/vmiis/VmAPI/distribution/vmapi.min.js'),load_vm);	}
