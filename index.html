@@ -14,7 +14,7 @@ $(document).ready(function(){
     }
     else if (window.location.hostname.indexOf('datalinkedin.com')!=-1){
         $vm.repository      ="";
-		$vm.hosting_path    ="datalinkedin.com";
+		$vm.hosting_path    ="http://datalinkedin.com";
         $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
     }
 	else if (window.location.hostname.indexOf('cbs.wappsystem.com')!=-1){
@@ -30,8 +30,6 @@ $(document).ready(function(){
 	var start=function(){
 		$vm.version=new Date().getTime().toString();
 		var url=$vm.url('__HOST__/version.html?_=')+$vm.version;
-alert($vm.hosting_path)
-alert(url)
 		if(window.location.toString().indexOf('debug=1')==-1){
 			if($vm.debug_message===true) console.log('load module from '+url);
 			$.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_vmapi();},'text')
