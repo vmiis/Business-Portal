@@ -2,11 +2,11 @@
     <div name=slider>
         <div id="slider__ID">
           <ul>
-              <li id=image1__ID style="background: url('__HOST__/images/bk2.jpg');"></li>
-              <li id=image2__ID style="background: url('__HOST__/images/bk5.jpg');"></li>
-              <li id=image3__ID style="background: url('__HOST__/images/bk4.jpg');"></li>
-			  <li id=image4__ID style="background: url('__HOST__/images/bk1.jpg');"></li>
-			  <li id=image5__ID style="background: url('__HOST__/images/bk3.jpg');"></li>
+              <li id=image1__ID style="background: url('__HOST__/images/empty.gif');"></li>
+              <li id=image2__ID style="background: url('__HOST__/images/empty.gif');"></li>
+              <li id=image3__ID style="background: url('__HOST__/images/empty.gif');"></li>
+			  <li id=image4__ID style="background: url('__HOST__/images/empty.gif');"></li>
+			  <li id=image5__ID style="background: url('__HOST__/images/empty.gif');"></li>
           </ul>
         </div>
         <a id="control_next__ID"></a>
@@ -78,7 +78,6 @@
         setInterval(function () {
             moveRight();
         }, 6000);
-		/*
         var $downloadingImage1 = $("<img>");
         var $downloadingImage2 = $("<img>");
         var $downloadingImage3 = $("<img>");
@@ -94,7 +93,6 @@
         $downloadingImage3.attr("src", "__HOST__/images/bk4.jpg");
 		$downloadingImage4.attr("src", "__HOST__/images/bk1.jpg");
 		$downloadingImage5.attr("src", "__HOST__/images/bk3.jpg");
-		*/
         //------------------------------------
         $vm.module_list['home']={url:'__HOST__/home.html'}
         $vm.module_list['main']={url:'__HOST__/panel.main.html'}

@@ -12,10 +12,6 @@ $(document).ready(function(){
         $vm.library_path    =window.location.protocol+'//'+window.location.host;
         $vm.debug		    =true;
     }
-    else if (window.location.hostname.indexOf('www.datalinkedin.com')!=-1){
-		$vm.hosting_path    ="http://www.datalinkedin.com";
-        $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
-    }
 	else if (window.location.hostname.indexOf('cbs.wappsystem.com')!=-1){
 		$vm.hosting_path    ="https://cbs.wappsystem.com/dev/github/vmiis/business-portal";;
         $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
