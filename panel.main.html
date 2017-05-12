@@ -1,0 +1,91 @@
+<div>
+    <div id=toolbar__ID>
+        <a id=back__ID>Back</a><span class=tab__ID></span><span id=nav_link__ID></span>
+    </div>
+    <div id=panel__ID style='clear:left;'>
+        <div class='nav__ID'>
+            <br>
+			<ul>
+                <li data-name=module>Data</li>
+                <li data-name=query>Queries</li>
+				<br>
+                <li data-name=import>Import</li>
+                <li data-name=data_console>Export</li>
+                <br>
+				<li data-name=third_party>Third party data processing</li>
+                <br>
+                <li data-name=help_for_users>User's help</li>
+                <li data-name=help_for_developers>Developer's help</li>
+                <br>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    //---------------------------------------------
+    function F__ID(){
+        //---------------------------------------------
+        VmInclude:__BASE__/vmiis/Common-Code/navigation/navigation.js
+        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out_2.js
+        //---------------------------------------------
+        var module_list=function(){
+            _app_id='';
+            //---------------------------------------------
+            var L=$vm.module_list,A=_app_id,H=$vm.hosting_path,
+            M=$vm.library_path+'/vmiis/module-library';
+            //---------------------------------------------
+            //variables used inside modules
+            var v={
+                app_id:_app_id,
+                module_tid      :'20010433',
+                query_tid       :'20010430',
+				third_party_tid :'20010697',
+            }
+            //---------------------------------------------
+            L[A+'module']        ={table_id:v.module_tid,       var:v,     url:M+'/portal/module.html'};
+            L[A+'query']         ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.html',form_module:A+'query_form'};
+            L[A+'query_form']    ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.form.html'};
+            L[A+'import']        ={                                        url:M+'/portal/import.html'};
+            L[A+'export']        ={                                        url:M+'/portal/data_console.html'};
+			L[A+'third_party']   ={table_id:v.third_party_tid,  var:v,     url:M+'/portal/third_party_extension.html'};
+            //---------------------------------------------
+        }
+        module_list();
+        //---------------------------------------------
+        _set_li_permissions();
+        //---------------------------------------------
+        $('#D__ID').on('load',function(){
+            _nav_name='Business Portal';
+            _set_nav_link();
+        });
+        //---------------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__BASE__/vmiis/Common-Code/navigation/navigation.css
+    VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out_2.css
+    #D__ID{
+        background: url("__BASE__/vmiis/common-code/image/texture.png");
+    }
+    .nav__ID span{
+        color:#005500;
+    }
+    .nav__ID li{
+        padding-top:3px;
+        padding-bottom:3px;
+    }
+    .nh__ID{
+        color:#999!Important;
+        font-size:8pt;
+        font-weight: normal!Important;
+        margin:0!Important;
+    }
+    ul{
+        padding-left:28px;
+    }
+    @media screen and (max-width:900px){
+        #D__ID{
+            font-size:16pt;
+        }
+    }
+</style>
