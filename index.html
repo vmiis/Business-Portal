@@ -5,21 +5,24 @@ $vm={}; $VmAPI={};
 $(document).ready(function(){
     //--------------------------------------------------------
     document.title="Woolcock Institute of Medical Research";
+	$vm.repository="";
     //--------------------------------------------------------
     if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-        $vm.repository      ="vmiis/business-portal";
-        $vm.hosting_path    =window.location.protocol+'//'+window.location.host+'/'+$vm.repository;
+        $vm.hosting_path    =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
         $vm.library_path    =window.location.protocol+'//'+window.location.host;
         $vm.debug		    =true;
     }
     else if (window.location.hostname.indexOf('datalinkedin.com')!=-1){
-        $vm.repository      ="";
 		$vm.hosting_path    ="http://datalinkedin.com";
         $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
     }
 	else if (window.location.hostname.indexOf('cbs.wappsystem.com')!=-1){
-        $vm.repository      ="vmiis/business-portal";
-		$vm.hosting_path    ="https://cbs.wappsystem.com/dev/github/"+$vm.repository;
+		$vm.hosting_path    ="https://cbs.wappsystem.com/dev/github/vmiis/business-portal";;
+        $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
+    }
+    //--------------------------------------------------------
+	else if (window.location.hostname.indexOf('github.io')!=-1){
+		$vm.hosting_path    ="https://vmiis.github.io/business-portal";
         $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
     }
     //--------------------------------------------------------
