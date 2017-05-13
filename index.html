@@ -4,9 +4,7 @@
 $vm={}; $VmAPI={};
 $(document).ready(function(){
     //--------------------------------------------------------
-    document.title="Woolcock Institute of Medical Research";
-	$vm.repository="";
-    //--------------------------------------------------------
+    $vm.repository="";
     if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
         $vm.hosting_path    =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
         $vm.library_path    =window.location.protocol+'//'+window.location.host;
@@ -33,8 +31,8 @@ $(document).ready(function(){
 	$vm.version=new Date().getTime().toString();
 	var url=$vm.url('__HOST__/version.html?_=')+$vm.version;
 	if(window.location.toString().indexOf('debug=1')==-1){
-		if($vm.debug_message===true) console.log('load module from '+url);
-		$.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_vmapi();},'text')
+	    if($vm.debug_message===true) console.log('load module from '+url);
+	    $.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_vmapi();},'text')
 	}
 	else{
 	    load_vmapi();
