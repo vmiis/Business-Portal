@@ -5,22 +5,20 @@ $vm={}; $VmAPI={};
 $(document).ready(function(){
     //--------------------------------------------------------
     $vm.repository="";
+    $vm.library_path='https://cbs.wappsystem.com/dev/github';
     if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
         $vm.hosting_path    =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
         $vm.library_path    =window.location.protocol+'//'+window.location.host;
         $vm.debug		    =true;
     }
     else if (window.location.hostname.indexOf('cbs.wappsystem.com')!=-1){
-	$vm.hosting_path    ="https://cbs.wappsystem.com/dev/github/vmiis/business-portal";
-        $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
+	$vm.hosting_path="https://cbs.wappsystem.com/dev/github/vmiis/business-portal";
     }
     else if (window.location.hostname.indexOf('www.datalinkedin.com')!=-1){
-	$vm.hosting_path    ="//www.datalinkedin.com";
-        $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
+	$vm.hosting_path="//www.datalinkedin.com";
     }
     else if (window.location.hostname.indexOf('github.io')!=-1){
-	$vm.hosting_path    ="https://vmiis.github.io/business-portal";
-        $vm.library_path    ='https://cbs.wappsystem.com/dev/github';
+	$vm.hosting_path="https://vmiis.github.io/business-portal";
     }
     //--------------------------------------------------------
     $vm.server		    ="development";
