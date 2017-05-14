@@ -5,14 +5,14 @@
     <div id=panel__ID style='clear:left;'>
         <div class='nav__ID'>
             <br>
-			<ul>
+	    <ul>
                 <li data-name=module>Data</li>
                 <li data-name=query>Queries</li>
-				<br>
+		<br>
                 <li data-name=import>Import</li>
                 <li data-name=data_console>Export</li>
                 <br>
-				<li data-name=third_party>Third party data processing</li>
+		<li data-name=third_party>Third party data processing</li>
                 <br>
                 <li data-name=help_for_users>User's help</li>
                 <li data-name=help_for_developers>Developer's help</li>
@@ -31,15 +31,16 @@
         var module_list=function(){
             _app_id='';
             //---------------------------------------------
-            var L=$vm.module_list,A=_app_id,H=$vm.hosting_path,
-            M=$vm.library_path+'/vmiis/module-library';
+            var L=$vm.module_list,A=_app_id,M=$vm.library_path+'/vmiis/module-library';
             //---------------------------------------------
             //variables used inside modules
             var v={
                 app_id:_app_id,
                 module_tid      :'20010433',
                 query_tid       :'20010430',
-				third_party_tid :'20010697',
+		third_party_tid :'20010697',
+                user_help_tid   :'20010425',
+                dev_help_tid    :'20010426',
             }
             //---------------------------------------------
             L[A+'module']        ={table_id:v.module_tid,       var:v,     url:M+'/portal/module.html'};
@@ -47,7 +48,13 @@
             L[A+'query_form']    ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.form.html'};
             L[A+'import']        ={                                        url:M+'/portal/import.html'};
             L[A+'export']        ={                                        url:M+'/portal/data_console.html'};
-			L[A+'third_party']   ={table_id:v.third_party_tid,  var:v,     url:M+'/portal/third_party_extension.html'};
+	    L[A+'third_party']   ={table_id:v.third_party_tid,  var:v,     url:M+'/portal/third_party_extension.html'};
+            L[A+'help_for_users']           ={table_id:v.user_help_tid,var:v,url:M+'/help/help.html',form_module:A+'help_for_users_form',view:A+'help_for_users_view'};
+            L[A+'help_for_users_form']      ={table_id:v.user_help_tid,var:v,url:M+'/help/help.form.html'};
+            L[A+'help_for_users_view']      ={table_id:v.user_help_tid,var:v,url:M+'/help/help.view.html'};
+            L[A+'help_for_developers']      ={table_id:v.dev_help_tid, var:v,url:M+'/help/help.html',form_module:A+'help_for_developers_form',view:A+'help_for_developers_view'};
+            L[A+'help_for_developers_form'] ={table_id:v.dev_help_tid, var:v,url:M+'/help/help.form.html'};
+            L[A+'help_for_developers_view'] ={table_id:v.dev_help_tid, var:v,url:M+'/help/help.view.html'};
             //---------------------------------------------
         }
         module_list();
