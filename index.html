@@ -43,7 +43,7 @@ $(document).ready(function(){
 		var ver=localStorage.getItem(url+"_ver");
 		var txt=localStorage.getItem(url+"_txt");
 		//------------------------------------------
-		if(ver!=$vm.version || txt===null || $vm.debug===true){
+		if(ver!=$vm.version || txt===null || $vm.debug===true || $vm.reload!=''){
 			if($vm.debug_message===true) console.log('load module from '+url+'?_='+$vm.version+$vm.reload);
 			$.get(url+'?_='+$vm.version+$vm.reload,function(data){
 				localStorage.setItem(url+"_txt",data);
