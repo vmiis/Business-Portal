@@ -42,6 +42,16 @@
                 user_help_tid   :'20010425',
                 dev_help_tid    :'20010426',
             }
+	    if(window.location.toString().indexOf('api=woolcock')!=-1){
+		v={
+		    app_id:_app_id,
+		    module_tid      :'20010434',
+		    query_tid       :'20010437',
+		}
+   	        $('div.nav__ID ul li[data-name=third_party]').hide();
+   	        $('div.nav__ID ul li[data-name=help_for_users]').hide();
+   	        $('div.nav__ID ul li[data-name=help_for_developers]').hide();
+	    }
             //---------------------------------------------
             L[A+'module']        ={table_id:v.module_tid,       var:v,     url:M+'/portal/module.html'};
             L[A+'query']         ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.html',form_module:A+'query_form'};
