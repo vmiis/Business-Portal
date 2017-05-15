@@ -48,8 +48,8 @@
             <span>For developers</span>
             <ul>
                 <li data-name=working_together>Working together</li>
-				<li data-name=github data-s=1>Business portal example on Github</li>
-				<li data-name=source data-s=1>This website source code on Github</li>
+		<li data-name=github data-s=1>Business portal example on Github</li>
+		<li data-name=source data-s=1>This website source code on Github</li>
             </ul>
             <br>
         </div>
@@ -92,16 +92,16 @@
             _nav_name='About';
         });
         //---------------------------------------------
-		_special_click_process=function(li){
-			var data_name=$(li).attr('data-name');
-			if(data_name=='github'){
-				window.open('https://github.com/vmiis/business-portal-example');
-			}
-			else if(data_name=='source'){
-				window.open('https://github.com/vmiis/business-portal');
-			}
+	_special_click_process=function(li){
+		var data_name=$(li).attr('data-name');
+		if(data_name=='github'){
+			window.open('https://github.com/vmiis/business-portal-example');
 		}
-		//---------------------------------------------
+		else if(data_name=='source'){
+			window.open('https://github.com/vmiis/business-portal');
+		}
+	}
+	//---------------------------------------------
     }
 </script>
 <style>
