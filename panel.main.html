@@ -31,7 +31,7 @@
         var module_list=function(){
             _app_id='';
             //---------------------------------------------
-            var L=$vm.module_list,A=_app_id,M=$vm.library_path+'/vmiis/module-library';
+            var L=$vm.module_list,A=_app_id,G='https://vmiis.github.io/vmiis/modules',M=$vm.library_path+'/vmiis/module-library';
             //---------------------------------------------
             //variables used inside modules
             var v={
@@ -55,9 +55,9 @@
    	            $('div.nav__ID ul li[data-name=help_for_developers]').hide();
 	        }
             //---------------------------------------------
-            L[A+'module']        ={table_id:v.module_tid,       var:v,     url:M+'/portal/module.html'};
-            L[A+'query']         ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.html',form_module:A+'query_form'};
-            L[A+'query_form']    ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.form.html'};
+            L[A+'module']        ={table_id:v.module_tid,       var:v,     url:G+'/portal/data.html'};
+            L[A+'query']         ={table_id:v.query_tid,        var:v,     url:G+'/portal/query.html',form_module:A+'query_form'};
+            L[A+'query_form']    ={table_id:v.query_tid,        var:v,     url:G+'/portal/query.form.html'};
             L[A+'import']        ={                                        url:M+'/portal/import.html'};
             L[A+'export']        ={                                        url:M+'/portal/data_console.html'};
 	    L[A+'third_party']   ={table_id:v.third_party_tid,  var:v,     url:M+'/portal/third_party_extension.html'};
