@@ -5,14 +5,14 @@
     <div id=panel__ID style='clear:left;'>
         <div class='nav__ID'>
             <br>
-	    <ul>
+	        <ul>
                 <li data-name=module>Data</li>
                 <li data-name=query>Queries</li>
-		<br>
+		        <br>
                 <li data-name=import>Import</li>
                 <li data-name=export>Export</li>
                 <br>
-		<li data-name=third_party>Third party data processing</li>
+		        <li data-name=third_party>Third party data processing</li>
                 <br>
                 <li data-name=help_for_users>User's help</li>
                 <li data-name=help_for_developers>Developer's help</li>
@@ -38,20 +38,22 @@
                 app_id:_app_id,
                 module_tid      :'20010433',
                 query_tid       :'20010430',
-		third_party_tid :'20010697',
+		        third_party_tid :'20010697',
                 user_help_tid   :'20010425',
                 dev_help_tid    :'20010426',
             }
-	    if(window.location.toString().indexOf('api=woolcock')!=-1){
-		v={
-		    app_id:_app_id,
-		    module_tid      :'20010434',
-		    query_tid       :'20010437',
-		}
-   	        $('div.nav__ID ul li[data-name=third_party]').hide();
-   	        $('div.nav__ID ul li[data-name=help_for_users]').hide();
-   	        $('div.nav__ID ul li[data-name=help_for_developers]').hide();
-	    }
+	        if(window.location.toString().indexOf('api=woolcock')!=-1){
+		        v={
+		            app_id:_app_id,
+		            module_tid      :'20010434',
+		            query_tid       :'20010437',
+		        }
+	        }
+	        if(window.location.toString().indexOf('api=woolcock')!=-1 || window.location.toString().indexOf('api=wappsystem')!=-1){
+   	            $('div.nav__ID ul li[data-name=third_party]').hide();
+   	            $('div.nav__ID ul li[data-name=help_for_users]').hide();
+   	            $('div.nav__ID ul li[data-name=help_for_developers]').hide();
+	        }
             //---------------------------------------------
             L[A+'module']        ={table_id:v.module_tid,       var:v,     url:M+'/portal/module.html'};
             L[A+'query']         ={table_id:v.query_tid,        var:v,     url:M+'/portal/query.html',form_module:A+'query_form'};
@@ -73,6 +75,8 @@
         //---------------------------------------------
         $('#D__ID').on('load',function(){
             _nav_name='Business Portal';
+            if(window.location.toString().indexOf('api=woolcock')!=-1)   _nav_name='Business Portal (Woolcock)';
+	    if(window.location.toString().indexOf('api=wappsystem')!=-1) _nav_name='Business Portal (Wappsystem)';
             _set_nav_link();
         });
         //---------------------------------------------
