@@ -6,7 +6,7 @@
         <div class='nav__ID'>
             <br>
 	        <ul>
-                <li data-name=module>Data</li>
+                <li data-name=data>Data</li>
                 <li data-name=query>Queries</li>
 		<br>
                 <li data-name=import>Import</li>
@@ -55,12 +55,12 @@
    	            $('div.nav__ID ul li[data-name=help_for_developers]').hide();
 	        }
             //---------------------------------------------
-            L[A+'module']        ={table_id:v.module_tid,       var:v,     url:G+'/portal/data.html'};
+            L[A+'data']          ={table_id:v.module_tid,       var:v,     url:G+'/portal/data.html'};
             L[A+'query']         ={table_id:v.query_tid,        var:v,     url:G+'/portal/query.html',form_module:A+'query_form'};
             L[A+'query_form']    ={table_id:v.query_tid,        var:v,     url:G+'/portal/query.form.html'};
-            L[A+'import']        ={                                        url:M+'/portal/import.html'};
-            L[A+'export']        ={                                        url:M+'/portal/data_console.html'};
-	    L[A+'third_party']   ={table_id:v.third_party_tid,  var:v,     url:M+'/portal/third_party_extension.html'};
+            L[A+'import']        ={                                        url:G+'/portal/import.html'};
+            L[A+'export']        ={                                        url:G+'/portal/export.html'};
+	    L[A+'third_party']   ={table_id:v.third_party_tid,  var:v,     url:G+'/portal/third_party_extension.html'};
             L[A+'help_for_users']           ={table_id:v.user_help_tid,var:v,url:M+'/help/help.html',form_module:A+'help_for_users_form',view:A+'help_for_users_view'};
             L[A+'help_for_users_form']      ={table_id:v.user_help_tid,var:v,url:M+'/help/help.form.html'};
             L[A+'help_for_users_view']      ={table_id:v.user_help_tid,var:v,url:M+'/help/help.view.html'};
