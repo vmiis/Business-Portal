@@ -24,6 +24,14 @@ $(document).ready(function(){
 	$vm.server          ="development";
 	$VmAPI.api_base     ="https://cbs.wappsystem.com/dev/";
 	$vm.debug_message   =true;
+	if(window.location.toString().indexOf('db=wappsystem')!=-1){
+	    $vm.server="production";
+	    $VmAPI.api_base="https://cbs.wappsystem.com/pro/";
+        }
+	else if(window.location.toString().indexOf('db=woolcock')!=-1){
+	    $vm.server="production";
+	    $VmAPI.api_base="https://rt.woolcock.org.au/";
+        }
 	//--------------------------------------------------------
 	var start=function(){
 		$vm.reload='';
