@@ -22,72 +22,72 @@
     </div>
 </div>
 <script>
+//---------------------------------------------
+function F__ID(){
 	//---------------------------------------------
-	function F__ID(){
+	VmInclude:__LIB__/vmiis/Common-Code/navigation/navigation.js
+	VmInclude:__LIB__/vmiis/Common-Code/style/ease-in-out_2.js
+	//---------------------------------------------
+	var module_list=function(){
+		_app_id='';
 		//---------------------------------------------
-		VmInclude:__LIB__/vmiis/Common-Code/navigation/navigation.js
-		VmInclude:__LIB__/vmiis/Common-Code/style/ease-in-out_2.js
+		var L=$vm.module_list,A=_app_id,G='https://vmiis.github.io/modules';
 		//---------------------------------------------
-		var module_list=function(){
-		    _app_id='';
-		    //---------------------------------------------
-		    var L=$vm.module_list,A=_app_id,G='https://vmiis.github.io/modules',M=$vm.library_path+'/vmiis/module-library';
-		    //---------------------------------------------
-		    //variables used inside modules
-		    var v={
-		        app_id:_app_id,
-		        module_tid      :'20010433',
-		        query_tid       :'20010430',
-		        user_help_tid   :'20010425',
-		        dev_help_tid    :'20010426',
-		    }
-		    if(window.location.toString().indexOf('db=woolcock')!=-1){
-		        v={
-		            app_id:_app_id,
-		            module_tid      :'20010434',
-		            query_tid       :'20010437',
-		        }
-		    }
-		    if(window.location.toString().indexOf('db=woolcock')!=-1 || window.location.toString().indexOf('db=wappsystem')!=-1){
-		            $('div.nav__ID ul li[data-name=third_party]').hide();
-		            $('div.nav__ID ul li[data-name=help_for_users]').hide();
-		            $('div.nav__ID ul li[data-name=help_for_developers]').hide();
-		    }
-		    //---------------------------------------------
-		    L[A+'data']          ={table_id:v.module_tid,       var:v,     url:G+'/portal/data.html'};
-		    L[A+'query']         ={table_id:v.query_tid,        var:v,     url:G+'/portal/query.html',form_module:A+'query_form'};
-		    L[A+'query_form']    ={table_id:v.query_tid,        var:v,     url:G+'/portal/query.form.html'};
-		    L[A+'import']        ={                                        url:G+'/portal/import.html'};
-		    L[A+'export']        ={                                        url:G+'/portal/export.html'};
-		    L[A+'help_for_users']           ={table_id:v.user_help_tid,var:v,url:M+'/help/help.html',form_module:A+'help_for_users_form',view:A+'help_for_users_view'};
-		    L[A+'help_for_users_form']      ={table_id:v.user_help_tid,var:v,url:M+'/help/help.form.html'};
-		    L[A+'help_for_users_view']      ={table_id:v.user_help_tid,var:v,url:M+'/help/help.view.html'};
-		    L[A+'help_for_developers']      ={table_id:v.dev_help_tid, var:v,url:M+'/help/help.html',form_module:A+'help_for_developers_form',view:A+'help_for_developers_view'};
-		    L[A+'help_for_developers_form'] ={table_id:v.dev_help_tid, var:v,url:M+'/help/help.form.html'};
-		    L[A+'help_for_developers_view'] ={table_id:v.dev_help_tid, var:v,url:M+'/help/help.view.html'};
-		    //---------------------------------------------
+		//variables used inside modules
+		var v={
+			app_id:_app_id,
+			module_tid      :'20010433',
+			query_tid       :'20010430',
+			user_help_tid   :'20010425',
+			dev_help_tid    :'20010426',
 		}
-		module_list();
-		//---------------------------------------------
-		_set_li_permissions();
-		//---------------------------------------------
-		$('#D__ID').on('load',function(){
-		    _nav_name='Business Portal';
-		    if(window.location.toString().indexOf('db=woolcock')!=-1)   _nav_name='Business Portal (Woolcock)';
-			if(window.location.toString().indexOf('db=wappsystem')!=-1) _nav_name='Business Portal (Wappsystem)';
-		    _set_nav_link();
-		});
-		//---------------------------------------------
-		_special_click_process=function(li){
-			var data_name=$(li).attr('data-name');
-			if(data_name=='third_party'){
-				var url='https://vmiis.github.io/third-party-extension/index.html';
-				url+="?ver="+$vm.version+"&server="+$vm.server;
-				window.open(url,url);
+		if(window.location.toString().indexOf('db=woolcock')!=-1){
+			v={
+				app_id:_app_id,
+				module_tid      :'20010434',
+				query_tid       :'20010437',
 			}
 		}
+		if(window.location.toString().indexOf('db=woolcock')!=-1 || window.location.toString().indexOf('db=wappsystem')!=-1){
+			$('div.nav__ID ul li[data-name=third_party]').hide();
+			$('div.nav__ID ul li[data-name=help_for_users]').hide();
+			$('div.nav__ID ul li[data-name=help_for_developers]').hide();
+		}
+		//---------------------------------------------
+		L[A+'data']          ={table_id:v.module_tid, var:v, url:G+'/portal/data.html'};
+		L[A+'query']         ={table_id:v.query_tid,  var:v, url:G+'/portal/query.html',form_module:A+'query_form'};
+		L[A+'query_form']    ={table_id:v.query_tid,  var:v, url:G+'/portal/query.form.html'};
+		L[A+'import']        ={                                        url:G+'/portal/import.html'};
+		L[A+'export']        ={                                        url:G+'/portal/export.html'};
+		L[A+'help_for_users']           ={table_id:v.user_help_tid,var:v,url:G+'/help/help.html',form_module:A+'help_for_users_form',view:A+'help_for_users_view'};
+		L[A+'help_for_users_form']      ={table_id:v.user_help_tid,var:v,url:G+'/help/help.form.html'};
+		L[A+'help_for_users_view']      ={table_id:v.user_help_tid,var:v,url:G+'/help/help.view.html'};
+		L[A+'help_for_developers']      ={table_id:v.dev_help_tid, var:v,url:G+'/help/help.html',form_module:A+'help_for_developers_form',view:A+'help_for_developers_view'};
+		L[A+'help_for_developers_form'] ={table_id:v.dev_help_tid, var:v,url:G+'/help/help.form.html'};
+		L[A+'help_for_developers_view'] ={table_id:v.dev_help_tid, var:v,url:G+'/help/help.view.html'};
 		//---------------------------------------------
 	}
+	module_list();
+	//---------------------------------------------
+	_set_li_permissions();
+	//---------------------------------------------
+	$('#D__ID').on('load',function(){
+		_nav_name='Business Portal';
+		if(window.location.toString().indexOf('db=woolcock')!=-1)   _nav_name='Business Portal (Woolcock)';
+		if(window.location.toString().indexOf('db=wappsystem')!=-1) _nav_name='Business Portal (Wappsystem)';
+		_set_nav_link();
+	});
+	//---------------------------------------------
+	_special_click_process=function(li){
+		var data_name=$(li).attr('data-name');
+		if(data_name=='third_party'){
+			var url='https://vmiis.github.io/third-party-extension/index.html';
+			url+="?ver="+$vm.version+"&server="+$vm.server;
+			window.open(url,url);
+		}
+	}
+	//---------------------------------------------
+}
 </script>
 <style>
     VmInclude:__LIB__/vmiis/Common-Code/navigation/navigation.css
