@@ -4,17 +4,17 @@
     </div>
     <div id=panel__ID style='clear:left;'>
         <div class='nav__ID'>
-            <br>
-	        <ul>
-			<li data-name=data>Data</li>
-	                <li data-name=query>Queries</li>
-	                <br>
-			<li data-name=import_and_export>Import and export</li>
-			<li data-name=third_party data-s=1>Third party modules</li>
 			<br>
-			<li data-name=help_for_users>User's help</li>
-			<li data-name=help_for_developers>Developer's help</li>
-            </ul>
+			<ul>
+				<li data-name=module>Modules</li>
+				<li data-name=query>Queries</li>
+				<br>
+				<li data-name=import_and_export>Import and export</li>
+				<li data-name=third_party data-s=1>Third party modules</li>
+				<br>
+				<li data-name=help_for_users>User's help</li>
+				<li data-name=help_for_developers>Developer's help</li>
+			</ul>
         </div>
     </div>
 </div>
@@ -54,7 +54,7 @@ function F__ID(){
 			$('div.nav__ID ul li[data-name=help_for_developers]').hide();
 		}
 		//---------------------------------------------
-		L[A+'data']          ={table_id:v.module_tid, var:v, url:G+'/portal/data.html'};
+		L[A+'module']        ={table_id:v.module_tid, var:v, url:G+'/portal/module.html'};
 		L[A+'query']         ={table_id:v.query_tid,  var:v, url:G+'/portal/query.html',form_module:A+'query_form'};
 		L[A+'query_form']    ={table_id:v.query_tid,  var:v, url:G+'/portal/query.form.html'};
 		L[A+'import_and_export']={                           url:G+'/portal/import_and_export.html'};
