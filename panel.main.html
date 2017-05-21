@@ -29,6 +29,9 @@ function F__ID(){
 		_app_id='';
 		//---------------------------------------------
 		var L=$vm.module_list,A=_app_id,G='https://vmiis.github.io/modules';
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			G=window.location.protocol+'//'+window.location.host+"/vmiis/modules";
+		}
 		//---------------------------------------------
 		//variables used inside modules
 		var v={
