@@ -41,120 +41,72 @@
     <div name=footer id=footer__ID></div>
 </div>
 <script>
-    function F__ID(){
-        //------------------------------------
-        //title and footer
-        document.title="Business Portal";
-		$('#footer__ID').html("Copyright © "+(new Date()).getFullYear()+", zzm.vmiis@gmail.com<span id=long_footer__ID>, Zhiming Zhou, expert in business portal development, setup from scratch on your Amazon cloud servers and ongoing maintenance.</span>");
-        //------------------------------------
-        //slider
-        if( $('#slider__ID').length!==0 ){
-            var slideWidth=window.innerWidth;
-            var slideHeight=window.innerHeight;
-            var slideCount = $('#slider__ID ul li').length;
-            var sliderUlWidth = slideCount * slideWidth;
-            $('#slider__ID').css({ width: slideWidth, height: slideHeight });
-            $('#slider__ID ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
-            $('#slider__ID ul li:last-child').prependTo('#slider__ID ul');
-            var moveRight=function() {
-                $('#slider__ID ul').animate({
-                    left: - slideWidth
-                }, 700, function () {
-                    $('#slider__ID ul li:first-child').appendTo('#slider__ID ul');
-                    $('#slider__ID ul').css('left', '');
-                });
-            };
-            var moveLeft=function() {
-                $('#slider__ID ul').animate({
-                    left: + slideWidth
-                }, 700, function () {
-                    $('#slider__ID ul li:last-child').prependTo('#slider__ID ul');
-                    $('#slider__ID ul').css('left', '');
-                });
-            };
-            $('#control_prev__ID').click(function () { moveLeft(); });
-            $('#control_next__ID').click(function () { moveRight();});
-        }
-        setInterval(function () {
-            moveRight();
-        }, 6000);
-        var $downloadingImage1 = $("<img>");
-        var $downloadingImage2 = $("<img>");
-        var $downloadingImage3 = $("<img>");
-        var $downloadingImage4 = $("<img>");
-		var $downloadingImage5 = $("<img>");
-        $downloadingImage1.load(function(){ $("#image1__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image1__ID").css("background-size", "cover");  });
-        $downloadingImage2.load(function(){ $("#image2__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image2__ID").css("background-size", "cover");  });
-        $downloadingImage3.load(function(){ $("#image3__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image3__ID").css("background-size", "cover");  });
-		$downloadingImage4.load(function(){ $("#image4__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image4__ID").css("background-size", "cover");  });
-		$downloadingImage5.load(function(){ $("#image5__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image5__ID").css("background-size", "cover");  });
-        $downloadingImage1.attr("src", "__HOST__/images/bk2.jpg");
-        $downloadingImage2.attr("src", "__HOST__/images/bk5.jpg");
-        $downloadingImage3.attr("src", "__HOST__/images/bk4.jpg");
-		$downloadingImage4.attr("src", "__HOST__/images/bk1.jpg");
-		$downloadingImage5.attr("src", "__HOST__/images/bk3.jpg");
-        //------------------------------------
-        $vm.module_list['home']={url:'__HOST__/home.html'}
-        $vm.module_list['main']={url:'__HOST__/panel.main.html'}
-		$vm.module_list['about']={url:'__HOST__/panel.about.html'}
-        //------------------------------------
-        var on_load=function(){
-            layout_resize();
-            login_changed();
-        };
-        //---------------------------------------------
-        VmInclude:__LIB__/vmiis/common-code/layout/main_layout_process_2.js
-        //------------------------------------
-    }
-    //mobile menu
-    (function($) {
-        $.fn.menumaker = function(options) {
-            var nav__ID = $(this), settings = $.extend({format: "dropdown",sticky: false}, options);
-            return this.each(function() {
-                $(this).find(".button").on('click', function(){
-                    $(this).toggleClass('menu-opened');
-                    var mainmenu = $(this).next('ul');
-                    if (mainmenu.hasClass('open')) {
-                        mainmenu.slideToggle().removeClass('open');
-                    }
-                    else {
-                        mainmenu.slideToggle().addClass('open');
-                        if (settings.format === "dropdown") {
-                            mainmenu.find('ul').show();
-                        }
-                    }
-                });
-                nav__ID.find('li ul').parent().addClass('has-sub');
-                multiTg = function() {
-                    nav__ID.find(".has-sub").prepend('<span class="submenu-button"></span>');
-                    nav__ID.find('.submenu-button').on('click', function() {
-                        $(this).toggleClass('submenu-opened');
-                        if ($(this).siblings('ul').hasClass('open')) {
-                            $(this).siblings('ul').removeClass('open').slideToggle();
-                        }
-                        else {
-                            $(this).siblings('ul').addClass('open').slideToggle();
-                        }
-                    });
-                };
-                if (settings.format === 'multitoggle') multiTg();
-                else nav__ID.addClass('dropdown');
-                if (settings.sticky === true) nav__ID.css('position', 'fixed');
-                var resizeFix = function() {
-                    var mediasize = 900;
-                    if ($( window ).width() > mediasize) {
-                        nav__ID.find('ul').show();
-                    }
-                    if ($(window).width() <= mediasize) {
-                        nav__ID.find('ul').hide().removeClass('open');
-                    }
-                };
-                resizeFix();
-                return $(window).on('resize', resizeFix);
-            });
-        };
-    })(jQuery);
-    $("#nav__ID").menumaker({format: "multitoggle"});
+function F__ID(){
+	//------------------------------------
+	//title and footer
+	document.title="Datalinkedin";
+	$('#footer__ID').html("Copyright © "+(new Date()).getFullYear()+", zzm.vmiis@gmail.com<span id=long_footer__ID>, Zhiming Zhou, expert in business portal development, setup from scratch on your Amazon cloud servers and ongoing maintenance.</span>");
+	//------------------------------------
+	//slider
+	if( $('#slider__ID').length!==0 ){
+	    var slideWidth=window.innerWidth;
+	    var slideHeight=window.innerHeight;
+	    var slideCount = $('#slider__ID ul li').length;
+	    var sliderUlWidth = slideCount * slideWidth;
+	    $('#slider__ID').css({ width: slideWidth, height: slideHeight });
+	    $('#slider__ID ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
+	    $('#slider__ID ul li:last-child').prependTo('#slider__ID ul');
+	    var moveRight=function() {
+	        $('#slider__ID ul').animate({
+	            left: - slideWidth
+	        }, 700, function () {
+	            $('#slider__ID ul li:first-child').appendTo('#slider__ID ul');
+	            $('#slider__ID ul').css('left', '');
+	        });
+	    };
+	    var moveLeft=function() {
+	        $('#slider__ID ul').animate({
+	            left: + slideWidth
+	        }, 700, function () {
+	            $('#slider__ID ul li:last-child').prependTo('#slider__ID ul');
+	            $('#slider__ID ul').css('left', '');
+	        });
+	    };
+	    $('#control_prev__ID').click(function () { moveLeft(); });
+	    $('#control_next__ID').click(function () { moveRight();});
+	}
+	setInterval(function () {
+	    moveRight();
+	}, 6000);
+	var $downloadingImage1 = $("<img>");
+	var $downloadingImage2 = $("<img>");
+	var $downloadingImage3 = $("<img>");
+	var $downloadingImage4 = $("<img>");
+	var $downloadingImage5 = $("<img>");
+	$downloadingImage1.load(function(){ $("#image1__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image1__ID").css("background-size", "cover");  });
+	$downloadingImage2.load(function(){ $("#image2__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image2__ID").css("background-size", "cover");  });
+	$downloadingImage3.load(function(){ $("#image3__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image3__ID").css("background-size", "cover");  });
+	$downloadingImage4.load(function(){ $("#image4__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image4__ID").css("background-size", "cover");  });
+	$downloadingImage5.load(function(){ $("#image5__ID").css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $("#image5__ID").css("background-size", "cover");  });
+	$downloadingImage1.attr("src", "__HOST__/images/bk2.jpg");
+	$downloadingImage2.attr("src", "__HOST__/images/bk5.jpg");
+	$downloadingImage3.attr("src", "__HOST__/images/bk4.jpg");
+	$downloadingImage4.attr("src", "__HOST__/images/bk1.jpg");
+	$downloadingImage5.attr("src", "__HOST__/images/bk3.jpg");
+	//------------------------------------
+	$vm.module_list['home']={url:'__HOST__/home.html'}
+	$vm.module_list['main']={url:'__HOST__/panel.main.html'}
+	$vm.module_list['about']={url:'__HOST__/panel.about.html'}
+	//------------------------------------
+	var on_load=function(){
+	    layout_resize();
+	    login_changed();
+	};
+	//---------------------------------------------
+	VmInclude:__LIB__/vmiis/common-code/layout/main_layout_process_2.js
+	//------------------------------------
+	$("#nav__ID").mobile_menumaker({format: "multitoggle"});
+}
 </script>
 <style>
     body{background:#fff;}
