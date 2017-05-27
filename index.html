@@ -52,6 +52,12 @@ $(document).ready(function(){
 		var re1=new RegExp('__LIB__/', 'g');   text=text.replace(re1,$vm.library_path+'/');
 		var re2=new RegExp('__HOST__/', 'g');  text=text.replace(re2,$vm.hosting_path+'/');
 		var re3=new RegExp('__VER__', 'g');    text=text.replace(re3,$vm.version);
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			text=text.replace('https://vmiis.github.io',window.location.protocol+'//'+window.location.host+'/vmiis');
+			text=text.replace('https://rt.woolcock.org.au/github/woolcock-imr',window.location.protocol+'//'+window.location.host+'/woolcock-imr');
+			text=text.replace('https://cbs.wappsystem.com/dev/github',window.location.protocol+'//'+window.location.host);
+			text=text.replace('https://woolcock-imr.github.io',window.location.protocol+'//'+window.location.host+'/woolcock-imr');
+		}
 		return text;
 	}
 	//--------------------------------------------------------
