@@ -6,7 +6,7 @@
         <div class='nav__ID'>
 			<br>
 			<ul>
-				<li data-name=group>Applications</li>
+				<li data-name=app>Applications</li>
 				<li data-name=module>Modules</li>
 				<li data-name=query>Queries</li>
 				<br>
@@ -37,6 +37,7 @@ function F__ID(){
 		//variables used inside modules
 		var v={
 			app_id:_app_id,
+			app_tid      	:'20010729',
 			module_tid      :'20010433',
 			query_tid       :'20010430',
 			user_help_tid   :'20010425',
@@ -44,6 +45,8 @@ function F__ID(){
 			query_form		:A+'query_form',
 		}
 		//---------------------------------------------
+		L[A+'app']           ={table_id:v.app_tid,    var:v, url:G+'/portal/application.html',form_module:A+'app_form'};
+		L[A+'app_form']      ={table_id:v.app_tid,    var:v, url:G+'/portal/application.form.html'};
 		L[A+'group']         ={table_id:'',           var:v, url:G+'/portal/group.html'};
 		L[A+'group_panel']   ={table_id:'',           var:v, url:G+'/portal/group.panel.html'};
 		L[A+'module']        ={table_id:v.module_tid, var:v, url:G+'/portal/module.html',form_module:A+'module_form'};
