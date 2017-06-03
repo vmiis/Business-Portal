@@ -9,9 +9,7 @@
 				<li data-name=app>Applications</li>
 				<li data-name=module>Modules</li>
 				<li data-name=query>Queries</li>
-				<br>
 				<li data-name=import_and_export>Import and export</li>
-				<li data-name=third_party data-s=1>Third party modules</li>
 				<br>
 				<li data-name=help_for_users>User's help</li>
 				<li data-name=help_for_developers>Developer's help</li>
@@ -45,12 +43,12 @@ function F__ID(){
 			query_form		:A+'query_form',
 		}
 		//---------------------------------------------
-		L[A+'app']           ={table_id:v.app_tid,    var:v, url:G+'/portal/application.html',form_module:A+'app_form'};
-		L[A+'app_form']      ={table_id:v.app_tid,    var:v, url:G+'/portal/application.form.html'};
+		L[A+'app']           ={table_id:v.app_tid,    var:v, url:G+'/portal/application.html'/*,form_module:A+'app_form'*/};
+		//L[A+'app_form']      ={table_id:v.app_tid,    var:v, url:G+'/portal/application.form.html'};
 		L[A+'group']         ={table_id:'',           var:v, url:G+'/portal/group.html'};
 		L[A+'group_panel']   ={table_id:'',           var:v, url:G+'/portal/group.panel.html'};
-		L[A+'module']        ={table_id:v.module_tid, var:v, url:G+'/portal/module.html',form_module:A+'module_form'};
-		L[A+'module_form']   ={table_id:v.module_tid, var:v, url:G+'/portal/module.form.html'};
+		L[A+'module']        ={table_id:v.module_tid, var:v, url:G+'/portal/module.html'/*,form_module:A+'module_form'*/};
+		//L[A+'module_form']   ={table_id:v.module_tid, var:v, url:G+'/portal/module.form.html'};
 		L[A+'query']         ={table_id:v.query_tid,  var:v, url:G+'/portal/query.html',form_module:A+'query_form'};
 		L[A+'query_form']    ={table_id:v.query_tid,  var:v, url:G+'/portal/query.form.html'};
 		L[A+'import_and_export']={                           url:G+'/portal/import_and_export.html'};
