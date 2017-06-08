@@ -66,7 +66,7 @@ $(document).ready(function(){
 			$vm.config_list={}
 			//--------------------------------------------------------
 			load_vmapi();
-		})
+		},'text')
 	}
 	//--------------------------------------------------------
 	var load_vmapi   =function(){ load_js($vm.url('__LIB__/vmiis/VmAPI/distribution/vmapi.min.js'),load_vm);	}
