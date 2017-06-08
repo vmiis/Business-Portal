@@ -95,15 +95,15 @@ function F__ID(){
 	$downloadingImage5.attr("src", "__HOST__/images/bk3.jpg");
 	//------------------------------------
 	$vm.module_list['home']={url:'__HOST__/home.html'}
-	$vm.module_list['main']={url:'__HOST__/panel.main.html'}
-	$vm.module_list['about']={url:'__HOST__/panel.about.html'}
+	//$vm.module_list['main']={url:'__HOST__/panel.main.html'}
+	$vm.module_list['about']={url:'__HOST__/about/panel.about.html'}
 	//------------------------------------
 	var on_load=function(){
 	    layout_resize();
 	    login_changed();
 	};
 	//---------------------------------------------
-	VmInclude:__LIB__/vmiis/common-code/layout/main_layout_process_2.js
+	VmInclude:__LIB__/vmiis/common-code/layout/main_layout_process.3.js
 	//------------------------------------
 	$("#nav__ID").mobile_menumaker({format: "multitoggle"});
 }

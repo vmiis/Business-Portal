@@ -1,0 +1,23 @@
+{
+	"hosting_path":"//www.datalinkedin.com",
+	"library_path":"https://cbs.wappsystem.com/dev/github",
+	"api_path":"https://cbs.wappsystem.com/dev/",
+	"server":"development",
+	"modules":
+	{
+		"home":
+		{
+			"url":"https://vmiis.github.io/modules/datalinkedin/home.html"
+		},
+		"about":
+		{
+			"url":"https://vmiis.github.io/modules/datalinkedin/panel.html"
+		}
+	},
+	"panels":
+	{
+		"main":{
+			"config_url":"https://vmiis.github.io/business-portal/config/business_portal.json"
+		}
+	}
+}

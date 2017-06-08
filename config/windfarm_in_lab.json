@@ -13,6 +13,18 @@
 				{
 					"sections":
 					[
+						{
+							"name" : "Participants",
+							"tasks" :
+							[
+								{
+								   "module_id" : "participant",
+								   "name" : "Participants",
+								   "table_id" : "20008848",
+								   "url" : "https://vmiis.github.io/modules/windfarm_in_lab/participant.html"
+								}
+							]
+						}
 					]
 				}
 			]
