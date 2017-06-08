@@ -58,6 +58,9 @@ $(document).ready(function(){
 			text=text.replace('https://cbs.wappsystem.com/dev/github',window.location.protocol+'//'+window.location.host);
 			text=text.replace('https://woolcock-imr.github.io',window.location.protocol+'//'+window.location.host+'/woolcock-imr');
 		}
+		else{
+			text=text.replace('https://vmiis.github.io/business-portal','https://www.datalinkedin.com');
+		}
 		return text;
 	}
 	//--------------------------------------------------------
@@ -99,7 +102,7 @@ var last_last=function(){
         $vm.ready=1;
         //-------------------------------------
     }
-	$vm.trust_path=['https://cbs.wappsystem.com','https://vmiis.github.io/modules','https://vmiis.github.io/module-examples','https://codepen.io/vmiis','https://rt.woolcock.org.au'];
+	$vm.trust_path=['https://cbs.wappsystem.com','https://vmiis.github.io','https://codepen.io/vmiis','https://rt.woolcock.org.au'];
 }
 //--------------------------------------------------------
 </script>
