@@ -36,7 +36,7 @@ $(document).ready(function(){
 		var url='index.json?_v='+new Date().getTime().toString();
 		console.log('LOAD APP CONFIG '+url);
 		$.get(url,function(txt){
-			alert(text)
+			alert(txt)
 			var text=$('<div/>').html(txt).text();
 			alert(text)
 			//---------------------------
