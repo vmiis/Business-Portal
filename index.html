@@ -33,11 +33,11 @@ $(document).ready(function(){
 	}
 	//--------------------------------------------------------
 	var load_config  =function(){
-		var url='index.json?_v='+$vm.version;
+		var url='index.json?_av='+$vm.version;
 		console.log('LOAD APP CONFIG '+url);
 		$.get(url,function(txt){
 			var text=$('<div/>').html(txt).text();
-			console.log(text)
+			alert(text)
 			//---------------------------
 			var config;
 			try{
