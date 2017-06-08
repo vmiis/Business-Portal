@@ -37,6 +37,7 @@ $(document).ready(function(){
 		console.log('LOAD APP CONFIG '+url);
 		$.get(url,function(txt){
 			var text=$('<div/>').html(txt).text();
+			console.log(text)
 			//---------------------------
 			var config;
 			try{
