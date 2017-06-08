@@ -1,0 +1,21 @@
+{
+	"parameters" :
+	{
+	},
+	"panels" :
+	{
+		"main_panel" :
+		{
+			"url":"https://vmiis.github.io/modules/panels/main.html",
+			"name":"Wind Farm In Lab",
+			"columns":
+			[
+				{
+					"sections":
+					[
+					]
+				}
+			]
+		}
+	}
+}
