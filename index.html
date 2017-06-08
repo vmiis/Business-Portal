@@ -33,9 +33,10 @@ $(document).ready(function(){
 	}
 	//--------------------------------------------------------
 	var load_config  =function(){
-		var url='index.json?_av='+$vm.version;
+		var url='index.json?_v='+new Date().getTime().toString();
 		console.log('LOAD APP CONFIG '+url);
 		$.get(url,function(txt){
+			alert(text)
 			var text=$('<div/>').html(txt).text();
 			alert(text)
 			//---------------------------
