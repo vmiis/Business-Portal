@@ -76,6 +76,12 @@
 									"module_id":"dev_help_view",
 									"table_id":"20010426",
 									"url":"https://vmiis.github.io/modules/help/help.view.html"
+								},
+								{
+									"module_id":"module",
+									"name":"Modules (will be removed)",
+									"table_id":"20010433",
+									"url":"https://vmiis.github.io/modules/portal/module.html"
 								}
 							]
 						}

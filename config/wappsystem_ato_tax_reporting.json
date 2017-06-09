@@ -1,0 +1,40 @@
+{
+	"parameters" :
+	{
+		"predefined_item_tid":"20005380"
+	},
+	"panels" :
+	{
+		"main_panel" :
+		{
+			"url":"https://vmiis.github.io/modules/panels/main.html",
+			"name":"ATO Tax Reporting",
+			"columns":
+			[
+				{
+					"sections":
+					[
+						{
+							"name" : " ",
+							"tasks" :
+							[
+								{
+								   "module_id" : "m01",
+								   "name" : "GST Aggregation",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/income_and_expense_reporting/aggregation_query_gst.html"
+								},
+								{
+								   "module_id" : "m02",
+								   "name" : "Tax Return Item Aggregation",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/income_and_expense_reporting/aggregation_query_tax_return.html"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}

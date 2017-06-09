@@ -1,0 +1,52 @@
+{
+	"parameters" :
+	{
+		"predefined_item_tid":"20005380"
+	},
+	"panels" :
+	{
+		"main_panel" :
+		{
+			"url":"https://vmiis.github.io/modules/panels/main.html",
+			"name":"Transaction tax details",
+			"columns":
+			[
+				{
+					"sections":
+					[
+						{
+							"name" : " ",
+							"tasks" :
+							[
+								{
+								   "module_id" : "tax01",
+								   "name" : "Transaction tax (with export function)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/bookkeeping_details_with_basic_toolbar.html"
+								},
+								{
+								   "module_id" : "tax02",
+								   "name" : "Transaction tax (with period selection)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/bookkeeping_details_with_period_toolbar.html"
+								},
+								{
+								   "module_id" : "tax03",
+								   "name" : "Transaction tax (with year and month selection)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/bookkeeping_details_with_year_month_toolbar.html"
+								},
+								{
+								   "module_id" : "tax04",
+								   "name" : "Transaction tax (with year and quarter selection)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/bookkeeping_details_with_year_quarter_toolbar.html"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}

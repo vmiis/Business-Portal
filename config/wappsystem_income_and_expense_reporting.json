@@ -1,0 +1,52 @@
+{
+	"parameters" :
+	{
+		"predefined_item_tid":"20005380"
+	},
+	"panels" :
+	{
+		"main_panel" :
+		{
+			"url":"https://vmiis.github.io/modules/panels/main.html",
+			"name":"Income and expense reporting",
+			"columns":
+			[
+				{
+					"sections":
+					[
+						{
+							"name" : " ",
+							"tasks" :
+							[
+								{
+								   "module_id" : "m01",
+								   "name" : "Income Aggregation Query",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/aggregation_query_income.html"
+								},
+								{
+								   "module_id" : "m02",
+								   "name" : "Expense Aggregation Query",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/aggregation_query_expense.html"
+								},
+								{
+								   "module_id" : "m03",
+								   "name" : "Income Chart",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/chart_income.html"
+								},
+								{
+								   "module_id" : "m04",
+								   "name" : "Expense Chart",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/transaction_reporting/chart_expense.html"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}

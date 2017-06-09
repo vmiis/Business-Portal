@@ -1,0 +1,80 @@
+{
+	"parameters" :
+	{
+	},
+	"panels" :
+	{
+		"main_panel" :
+		{
+			"url":"https://vmiis.github.io/modules/panels/main.html",
+			"name":"Bookkeeping",
+			"columns":
+			[
+				{
+					"sections":
+					[
+						{
+							"name" : "Bookkeeping",
+							"tasks" :
+							[
+								{
+								   "module_id" : "bookkeeping01",
+								   "name" : "Bookkeeping (with export function)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/bookkeeping_with_basic_toolbar.html"
+								},
+								{
+								   "module_id" : "bookkeeping02",
+								   "name" : "Bookkeeping (with period selection)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/bookkeeping_with_period_toolbar.html"
+								},
+								{
+								   "module_id" : "bookkeeping03",
+								   "name" : "Bookkeeping (with year and month selection)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/bookkeeping_with_year_month_toolbar.html"
+								},
+								{
+								   "module_id" : "bookkeeping04",
+								   "name" : "Bookkeeping (with year and quarter selection)",
+								   "table_id" : "20007172",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/bookkeeping_with_year_quarter_toolbar.html"
+								}
+							]
+						},
+						{
+							"name" : "BI processing",
+							"tasks" :
+							[
+								{
+								   "module_id" : "bi_processing",
+								   "name" : "Business intelligence processing",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/income_and_expense_bookkeeping_bi.html"
+								},
+								{
+								   "module_id" : "bi_processing_details",
+								   "table_id" : "20010377",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/income_and_expense_bookkeeping_bi_details.html"
+								}
+							]
+						},
+						{
+							"name" : "Setup",
+							"tasks" :
+							[
+								{
+								   "module_id" : "predefined_item",
+								   "name" : "Predefined transaction items",
+								   "table_id" : "20005380",
+								   "url" : "https://vmiis.github.io/modules/transaction_bookkeeping/predefined_transaction_item.html"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}
