@@ -61,20 +61,11 @@ $(document).ready(function(){
 	var init         =function(){ $vm.init({callback:function(){$vm.load_first_module({url:$vm.hosting_path+'/layout.html'}); last();  }});	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){
-		var ver=localStorage.getItem(url+"_ver");
-		var txt=localStorage.getItem(url+"_txt");
-		//------------------------------------------
-		if(ver!=$vm.version || txt===null || $vm.debug===true || $vm.reload!=''){
-			if($vm.debug_message===true) console.log('load module from '+url+'?_='+$vm.version+$vm.reload);
-			$.get(url+'?_='+$vm.version+$vm.reload,function(data){
-				localStorage.setItem(url+"_txt",data);
-				localStorage.setItem(url+"_ver",$vm.version);
-				$('head').append('<scr'+'ipt>'+data+'</scr'+'ipt>');
-				next();
-			},'text');
-		}
-		else{ $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>'); next(); }
-		//------------------------------------------
+		console.log('load js: '+url+'?_='+$vm.version+$vm.reload);
+		$.get(url+'?_='+$vm.version+$vm.reload,function(data){
+			$('head').append('<scr'+'ipt>'+data+'</scr'+'ipt>');
+			next();
+		},'text');
 	}
 	//--------------------------------------------------------
 	$vm.url=function(text){
@@ -120,7 +111,7 @@ var last=function(){
 var last_last=function(){
     jsN++;
     if(jsN===3){
-        $vm.check_and_clear_localstorage();
+        //$vm.check_and_clear_localstorage();
         //-------------------------------------
         $vm.module_list['alert_dialog_module']={table_id:'--------',url:'__LIB__/vmiis/Common-Code/dialog/alert_dialog_module.html'};
         $vm.load_module_by_name('alert_dialog_module','',{})
