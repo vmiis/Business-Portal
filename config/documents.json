@@ -1,0 +1,39 @@
+{
+	"parameters" :
+	{
+	},
+	"panels" :
+	{
+		"main_panel" :
+		{
+			"url":"https://vmiis.github.io/modules/panels/main.html",
+			"name":"Documents",
+			"columns":
+			[
+				{
+					"sections":
+					[
+						{
+							"name" : " ",
+							"tasks" :
+							[
+								{
+								   "module_id" : "m01",
+								   "name" : "Documents",
+								   "table_id" : "20008360",
+								   "url" : "https://vmiis.github.io/modules/documents/file.html"
+								},
+								{
+								   "module_id" : "category",
+								   "name" : "Category",
+								   "table_id" : "20008361",
+								   "url" : "https://vmiis.github.io/modules/documents/category.html"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}
