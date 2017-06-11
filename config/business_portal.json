@@ -27,7 +27,13 @@
 									"module_id":"query",
 									"name":"Queries",
 									"table_id":"20010430",
-									"url":"https://vmiis.github.io/modules/portal/query.html"
+									"url":"https://vmiis.github.io/modules/portal/query.html",
+									"form_module":"query_form"
+								},
+								{
+									"module_id":"query_form",
+									"table_id":"20010430",
+									"url":"https://vmiis.github.io/modules/portal/query.form.html"
 								},
 								{
 									"module_id":"import_and_export",
