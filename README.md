@@ -1,6 +1,6 @@
 # Business Portal
 
-Live example: https://www.datalinkedin.com
+https://vmiis.github.io/business-portal/index.html
 
 Business data sharing and collaboration between people (staff, clients, business partners, service providers, managers, board members...) are necessary for business success. 
 
