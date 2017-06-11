@@ -4,11 +4,6 @@
 $vm={}; $VmAPI={};
 $(document).ready(function(){
 	//--------------------------------------------------------
-	$vm.library_path='https://cbs.wappsystem.com/dev/github';
-	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-		$vm.library_path =window.location.protocol+'//'+window.location.host;
-	}
-	//--------------------------------------------------------
 	var start=function(){
 		$vm.reload='';
 		if(window.location.toString().indexOf('reload=1')!=-1){
@@ -20,9 +15,9 @@ $(document).ready(function(){
 	}
 	//--------------------------------------------------------
 	var load_config=function(){
-		var url='index.json?_v='+$vm.version+$vm.reload;
+		var url='https://vmiis.github.io/configurations/application/datalinkedin.json?_v='+$vm.version+$vm.reload;
 		console.log('LOAD APP CONFIG '+url);
-		$.get(url,function(txt){
+		$.get($vm.url(url),function(txt){
 			var text=$('<div/>').html(txt).text();
 			//---------------------------
 			var config;
@@ -105,13 +100,11 @@ var last=function(){
         });
         $('head').append("<link rel='stylesheet' href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css'>");
     }, 300);
-
 }
 //--------------------------------------------------------
 var last_last=function(){
     jsN++;
     if(jsN===3){
-        //$vm.check_and_clear_localstorage();
         //-------------------------------------
         $vm.module_list['alert_dialog_module']={table_id:'--------',url:'__LIB__/vmiis/Common-Code/dialog/alert_dialog_module.html'};
         $vm.load_module_by_name('alert_dialog_module','',{})
