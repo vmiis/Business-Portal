@@ -51,8 +51,8 @@ $(document).ready(function(){
 		});
 	}
 	//--------------------------------------------------------
-	var load_vmapi   =function(){ load_js($vm.url('__LIB__/vmiis/VmAPI/distribution/vmapi.min.js'),load_vm);	}
-	var load_vm      =function(){ load_js($vm.url('__LIB__/vmiis/VmFramework/distribution/vmframework.min.js'),init);}
+	var load_vmapi   =function(){ load_js($vm.url('https://vmiis.github.io/api/distribution/vmapi.min.js'),load_vm);	}
+	var load_vm      =function(){ load_js($vm.url('https://vmiis.github.io/framework/distribution/vmframework.min.js'),init);}
 	var init         =function(){ $vm.init({callback:function(){$vm.load_first_module({url:$vm.hosting_path+'/layout.html'}); last();  }});	}
 	//--------------------------------------------------------
 	var load_js=function(url,next){
@@ -60,7 +60,7 @@ $(document).ready(function(){
 		var txt=localStorage.getItem(url+"_txt");
 		//------------------------------------------
 		if(ver!=$vm.version || txt===null || $vm.debug===true || $vm.reload!=''){
-			if($vm.debug_message===true) console.log('load module from '+url+'?_='+$vm.version+$vm.reload);
+			if($vm.debug_message===true) console.log('load library from '+url+'?_='+$vm.version+$vm.reload);
 			$.get(url+'?_='+$vm.version+$vm.reload,function(data){
 				localStorage.setItem(url+"_txt",data);
 				localStorage.setItem(url+"_ver",$vm.version);
