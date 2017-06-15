@@ -51,6 +51,7 @@ $(document).ready(function(){
 		//--------------------------------------------------------
 		$vm.hosting_path=window.location.toString().split('/index.html')[0];
 		$vm.library_path=config.library_path;
+		$vm.parts_path=config.parts_path;
 		$vm.image_path=config.image_path;
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			$vm.hosting_path =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
@@ -94,6 +95,7 @@ $(document).ready(function(){
 		var re2=new RegExp('__HOST__/', 'g');  text=text.replace(re2,$vm.hosting_path+'/');
 		var re3=new RegExp('__VER__', 'g');    text=text.replace(re3,$vm.version);
 		var re5=new RegExp('__IMAGE__/', 'g');  text=text.replace(re5,$vm.image_path+'/');
+		var re6=new RegExp('__PARTS__/', 'g');  text=text.replace(re6,$vm.parts_path+'/');
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			text=text.replace('https://vmiis.github.io',window.location.protocol+'//'+window.location.host+'/vmiis');
 			text=text.replace('https://wappsystem.github.io',window.location.protocol+'//'+window.location.host+'/wappsystem');
