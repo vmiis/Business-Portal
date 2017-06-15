@@ -15,40 +15,56 @@ $(document).ready(function(){
 	}
 	//--------------------------------------------------------
 	var load_config=function(){
-		var url='https://vmiis.github.io/configurations/application/datalinkedin.json?_v='+$vm.version+$vm.reload;
-		console.log('LOAD APP CONFIG '+url);
-		$.get($vm.url(url),function(txt){
-			var text=$('<div/>').html(txt).text();
-			//---------------------------
-			var config;
-			try{
-				config=JSON.parse(text);
-			}
-			catch (e){
-				alert("Error in app config file\n"+e);
-				return;
-			}
-			//--------------------------------------------------------
-			$vm.app_config=config;
-			//--------------------------------------------------------
-			$vm.hosting_path=config.hosting_path;
-			$vm.library_path=config.library_path;
-			if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-				$vm.hosting_path =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
-				$vm.library_path =window.location.protocol+'//'+window.location.host;
-				$vm.debug        =true;
-			}
-			//--------------------------------------------------------
-			$vm.server          =config.server;
-			$VmAPI.api_base     =config.api_path;
-			$vm.debug_message   =true;
-			//--------------------------------------------------------
-			$vm.config_list={}
-			//--------------------------------------------------------
-			load_vmapi();
-		},'text').fail(function() {
-			alert( "The index.json doesn't exist!" );
-		});
+		//*******************************************************************************************************
+		var url='https://vmiis.github.io/configurations/application/datalinkedin.json';
+		//*******************************************************************************************************
+		var ver=localStorage.getItem(url+"_ver");
+		var txt=localStorage.getItem(url+"_txt");
+		//------------------------------------------
+		if(ver!=$vm.version || txt===null || $vm.debug===true || $vm.reload!=''){
+			console.log('load config from '+url+'?_='+$vm.version+$vm.reload);
+			$.get(url+'?_='+$vm.version+$vm.reload,function(data){
+				localStorage.setItem(url+"_txt",data);
+				localStorage.setItem(url+"_ver",$vm.version);
+				app_init(data);;
+			},'text').fail(function() {
+				alert( "The configuration file ("+url+")doesn't exist!" );
+			});
+		}
+		else{ app_init(txt); }
+		//------------------------------------------
+	}
+	//--------------------------------------------------------
+	var app_init=function(txt){
+		var text=$('<div/>').html(txt).text();
+		//---------------------------
+		var config;
+		try{
+			config=JSON.parse(text);
+		}
+		catch (e){
+			alert("Error in app config file\n"+e);
+			return;
+		}
+		//--------------------------------------------------------
+		$vm.app_config=config;
+		//--------------------------------------------------------
+		$vm.hosting_path=window.location.toString().split('/index.html')[0];
+		$vm.library_path=config.library_path;
+		$vm.image_path=config.image_path;
+		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
+			$vm.hosting_path =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
+			$vm.library_path =window.location.protocol+'//'+window.location.host;
+			$vm.debug        =true;
+		}
+		//--------------------------------------------------------
+		$vm.server          =config.server;
+		$VmAPI.api_base     =config.api_path;
+		$vm.debug_message   =true;
+		//--------------------------------------------------------
+		$vm.config_list={}
+		//--------------------------------------------------------
+		load_vmapi();
 	}
 	//--------------------------------------------------------
 	var load_vmapi   =function(){ load_js($vm.url('https://vmiis.github.io/api/distribution/vmapi.min.js'),load_vm);	}
@@ -77,6 +93,7 @@ $(document).ready(function(){
 		var re1=new RegExp('__LIB__/', 'g');   text=text.replace(re1,$vm.library_path+'/');
 		var re2=new RegExp('__HOST__/', 'g');  text=text.replace(re2,$vm.hosting_path+'/');
 		var re3=new RegExp('__VER__', 'g');    text=text.replace(re3,$vm.version);
+		var re5=new RegExp('__IMAGE__/', 'g');  text=text.replace(re5,$vm.image_path+'/');
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			text=text.replace('https://vmiis.github.io',window.location.protocol+'//'+window.location.host+'/vmiis');
 			text=text.replace('https://wappsystem.github.io',window.location.protocol+'//'+window.location.host+'/wappsystem');
