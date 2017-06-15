@@ -4,12 +4,18 @@
 $vm={}; $VmAPI={};
 $(document).ready(function(){
 	//--------------------------------------------------------
+	var href = window.location.href.split('?')[0];
+	var path=href.split('/index.html')[0];
+	var lastChar=path[path.length-1];
+	if(lastChar=='/') path=path.substring(0,path.length-1);
+	$vm.hosting_path=path;
+	//--------------------------------------------------------
 	var start=function(){
 		$vm.reload='';
 		if(window.location.toString().indexOf('reload=1')!=-1){
 			$vm.reload=new Date().getTime().toString();
 		}
-		var url='version.html?_='+new Date().getTime().toString();
+		var url=$vm.hosting_path+'/version.html?_='+new Date().getTime().toString();
 		if($vm.debug_message===true) console.log('load module from '+url);
 		$.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_config();},'text')
 	}
@@ -49,7 +55,6 @@ $(document).ready(function(){
 		//--------------------------------------------------------
 		$vm.app_config=config;
 		//--------------------------------------------------------
-		$vm.hosting_path=window.location.toString().split('/index.html')[0];
 		$vm.library_path=config.library_path;
 		$vm.parts_path=config.parts_path;
 		$vm.image_path=config.image_path;
