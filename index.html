@@ -19,6 +19,7 @@ $(document).ready(function(){
 		if($vm.debug_message===true) console.log('load module from '+url);
 		$.get(url,function(new_ver){ $vm.version=new_ver.trim(); load_config();},'text')
 	}
+	if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost')	$vm.debug =true;
 	//--------------------------------------------------------
 	var load_config=function(){
 		//*******************************************************************************************************
@@ -59,7 +60,6 @@ $(document).ready(function(){
 		$vm.parts_path=config.parts_path;
 		$vm.image_path=config.image_path;
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
-			$vm.hosting_path =window.location.protocol+'//'+window.location.host+"/vmiis/business-portal";
 			$vm.library_path =window.location.protocol+'//'+window.location.host;
 			$vm.debug        =true;
 		}
