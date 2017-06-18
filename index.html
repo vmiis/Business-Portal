@@ -23,7 +23,7 @@ $(document).ready(function(){
 	//--------------------------------------------------------
 	var load_config=function(){
 		//*******************************************************************************************************
-		var url='https://vmiis.github.io/configurations/application/datalinkedin.json';
+		var url=$vm.url('https://vmiis.github.io/configurations/application/datalinkedin.json');
 		//*******************************************************************************************************
 		var ver=localStorage.getItem(url+"_ver");
 		var txt=localStorage.getItem(url+"_txt");
@@ -107,12 +107,15 @@ $(document).ready(function(){
 			text=text.replace(/https:\/\/woolcock-imr.github.io/g,window.location.protocol+'//'+window.location.host+'/woolcock-imr');
 			text=text.replace(/https:\/\/rt.woolcock.org.au\/github\/woolcock-imr/g,window.location.protocol+'//'+window.location.host+'/woolcock-imr');
 			text=text.replace(/https:\/\/cbs.wappsystem.com\/dev\/github/g,window.location.protocol+'//'+window.location.host);
+			text=text.replace(/https:\/\/cbs.wappsystem.com\/pro\/github/g,window.location.protocol+'//'+window.location.host);
 			text=text.replace(/https:\/\/image.datalinkedin.com/g,window.location.protocol+'//'+window.location.host+'/vmiis/images');
 		}
+		/*
 		else{
 			text=text.replace(/https:\/\/vmiis.github.io\/business-portal/g,'https://www.datalinkedin.com');
 			text=text.replace(/https:\/\/wappsystem.github.io\/business-portal/g,'https://www.vmiis.com');
 		}
+		*/
 		return text;
 	}
 	//--------------------------------------------------------
