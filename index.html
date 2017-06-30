@@ -97,9 +97,9 @@ $(document).ready(function(){
 	$vm.url=function(text){
 		text=text.replace(/__BASE__\//g,$vm.library_path+'/');
 		text=text.replace(/__LIB__\//g,$vm.library_path+'/');
+		text=text.replace(/__PARTS__\//g,$vm.parts_path+'/');
 		text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
 		text=text.replace(/__VER__/g,$vm.version);
-		text=text.replace(/__PARTS__\//g,$vm.parts_path+'/');
 		text=text.replace(/__IMAGE__\//g,$vm.image_path+'/');
 		if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost'){
 			text=text.replace(/https:\/\/vmiis.github.io/g,window.location.protocol+'//'+window.location.host+'/vmiis');
@@ -110,12 +110,6 @@ $(document).ready(function(){
 			text=text.replace(/https:\/\/cbs.wappsystem.com\/pro\/github/g,window.location.protocol+'//'+window.location.host);
 			text=text.replace(/https:\/\/image.datalinkedin.com/g,window.location.protocol+'//'+window.location.host+'/vmiis/images');
 		}
-		/*
-		else{
-			text=text.replace(/https:\/\/vmiis.github.io\/business-portal/g,'https://www.datalinkedin.com');
-			text=text.replace(/https:\/\/wappsystem.github.io\/business-portal/g,'https://www.vmiis.com');
-		}
-		*/
 		return text;
 	}
 	//--------------------------------------------------------
