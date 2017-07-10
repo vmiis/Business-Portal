@@ -23,7 +23,7 @@ $(document).ready(function(){
 	//--------------------------------------------------------
 	var load_config=function(){
 		//*******************************************************************************************************
-		var url=$vm.url('https://vmiis.github.io/configurations/application/datalinkedin.json');
+		var url=$vm.hosting_path+"/configurations/index.json";
 		//*******************************************************************************************************
 		var ver=localStorage.getItem(url+"_ver");
 		var txt=localStorage.getItem(url+"_txt");
