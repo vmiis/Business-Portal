@@ -1,19 +1,21 @@
 <div name=layout>
-    <div name=slider>
-        <div id="slider__ID">
-          <ul>
-              <li id=image1__ID style="background: url('__IMAGE__/empty.gif');"></li>
-              <li id=image2__ID style="background: url('__IMAGE__/empty.gif');"></li>
-              <li id=image3__ID style="background: url('__IMAGE__/empty.gif');"></li>
-			  <li id=image4__ID style="background: url('__IMAGE__/empty.gif');"></li>
-			  <li id=image5__ID style="background: url('__IMAGE__/empty.gif');"></li>
-          </ul>
-        </div>
-        <a id="control_next__ID"></a>
-        <a id="control_prev__ID"></a>
+    <div id="slider__ID">
+      <ul>
+          <li id=image1__ID style="background: url('__IMAGE__/empty.gif');"></li>
+          <li id=image2__ID style="background: url('__IMAGE__/empty.gif');"></li>
+          <li id=image3__ID style="background: url('__IMAGE__/empty.gif');"></li>
+		  <li id=image4__ID style="background: url('__IMAGE__/empty.gif');"></li>
+		  <li id=image5__ID style="background: url('__IMAGE__/empty.gif');"></li>
+      </ul>
     </div>
+    <a id="control_next__ID"></a>
+    <a id="control_prev__ID"></a>
     <header id=header__ID>
-        <span id=username__ID></span>
+		<div id=right_corner__ID>
+			<span id=database_p__ID><span style='color:green'>&#11044; </span>Connected to a production database<br></span>
+			<span id=database_d__ID><span style='color:red'>&#11044; </span>Connected to a demonstration database<br></span>
+        	<span id=username__ID></span>
+		</div>
         <nav id=nav__ID>
             <div class="logo">
                 <div id=logo__ID>
@@ -46,6 +48,9 @@ function F__ID(){
 	//title and footer
 	document.title="Datalinkedin";
 	$('#footer__ID').html("Copyright © "+(new Date()).getFullYear()+", zzm.vmiis@gmail.com<span id=long_footer__ID>, Zhiming Zhou, expert in business portal development, setup from scratch on your Amazon cloud servers and ongoing maintenance.</span>");
+	//------------------------------------
+	if($vm.server=='development') $('#database_d__ID').show();
+	else if($vm.server=='production') $('#database_p__ID').show();
 	//------------------------------------
 	//slider
 	if( $('#slider__ID').length!==0 ){
@@ -144,13 +149,23 @@ function F__ID(){
     #header__ID{
         height:100px;
     }
-    #username__ID{
-        position:absolute;
+	#right_corner__ID{
+		display:block;
+		position:absolute;
         top:3px;
         right:3px;
         font-size:11px;
         color:#fff;
         z-index: 1;
+	}
+	#database_d__ID{
+		display:none;
+	}
+	#database_p__ID{
+		display:none;
+	}
+    #username__ID{
+		float:right;
     }
     #logo__ID{
         padding-left:90px;
@@ -281,7 +296,7 @@ function F__ID(){
         #nav__ID .submenu-button.submenu-opened:before{display:none}
         #nav__ID ul ul ul li.active a{border-left:none}
         #nav__ID > ul > li.has-sub > ul > li.active > a,#nav__ID > ul ul > li.has-sub > ul > li.active > a{border-top:none}
-        #username__ID{display:none;}
+		#right_corner__ID{display:none;}
         #logo__ID{
             padding-left:12px;
         }

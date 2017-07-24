@@ -1,0 +1,78 @@
+{
+	"name":"Business Portal",
+	"url":"https://vmiis.github.io/modules/panels/panel.2.html",
+	"parameters" :
+	{
+	},
+	"panel" :
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name":" ",
+						"modules":
+						[
+							{
+								"module_id":"application",
+								"name":"Applications",
+								"table_id":"20010729",
+								"url":"https://vmiis.github.io/modules/portal/application.html"
+							},
+							{
+								"module_id":"import_and_export",
+								"name":"Import and export",
+								"table_id":"",
+								"url":"https://vmiis.github.io/modules/portal/import_and_export.html"
+							}
+						]
+					},
+					{
+						"name":" ",
+						"modules":
+						[
+							{
+								"module_id":"user_help",
+								"name":"User's help",
+								"table_id":"20010425",
+								"url":"https://vmiis.github.io/modules/help/help.html",
+								"form_module":"user_help_form",
+								"view":"user_help_view"
+							},
+							{
+								"module_id":"user_help_form",
+								"table_id":"20010425",
+								"url":"https://vmiis.github.io/modules/help/help.form.html"
+							},
+							{
+								"module_id":"user_help_view",
+								"table_id":"20010425",
+								"url":"https://vmiis.github.io/modules/help/help.view.html"
+							},
+							{
+								"module_id":"dev_help",
+								"name":"Developer's help",
+								"table_id":"20010426",
+								"url":"https://vmiis.github.io/modules/help/help.html",
+								"form_module":"dev_help_form",
+								"view":"dev_help_view"
+							},
+							{
+								"module_id":"dev_help_form",
+								"table_id":"20010426",
+								"url":"https://vmiis.github.io/modules/help/help.form.html"
+							},
+							{
+								"module_id":"dev_help_view",
+								"table_id":"20010426",
+								"url":"https://vmiis.github.io/modules/help/help.view.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
