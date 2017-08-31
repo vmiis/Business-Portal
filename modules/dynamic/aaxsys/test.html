@@ -1,0 +1,28 @@
+<div>
+</div>
+<script>
+	//---------------------------------
+	function F__ID(){
+		$('#D__ID').on('load',function(){ _set_req(); _request_data(); })
+	}
+	//---------------------------------
+	_req='';
+	var _set_req=function(){
+		_req={cmd:'aaxsys',sql:'?Source=AAXSYS&Vendor=AMSI-SF&Type=XML&City=*&BEDROOMS=&Results=30&Furnished=FURNISHED&BeginDay=31&BeginMonth=8&BeginYear=2017&EndDay=31&EndMonth=8&EndYear=2017'}
+	}
+	//---------------------------------
+	var _request_data=function(){
+		$VmAPI.request({data:_req,callback:function(res){
+			alert(res.result)
+		}});
+
+	}
+	//---------------------------------
+</script>
+<style>
+	#D__ID{
+		background-color: #fff;
+		height:100%;
+		overflow: auto;
+	}
+</style>

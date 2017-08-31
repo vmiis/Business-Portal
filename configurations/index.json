@@ -8,17 +8,24 @@
 	{
 		"home":
 		{
-			"url":"https://vmiis.github.io/modules/home/home.html"
+			"url":"/modules/static/home.html"
 		},
 		"about":
 		{
-			"url":"https://vmiis.github.io/modules/datalinkedin/panel.html"
-		}
-	},
-	"panels":
-	{
-		"main":{
-			"config_url":"/configurations/main-panel.json"
+			"url":"/modules/static/about/panel.html"
+		},
+		"portal_a":
+		{
+			"url":"/modules/dynamic/panel.html",
+			"config_url":"/configurations/business-portal.json"
+
+		},
+		"portal":
+		{
+			"module_id":"application",
+			"name":"Applications",
+			"table_id":"20010729",
+			"url":"/modules/dynamic/business-portal/application.html"
 		}
 	}
 }
