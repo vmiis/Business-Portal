@@ -44,13 +44,11 @@ VmInclude:/modules/layout/footer.html
 			sys:{UID:0,}
 		})
 		//========================================
+		var $downloadingImage1 = $("<img>");
+		$downloadingImage1.load(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  });
+		$downloadingImage1.attr("src", "__HOST__/images/background.jpg");
+		//========================================
 	}
 </script>
 <style main-layout-css>
-	body{
-		background-repeat: no-repeat;
-		background-position: center bottom;
-		background-size: cover;
-		background-image: url("__HOST__/images/background.jpg");
-	}
 </style>

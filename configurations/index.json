@@ -4,6 +4,7 @@
 	"image_path":"https://image.datalinkedin.com",
 	"api_path_development":"https://cbs.wappsystem.com/dev/",
 	"api_path_production":"https://cbs.wappsystem.com/pro/",
+	"api_path_woolcock":"https://rt.woolcock.org.au/",
 	"modules":
 	{
 		"home":

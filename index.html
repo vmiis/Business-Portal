@@ -69,12 +69,17 @@
 					}
 					//--------------------------------------------------------
 					if(window.location.toString().indexOf('database=production')!=-1){
-						//connect to a private database
+						//connect to the wappsystem database
 						$vm.server          ='production';
 						$VmAPI.api_base     =config.api_path_production;
 					}
+					else if(window.location.toString().indexOf('database=woolcock')!=-1){
+						//connect to the woolcock database
+						$vm.server          ='production';
+						$VmAPI.api_base     =config.api_path_woolcock;
+					}
 					else{
-						//connect to a public database
+						//connect to a public demonstration database
 						$vm.server          ='development';
 						$VmAPI.api_base     =config.api_path_development;
 					}
