@@ -19,7 +19,6 @@
 function F__ID(){
 	//-------------------------------------
 	VmInclude:__LIB__/vmiis/Common-Code/grid/grid2.js
-	VmInclude:__LIB__/vmiis/Common-Code/style/ease-in-out_2.js
 	//-------------------------------------
 	var fields="Name,Category,Subcategory,_gridHidden|Config_URL,_gridHidden|Module_hosting_path";
 	_fields="_Form,"+fields+",Submit Date|DateTime,Submitted by|Author,_Delete";
@@ -179,12 +178,6 @@ function F__ID(){
 	//---------------------------------------------------------------
 	_data_process_after_render=function(){
 		if(_res.pms=='1000' || $vm.user=='guest'){
-			/*
-			$('#grid__ID th:nth-child(4)').hide()
-			$('#grid__ID td:nth-child(4)').hide()
-			$('#grid__ID th:nth-child(5)').hide()
-			$('#grid__ID td:nth-child(5)').hide()
-			*/
 			$('#grid__ID th:nth-child(6)').hide()
 			$('#grid__ID td:nth-child(6)').hide()
 			$('#grid__ID th:nth-child(7)').hide()
@@ -197,8 +190,10 @@ function F__ID(){
 }
 </script>
 <style>
-    VmInclude:__LIB__/vmiis/Common-Code/grid/grid.css
-    VmInclude:__LIB__/vmiis/Common-Code/style/ease-in-out_2.css
+    VmInclude:__PARTS__/grid/grid.css
+	#D__ID{
+		animation: vm_module_fadein 1.0s;
+	}
 	.not_allowed__ID{
 	    color:#888!Important;
 	    cursor:not-allowed!Important;

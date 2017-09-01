@@ -44,11 +44,15 @@ VmInclude:/modules/layout/footer.html
 			sys:{UID:0,}
 		})
 		//========================================
-		var $downloadingImage1 = $("<img>");
-		$downloadingImage1.load(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  });
-		$downloadingImage1.attr("src", "__HOST__/images/background.jpg");
+		var $image1 = $("<img>");
+		$image1.on('load',(function(){ $('body').css("background", "url("+$(this).attr("src")+") no-repeat bottom center"); $('body').css("background-size", "cover");  }));
+		$image1.attr("src", "__HOST__/images/background.jpg");
 		//========================================
 	}
 </script>
 <style main-layout-css>
+	@keyframes vm_module_fadein {
+		from { opacity:0; }
+		to {opacity:1;}
+	}
 </style>

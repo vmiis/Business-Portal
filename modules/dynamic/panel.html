@@ -9,7 +9,6 @@
 	function F__ID(){
 		//---------------------------------------------
 		VmInclude:__PARTS__/navigation/navigation.js
-		VmInclude:__PARTS__/style/ease-in-out.js
 		//---------------------------------------------
 		var UID=_mobj.op.sys.UID;
 		var local_module_list={}; //used for ctrl doble click
@@ -200,6 +199,7 @@
 		background: url("__PARTS__/image/texture.png");
 		height:100%;
 		overflow: auto;
+		animation: vm_module_fadein 1.0s;
 	}
 	.nav__ID li:hover {
 	    background: none;
