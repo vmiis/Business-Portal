@@ -1,28 +1,49 @@
 <div>
+	<div id=toolbar__ID>
+        <a id=back__ID>Back</a><span class=tab__ID></span><input placeholder='search' id=keyword__ID type=text /> <a id=query__ID>Load</a>
+        <span id=elapsed__ID style='float:right'></span>
+    </div>
+	<div id=table__ID>
+        <table id=grid__ID></table>
+    </div>
 </div>
 <script>
+	//-------------------------------------
+	VmInclude:__PARTS__/grid/grid.v2.js
+	VmInclude:__PARTS__/style/ease-in-out.js
+	//-------------------------------------
+	_fields="Address,City,Country,ContactEmail,ContactName,ContactPhone";
+	//_fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
+	//-------------------------------------
+	_cell_render=function(records,I,field,td,set_value,source){
+		switch(field){
+			/*
+			case 'Image':
+				VmInclude:__BASE__/vmiis/Common-Code/grid/field_image.js
+			break;
+			*/
+		}
+	}
+	//-------------------------------------
+	$('#D__ID').on('load',function(){ _set_req(); _request_data(); })
 	//---------------------------------
-	function F__ID(){
-		$('#D__ID').on('load',function(){ _set_req(); _request_data(); })
+	_set_req=function(){
+		var sql=$('#keyword__ID').val();
+		if(sql=='') sql='?Source=AAXSYS&Vendor=AMSI-SF&Type=XML&City=*&BEDROOMS=&Results=30&Furnished=FURNISHED&BeginDay=31&BeginMonth=8&BeginYear=2017&EndDay=31&EndMonth=8&EndYear=2017';
+		_req={cmd:'aaxsys',sql:sql}
 	}
 	//---------------------------------
-	_req='';
-	var _set_req=function(){
-		_req={cmd:'aaxsys',sql:'?Source=AAXSYS&Vendor=AMSI-SF&Type=XML&City=*&BEDROOMS=&Results=30&Furnished=FURNISHED&BeginDay=31&BeginMonth=8&BeginYear=2017&EndDay=31&EndMonth=8&EndYear=2017'}
-	}
-	//---------------------------------
-	var _request_data=function(){
+	_request_data=function(){
+		var mt1=new Date().getTime();
 		$VmAPI.request({data:_req,callback:function(res){
-			alert(res.result)
+			_records=res.result.SearchResults.AvailableUnits.Unit;
+			var mt2=new Date().getTime(); var tt_all=mt2-mt1; var tt_server=parseInt(res.elapsed); if(tt_all<tt_server) tt_all=tt_server;
+			$("#elapsed__ID").text((JSON.stringify(_records).length/1000).toFixed(1)+"kb/"+tt_all.toString()+"ms/"+tt_server+'ms');
+			_render();
 		}});
-
 	}
 	//---------------------------------
 </script>
 <style>
-	#D__ID{
-		background-color: #fff;
-		height:100%;
-		overflow: auto;
-	}
+	VmInclude:__PARTS__/grid/grid.css
 </style>
