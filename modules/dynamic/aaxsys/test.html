@@ -10,18 +10,11 @@
 <script>
 	//-------------------------------------
 	VmInclude:__PARTS__/grid/grid.v2.js
-	VmInclude:__PARTS__/style/ease-in-out.js
 	//-------------------------------------
 	_fields="Address,City,Country,ContactEmail,ContactName,ContactPhone";
-	//_fields+=",Submit Date|DateTime,Submitted by|Author,_Delete";
 	//-------------------------------------
 	_cell_render=function(records,I,field,td,set_value,source){
 		switch(field){
-			/*
-			case 'Image':
-				VmInclude:__BASE__/vmiis/Common-Code/grid/field_image.js
-			break;
-			*/
 		}
 	}
 	//-------------------------------------
@@ -46,4 +39,11 @@
 </script>
 <style>
 	VmInclude:__PARTS__/grid/grid.css
+	#D__ID{
+		animation: fadein 1.0s;
+	}
+	@keyframes fadein {
+	    from { opacity:0; }
+	    to {opacity:1;}
+	}
 </style>

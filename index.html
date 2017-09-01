@@ -9,7 +9,16 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<script system-js-code>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js"></script>
+		<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js"></script>
+		<script src="https://www.gstatic.com/charts/loader.js"></script>
+		<script google-chart>google.charts.load('current', {packages: ['corechart']});</script>
+		<script vm-js-start-code>
+			//check and clear localstorage
+			var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
+			if(data.length>3000000) localStorage.clear();
+			//set name space
 			$vm={}; $VmAPI={};$vm.module_list={};$vm.config_list={}
 			$(document).ready(function(){
 				var start=function(){
@@ -160,38 +169,19 @@
 				}
 				//--------------------------------------------------------
 				var last=function(){
-					//after app started, this function will be called to load some resources those are not need immediately, so we can make the app start a bit faster
-				    setTimeout(function () {
-				        $.ajaxSetup({ cache: true });
-				        $.getScript('https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js',function(){last_last();});
-				        $.getScript('https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js',function(){last_last();});
-				        $.getScript('https://sdk.amazonaws.com/js/aws-sdk-2.1.34.min.js',function(){last_last();});
-				        $.getScript('https://www.google.com/jsapi',function(){
-				            google.load('visualization', '1', {'packages':['corechart'],callback:function(){last_last();} } );
-				        });
-				        $('head').append("<link rel='stylesheet' href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css'>");
-				    }, 300);
-				}
-				//--------------------------------------------------------
-				var jsN=0;
-				var last_last=function(){
-					//at last last point we will load some modules for ready to use
-				    jsN++;
-				    if(jsN===3){
-						$vm.check_and_clear_localstorage();
-				        //-------------------------------------
-						$vm.module_list['alert_dialog_module']={table_id:'--------',url:'__PARTS__/dialog/alert_dialog_module.html'};
-				        $vm.load_module_by_name('alert_dialog_module','',{})
-				        //-------------------------------------
-				        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__PARTS__/dialog/export_dialog_module.html'};
-				        $vm.load_module_by_name('_system_export_dialog_module','',{})
-				        //-------------------------------------
-				        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__PARTS__/dialog/import_dialog_module.html'};
-				        $vm.load_module_by_name('_system_import_dialog_module','',{})
-				        //-------------------------------------
-				        $vm.ready=1;
-				        //-------------------------------------
-				    }
+					//at last point we will load some modules for ready to use
+			        //-------------------------------------
+					$vm.module_list['alert_dialog_module']={table_id:'--------',url:'__PARTS__/dialog/alert_dialog_module.html'};
+			        $vm.load_module_by_name('alert_dialog_module','',{})
+			        //-------------------------------------
+			        $vm.module_list['_system_export_dialog_module']={table_id:'',url:'__PARTS__/dialog/export_dialog_module.html'};
+			        $vm.load_module_by_name('_system_export_dialog_module','',{})
+			        //-------------------------------------
+			        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__PARTS__/dialog/import_dialog_module.html'};
+			        $vm.load_module_by_name('_system_import_dialog_module','',{})
+			        //-------------------------------------
+			        $vm.ready=1;
+			        //-------------------------------------
 				}
 				//********************************************************
 				//this is the start point
