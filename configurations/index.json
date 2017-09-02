@@ -15,12 +15,6 @@
 		{
 			"url":"/modules/static/about/panel.html"
 		},
-		"portal_a":
-		{
-			"url":"/modules/dynamic/panel.html",
-			"config_url":"/configurations/business-portal.json"
-
-		},
 		"portal":
 		{
 			"module_id":"application",

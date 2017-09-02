@@ -68,7 +68,7 @@
 			for(i=0;i<config.panel.columns.length;i++){
 				var aColumn=config.panel.columns[i];
 				if(aColumn.hidden!='1'){
-					txt+="<div class='w3-col nav__ID'>";
+					txt+="<div class='w3-col m1 nav__ID'>";
 					for(j=0;j<aColumn.sections.length;j++){
 						var aSection=aColumn.sections[j];
 						var header=aSection.name;
@@ -200,6 +200,10 @@
 		height:100%;
 		overflow: auto;
 		animation: vm_module_fadein 1.0s;
+	}
+	.nav__ID{
+		margin-right:20px;
+		white-space: nowrap;
 	}
 	.nav__ID li:hover {
 	    background: none;
