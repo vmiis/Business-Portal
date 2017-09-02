@@ -23,18 +23,18 @@ _cell_render=function(records,I,field,td,set_value,source){
             td.text(records[I].UID);
             break;
         case 'Date':
-            VmInclude:__BASE__/vmiis/Common-Code/grid/field_date.js
+            VmInclude:__PARTS__/grid/field_date.js
             break;
         case 'Name':
             var sql="with tb as (select name=@('Name') from [FORM-"+predefined_item_tid+"])";
             sql+=" select top 10 name,value=name from tb where name like '%'+@S1+'%' ";
-            VmInclude:__BASE__/vmiis/Common-Code/grid/field_auto.js
+            VmInclude:__PARTS__/grid/field_auto.js
             break;
         case 'Amount':
             if(source=="grid") td.css("text-align","right").css('white-space','nowrap');
             break;
         case 'Document':
-            VmInclude:__BASE__/vmiis/Common-Code/grid/field_file.js
+            VmInclude:__PARTS__/grid/field_file.js
             break;
     }
 }

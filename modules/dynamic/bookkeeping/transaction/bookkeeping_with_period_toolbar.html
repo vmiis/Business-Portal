@@ -9,7 +9,7 @@
           <span id=multi__ID>
               <span class=tab__ID></span>Page Size: <select id=page_size__ID><option>30</option><option>50</option><option>100</option><option>200</option></select><span class=tab__ID></span>
               <span id=I__ID style="display:none">0</span><span id=A__ID></span>
-              <img id=p__ID src="__BASE__/vmiis/Common-Code/image/p.png" ><img id=n__ID src="__BASE__/vmiis/Common-Code/image/n.png" >
+              <img id=p__ID src="__PARTS__/image/p.png" ><img id=n__ID src="__PARTS__/image/n.png" >
           </span>
           <span id=elapsed__ID style='float:right'></span>
     </div>
@@ -18,8 +18,8 @@
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude:__BASE__/vmiis/Common-Code/grid/grid.js
-        VmInclude:__BASE__/vmiis/Common-Code/style/ease-in-out.js
+        VmInclude:__PARTS__/grid/grid.js
+        VmInclude:__PARTS__/style/ease-in-out.js
         VmInclude:__CURRENT_PATH__/bookkeeping.js
         //-------------------------------------
         $('#t1__ID').datepicker({dateFormat:'dd/mm/yy',changeMonth:true, changeYear:true});
@@ -37,5 +37,5 @@
     }
 </script>
 <style>
-    VmInclude:__BASE__/vmiis/Common-Code/grid/grid.css
+    VmInclude:__PARTS__/grid/grid.css
 </style>
