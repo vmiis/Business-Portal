@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<meta name="description" content="business portal,business management,single-page application,online database">
-		<meta name="author" content="Zhiming Zhou">
+		<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
 		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
 		<script vm-js-start-code>
 			//check and clear localstorage
@@ -173,13 +173,25 @@
 			        $vm.module_list['_system_import_dialog_module']={table_id:'',url:'__PARTS__/dialog/import_dialog_module.html'};
 			        $vm.load_module_by_name('_system_import_dialog_module','',{})
 			        //-------------------------------------
-			        $vm.ready=1;
+					/*
+					var var jsN=0;
+					var last_ready=function(){
+					    jsN++;
+					    if(jsN===4){
+							$vm.ready=1;
+							alert('123')
+							//-------------------------------------
+						}
+					}
+					*/
 					//-------------------------------------
-					setTimeout(function () {
+					setTimeout(function (){
 				        $.ajaxSetup({ cache: true });
 						$('head').append("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
 						$('head').append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
 						$('head').append("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>");
+						$vm.ready=1;
+						$('#'+$vm.root_layout_content_slot).triggerHandler('vm_ready');
 						$('head').append("<link rel='stylesheet' href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css'>");
 						$.getScript('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
 				        $.getScript('https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js');
@@ -204,5 +216,5 @@
 			});
 		</script>
 	</head>
-	<body>Loading...</body>
+	<body></body>
 </html>

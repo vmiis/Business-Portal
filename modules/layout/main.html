@@ -5,13 +5,6 @@ VmInclude:/modules/layout/footer.html
 <script main-layout-js-code>
 	function F__ID(){
 		//------------------------------------
-		setTimeout(function () {
-			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
-			var footer_height=$('#footer__ID').outerHeight();
-			$('#'+$vm.root_layout_content_slot).css({'height':($(window).height()-header_height-footer_height)+'px'});
-			$('body').css({'padding-top':header_height+'px'})
-		}, 500);
-		//------------------------------------
 		window.onmessage=function(e){
 		    if(e.data.username!=undefined && e.data.user_id!=undefined){
 		        $vm.user=e.data.username;

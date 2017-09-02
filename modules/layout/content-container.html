@@ -1,5 +1,14 @@
 <div content-container id="content_container__ID" style='height:100%;'>
 	<script set-root-container-id>
 		$vm.root_layout_content_slot="content_container__ID";
+		$('#content_container__ID').on('vm_ready',function(){
+			setTimeout(function () {
+				var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
+				var footer_height=$('#footer__ID').outerHeight();
+				$('#content_container__ID').css({'height':($(window).height()-header_height-footer_height)+'px'});
+				$('body').css({'padding-top':header_height+'px'})
+			}, 300);
+		})
+		//------------------------------------
 	</script>
 </div>
