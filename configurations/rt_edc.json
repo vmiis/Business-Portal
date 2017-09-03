@@ -14,7 +14,7 @@
 		}
 		,{
 		   "module_id" : "questionnaire",
-		   "url" : "/modules/dynamic/panels/questionnaire.html"
+		   "url" : "https://vmiis.github.io/online-questionnaire/index.html"
 		}
 	]
 	,"panel":
