@@ -1,0 +1,51 @@
+{
+	"name":"RPA-EI Clinical Trials Child",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+		"sql_participant":"@('Initials')+' '+@('DOB')"
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"hidden":"1",
+				"sections":
+				[
+					{
+						"modules":
+						[
+							{
+								"module_id" : "participant",
+								"table_id" : "20004063"
+							}
+							,{
+								"module_id" : "task_notes",
+								"table_id" : "20004140",
+								"url" : "/modules/dynamic/rt_edc/task_notes.html"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections" :
+				[
+					{
+						"name" : "Screening",
+						"modules" :
+						[
+						]
+					},
+					{
+						"name" : "CO2 Visit 1",
+						"modules" :
+						[
+						]
+					}
+
+				]
+			}
+		]
+	}
+}

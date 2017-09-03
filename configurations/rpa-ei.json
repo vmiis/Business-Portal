@@ -1,0 +1,110 @@
+{
+	"name":"RPA-EI Clinical Trials",
+	"url":"/modules/dynamic/panel.html",
+	"parameters" :
+	{
+		"sql_participant":"@('Initials')+' '+@('DOB')",
+		"child_configuration_url":"/configurations/rpa-ei_participant_child.json"
+	},
+	"modules":
+	[
+		{
+		   "module_id" : "participant_login_setup",
+		   "table_id":"20004124",
+		   "url" : "/modules/dynamic/rpa-ei/participant_login_setup.html"
+		}
+		,{
+		   "module_id" : "questionnaire",
+		   "url" : "https://vmiis.github.io/online-questionnaire/index.html"
+		}
+	],
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name" : "Participant",
+						"modules" :
+						[
+							{
+								"module_id" : "participant",
+								"name" : "Participants",
+								"table_id" : "20004063",
+								"url" : "/modules/dynamic/rpa-ei/participant.html",
+								"counting":"1"
+							}
+						]
+					}
+					,{
+						"name" : "Notes",
+						"modules" :
+						[
+							{
+								"module_id" : "task_notes",
+								"name" : "All Task Notes",
+								"table_id" : "20004140",
+								"url" : "/modules/dynamic/rpa-ei/task_notes.html",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections" :
+				[
+					{
+						"name" : "Screening",
+						"modules" :
+						[
+							{
+								"module_id" : "Informed_Concent",
+								"name" : "Informed Concent",
+								"table_id" : "20004062",
+								"url" : "/modules/dynamic/rpa-ei/tasks/Informed_Concent.html",
+								"visit_task" : "Screening - Informed_Concent",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+			,{
+				"sections" :
+				[
+					{
+						"name" : "CO2 Visit 1",
+						"modules" :
+						[
+							{
+								"module_id" : "v1_ESS",
+								"name" : "Epworth Sleepiness Scale (ESS)",
+								"table_id" : "20004212",
+								"url" : "/modules/dynamic/rpa-ei/tasks/ess.html",
+								"visit_task" : "CO2 Visit 1 - ESS",
+								"counting":"1"
+							}
+						]
+					}
+					,{
+						"name" : "CO2 Visit 2",
+						"modules" :
+						[
+							{
+								"module_id" : "v2_ESS",
+								"name" : "Epworth Sleepiness Scale (ESS)",
+								"table_id" : "20004213",
+								"url" : "/modules/dynamic/rpa-ei/tasks/ess.html",
+								"visit_task" : "CO2 Visit 2 - ESS",
+								"counting":"1"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
