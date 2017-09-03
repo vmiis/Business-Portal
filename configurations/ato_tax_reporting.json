@@ -1,0 +1,36 @@
+{
+	"name":"Bookkeeping",
+	"url":"/modules/dynamic/panel.html",
+	"parameters":{
+		"predefined_item_tid":"20005380"
+	},
+	"panel":
+	{
+		"columns":
+		[
+			{
+				"sections":
+				[
+					{
+						"name" : "ATO Tax Reporting",
+						"modules" :
+						[
+							{
+							   "module_id" : "ato01",
+							   "name" : "GST Aggregation",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/aggregation_query_gst.html"
+							},
+							{
+							   "module_id" : "ato02",
+							   "name" : "Tax Return Item Aggregation",
+							   "table_id" : "20010377",
+							   "url" : "/modules/dynamic/bookkeeping/transaction_reporting/aggregation_query_tax_return.html"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+}
