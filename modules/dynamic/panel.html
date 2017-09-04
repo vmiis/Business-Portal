@@ -124,6 +124,7 @@ function F__ID(){
 	$('#D__ID').on('load',function(){
 		if(_mobj.op.name!=undefined){
 			_nav_name=_mobj.op.name;
+			if(config.name!=undefined) _nav_name=config.name;
 			_set_nav_link();
 		}
 		if(_mobj.op.child=='1') _clear_counting();
@@ -149,7 +150,7 @@ function F__ID(){
 			}
 		}
 		if(trust==0){
-			alert("The url ("+url+") is not trusted. (panel.2)")
+			alert("The url ("+url+") is not trusted")
 			return;
 		}
 		//transfer parent module and record, because this is a panel module
