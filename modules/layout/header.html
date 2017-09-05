@@ -10,67 +10,27 @@
 				<br>data collaboration</span class=h3__ID>
 			</div>
 		</div>
-		<div class="w3-right w3-hide-small w3-hide-medium" style='font-family: Helvetica,Arial,sans-serif;color:#fff;padding-top:55px;padding-right:150px;'>
+		<div class="w3-right w3-hide-small w3-hide-medium" style='font-family: Helvetica,Arial,sans-serif;color:#fff;padding-top:60px;padding-right:150px;'>
 			<a onclick="vm_nav_click_process('home')" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
 			<a onclick="vm_nav_click_process('portal');" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Business Portal</a>
 			<a onclick="vm_nav_click_process('about')" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> About</a>
-			<!--<a onclick="vm_nav_click_process('contact')"  class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>-->
 			<a name=signinout onclick="vm_nav_click_process('signinout')" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
 		</div>
 		<a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" style='color:#fff;font-size:26px' onclick="w3_open()"><i class="fa fa-bars"></i></a>
-		<style>
-			#header__ID{
-				background: rgba(128,128,128,0.5);
-				font-family: Helvetica,Arial,sans-serif;
-			}
-			#logo__ID{
-		        padding-left:90px;
-		    }
-		    #logo_image__ID{
-		        margin-top:3px;
-				margin-bottom:3px;
-		        width:94px;
-		        height:94px;
-		        border-radius: 47px;
-		        background: url('__HOST__/images/logo.jpg') no-repeat top center;
-		        background-size: cover;
-		        float:left;
-		    }
-		    #logo_label__ID{
-		        color:#fff;
-		        padding-left:10px;
-		        float:left;
-		    }
-		    .h2__ID{
-		        font: 180% Arial;
-				display: inline-block;
-    			margin: 10px 0 5px 10px;
-		    }
-		    .h3__ID{
-		        font: 80% Arial;
-				display: inline-block;
-				margin: 0 0 0 10px;
-		    }
-		</style>
 	</div>
-
 	<div side-navigation id="sidebar__ID" class="w3-sidebar w3-bar-block w3-black w3-card-2 w3-animate-left w3-hide-large" style="display:none">
 		<a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
 		<a onclick="vm_nav_click_process('home');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
 		<a onclick="vm_nav_click_process('portal');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-th"></i> Business Portal</a>
 		<a onclick="vm_nav_click_process('about');w3_close()" class="w3-bar-item w3-button"><i class="fa fa-info-circle"></i> About</a>
-		<!--<a onclick="vm_nav_click_process('contact');w3_close()" onclick="w3_close()" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>-->
 		<a name=signinout onclick="vm_nav_click_process('signinout');w3_close()" class="w3-bar-item w3-button"></a>
 	</div>
 	<script navigation-processing>
 		//-----------------------------------------
 		var mySidebar = document.getElementById("sidebar__ID");
 		function w3_open() {
-			if (mySidebar.style.display === 'block') {
-				mySidebar.style.display = 'none';
-			} else {
-				mySidebar.style.display = 'block';
-			}
+			if (mySidebar.style.display === 'block') mySidebar.style.display = 'none';
+			else 									 mySidebar.style.display = 'block';
 		}
 		function w3_close() {
 			mySidebar.style.display = "none";
@@ -78,13 +38,6 @@
 		//-----------------------------------------
 		var vm_nav_click_process=function(name){
 			switch(name){
-				case 'home':
-				case 'about':
-				case 'portal':
-				case 'contact':
-					var mosule_id=setup_module(name);
-					load_module(mosule_id);
-					break;
 				case 'signinout':
 					if($vm.user=='guest'){
 						window.open($VmAPI.api_base+"signin.html?url="+window.location.href,"Sign In","width=600, height=600");
@@ -98,28 +51,13 @@
 						}});
 					}
 					break;
+				default:
+					load_module(name);
+					break;
 			}
 		}
 		//-----------------------------------------
-		var setup_module=function(name){
-			if($vm.app_config.modules[name]!=undefined && $vm.app_config.modules[name].url!=undefined){
-				//---------------------------
-				var module_id="L_0_"+name;
-				//---------------------------
-				if($vm.module_list[module_id]==undefined){
-					$vm.module_list[module_id]=$vm.app_config.modules[name];
-				}
-				return module_id;
-				//---------------------------
-			}
-		}
-		//-----------------------------------------
-		var load_module=function(module_id){
-			var url=$vm.module_list[module_id].url;
-			if(url[0]=='/'){
-				if($vm.hosting_path!=undefined) url=$vm.hosting_path+url;
-			}
-			var single_record=$vm.module_list[module_id].single_record;
+		var check_trust=function(url){
 			var trust=0;
 			if(url.indexOf('http://127.0.0.1')!=-1 || url.indexOf('http://localhost')!=-1){
 				trust=1;
@@ -134,20 +72,71 @@
 			}
 			if(trust==0){
 				alert("The url ("+url+") is not trusted.")
+			}
+			return trust;
+		}
+		//-----------------------------------------
+		var load_module=function(name){
+			if($vm.app_config.modules[name]!=undefined && $vm.app_config.modules[name].url!=undefined){
+				if($vm.module_list[name]==undefined){
+					$vm.module_list[name]=$vm.app_config.modules[name];
+				}
+			}
+			var url=$vm.module_list[name].url;
+			if(url.split('.').pop().split('?')[0]=='json'){
+				load_panel(name)
 				return;
 			}
+			if(url[0]=='/'){
+				if($vm.hosting_path!=undefined) url=$vm.hosting_path+url;
+			}
+			var single_record=$vm.module_list[name].single_record;
+			if(check_trust(url)==0) return;
 			var op={
 				//-----------------
 				sys:{
 					config:$vm.app_config,
-					UID:0,
+					UID:name,
 				},
 				//-----------------
 			}
 			var slot=$vm.root_layout_content_slot;
 			if(single_record=='1') slot=undefined;
-			$vm.load_module_by_name(module_id,slot,op)
+			$vm.load_module_by_name(name,slot,op)
 		};
+		//---------------------------------------------
+		var load_panel=function(name){
+			var url=$vm.module_list[name].url;
+			if(url[0]=='/'){
+				if($vm.hosting_path!=undefined) url=$vm.hosting_path+url;
+			}
+			if(check_trust(url)==0) return;
+			console.log('loading '+url);
+			$.get(url,function(text){
+				var text=$('<div/>').html(text).text();
+				//---------------------------
+				var config;
+				try{ config=JSON.parse(text); }
+				catch (e){ alert("Error in config file\n"+e); return; }
+				//-----------------------------------------------
+				var module=name+"_panel";
+				if($vm.module_list[module]==undefined){
+					$vm.module_list[module]={
+						url:config.url,
+						var:{},
+					}
+				}
+				$vm.load_module_by_name(module,$vm.root_layout_content_slot,{
+					sys:{
+						config:config,
+						UID:name,
+					}
+				})
+				//-----------------------------------------------
+			},'text').fail(function() {
+				alert( "The file '"+url+"' doesn't exist!" );
+			});
+		}
 		//---------------------------------------------
 		var show_sign=function(){
 			if($vm.user=='guest'){
@@ -160,6 +149,40 @@
 			}
 		}
 		show_sign();
-		//========================================
+		//---------------------------------------------
 	</script>
+	<style>
+		#header__ID{
+			background: rgba(128,128,128,0.5);
+			font-family: Helvetica,Arial,sans-serif;
+		}
+		#logo__ID{
+			padding-left:90px;
+		}
+		#logo_image__ID{
+			margin-top:3px;
+			margin-bottom:3px;
+			width:94px;
+			height:94px;
+			border-radius: 47px;
+			background: url('__HOST__/images/logo.jpg') no-repeat top center;
+			background-size: cover;
+			float:left;
+		}
+		#logo_label__ID{
+			color:#fff;
+			padding-left:10px;
+			float:left;
+		}
+		.h2__ID{
+			font: 180% Arial;
+			display: inline-block;
+			margin: 10px 0 5px 10px;
+		}
+		.h3__ID{
+			font: 90% Arial;
+			display: inline-block;
+			margin: 0 0 0 10px;
+		}
+	</style>
 </div>
