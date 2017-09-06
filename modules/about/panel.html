@@ -51,6 +51,14 @@
             </ul>
             <br>
         </div>
+		<div class='nav__ID'>
+            <span>Help</span>
+            <ul>
+                <li data-name=user_help>User's help</li>
+				<li data-name=dev_help>Developer's help</li>
+            </ul>
+            <br>
+        </div>
     </div>
 </div>
 <script>
@@ -63,7 +71,7 @@
         var main=function(){
             var L=$vm.module_list,
             A=_app_id,
-            B=$vm.hosting_path+"/modules/static/about";
+            B=$vm.hosting_path+"/modules/about";
             //---------------------------------------------
             //database table:
             //---------------------------------------------
@@ -80,7 +88,14 @@
             L[A+'working_together']              ={url:B+'/working_together.html'};
             L[A+'job_proposal']                  ={url:B+'/job_proposal.html'};
             L[A+'potential_success']             ={url:B+'/potential_success.html'};
+			L[A+'user_help']             		 ={table_id:'20010425',url:B+'/help/help.html',"form_module":"user_help_form","view":"user_help_view"};
+			L[A+'user_help_form']          		 ={table_id:'20010425',url:B+'/help/help.form.html'};
+			L[A+'user_help_view']          		 ={table_id:'20010425',url:B+'/help/help.view.html'};
+			L[A+'dev_help']             		 ={table_id:'20010426',url:B+'/help/help.html',"form_module":"dev_help_form","view":"dev_help_view"};
+			L[A+'dev_help_form']          		 ={table_id:'20010426',url:B+'/help/help.form.html'};
+			L[A+'dev_help_view']          		 ={table_id:'20010426',url:B+'/help/help.view.html'};
             //---------------------------------------------
+
         }
         main();
         //---------------------------------------------
