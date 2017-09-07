@@ -6,6 +6,8 @@
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<meta name="description" content="business portal,business management,single-page application,online database">
 		<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 		<script vm-js-start-code>
 			//check and clear localstorage
@@ -176,15 +178,6 @@
 					setTimeout(function (){
 				        $.ajaxSetup({ cache: true });
 						$('head').append("<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>");
-						//----------------
-						$('head').append("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
-						var cssW3 = document.head.querySelector('link[href*="/w3.css"]');
-						cssW3.addEventListener('load', function () {	$('#'+$vm.root_layout_content_slot).triggerHandler('vm_w3'); });
-						//----------------
-						$('head').append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
-						var cssBS = document.head.querySelector('link[href*="/bootstrap.min.css"]');
-						cssBS.addEventListener('load', function () {	$('#'+$vm.root_layout_content_slot).triggerHandler('vm_bootstrap'); });
-						//----------------
 						$('head').append("<link rel='stylesheet' href='https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/themes/redmond/jquery-ui.css'>");
 						$.getScript('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
 				        $.getScript('https://ajax.aspnetcdn.com/ajax/jquery.ui/1.11.4/jquery-ui.min.js');
