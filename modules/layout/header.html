@@ -27,6 +27,11 @@
 	</div>
 	<script navigation-processing>
 		//-----------------------------------------
+		setTimeout(function (){
+			var header_height=$('#header__ID').outerHeight();
+			$('#sidebar__ID').css({'margin-top':header_height+'px'});
+		},1000);
+		//------------------------------------
 		var mySidebar = document.getElementById("sidebar__ID");
 		function w3_open() {
 			if (mySidebar.style.display === 'block') mySidebar.style.display = 'none';
