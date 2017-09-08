@@ -8,7 +8,8 @@ VmInclude:/modules/layout/footer.html
 		setTimeout(function (){
 			var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
 			var footer_height=$('#footer__ID').outerHeight();
-			$('#content_container__ID').css({'height':($(window).height()-header_height-footer_height)+'px'});
+			$vm.min_height=($(window).height()-header_height-footer_height)+'px';
+			$('#content_container__ID').css({'height':$vm.min_height});
 			$('#content_container__ID').css({'margin-top':header_height+'px'})
 			console.log('window:'+$(window).height()+', header:'+header_height+', footer:'+footer_height);
 		},1000);
