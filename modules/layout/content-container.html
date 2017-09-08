@@ -1,14 +1,13 @@
 <div content-container id="content_container__ID" style='height:100%;'>
 	<div id=vm_loader class="loader__ID"></div>
-	<script set-root-container-id>
+	<script root-container-js>
 		$vm.root_layout_content_slot="content_container__ID";
-		var header_height=$('#header__ID').outerHeight(); $vm.header_height=header_height;
-		var footer_height=$('#footer__ID').outerHeight();
-		$('#content_container__ID').css({'height':($(window).height()-header_height-footer_height)+'px'});
-		$('body').css({'padding-top':header_height+'px'})
-		console.log($(window).height()+' '+header_height+' '+footer_height);
 	</script>
-	<style>
+	<style root-container-css>
+		#content_container__ID{
+			position:fixed;
+			width:100%;
+		}
 		#vm_loader{
 			display:none;
 			position:absolute;
