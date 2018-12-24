@@ -38,7 +38,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main-code>
         //------------------------------------
-        $vm={};$vm.ver=[0.16,0.12];
+        $vm={};$vm.ver=[0.17,0.12];
         $vm.start_time=new Date().getTime();
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
@@ -49,7 +49,7 @@
 
             "2-columns-contents": 			{"url":"$A/2/2-columns-contents.html","router":1},
 
-            "a-basic-application-framework":{"url":"$B/a-basic-application-framework.html"},
+            "a-basic-application-framework":{"url":"$A/a/a-basic-application-framework.html"},
             "about":  		  	  			{"url":"$A/a/about.html","router":1},
             "about-vmiis":    			    {"url":"$A/a/about-vmiis.html","router":1},
             "autocomplete-data":  			{"url":"$A/a/autocomplete-data.html","App":"module","Table":"autocomplete","form_module":"autocomplete-form","router":1},
@@ -127,7 +127,6 @@
         //------------------------------------
         $vm.local_url=function(url){
             var urlR=url.replace("$A","https://www.vmiis.com/modules");
-                urlR=urlR.replace("$B","https://www.vmiis.com/apps");
             if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/business-portal/');
             return urlR;
         }
@@ -207,7 +206,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk033.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bg008.jpg);}
         #content{
         }
         #vm-logo-label-A{
