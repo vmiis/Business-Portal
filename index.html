@@ -126,9 +126,9 @@
         }
         //------------------------------------
         $vm.local_url=function(url){
-            var urlR=url.replace("$A","https://vmiis.github.io/business-portal/modules");
-                urlR=urlR.replace("$B","https://vmiis.github.io/business-portal/apps");
-            if($vm.localhost==true) urlR=urlR.replace('https://vmiis.github.io/business-portal/','http://127.0.0.1:8000/vmiis/business-portal/');
+            var urlR=url.replace("$A","https://www.vmiis.com/modules");
+                urlR=urlR.replace("$B","https://www.vmiis.com/apps");
+            if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/business-portal/');
             return urlR;
         }
         //------------------------------------
