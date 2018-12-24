@@ -1,6 +1,6 @@
 # Business Portal
 
-https://vmiis.github.io/business-portal/index.html
+https://www.vmiis.com
 
 * Modular distributed –– scalable, flexible, reusable and easy replaceable
 * Microservices –– service oriented architecture (SOA)
