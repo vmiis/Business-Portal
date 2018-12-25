@@ -1,6 +1,9 @@
 # Business Portal
 
-https://www.vmiis.com
+https://www.vmiis.com  
+
+
+<b>Modular distributed web application - simple, powerful and elegant</b>
 
 * Modular distributed –– scalable, flexible, reusable and easy replaceable
 * Microservices –– service oriented architecture (SOA)
