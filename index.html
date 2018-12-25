@@ -6,6 +6,7 @@
 		<meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
         <link rel="icon" href="data:,">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+        <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab' />
     </head>
     <body>
         <div id=header class=vm-header></div>
@@ -110,6 +111,11 @@
             "room-data":      	  			{"url":"$A/r/room-data.html","App":"module","Table":"room","form_module":"room-form","router":1},
     		"room-form":      	  			{"url":"$A/r/room-form.html","App":"module","Table":"room"},
 
+            "screening-data":      			{"url":"$A/s/screening-data.html","App":"module","Table":"screening","form_module":"screening-form"},
+    		"screening-form":      			{"url":"$A/s/screening-form.html","App":"module","Table":"screening"},
+            "screen-failure":      			{"url":"$A/s/screen-failure-thank-you-page.html","router":1},
+
+
             "select-data":        			{"url":"$A/s/select-data.html","App":"module","Table":"select","form_module":"select-form","router":1},
     		"select-form":        			{"url":"$A/s/select-form.html","App":"module","Table":"select"},
     		"services":  	  	  			{"url":"$A/s/services.html","router":1},
@@ -135,7 +141,7 @@
         //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
-        $('#text_0').html(txt+" - Copyright &copy; "+(new Date()).getFullYear());
+        $('#text_0').html(txt);
         //------------------------------------
         $('#c_header').contents().appendTo('#header');
         $('#c_footer').contents().appendTo('#footer');
