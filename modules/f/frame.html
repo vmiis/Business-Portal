@@ -1,4 +1,4 @@
-<div id=D__ID module=start>
+<div id=D__ID module=frame>
     <div system-html>
         <div top-right-corner id=top_right_corner_0 class='d-none d-xl-block'>
             <div>
@@ -28,12 +28,12 @@
         </div>
     </div>
     <script>
-        $vm._start=function(){
+        $vm._start_frame=function(){
             //------------------------------------------
             var data=''; for(var key in window.localStorage){ if(window.localStorage.hasOwnProperty(key)){ data+=window.localStorage[key]; }}
             if(data.length>3000000) localStorage.clear();
             //------------------------------------------
-            $vm.vm={}; $vm.version=$vm.ver[0]; $vm.reload='';
+            $vm.version=$vm.ver[0]; $vm.reload='';
             $vm.hosting_path=window.location.href.substring(0, window.location.href.split('?')[0].lastIndexOf('/'));
             $vm.debug_message=true; //show debug message in console
             //------------------------------------------
@@ -155,14 +155,6 @@
             //------------------------------------
         }
         //------------------------------------
-        $vm._I=0; $vm._boot=function(){
-            $vm._I++;
-            if($vm._I==1){
-                $vm._id=$vm.module_start_id-1;
-                $vm._start(); $vm.start();
-            }
-        }
-        //------------------------------------------
         $vm.url=function(text){
             text=text.replace(/__HOST__\//g,$vm.hosting_path+'/');
             text=text.replace(/__VER__/g,$vm.ver[0]);
@@ -174,11 +166,11 @@
             return text;
         }
         //---------------------------------------------
-        var url1=$vm.url("https://vm.vmiis.com/distribution/vm.js");
-        var urls=[url1];
-        //---------------------------------------------
-        var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
-        $(urls).each(function(index,url){
+        $vm._start=function(){
+            //---------------------------------------------
+            var url=$vm.url("https://vm.vmiis.com/distribution/vm.js");
+            //---------------------------------------------
+            var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
             var ver=localStorage.getItem(apppath+url+"ver");
             var txt=localStorage.getItem(apppath+url+"txt");
             if(ver!=$vm.ver[1] || txt==null || window.location.toString().indexOf('_d=1')!=-1){
@@ -187,17 +179,18 @@
                     localStorage.setItem(apppath+url+"ver",$vm.ver[1]);
                     console.log('loading from url. '+url+' '+ver+'/'+$vm.ver[1]);
                     $('head').append('<scr'+'ipt>'+new_txt+'</scr'+'ipt>');
-                    $vm._boot();
+                    $vm._start_frame();
+                    $vm.start();
                 },'text');
             }
             else{
                 console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[1]);
                 $('head').append('<scr'+'ipt>'+txt+'</scr'+'ipt>');
-                $vm._boot();
+                $vm._start_frame();
+                $vm.start();
             }
             //---------------------------------------------
-        })
-        //---------------------------------------------
+        }
     </script>
     <style>
         /*top right*/
