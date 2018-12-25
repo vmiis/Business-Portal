@@ -39,7 +39,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script main-code>
         //------------------------------------
-        $vm={};$vm.ver=[0.17,0.12];
+        $vm={};$vm.ver=[0.18,0.18];
         $vm.start_time=new Date().getTime();
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
@@ -168,12 +168,6 @@
                $vm.init_status=1;
                $vm.show_user();
            })
-        }
-        //------------------------------------
-        $vm.menu_click=function(href){
-            href=href.replace('?\/','');
-            href=href.replace(/\//g,'_');
-            $vm.load_module(href,$vm.root_layout_content_slot,{});
         }
         //------------------------------------
         $vm.show=function(id){
