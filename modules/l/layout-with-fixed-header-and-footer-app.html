@@ -14,9 +14,9 @@
             </div>
             <div menu id="vm-menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/panel">Control Panel</a>
-                <a href="https://backoffice.wappsystem.com.au">Backoffice</a>
-                <a href="?/about-vmiis">About</a>
+                <a href="?/short-page">Short</a>
+                <a href="?/long-page">Long</a>
+                <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
                 <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
                 <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
             </div>
@@ -32,94 +32,9 @@
         //------------------------------------
         $vm.module_list={
             "home":                         {"url":"$A/h/home.html","router":1},
-
-            "2-columns-contents": 			{"url":"$A/2/2-columns-contents.html","router":1},
-
-            "about":  		  	  			{"url":"$A/a/about.html","router":1},
+            "short-page": 		            {"url":"$A/s/short-page.html","router":1},
+            "long-page": 		            {"url":"$A/l/long-page.html","router":1},
             "about-vmiis":    			    {"url":"$A/a/about-vmiis.html","router":1},
-            "autocomplete-data":  			{"url":"$A/a/autocomplete-data.html","App":"module","Table":"autocomplete","form_module":"autocomplete-form","router":1},
-    		"autocomplete-form":  			{"url":"$A/a/autocomplete-form.html","App":"module","Table":"autocomplete"},
-
-            "bubble":  		  	  			{"url":"$A/b/bubble.html","router":1},
-
-            "clinical-trials-data-entry": 	{"url":"$A/c/clinical-trials-data-entry.html"},
-    		"carousel":  		  			{"url":"$A/c/carousel.html","router":1},
-    		"checkbox-data":      			{"url":"$A/c/checkbox-data.html","App":"module","Table":"checkbox","form_module":"checkbox-form","router":1},
-    		"checkbox-form":      			{"url":"$A/c/checkbox-form.html","App":"module","Table":"checkbox"},
-    		"consent-data":  	  			{"url":"$A/c/consent-data.html","App":"module","Table":"consent","form_module":"consent-form"},
-    		"consent-form":  	  			{"url":"$A/c/consent-form.html","App":"module","Table":"consent"},
-            "color-data":      	  			{"url":"$A/c/color-data.html","App":"module","Table":"color","form_module":"color-form","router":1},
-    		"color-form":      	  			{"url":"$A/c/color-form.html","App":"module","Table":"color"},
-            "comming-soon": 		        {"url":"$A/u/under-construction.html",text:"Comming soon...","router":1},
-
-            "d-c-t-data":      	  			{"url":"$A/d/data-collection-template-data.html","App":"demo","Table":"template","form_module":"d-c-t-form","router":1},
-    		"d-c-t-form":      	 		 	{"url":"$A/d/data-collection-template-form.html","App":"demo","Table":"template"},
-
-            "date-data":      	  			{"url":"$A/d/date-data.html","App":"module","Table":"date","form_module":"date-form","router":1},
-    		"date-form":      	 		 	{"url":"$A/d/date-form.html","App":"module","Table":"date"},
-            "dass-data":	 	            {"url":"$A/d/depression-anxiety-stress-scales-data.html","App":"module","Table":"dass","form_module":"dass-form"},
-    		"dass-form":	 	            {"url":"$A/d/depression-anxiety-stress-scales-form.html","App":"module","Table":"dass"},
-
-            "ess-data":      	  			{"url":"$A/e/epworth-sleepiness-scale-data.html","App":"module","Table":"ess","form_module":"ess-form"},
-    		"ess-form":      	  			{"url":"$A/e/epworth-sleepiness-scale-form.html","App":"module","Table":"ess"},
-
-            "ffs-data":      	  			{"url":"$A/f/flinders-fatigue-scale-data.html","App":"module","Table":"ffs","form_module":"ffs-form"},
-    		"ffs-form":      	  			{"url":"$A/f/flinders-fatigue-scale-form.html","App":"module","Table":"ffs"},
-            "file-data":      	  			{"url":"$A/f/file-data.html","App":"module","Table":"file","form_module":"file-form","router":1},
-    		"file-form":      	  			{"url":"$A/f/file-form.html","App":"module","Table":"file"},
-            "fss-data":      	  			{"url":"$A/f/fatigue-severity-scale-data.html","App":"module","Table":"fss","form_module":"fss-form"},
-    		"fss-form":      	  			{"url":"$A/f/fatigue-severity-scale-form.html","App":"module","Table":"fss"},
-            "fountains-illumination":		{"url":"$A/f/fountains-illumination.html","router":1},
-            "frame":                        {"url":"$A/f/frame.html"},
-
-            "hello-world": 		  			{"url":"$A/h/hello-world.html","router":1},
-
-            "index-a":                      {"url":"$A/i/index-a-basic-application-framework.html"},
-            "isi-data":      	  			{"url":"$A/i/insomnia-severity-index-data.html","App":"module","Table":"isi","form_module":"isi-form"},
-    		"isi-form":      	  			{"url":"$A/i/insomnia-severity-index-form.html","App":"module","Table":"isi"},
-
-            "layout-with-fixed-header-and-footer-index":   {"url":"$A/l/layout-with-fixed-header-and-footer-index.html","router":1},
-            "layout-with-fixed-header-and-footer-app":     {"url":"$A/l/layout-with-fixed-header-and-footer-app.html"},
-            "long-page":  		  	 		               {"url":"$A/l/long-page.html","router":1},
-
-            "nasa":  		  	  			         {"url":"$A/n/nasa.html","router":1},
-            "not-ready": 		                     {"url":"$A/u/under-construction.html",text:"Not Ready","router":1},
-    		"nyan":  		  	  			         {"url":"$A/n/nyan.html","router":1},
-
-            "online-questionnaire-setup": 	{"url":"$A/o/online-questionnaire-setup.html","App":"module","Table":"participant"},
-
-            "panel":    		  			{"url":"$A/p/panel.html","router":1},
-    		"particle":  		  			{"url":"$A/p/particle.html","router":1},
-    		"prices":  		  	  			{"url":"$A/p/prices.html","router":1},
-    		"participant-data":   			{"url":"$A/p/participant-data.html","App":"module","Table":"participant","form_module":"participant-form","router":1},
-    		"participant-form":   			{"url":"$A/p/participant-form.html","App":"module","Table":"participant"},
-            "psqi-data":                    {"url":"$A/p/pittsburgh-sleep-quality-index-data.html","App":"module","Table":"psqi","form_module":"psqi-form"},
-    		"psqi-form":   			        {"url":"$A/p/pittsburgh-sleep-quality-index-form.html","App":"module","Table":"psqi"},
-
-            "quest-panel":                  {"url":"$A/o/online-questionnaire-panel.html"},
-
-            "radio-data":      	  			{"url":"$A/r/radio-data.html","App":"module","Table":"radio","form_module":"radio-form","router":1},
-    		"radio-form":      	  			{"url":"$A/r/radio-form.html","App":"module","Table":"radio"},
-            "room-data":      	  			{"url":"$A/r/room-data.html","App":"module","Table":"room","form_module":"room-form","router":1},
-    		"room-form":      	  			{"url":"$A/r/room-form.html","App":"module","Table":"room"},
-
-            "screening-data":      			{"url":"$A/s/screening-data.html","App":"module","Table":"screening","form_module":"screening-form"},
-    		"screening-form":      			{"url":"$A/s/screening-form.html","App":"module","Table":"screening"},
-            "screen-failure":      			{"url":"$A/s/screen-failure-thank-you-page.html","router":1},
-            "select-data":        			{"url":"$A/s/select-data.html","App":"module","Table":"select","form_module":"select-form","router":1},
-    		"select-form":        			{"url":"$A/s/select-form.html","App":"module","Table":"select"},
-    		"services":  	  	  			{"url":"$A/s/services.html","router":1},
-            "short-page":  		  	 		{"url":"$A/s/short-page.html","router":1},
-    		"snow":  		  	  			{"url":"$A/s/snow.html","router":1},
-
-            "text-input-data":    			{"url":"$A/t/text-input-data.html","App":"module","Table":"text-input","form_module":"text-input-form","router":1},
-    		"text-input-form":    			{"url":"$A/t/text-input-form.html","App":"module","Table":"text-input"},
-    		"trainers":  		  			{"url":"$A/t/trainers.html","router":1},
-
-            "under-construction": 		    {"url":"$A/u/under-construction.html",text:"Under Construction","router":1},
-
-            "visit-date-data":    			{"url":"$A/v/visit-date-data.html","App":"module","Table":"visit-date","form_module":"visit-date-form"},
-    		"visit-date-form":    			{"url":"$A/v/visit-date-form.html","App":"module","Table":"visit-date"},
         }
         //------------------------------------
         $vm.local_url=function(url){
@@ -197,7 +112,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bg008.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk002.jpg);}
         #content{
         }
         #vm-logo-label-A{
