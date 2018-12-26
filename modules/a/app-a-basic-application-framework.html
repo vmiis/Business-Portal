@@ -1,58 +1,43 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <meta name="description" content="A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!">
-        <meta name="author" content="Zhiming Zhou, zzm.vmiis@gmail.com">
-        <link rel="icon" href="data:,">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
-    </head>
-    <body>
-        <div id=header class=vm-header></div>
-        <div id=content><div id=vm_loader class="loader_0"></div></div>
-        <div id=footer></div>
-        <div id=components style='display:none'>
-            <div id=c_header>
-                <div class=vm-mobile>
-                    <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
-                    <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
-                </div>
-                <div class=vm-desk-logo>
-                    <span id=vm-logo-label-A>Business Portal</span><br>
-                    <span id=vm-logo-label-B>Modular distributed web application</span>
-                </div>
-                <div menu id="vm-menu">
-                    <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                    <div class="vm-dropdown">
-                        <span class="vm-dropbtn">Modules <i class="fa fa-caret-down"></i></span>
-                        <div class="vm-dropdown-content">
-                            <a href="?/under-construction">Under construction</a>
-                            <a href="?/not-ready">Not ready</a>
-                            <a href="?/comming-soon">Comming soon</a>
-                        </div>
-                    </div>
-                    <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
-                    <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
-                    <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
-                </div>
+<div id=D__ID module=app>
+    <!-- special font, css etc for this app -->
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab' />
+    <!-------->
+    <div id=components style='display:none'>
+        <div id=c_header>
+            <div class=vm-mobile>
+                <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
+                <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
-            <div id=c_footer>
-                <span id=text_0></span>
+            <div class=vm-desk-logo>
+                <span id=vm-logo-label-A>Business Portal</span><br>
+                <span id=vm-logo-label-B>Modular distributed web application</span>
+            </div>
+            <div menu id="vm-menu">
+                <a href="?/home"><i class="fa fa-home"></i> Home</a>
+                <div class="vm-dropdown">
+                    <span class="vm-dropbtn">Modules <i class="fa fa-caret-down"></i></span>
+                    <div class="vm-dropdown-content">
+                        <a href="?/under-construction">Under construction</a>
+                        <a href="?/not-ready">Not ready</a>
+                        <a href="?/comming-soon">Comming soon</a>
+                    </div>
+                </div>
+                <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
+                <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
+                <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
             </div>
         </div>
-    </body>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
-    <script main>
+        <div id=c_footer>
+            <span id=text_0></span>
+        </div>
+    </div>
+    <script main-code>
         //------------------------------------
-        $vm={};$vm.ver=[0.15,0.12];
-        $vm.start_time=new Date().getTime();
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
-        if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         //------------------------------------
         $vm.module_list={
             "home":                         {"url":"$A/h/home.html","router":1},
-            "frame":                        {"url":"$A/f/frame.html"},
             "about-vmiis":    			    {"url":"$A/a/about-vmiis.html","router":1},
             "under-construction": 		    {"url":"$A/u/under-construction.html",text:"Under Construction","router":1},
             "not-ready": 		            {"url":"$A/u/under-construction.html",text:"Not Ready","router":1},
@@ -60,44 +45,16 @@
         }
         //------------------------------------
         $vm.local_url=function(url){
-            var urlR=url.replace("$A","https://vmiis.github.io/business-portal/modules");
-            if($vm.localhost==true) urlR=urlR.replace('https://vmiis.github.io/business-portal/','http://127.0.0.1:8000/vmiis/business-portal/');
+            var urlR=url.replace("$A","https://www.vmiis.com/modules");
+            if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com/','http://127.0.0.1:8000/vmiis/business-portal/');
             return urlR;
         }
         //------------------------------------
-        //------------------------------------
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
-        //------------------------------------
-        $vm.default_title="Modular distributed web application";
-        var txt=", Your company name. <span id=FL_0>Open source code on GitHub (<a style='color:#fff' target=_blank href=https://github.com/vmiis>https://github.com/vmiis</a>).";
-        txt+=" More templates on <a style='color:#fff' target=_blank href=https://www.vmiis.com >https://www.vmiis.com</a>. </span>"
-        $('#text_0').html("Copyright &copy; "+(new Date()).getFullYear()+txt);
-        //------------------------------------
-        $('#c_header').contents().appendTo('#header');
-        $('#c_footer').contents().appendTo('#footer');
-        //------------------------------------
-        $('#vm-mobile_title').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
-        $('.vm-desk-logo').on('click',function(){ $vm.load_module_v2('home',$vm.root_layout_content_slot,{}) })
-        //------------------------------------
-        $vm.root_layout_content_slot='content'
-        $vm.root_layout_footer='footer';
-        //---------------------------------------------
-        var set_height=function(){
-            var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
-            var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
-            $vm.min_height=($(window).height()-header_height-footer_height);
-            if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
-            }
-        }
-        //------------------------------------
-        set_height();
-        //-----------------------------------------
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
         //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
-        $('#text_0').html(txt+" - Copyright &copy; "+(new Date()).getFullYear());
+        $('#text_0').html(txt);
         //------------------------------------
         $('#c_header').contents().appendTo('#header');
         $('#c_footer').contents().appendTo('#footer');
@@ -119,19 +76,6 @@
         //------------------------------------
         set_height();
         //-----------------------------------------
-        $vm.start=function(){
-            $vm.init(function(){
-               $vm.init_status=1;
-               $vm.show_user();
-           })
-        }
-        //------------------------------------
-        $vm.menu_click=function(href){
-            href=href.replace('?\/','');
-            href=href.replace(/\//g,'_');
-            $vm.load_module(href,$vm.root_layout_content_slot,{});
-        }
-        //------------------------------------
         $vm.show=function(id){
             $vm.active_id=id;
             document.title=$vm.default_title;
@@ -148,6 +92,13 @@
         //------------------------------------
         $vm.show();
         window.onresize=function(){set_height();}
+        //------------------------------------
+        $vm.start=function(){
+            $vm.init(function(){
+               $vm.init_status=1;
+               $vm.show_user();
+           })
+        }
         //------------------------------------
     </script>
     <style main-style>
@@ -194,11 +145,11 @@
             text-align: center;
         }
         /*----------------------*/
-        .vm-header{height:100px;background:rgba(0,0,0,0.6);}
+        #header{height:100px;background:rgba(0,0,0,0.6);}
         .vm-desk-logo{ display:inline-block;float:left;padding:36px 30px 0 30px;cursor:pointer;}
         #vm-menu{ float:left;padding:50px 30px 0 30px;}
         @media screen and (max-width: 1200px){
-            .vm-header{height:50px;}
+            #header{height:50px;}
             .vm-desk-logo{display:none;}
             #vm-menu{padding:0;}
         }
@@ -375,27 +326,4 @@
             to {max-height: 1000px;}
         }
     </style>
-    <script frame-code>
-        //------------------------------------
-        var url1=$vm.module_list["frame"].url;
-        var urls=[url1]; $vm.module_start_id=1;
-        //---------------------------------------------
-        $(urls).each(function(index,url){
-            var ver=localStorage.getItem(url+"ver");
-            var txt=localStorage.getItem(url+"txt");
-            if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
-                $.get(url+'?_='+new Date().getTime(),function(new_txt){
-                    localStorage.setItem(url+"txt",new_txt);
-                    localStorage.setItem(url+"ver",$vm.ver[0]);
-                    console.log('loading from url. '+url);
-                    $('#content').append(new_txt.replace(/__ID/g,'_'+index));
-                },'text');
-            }
-            else{
-                console.log('loading from storage. '+url);
-                $('#content').append(txt.replace(/__ID/g,'_'+index));
-            }
-            //---------------------------------------------
-        })
-    </script>
-</html>
+</div>
