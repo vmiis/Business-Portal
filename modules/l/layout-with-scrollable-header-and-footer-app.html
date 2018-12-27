@@ -63,7 +63,7 @@
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
             if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+$vm.active_id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -77,9 +77,11 @@
             $("body").addClass('body_background_default');
             if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined) $vm.vm[id].show();
             if(id!=undefined){
-                $('#D'+id).css('overflow','auto');
-                $('#D'+id).css('min-height','unset');
-                $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+id).css('height','unset');
+                $('#D'+id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+id).css('overflow','unset');
+                $('#D'+id).css('overflow-x','auto');
+                if($vm.vm[id].name=='home') $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -112,7 +114,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk002.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk004.jpg);}
         #content{
         }
         #vm-logo-label-A{

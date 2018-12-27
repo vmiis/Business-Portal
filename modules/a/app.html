@@ -35,12 +35,15 @@
 
             "2-columns-contents": 			{"url":"$A/2/2-columns-contents.html","router":1},
 
-            "about":  		  	  			{"url":"$A/a/about.html","router":1},
-            "about-vmiis":    			    {"url":"$A/a/about-vmiis.html","router":1},
-            "anthropometry-data":  			{"url":"$A/a/anthropometry-data.html","App":"module","Table":"anthropometry","form_module":"anthropometry-form"},
-    		"anthropometry-form":  			{"url":"$A/a/anthropometry-form.html","App":"module","Table":"anthropometry"},
-            "autocomplete-data":  			{"url":"$A/a/autocomplete-data.html","App":"module","Table":"autocomplete","form_module":"autocomplete-form","router":1},
-    		"autocomplete-form":  			{"url":"$A/a/autocomplete-form.html","App":"module","Table":"autocomplete"},
+            "about":  		  	  			       {"url":"$A/a/about.html","router":1},
+            "about-vmiis":    			           {"url":"$A/a/about-vmiis.html","router":1},
+            "anthropometry-data":  			       {"url":"$A/a/anthropometry-data.html","App":"module","Table":"anthropometry","form_module":"anthropometry-form"},
+    		"anthropometry-form":  			       {"url":"$A/a/anthropometry-form.html","App":"module","Table":"anthropometry"},
+            "autocomplete-data":  			       {"url":"$A/a/autocomplete-data.html","App":"module","Table":"autocomplete","form_module":"autocomplete-form","router":1},
+    		"autocomplete-form":  			       {"url":"$A/a/autocomplete-form.html","App":"module","Table":"autocomplete"},
+            "a-basic-application-framework-app":   {"url":"$A/a/a-basic-application-framework-app.html"},
+            "a-basic-application-framework-index": {"url":"$A/a/a-basic-application-framework-index.html"},
+
 
             "bubble":  		  	  			{"url":"$A/b/bubble.html","router":1},
 
@@ -78,12 +81,16 @@
 
             "hello-world": 		  			{"url":"$A/h/hello-world.html","router":1},
 
-            "index-a":                      {"url":"$A/i/index-a-basic-application-framework.html"},
             "isi-data":      	  			{"url":"$A/i/insomnia-severity-index-data.html","App":"module","Table":"isi","form_module":"isi-form"},
     		"isi-form":      	  			{"url":"$A/i/insomnia-severity-index-form.html","App":"module","Table":"isi"},
 
-            "layout-with-fixed-header-and-footer-index":   {"url":"$A/l/layout-with-fixed-header-and-footer-index.html","router":1},
-            "layout-with-fixed-header-and-footer-app":     {"url":"$A/l/layout-with-fixed-header-and-footer-app.html"},
+            "layout-with-fixed-header-and-footer-index":                {"url":"$A/l/layout-with-fixed-header-and-footer-index.html","router":1},
+            "layout-with-fixed-header-and-footer-app":                  {"url":"$A/l/layout-with-fixed-header-and-footer-app.html"},
+            "layout-with-fixed-header-and-scrollable-footer-index":     {"url":"$A/l/layout-with-fixed-header-and-scrollable-footer-index.html","router":1},
+            "layout-with-fixed-header-and-scrollable-footer-app":       {"url":"$A/l/layout-with-fixed-header-and-scrollable-footer-app.html"},
+            "layout-with-scrollable-header-and-footer-index":           {"url":"$A/l/layout-with-scrollable-header-and-footer-index.html","router":1},
+            "layout-with-scrollable-header-and-footer-app":             {"url":"$A/l/layout-with-scrollable-header-and-footer-app.html"},
+
             "long-page":  		  	 		               {"url":"$A/l/long-page.html","router":1},
 
             "medical-history-data":         {"url":"$A/m/medical-history-data.html","App":"module","Table":"medical-history","form_module":"medical-history-form"},
@@ -150,7 +157,7 @@
         $vm.root_layout_content_slot='content'
         $vm.root_layout_footer='footer';
         //---------------------------------------------
-        var set_height=function(){
+        var set_layout=function(){
             var header_height=$('#header').outerHeight(); $vm.header_height=header_height;
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
@@ -159,7 +166,7 @@
             }
         }
         //------------------------------------
-        set_height();
+        set_layout();
         //-----------------------------------------
         $vm.show=function(id){
             $vm.active_id=id;
@@ -176,7 +183,7 @@
         }
         //------------------------------------
         $vm.show();
-        window.onresize=function(){set_height();}
+        window.onresize=function(){set_layout();}
         //------------------------------------
         $vm.start=function(){
             $vm.init(function(){

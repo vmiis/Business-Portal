@@ -9,17 +9,19 @@
     <body>
         <!-- Typical website layout, the contents are dynamiclly updated by modules-->
         <div id=header></div>
-        <div id=content></div>
-        <div id=footer></div>
+        <div id=scroll>
+            <div id=content></div>
+            <div id=footer></div>
+        </div>
     </body>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
         //change version if your modules have been modified
-        $vm={};$vm.vm={};$vm.ver=[0.22,0.21];
+        $vm={};$vm.vm={};$vm.ver=[0.18,0.18];
         //where are your frame and app modules
         $vm.module_list={
-            "app":     {"url":"https://www.vmiis.com/modules/a/app.html"},
+            "app":     {"url":"https://www.vmiis.com/modules/l/layout-with-fixed-header-and-scrollable-footer-app.html"},
             "frame":   {"url":"https://www.vmiis.com/modules/f/frame.html"},
         }
         //------------------------------------

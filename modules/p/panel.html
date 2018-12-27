@@ -20,7 +20,7 @@
                 <li><a href=?/about>About</a></li>
                 <li><a href=?/anthropometry-data>Anthropometry</a></li>
                 <li><a href=?/autocomplete-data>Autocomplete</a></li>
-                <li><a app href=?/index-a>A basic application framework</a></li>
+                <li><a app href=?/a-basic-application-framework-index>A basic application framework</a></li>
             </ul>
             <span>B</span>
             <ul>
@@ -68,6 +68,8 @@
             <span>L</span>
             <ul>
                 <li><a app href=?/layout-with-fixed-header-and-footer-index>Layout with fixed header and footer</a></li>
+                <li><a app href=?/layout-with-fixed-header-and-scrollable-footer-index>Layout with fixed header scrollable footer</a></li>
+                <li><a app href=?/layout-with-scrollable-header-and-footer-index>Layout with scrollable header and footer</a></li>
                 <li><a href=?/long-page>Long page</a></li>
             </ul>
             <span>M</span>
@@ -137,7 +139,8 @@
                     href=href.replace('?\/','');
                     href=href.replace(/\//g,'_');
                     if(app==undefined) $vm.load_module(href,'',{});
-                    else window.open($vm.module_list[href].url);
+                    else if($vm.module_list[href]!=undefined) window.open($vm.module_list[href].url);
+                    else alert("The '"+ href +"' is not defined in the module list");
                 }
             })
             //--------------------------------------------------------
@@ -146,8 +149,10 @@
                 if(href!=undefined){
                     href=href.replace('?\/','');
                     href=href.replace(/\//g,'_');
-                    var url=$vm.module_list[href].url;
-                    $(this).attr('title',url);
+                    if($vm.module_list[href]!=undefined){
+                        var url=$vm.module_list[href].url;
+                        $(this).attr('title',url);
+                    }
                 }
             })
             //--------------------------------------------------------
