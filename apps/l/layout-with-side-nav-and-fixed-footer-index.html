@@ -24,7 +24,7 @@
         $vm={};$vm.vm={};$vm.ver=[0.18,0.18];
         //where are your frame and app modules
         $vm.module_list={
-            "app":     {"url":"https://www.vmiis.com/modules/l/layout-with-side-nav-and-fixed-footer-app.html"},
+            "app":     {"url":"https://www.vmiis.com/apps/l/layout-with-side-nav-and-fixed-footer-app.html"},
             "frame":   {"url":"https://www.vmiis.com/modules/f/frame.html"},
         }
         //------------------------------------
@@ -36,6 +36,7 @@
         }
         //------------------------------------
         //Do not need to chang the following code in most cases
+        //The following code will load a framework module and your application module
         $vm.start_time=new Date().getTime();
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_debug_url($vm.module_list[p].url);
