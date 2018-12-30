@@ -1,15 +1,19 @@
 <div id=D__ID>
     <div>
-        VmInclude:__COMPONENT__/d/day.01.html
+        VmInclude:__COMPONENT__/m/month.01.html
     </div>
     <script>
     function F__ID(){
         //--------------------------------------------------------
-        VmInclude:__COMPONENT__/d/day.01.js
+        VmInclude:__COMPONENT__/m/month.01.js
         //--------------------------------------------------------
+    	m.on_day_click_fun=function(date){
+    		$vm.load_module(m.booking,'',{day:date})
+    	}
+    	//--------------------------------------------------------
         m.request_and_render=function(){
             var mt1=new Date().getTime();
-            $vm.request({cmd:"find",query:{App:m.App,Table:m.Table},options:{}},function(res){
+            $vm.request({cmd:"find",query:{App:m.App,Table:m.Table,I1:{"$gt":m.first_day,"$lt":m.last_day}},options:{}},function(res){
                 if(res.permission==false){
                     alert("No permission to get room information.");
                     return;
@@ -21,31 +25,30 @@
                 if(tt_all<tt_server) tt_all=tt_server;
                 $("#elapsed__ID").text((JSON.stringify(res.records).length/1000).toFixed(1)+"kb/"+tt_all.toString()+"ms/"+tt_server+'ms');
                 //-----------------------
+    	        m.calendar_render("");
                 m.records=res.records;
-                var txt="<tr><th style='width:200px;text-align:left'>Room</th>";
-                for(var j=0;j<12;j++){
-                    txt+="<th colspan=2 style='width:8%;text-align:left'>"+$vm.pad((8+j),2)+":00</th>";
-                }
-                txt+="<th></th></tr>";
-                $('#thead__ID').html('').append(txt);
-                $('#tbody__ID').html('');
-                txt="";
-                for(var i=0;i<m.records.length;i++){
-                    var id=m.records[i]._id;
-                    var uid=m.records[i].UID;
-                    var room_number=res.records[i].Data.Number;
-                    var room_name=res.records[i].Data.Name;
-                    txt+="<tr><td style='display:none'>"+id+"</td><td style='display:none'>"+uid+"</td>";
-                    txt+="<td style='display:none'>"+room_number+"</td><td style='display:none'>"+room_name+"</td>";
-                    txt+="<td style='width:100px'>"+room_number+' - '+room_name+"</td>";
-                    for(j=0;j<24;j++){
-                        txt+="<td></td>";
-                    }
-                    txt+="<td></td></tr>";
-                }
-                $('#tbody__ID').append(txt);
-                m.put_on_click_for_booking();
-                put_on_bookings();
+    			for(var i=0;i<res.records.length;i++){
+    	            m.cell_render(res.records[i]);
+    			}
+            });
+        }
+        //--------------------------------------------------------
+        m.cell_render=function(record){
+            var id=record._id;
+            var time=record.Data.Time;
+            var room=record.Data.Room_number;
+            var name=record.Data.Contact_name; if(name===undefined) name="No contact name";
+            var color=record.Data.Color;
+            var author=record.Submitted_by;
+            var d=record.Data.Date;
+            var $div=m.get_cell_div(d);
+            var desc="";
+            if(record.Data.Description!="") desc=" <br>"+$vm.text(record.Data.Description);
+    	    var info="<span  style='color:"+$vm.invert_color(color)+"'>"+room+" "+name+desc+"<br>"+time+' '+$vm.text(record.Data.Duration)+" hours </span>";
+            var event="<div style='background-color:"+color+"' class=event__ID data-author="+author+" id=event__ID"+id+">"+info+"</div>";
+            $div.append(event);
+            $('#event__ID'+id).on('click',function(){
+                $vm.load_module(m.booking_form,'',{record:record});
             });
         }
         //--------------------------------------------------------
@@ -113,7 +116,7 @@
                         else if(j===0 && num>1){	$cell.css('border-right','0px solid red');	}
                         else if(j==num-1 && num>1){	$cell.css('border-left','0px solid red');	}
                         if(j===0){
-                            $cell.html('<u style="cursor:pointer;color:'+$vm.invert_color(color)+'">'+contact+'</u>');
+                            $cell.html('<u style=cursor:pointer>'+contact+'</u>');
                             $cell.find('u').data("rid",rid);
                             $cell.find('u').data("author",author);
                             $cell.find('u').on('click',on_click_edit_fun);
@@ -138,18 +141,11 @@
         };
         //--------------------------------------------------------
         $('#D__ID').on('load',function(){
-            var d=m.input.day;
-            if(d==undefined) d=$vm.date_to_yyyymmdd($vm.date_today());
-            $('#date__ID').val(d);
-            $('#date__ID').triggerHandler('change');
+            m.request_and_render();
         });
         //--------------------------------------------------------
         $('#D__ID').on('show',function(){  if($vm.refresh==1){$vm.refresh=0; m.request_and_render();}    });
         //--------------------------------------------------------
-
-
-
-
     }
     </script>
     <style>

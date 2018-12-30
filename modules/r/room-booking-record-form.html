@@ -53,7 +53,7 @@
 						</div>
 						<div class="col-sm col-lg-6">
 							<span>Color</span><br>
-							<input type=color name="Color" style='width:100px;height:38px;border:none' value='#669966' required>
+							<input type=color name="Color" style='width:100px;height:38px;border:none' value='#ebebeb' required>
 						</div>
 					</div>
 					<div class="row row__ID">
@@ -104,7 +104,7 @@
 				m.before_submit=function(data,index){
 					index.I1=data.Date;
 					index.I2=data.Time;
-					index.I3=data.Room_number;
+					index.I3=m.input.record.UID;
 					return true;
 				}
 				//-------------------------------------
