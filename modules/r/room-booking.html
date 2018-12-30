@@ -52,7 +52,7 @@
                 }
                 $('#tbody__ID').append(txt);
                 m.put_on_click_for_booking();
-                //put_on_bookings();
+                put_on_bookings();
             });
         }
         //--------------------------------------------------------
@@ -70,11 +70,12 @@
                         var j=$(this).data('j');
                         var date=$('#date__ID').val();
                         var time=$vm.pad((8+Math.floor(j/2)),2)+":"+$vm.pad(30*(j%2),2);
-                        var record={
+                        var record={}
+                        record.Data={
                             Room_number:room_number,
                             Room_name:room_name,
                             Date:date,
-                            Time:time
+                            Time:time,
                         }
                         $vm.load_module(m.booking_form,'',{record:record,goback:1});
                     })
@@ -84,6 +85,13 @@
         };
         //--------------------------------------------------------
         var put_on_bookings=function(){
+            var m1=m.booking_form;
+            var table=$vm.module_list[m1].Table;
+            var date=$('#date__ID').val();
+            $vm.request({cmd:"find",query:{App:m.App,Table:table,I1:date},options:{}},function(res){
+
+            })
+            /*
             var sql="select ID,PUID,Author,Information from [TABLE-"+booking_record_tid+"] where Convert(date,dt1)=@T1";
             $VmAPI.request({data:{cmd:'query_records',sql:sql,t1:$('#date__ID').val()},callback:function(res){
                 for(var i=0;i<res.records.length;i++){
@@ -119,6 +127,7 @@
                     }
                 }
             }});
+            */
         };
         //-----------------------------------
         var on_click_edit_fun=function(){

@@ -120,7 +120,7 @@
     		"psqi-form":   			        {"url":"$A/modules/p/pittsburgh-sleep-quality-index-form.html","App":"module","Table":"psqi"},
 
             "physical-examination-data":    {"url":"$A/modules/p/physical-examination-data.html","App":"module","Table":"physical-examination","form_module":"physical-examination-form"},
-    		"physical-examination-form":    {"url":"$A/modules/p/physical-examination-form.html","App":"module","Table":"physical-examination",router:1},
+    		"physical-examination-form":    {"url":"$A/modules/p/physical-examination-form.html","App":"module","Table":"physical-examination"},
 
 
 
@@ -128,8 +128,12 @@
 
             "radio-data":      	  			{"url":"$A/modules/r/radio-data.html","App":"module","Table":"radio","form_module":"radio-form","router":1},
     		"radio-form":      	  			{"url":"$A/modules/r/radio-form.html","App":"module","Table":"radio"},
+            
+            "room-booking-record-data":    	{"url":"$A/modules/r/room-booking-record-data.html","App":"module","Table":"room-booking-record","form_module":"room-booking-record-form","router":1},
+    		"room-booking-record-form":    	{"url":"$A/modules/r/room-booking-record-form.html","App":"module","Table":"room-booking-record"},
             "room-data":      	  			{"url":"$A/modules/r/room-data.html","App":"module","Table":"room","form_module":"room-form","router":1},
     		"room-form":      	  			{"url":"$A/modules/r/room-form.html","App":"module","Table":"room"},
+            "room-booking":   			    {"url":"$A/modules/r/room-booking.html","App":"module","Table":"room","booking_form":"room-booking-record-form","router":1},
 
             "screening-data":      			{"url":"$A/modules/s/screening-data.html","App":"module","Table":"screening","form_module":"screening-form"},
     		"screening-form":      			{"url":"$A/modules/s/screening-form.html","App":"module","Table":"screening"},
@@ -175,7 +179,7 @@
     		"011-form":      	  			{"url":"$A/modules/zz/011-form.html","App":"module","Table":"test"},
             "021":      	  			    {"url":"$A/modules/zz/021.html","router":1},
             "022":      	  			    {"url":"$A/modules/zz/022.html","router":1},
-            "023":      	  			    {"url":"$A/modules/zz/023.html","router":1},
+            "023":      	  			    {"url":"$A/modules/zz/023.html","App":"module","Table":"room","booking_form":"room-booking-record-form","router":1},
 
         }
         //------------------------------------
