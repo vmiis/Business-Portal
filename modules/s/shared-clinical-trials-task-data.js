@@ -29,7 +29,7 @@ m.cell_render=function(records,I,field,td){
 }
 //-------------------------------------
 m.new=function(){
-    if(m.module.form_module!=undefined){
+    if(m.form_module!=undefined){
         //we are using child panel
         var participant_record=$vm.vm['__ID'].input.record;
         $vm.load_module(m.form_module,'',{participant_record:participant_record,goback:1});
