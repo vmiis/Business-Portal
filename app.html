@@ -90,10 +90,10 @@
             "isi-data":      	  			{"url":"$A/modules/i/insomnia-severity-index-data.html","App":"module","Table":"isi","form_module":"isi-form"},
     		"isi-form":      	  			{"url":"$A/modules/i/insomnia-severity-index-form.html","App":"module","Table":"isi"},
 
-            "layout-with-fixed-header-and-footer-index":                {"url":"$A/apps/l/layout-with-fixed-header-and-footer-index.html","router":1},
-            "layout-with-fixed-header-and-scrollable-footer-index":     {"url":"$A/apps/l/layout-with-fixed-header-and-scrollable-footer-index.html","router":1},
-            "layout-with-scrollable-header-and-footer-index":           {"url":"$A/apps/l/layout-with-scrollable-header-and-footer-index.html","router":1},
-            "layout-with-side-nav-and-fixed-footer-index":              {"url":"$A/apps/l/layout-with-side-nav-and-fixed-footer-index.html","router":1},
+            "layout-with-fixed-header-and-footer-index":                {"url":"$A/apps/l/layout-with-fixed-header-and-footer-index.html"},
+            "layout-with-fixed-header-and-scrollable-footer-index":     {"url":"$A/apps/l/layout-with-fixed-header-and-scrollable-footer-index.html"},
+            "layout-with-scrollable-header-and-footer-index":           {"url":"$A/apps/l/layout-with-scrollable-header-and-footer-index.html"},
+            "layout-with-side-nav-and-fixed-footer-index":              {"url":"$A/apps/l/layout-with-side-nav-and-fixed-footer-index.html"},
             "long-page":  		  	 		                            {"url":"$A/modules/l/long-page.html","router":1},
 
             "medical-history-data":         {"url":"$A/modules/m/medical-history-data.html","App":"module","Table":"medical-history","form_module":"medical-history-form"},
@@ -136,6 +136,7 @@
             "room-booking":   			    {"url":"$A/modules/r/room-booking.html","App":"module","Table":"room","booking_form":"room-booking-record-form","router":1},
             "room-booking-calendar": 	    {"url":"$A/modules/r/room-booking-calendar.html","App":"module","Table":"room-booking-record",
                                             "booking":"room-booking","booking_form":"room-booking-record-form","router":1},
+            "room-booking-app":   			{"url":"$A/apps/r/room-booking-index.html"},
 
             "screening-data":      			{"url":"$A/modules/s/screening-data.html","App":"module","Table":"screening","form_module":"screening-form"},
     		"screening-form":      			{"url":"$A/modules/s/screening-form.html","App":"module","Table":"screening"},
@@ -218,17 +219,19 @@
         //------------------------------------
         set_layout();
         //-----------------------------------------
-        $vm.show=function(id){
-            $vm.active_id=id;
+        $vm.show=function(m_name){
             document.title=$vm.default_title;
             $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
             $("body").removeClass();
             $("body").addClass('body_background_default');
-            if(id!=undefined && $vm.vm[id]!=undefined && $vm.vm[id].show!=undefined) $vm.vm[id].show();
-            if(id!=undefined){
-                $('#D'+id).css('overflow','auto');
-                $('#D'+id).css('min-height','unset');
-                $('#D'+id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+            
+            $vm.active_id=undefined;
+            if(m_name!=undefined) $vm.active_id=$vm.module_list[m_name].id;
+            if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
+            if($vm.active_id!=undefined){
+                $('#D'+$vm.active_id).css('overflow','auto');
+                $('#D'+$vm.active_id).css('min-height','unset');
+                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -315,7 +318,7 @@
         $('#vm-menu a').on('click',function(e){
             e.preventDefault();
             var href=$(this).attr('href');
-            if(href.substring(0,8)=="https://"){ window.open(href); return;}
+            if(href!=undefined && href!='' && href.substring(0,8)=="https://"){ window.open(href); return;}
             if(href!=undefined && href!=''){
                 if($vm.menu_click!=undefined) $vm.menu_click(href);
             }

@@ -107,6 +107,7 @@
     			<li><a href=?/radio-data>Radio field</a></li>
                 <li><a href=?/room-data>Room</a></li>
                 <li><a href=?/room-booking>Room booking</a></li>
+                <li><a app href=?/room-booking-app>Room booking app</a></li>
                 <li><a href=?/room-booking-calendar>Room booking calendar</a></li>
                 <li><a href=?/room-booking-record-data>Room booking record</a></li>
             </ul>
@@ -157,7 +158,7 @@
     <script>
         function F__ID(){
             //--------------------------------------------------------
-            $vm.vm["__ID"].show=function(){
+            $vm.module_list["__MODULE__"].show=function(){
                 document.title="Panel | "+$vm.default_title;
                 $("meta[name='description']").attr("content","Control Panel");
             }
