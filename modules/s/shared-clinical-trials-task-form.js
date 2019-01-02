@@ -26,6 +26,7 @@ var I=0; var loop_1=setInterval(function (){
 var load=m.load;
 m.load=function(){
     load();
+    if($vm.online_questionnaire==1) $('#pdf__ID').hide();
     //--------------------------
     if(m.input!=undefined && m.input.participant_record!=undefined){
         //new from child panel
