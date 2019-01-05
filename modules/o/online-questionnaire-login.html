@@ -9,9 +9,9 @@
 </div>
 <script>
     function F__ID(){
-        //---------------------
-        var query={App:'module',Table:'participant'}
-        //---------------------
+        //-------------------------------------
+        var m=$vm.module_list['__MODULE__'];
+        //-------------------------------------
 		$('#username__ID').val('');
         $('#password__ID').val('');
 		var search=window.location.search
@@ -32,12 +32,12 @@
 			$('#ErrMsg__ID').text("");
             var username=$('#username__ID').val();
             var password=$('#password__ID').val();
-            $vm.request({cmd:"client-signin",query:query,field:'_Password',username:username,password:password},function(res){
-                if(res.permission==false){
+            $vm.request({cmd:"client-signin",table:m.Table,field:'_Password',username:username,password:password},function(res){
+                if(res.sys.permission==false){
                     $('#ErrMsg__ID').text("Invalid participant login ID or password.")
                     return;
                 }
-                if(res.records.length==1){
+                if(res.ok==1){
                     $vm.user_name=username;
                     $vm.set_token(res.sys.token,username);
                     $vm.online_questionnaire=1;
@@ -45,7 +45,7 @@
                     var x = document.getElementById("vm_signout");
                     x.className="";
                     var items=username.split('-');
-                    $vm.load_module("quest-panel",'',{record:res.records[0]});
+                    $vm.load_module("quest-panel",'',{record:res.result});
                 }
                 else{
                     $('#ErrMsg__ID').text("Invalid participant login ID or password.")
