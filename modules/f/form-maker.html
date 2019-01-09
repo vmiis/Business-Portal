@@ -69,7 +69,12 @@
                 $.get('__CURRENT_PATH__/form-maker-form.html',function(txt){ 
                     txt=txt.replace('@@@',$('#fields__ID').val().replace(/\n/g,'').replace(/ /g,''));
                     txt=txt.replace('###',$('#form__ID').val().replace(/-form.html/g,'').replace(/_/g,' '));
-                    download($('#form__ID').val(),txt);
+                    if (navigator.appVersion.toString().indexOf('Edge') > 0){
+                        download2($('#form__ID').val(),txt);
+                    }
+                    else{                
+                        download1($('#form__ID').val(),txt);
+                    }
                 },'text')
             })
             //----------------------------------------------
