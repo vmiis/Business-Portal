@@ -36,3 +36,5 @@ m.new=function(){
     }
 }
 //-------------------------------------
+m.fields="_Form,_Status,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
+//-------------------------------------
