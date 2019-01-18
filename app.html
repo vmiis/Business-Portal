@@ -134,6 +134,8 @@
     		"prices":  		  	  			{url:"$A/modules/p/prices.html",router:1},
     		"participant-data":   			{url:"$A/modules/p/participant-data.html",Table:"participant",form_module:"participant-form",router:1},
     		"participant-form":   			{url:"$A/modules/p/participant-form.html",Table:"participant"},
+    		"participant-apap-data":   		{url:"$A/modules/p/participant-apap-data.html",Table:"apap-participant",form_module:"participant-apap-form",router:1},
+    		"participant-apap-form":   		{url:"$A/modules/p/participant-apap-form.html",Table:"apap-participant"},
             "psqi-data":                    {url:"$A/modules/p/pittsburgh-sleep-quality-index-data.html",Table:"psqi",form_module:"psqi-form"},
     		"psqi-form":   			        {url:"$A/modules/p/pittsburgh-sleep-quality-index-form.html",Table:"psqi"},
 
@@ -155,6 +157,11 @@
             "room-booking-calendar": 	    {url:"$A/modules/r/room-booking-calendar.html",Table:"room-booking-record",
                                             "booking":"room-booking","booking_form":"room-booking-record-form",router:1},
             "room-booking-app":   			{url:"$A/apps/r/room-booking-index.html"},
+
+            "randomisation-table-low-data": {url:"$A/modules/r/randomisation-table-data.html",Table:"apap-randomisation-low",form_module:"randomisation-table-low-form"},
+            "randomisation-table-low-form": {url:"$A/modules/r/randomisation-table-form.html",Table:"apap-randomisation-low"},
+            "randomisation-table-high-data":{url:"$A/modules/r/randomisation-table-data.html",Table:"apap-randomisation-high",form_module:"randomisation-table-high-form"},
+            "randomisation-table-high-form":{url:"$A/modules/r/randomisation-table-form.html",Table:"apap-randomisation-high"},
 
             "screening-data":      			{url:"$A/modules/s/screening-data.html",Table:"screening",form_module:"screening-form"},
     		"screening-form":      			{url:"$A/modules/s/screening-form.html",Table:"screening"},
