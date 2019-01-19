@@ -5,7 +5,7 @@
 		</div>
 		<form id=F__ID>
 			<div class="container">
-				<div class='row row__ID' id=row_participant__ID>
+				<div class='row row__ID row_participant__ID'>
 					<div class="col">
 						<span>Participant ID</span>
 						<input type=text class=form-control id=record__ID readonly >
@@ -48,19 +48,19 @@
 					</div>
 				</div>
 	
-				<div class='row row__ID'>
+				<div class='row row__ID row_participant__ID'>
 					<div class="col">
-						<span>Low_CO2_Randomisation_Number</span>
+						<span>Low CO2 Randomisation Number</span>
 						<input type=text class=form-control name=Low_CO2_Randomisation_Number readonly>
 					</div>
 				</div>
-				<div class='row row__ID'>
+				<div class='row row__ID row_participant__ID'>
 					<div class="col">
-						<span>High_CO2_Randomisation_Number</span>
+						<span>High CO2 Randomisation Number</span>
 						<input type=text class=form-control name=High_CO2_Randomisation_Number readonly>
 					</div>
 				</div>
-				<div class='row row__ID'>
+				<div class='row row__ID row_participant__ID'>
 					<div class="col">
 						<span>Randomised by</span>
 						<input type=text class=form-control name=Randomised_by readonly>
@@ -85,16 +85,62 @@
 			m.load=function(){
 				load();
 				if(m.input.record==undefined){
-					$('#row_participant__ID').hide()
+					$('.row_participant__ID').hide()
 					$('#F__ID input[name=_Password').val($vm.vm_password(8,false));
 				}
 				else{
-					$('#row_participant__ID').show()
+					$('.row_participant__ID').show()
 					$('#record__ID').val(m.input.record.UID)
 				}
 			}
 			//-------------------------------------
-            $('#D__ID input[name=Low_CO2_Randomisation_Number]').on('click',function(){   cal();  })
+            $('#F__ID input[name=Low_CO2_Randomisation_Number]').on('click',function(){   
+				var I1=$('#F__ID input[name=Low_CO2_Randomisation_Number').val();
+				if(I1==''){
+					$vm.request({cmd:"aggregate",table:m.Table,aggregate:[
+						{$group: {_id:null,max_I1: {$max: "$I1"}}},
+					]},function(res){
+						console.log(res.result);
+						if(res.sys.permission==false){
+							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+							return;
+						}
+						var max_I1=0;
+						if(res.result.length>0) max_I1=res.result[0].max_I1
+						max_I1++;
+						$('#F__ID input[name=Low_CO2_Randomisation_Number').val(max_I1);
+						$('#F__ID input[name=High_CO2_Randomisation_Number').val('-');
+						$('#F__ID input[name=Randomised_by').val($vm.user_name);
+					})
+				}
+			})
+			//-------------------------------------
+            $('#F__ID input[name=High_CO2_Randomisation_Number]').on('click',function(){   
+				var I2=$('#F__ID input[name=High_CO2_Randomisation_Number').val();
+				if(I2==''){
+					$vm.request({cmd:"aggregate",table:m.Table,aggregate:[
+						{$group: {_id:null,max_I2: {$max: "$I2"}}},
+					]},function(res){
+						console.log(res.result);
+						if(res.sys.permission==false){
+							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+							return;
+						}
+						var max_I2=0;
+						if(res.result.length>0) max_I2=res.result[0].max_I2
+						max_I2++;
+						$('#F__ID input[name=Low_CO2_Randomisation_Number').val('-');
+						$('#F__ID input[name=High_CO2_Randomisation_Number').val(max_I2);
+						$('#F__ID input[name=Randomised_by').val($vm.user_name);
+					})
+				}
+			})
+			//-------------------------------------
+			m.before_submit=function(data,index){
+				var I1=$('#F__ID input[name=Low_CO2_Randomisation_Number').val();	if(I1!='' && I1!='-') index.I1=parseInt(I1);
+				var I2=$('#F__ID input[name=High_CO2_Randomisation_Number').val();	if(I2!='' && I2!='-') index.I2=parseInt(I2);
+			}
+			//-------------------------------------
 		}
 	</script>
 	<style>

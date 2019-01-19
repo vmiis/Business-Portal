@@ -9,64 +9,17 @@
             //-------------------------------------
             
             //-------------------------------------
-            var fields="_Participant_ID,Subject_ID,Low_CO2_Randomisation_Number|V1,High_CO2_Randomisation_Number|V2,Randomised_by,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+            //var fields="_Participant_ID,Subject_ID,Low_CO2_Randomisation_Number|I1,High_CO2_Randomisation_Number|I2,Randomised_by,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry,_Setup,_Quest,_Login_ID,_Password";
+            var fields="_Participant_ID,Subject_ID,Low_CO2_Randomisation_Number|I1,High_CO2_Randomisation_Number|I2,Randomised_by,Screening_Number,Subject_Initials,Gender,DOB,_Data_Entry";
             m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
             var login_setup_module="online-questionnaire-setup";
             var login_setup_tid=$vm.module_list[login_setup_module].Table;
-            var data_entry_module="panel-child";
             var online_questionnaire=$vm.public_url_$B;
             if($vm.localhost==true) online_questionnaire=$vm.local_url_$B;
             //-------------------------------------
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
-                    /*
-    				case "V1"://'Low_CO2_Randomisation_Number':
-                        if(records[I].UID==undefined) return;
-                        //if(records[I]["V2"]!="0"){ td.html("-"); return;}
-
-                        td.html(records[I][field]);
-                        if(records[I][field]=="0") td.html("");
-    					if(records[I][field]==undefined || records[I][field]=='' || records[I][field]=='0'){
-                            td.on('click', function(){
-                                if(records[I].Data["V2"]==undefined || records[I].Data["V2"]=='' || records[I].Data["V2"]=='0'){
-                                    
-                                    $vm.request({cmd:"aggregate",table:m.Table,aggregate:[{$max:"Data.V1"}] },function(res){
-                                        if(res.sys.permission==false){
-                                            $vm.alert("No permission. Private database table, ask the table's owner for permissions.");
-                                            return;
-                                        }
-                                        console.log(res.result);
-                                    })
-                                }
-                            })
-    					}
-				        break;
-                    case "V2"://'High_CO2_Randomisation_Number':
-                        if(records[I].UID==undefined) return;
-                        //if(records[I]["V1"]!="0"){ td.html("-"); return;}
-
-                        td.html(records[I][field]);
-                        if(records[I][field]=="0") td.html("");
-                        if(records[I][field]==undefined || records[I][field]=='' || records[I][field]=='0'){
-    						td.on('click', function(){
-                                if(records[I]["V1"]==undefined || records[I]["V1"]=='' || records[I]["V1"]=='0'){
-                                    var sql="select top 1 RN=max(V2) from [TABLE-"+m.db_pid+"]";
-                                    $VmAPI.request({data:{cmd:'read',qid:m.qid,sql:sql},callback:function(res){
-                                        if(res.records.length==1){
-                                            var RN=parseInt(res.records[0].RN)+1;
-                                            RN=RN.toString()
-                                            td.html(RN);
-                                            records[I].Randomised_by=$vm.user;
-                                            set_value(RN,records,I,field);
-                                            td.parent().find("td[data-id='Randomised_by']").html($vm.user);
-                                        }
-                                    }})
-                                }
-    						})
-    					}
-                        break;
-                        */
                     case 'DOB':
                         break;
                     case '_Participant_ID':
@@ -75,7 +28,7 @@
                     case '_Data_Entry':
                         td.html("<u style='cursor:pointer'>Data Entry</u>");
                         td.find('u').on('click',function(){
-    						$vm.load_module(data_entry,'',{record:records[I]});
+    						$vm.load_module(m.panel,'',{record:records[I]});
                         });
                         break;
                     case '_Setup':

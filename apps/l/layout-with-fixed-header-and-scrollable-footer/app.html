@@ -37,13 +37,7 @@
             "about-vmiis":    			    {"url":"$A/modules/a/about-vmiis.html","router":1},
         }
         //------------------------------------
-        $vm.local_url=function(url){
-            var urlR=url.replace("$A","https://www.vmiis.com");
-            if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com','http://127.0.0.1:8000/vmiis/business-portal');
-            return urlR;
-        }
-        //------------------------------------
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
+        for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
         //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
@@ -63,7 +57,8 @@
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
             if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+$vm.active_id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#scroll').css('height',($('body').height()-$('#header').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -79,9 +74,13 @@
             if(m_name!=undefined) $vm.active_id=$vm.module_list[m_name].id;
             if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
             if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('overflow','auto');
-                $('#D'+$vm.active_id).css('min-height','unset');
-                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+$vm.active_id).css('height','unset');
+                $('#D'+$vm.active_id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+$vm.active_id).css('overflow','unset');
+                $('#D'+$vm.active_id).css('overflow-x','auto');
+                $('#scroll').css('height',($('body').height()-$('#header').outerHeight())+"px");
+                $('#scroll').css('overflow-y','auto');
+                if(m_name=='home') $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -114,7 +113,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk002.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk003.jpg);}
         #content{
         }
         #vm-logo-label-A{

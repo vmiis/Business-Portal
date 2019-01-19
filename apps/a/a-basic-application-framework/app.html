@@ -14,8 +14,14 @@
             </div>
             <div menu id="vm-menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/short-page">Short</a>
-                <a href="?/long-page">Long</a>
+                <div class="vm-dropdown">
+                    <span class="vm-dropbtn">Modules <i class="fa fa-caret-down"></i></span>
+                    <div class="vm-dropdown-content">
+                        <a href="?/under-construction">Under construction</a>
+                        <a href="?/not-ready">Not ready</a>
+                        <a href="?/comming-soon">Comming soon</a>
+                    </div>
+                </div>
                 <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
                 <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
                 <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
@@ -32,18 +38,13 @@
         //------------------------------------
         $vm.module_list={
             "home":                         {"url":"$A/modules/h/home.html","router":1},
-            "short-page": 		            {"url":"$A/modules/s/short-page.html","router":1},
-            "long-page": 		            {"url":"$A/modules/l/long-page.html","router":1},
             "about-vmiis":    			    {"url":"$A/modules/a/about-vmiis.html","router":1},
+            "under-construction": 		    {"url":"$A/modules/u/under-construction.html",text:"Under Construction","router":1},
+            "not-ready": 		            {"url":"$A/modules/u/under-construction.html",text:"Not Ready","router":1},
+            "comming-soon": 		        {"url":"$A/modules/u/under-construction.html",text:"Comming soon...","router":1},
         }
         //------------------------------------
-        $vm.local_url=function(url){
-            var urlR=url.replace("$A","https://www.vmiis.com");
-            if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com','http://127.0.0.1:8000/vmiis/business-portal');
-            return urlR;
-        }
-        //------------------------------------
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
+        for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
         //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
@@ -63,8 +64,7 @@
             var footer_height=$('#footer').outerHeight(); $vm.footer_height=footer_height;
             $vm.min_height=($(window).height()-header_height-footer_height);
             if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
-                $('#scroll').css('height',($('body').height()-$('#header').outerHeight())+"px");
+                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -75,18 +75,14 @@
             $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
             $("body").removeClass();
             $("body").addClass('body_background_default');
-            
+
             $vm.active_id=undefined;
             if(m_name!=undefined) $vm.active_id=$vm.module_list[m_name].id;
             if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
             if($vm.active_id!=undefined){
-                $('#D'+$vm.active_id).css('height','unset');
-                $('#D'+$vm.active_id).css('min-height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
-                $('#D'+$vm.active_id).css('overflow','unset');
-                $('#D'+$vm.active_id).css('overflow-x','auto');
-                $('#scroll').css('height',($('body').height()-$('#header').outerHeight())+"px");
-                $('#scroll').css('overflow-y','auto');
-                if(m_name=='home') $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
+                $('#D'+$vm.active_id).css('overflow','auto');
+                $('#D'+$vm.active_id).css('min-height','unset');
+                $('#D'+$vm.active_id).css('height',($('body').height()-$('#header').outerHeight()-$('#footer').outerHeight())+"px");
             }
         }
         //------------------------------------
@@ -119,7 +115,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk003.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk001.jpg);}
         #content{
         }
         #vm-logo-label-A{

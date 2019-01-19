@@ -9,8 +9,8 @@
         //--------------------------------------------------------
         m.request_and_render=function(){
             var mt1=new Date().getTime();
-            $vm.request({cmd:"find",query:{App:m.App,Table:m.Table},options:{}},function(res){
-                if(res.permission==false){
+            $vm.request({cmd:"find",table:m.Table,options:{}},function(res){
+                if(res.sys.permission==false){
                     alert("No permission to get room information.");
                     return;
                 }
@@ -19,9 +19,9 @@
                 var tt_all=mt2-mt1;
                 var tt_server=parseInt(res.sys.elapsed_time);
                 if(tt_all<tt_server) tt_all=tt_server;
-                $("#elapsed__ID").text((JSON.stringify(res.records).length/1000).toFixed(1)+"kb/"+tt_all.toString()+"ms/"+tt_server+'ms');
+                $("#elapsed__ID").text((JSON.stringify(res.result).length/1000).toFixed(1)+"kb/"+tt_all.toString()+"ms/"+tt_server+'ms');
                 //-----------------------
-                m.records=res.records;
+                m.records=res.result;
                 var txt="<tr><th style='width:200px;text-align:left'>Room</th>";
                 for(var j=0;j<12;j++){
                     txt+="<th colspan=2 style='width:8%;text-align:left'>"+$vm.pad((8+j),2)+":00</th>";
@@ -33,8 +33,8 @@
                 for(var i=0;i<m.records.length;i++){
                     var id=m.records[i]._id;
                     var uid=m.records[i].UID;
-                    var room_number=res.records[i].Data.Number;
-                    var room_name=res.records[i].Data.Name;
+                    var room_number=m.records[i].Data.Number;
+                    var room_name=m.records[i].Data.Name;
                     txt+="<tr><td style='display:none'>"+id+"</td><td style='display:none'>"+uid+"</td>";
                     txt+="<td style='display:none'>"+room_number+"</td><td style='display:none'>"+room_name+"</td>";
                     txt+="<td style='width:100px'>"+room_number+' - '+room_name+"</td>";
@@ -64,12 +64,12 @@
                         var date=$('#date__ID').val();
                         var time=$vm.pad((8+Math.floor(j/2)),2)+":"+$vm.pad(30*(j%2),2);
                         var record={}
-                        record.UID=uid,
                         record.Data={
                             Room_number:room_number,
                             Room_name:room_name,
                             Date:date,
                             Time:time,
+                            Room_uid:uid,
                         }
                         $vm.load_module(m.booking_form,'',{record:record,goback:1});
                     })
@@ -82,21 +82,21 @@
             var m1=m.booking_form;
             var table=$vm.module_list[m1].Table;
             var date=$('#date__ID').val();
-            $vm.request({cmd:"find",query:{App:m.App,Table:table,I1:date},options:{}},function(res){
+            $vm.request({cmd:"find",table:table,query:{I1:date},options:{}},function(res){
                 if(res.permission==false){
                     alert("No permission to read room booking records.");
                     return;
                 }
                 //-----------------------
-                for(var i=0;i<res.records.length;i++){
-                    var rid			=res.records[i]._id;
-                    var uid			=res.records[i].I3;
-                    var contact		=res.records[i].Data.Contact_name; if(contact==='') contact='No Contact';
-                    var date		=res.records[i].Data.Date; date=$vm.date_parse(date);
-                    var time		=res.records[i].Data.Time;
-                    var duration_0	=res.records[i].Data.Duration;
-                    var color		=res.records[i].Data.Color;
-                    var author		=res.records[i].Submitted_by;
+                for(var i=0;i<res.result.length;i++){
+                    var rid			=res.result[i]._id;
+                    var uid			=res.result[i].I3;
+                    var contact		=res.result[i].Data.Contact_name; if(contact==='') contact='No Contact';
+                    var date		=res.result[i].Data.Date; date=$vm.date_parse(date);
+                    var time		=res.result[i].Data.Time;
+                    var duration_0	=res.result[i].Data.Duration;
+                    var color		=res.result[i].Data.Color;
+                    var author		=res.result[i].Submitted_by;
                     //----------------------
                     var duration	=parseFloat(duration_0);
                     var num=duration/0.5;
@@ -116,26 +116,19 @@
                             $cell.html('<u style="cursor:pointer;color:'+$vm.invert_color(color)+'">'+contact+'</u>');
                             $cell.find('u').data("rid",rid);
                             $cell.find('u').data("author",author);
-                            $cell.find('u').on('click',on_click_edit_fun);
+                            //$cell.find('u').on('click',on_click_edit_fun);
+                            put_cell_booking_click($cell,res.result[i])
                         }
                     }
                 }
             })
         };
         //-----------------------------------
-        var on_click_edit_fun=function(){
-            var rid=$(this).data('rid');
-            var m1=m.booking_form;
-            var table=$vm.module_list[m1].Table;
-            var date=$('#date__ID').val();
-            $vm.request({cmd:"find",query:{App:m.App,Table:table,_id:rid},options:{}},function(res){
-                if(res.permission==false){
-                    alert("No permission to read room booking records.");
-                    return;
-                }
-                $vm.load_module(m.booking_form,'',{record:res.records[0],goback:1});
-            })
-        };
+        var put_cell_booking_click=function($cell,record){
+            $cell.find('u').on('click',function(){
+                $vm.load_module(m.booking_form,'',{record:record,goback:1});
+            });
+        }
         //--------------------------------------------------------
         $('#D__ID').on('load',function(){
             var d=m.input.day;
