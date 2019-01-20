@@ -25,6 +25,21 @@ m.cell_render=function(records,I,field,td){
         case '_Participant_ID':
             td.html(records[I].Data.Participant_uid);
             break;
+        case '_Notes':
+            var notes='Notes';
+            if(records[I].Notes!=undefined){
+                var n1=records[I].Notes.split('{\n}')[0];
+                var n2=n1.split('\n').pop();
+                if(n2.length>0){
+                    notes=n2;
+                    if(notes.length>10) notes=notes.substring(0,10)+"...";
+                }
+            }
+            td.html("<u style='cursor:pointer'>"+notes+"</u>");
+            td.find('u').on('click',function(){
+                $vm.load_module('notes','',{record:records[I]});
+            });
+            break;
     }
 }
 //-------------------------------------
