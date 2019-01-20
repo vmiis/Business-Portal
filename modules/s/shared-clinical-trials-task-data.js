@@ -28,10 +28,10 @@ m.cell_render=function(records,I,field,td){
         case '_Notes':
             var notes='Notes';
             if(records[I].Notes!=undefined){
-                var n1=records[I].Notes.split('{\n}')[0];
-                var n2=n1.split('\n').pop();
-                if(n2.length>0){
-                    notes=n2;
+                var n1=records[I].Notes.split('\n')[0];
+                //var n2=n1.split('\n').pop();
+                if(n1.length>0){
+                    notes=n1;
                     if(notes.length>10) notes=notes.substring(0,10)+"...";
                 }
             }

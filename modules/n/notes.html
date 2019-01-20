@@ -35,17 +35,17 @@
             var load2=m.load;
             m.load=function(){
                 load2();
-                var txt=$vm.text(m.input.record.Notes);
+                var txt=m.input.record.Notes;
                 txt=txt.replace(/{\n}/g,'<hr>');
                 txt=txt.replace(/\n/g,'<br>');
                 $('#notes__ID').html(txt);
             }
             $('#submit__ID').on('click',function(){
-                old_notes=m.input.record.Notes;
-                new_notes=$('#new_notes__ID').val();
+                var old_notes=m.input.record.Notes; if(old_notes==undefined) old_notes="";
+                var new_notes=$vm.text($('#new_notes__ID').val());
                 if(new_notes!=''){
-                    var txt="Submiited by "+$vm.user_name+" on "+new Date().toLocaleString()+"\n";
-                    txt=txt+new_notes+"{\n}";
+                    var txt=new_notes+"\n";
+                    txt=txt+"<span class=notes_signature__ID>Submiited by "+$vm.user_name+" on "+new Date().toLocaleString()+"</span>{\n}";
                     txt=txt+old_notes;
                     $vm.request({cmd:"insert-notes",table:m.input.record.Table,id:m.input.record._id,Notes:txt},function(res){
                         if(res.sys.permission==false){
@@ -61,5 +61,10 @@
     </script>
     <style>
         VmInclude:__COMPONENT__/f/form.01.css
+        .notes_signature__ID{
+            float:right;
+            color:#888;
+            font-size:10px;
+        }
     </style>
 </div>
