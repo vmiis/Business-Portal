@@ -36,6 +36,7 @@
             m.load=function(){
                 load2();
                 var txt=m.input.record.Notes;
+                if(txt==undefined) txt="";
                 txt=txt.replace(/{\n}/g,'<hr>');
                 txt=txt.replace(/\n/g,'<br>');
                 $('#notes__ID').html(txt);

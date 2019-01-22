@@ -43,7 +43,10 @@
                 $("meta[name='description']").attr("Services");
                 $("body").removeClass();
                 $("body").addClass('body_background_study__ID');
-    		}
+            }
+            $('#page__ID button').on('click',function(){
+                $vm.load_module("short-page","",{});
+            })
         }
     </script>
     <style>
