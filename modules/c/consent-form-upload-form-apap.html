@@ -1,7 +1,7 @@
 <div id=D__ID>
     <div id=form_container__ID>
         <div id=header__ID>
-            Visit Date
+            Consent Form
         </div>
         <form id=F__ID>
             <div class="container">
@@ -20,42 +20,16 @@
                 <!---------------------------------------------------->
 
                 <!-- Form Inputs-------------------------------------->
-                <div class='row row__ID'>
-    				<div class="col">
-    					<span>Medical/Surgical History</span>
-    					<input type=text class=form-control name=Medical_history>
+                <div class="row row__ID">
+    				<div class=col>
+    					<span>File</span>
+                        <div class="form-control">
+                            <u style='cursor:pointer' id=link_Consent_form__ID></u>
+                            <br>
+                            <input type="file" name=Consent_form style="margin-top:6px" /> <button type="button" id=x_Consent_form__ID>Remove</button>
+                        </div>
     				</div>
     			</div>
-                <div class='row row__ID'>
-    				<div class="col">
-    					<span>Start Date</span>
-    					<input type=date class=form-control name=Start_date>
-    				</div>
-    			</div>
-                <div class='row row__ID'>
-    				<div class="col">
-    					<span>Stop Date</span>
-    					<input type=date class=form-control  name=Stop_date>
-    				</div>
-    			</div>
-
-
-                <div class='row row__ID'>
-                  <div class="col">
-                    <span>Ongoing (Yes or No)</span>
-                    <br>
-                    <div class="form-check form-check-inline">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="Ongoing" value="Yes"> Yes
-                      </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <label class="form-check-label">
-                        <input class="form-check-input" type="radio" name="Ongoing" value="No"> No
-                      </label>
-                    </div>
-                  </div>
-                </div>
                 <!---------------------------------------------------->
 
                 <!-- submit button part for all tsak forms------------>
@@ -69,11 +43,18 @@
             </div>
         </form>
     </div>
+    VmInclude:__COMPONENT__/m/model.01.html
     <script>
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
-            VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-form.js
+            VmInclude:__CURRENT_PATH__/../../s/shared-task-form-apap.js
+            //-------------------------------------
+            m.old_load=m.load;
+            m.load=function(){
+                m.old_load();
+                m.set_file_link("Consent_form");
+            }
             //-------------------------------------
         }
     </script>

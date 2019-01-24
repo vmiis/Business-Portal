@@ -6,22 +6,20 @@
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
-            VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-data.js
+            VmInclude:__CURRENT_PATH__/../../s/shared-task-data-apap.js
             //-------------------------------------
-            var fields="narcotics,smoking,smoking_day,smoking_year,smoking_stop,alcohol,alcohol_week";
-            m.fields="_Form,_Status,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
+            var fields="Consent_form";
+            m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
-            /*
             var cell_render=m.cell_render;
             m.cell_render=function(records,I,field,td){
                 cell_render(records,I,field,td);
                 switch(field){
-                    case 'Visit_date':
-                        td.html($vm.date_to_ddmmyyyy(records[I].Data[field]));
+                    case 'Consent_form':
+                        m.set_file_link(records,I,field,td)
                         break;
                 }
             }
-            */
             //-------------------------------------
         }
     </script>

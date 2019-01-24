@@ -1,9 +1,9 @@
 <div id=D__ID>
-    <section id=form_container__ID>
+    <div id=form_container__ID>
         <div id=header__ID>
-    	    Pulse Wave Analysis
-    	</div>
-    	<form id=F__ID>
+            Medical History
+        </div>
+        <form id=F__ID>
             <div class="container">
                 <!-- participant part for all tsak forms -------------------->
                 <div class="row row__ID" id=row_participant__ID>
@@ -21,41 +21,42 @@
 
                 <!-- Form Inputs-------------------------------------->
                 <div class='row row__ID'>
-                    <div class="col">
-                        <span>FILE UPLOAD (PDF)</span>
-						<div class="form-control">
-                            <u style='cursor:pointer' id=link_file__ID></u>
-                            <br>
-                            <input type="file" name=file style="margin-top:6px" /> <button type="button" id=x_file__ID>Remove</button>
-                        </div>
-                    </div>
-                </div>
+    				<div class="col">
+    					<span>Medical/Surgical History</span>
+    					<input type=text class=form-control name=Medical_history>
+    				</div>
+    			</div>
                 <div class='row row__ID'>
-                    <div class="col">
-                        <span>Brachial Blood Pressure</span>
-                        <input type=text class=form-control name=brachial>
-                    </div>
-                </div>
+    				<div class="col">
+    					<span>Start Date</span>
+    					<input type=date class=form-control name=Start_date>
+    				</div>
+    			</div>
                 <div class='row row__ID'>
-                    <div class="col">
-                        <span>Pulse Pressure</span>
-                        <input type=text class=form-control name=pulse>
-                    </div>
-                </div>
+    				<div class="col">
+    					<span>Stop Date</span>
+    					<input type=date class=form-control  name=Stop_date>
+    				</div>
+    			</div>
+
+
                 <div class='row row__ID'>
-                    <div class="col">
-                        <span>Augmentation Pressure</span>
-                        <input type=text class=form-control name=aug_pressure>
+                  <div class="col">
+                    <span>Ongoing (Yes or No)</span>
+                    <br>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="Ongoing" value="Yes"> Yes
+                      </label>
                     </div>
-                </div>
-                <div class='row row__ID'>
-                    <div class="col">
-                        <span>Augmentation Index</span>
-                        <input type=text class=form-control name=aug_index>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="radio" name="Ongoing" value="No"> No
+                      </label>
                     </div>
+                  </div>
                 </div>
                 <!---------------------------------------------------->
-
 
                 <!-- submit button part for all tsak forms------------>
                 <br>
@@ -65,21 +66,14 @@
     				</div>
     			</div>
                 <!---------------------------------------------------->
-        	</div>
+            </div>
         </form>
-    </section>
-    VmInclude:__COMPONENT__/m/model.01.html
+    </div>
     <script>
         function F__ID(){
             //-------------------------------------
-            VmInclude:'__COMPONENT__/f/form.01.js'
-            VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-form.js
-            //-------------------------------------
-            var load2=m.load;
-            m.load=function(){
-                load2();
-                m.set_file_link("file");
-            }
+            VmInclude:__COMPONENT__/f/form.01.js
+            VmInclude:__CURRENT_PATH__/../../s/shared-task-form-apap.js
             //-------------------------------------
         }
     </script>
