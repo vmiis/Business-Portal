@@ -1,10 +1,10 @@
 //-------------------------------------
 m.set_req=function(){
     if(m.input!=undefined && m.input.record!=undefined){
-        m.query={Table:m.Table,'Data.Participant_uid':m.input.record.UID.toString()}
+        m.query={'Data.Participant_uid':m.input.record.UID.toString()}
     }
     else{
-        m.query={Table:m.Table}
+        //m.query={Table:m.Table}
     }
 };
 //-------------------------------------

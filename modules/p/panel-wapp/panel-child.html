@@ -134,10 +134,10 @@
 								}
                                 if(count[participant_record.UID.toString()]==undefined) count[participant_record.UID.toString()]={}
                                 count[participant_record.UID.toString()][href]=res.result;
-                                var txt=$li.attr('data-li_text');
+                                var txt=$a.attr('data-a_text');
                                 txt=$('<div/>').html(txt).text();
                                 var num=$('<div/>').html(count[participant_record.UID.toString()][href]).text();
-                                $li.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
+                                $a.html(txt+" <mark style='font-size:9px'>["+num+"]</mark>")
 							});
 						}
     				}

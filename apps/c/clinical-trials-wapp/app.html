@@ -10,12 +10,12 @@
                 <a id="vm-hamburger_button" class=vm-hamburger-button onclick="$vm.toggle()"><i class="fa fa-bars"></i></a>
             </div>
             <div class=vm-desk-logo>
-                <span id=vm-logo-label-A>Business Portal</span><br>
+                <span id=vm-logo-label-A>Cininical Trials</span><br>
                 <span id=vm-logo-label-B>Modular distributed web application</span>
             </div>
             <div menu id="vm-menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/panel">Contents</a>
+                <a href="?/panel-main-wapp">WAPP</a>
                 <a href="https://backoffice.wappsystem.com.au">Backoffice</a>
                 <a href="?/about-vmiis">About</a>
                 <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
@@ -36,8 +36,6 @@
         //Setup each module's Table (you can create your own tables in backoffice)
         $vm.module_list={
             "home":                         {url:"$A/modules/h/home.html",router:1},
-
-            "2-columns-contents": 			{url:"$A/modules/2/2-columns-contents.html",router:1},
 
             "about":  		  	  			       {url:"$A/modules/a/about.html",router:1},
             "about-vmiis":    			           {url:"$A/modules/a/about-vmiis.html",router:1},
@@ -282,33 +280,6 @@
             
             "wa-data-wapp":    			    {url:"$A/modules/w/wa-data-wapp.html",Table:"wa-wapp",form_module:"wa-form-wapp"},
     		"wa-form-wapp":    			    {url:"$A/modules/w/wa-form-wapp.html",Table:"wa-wapp"},
-
-            "001-data":      	  			{url:"$A/modules/zz/001-data.html",Table:"test",form_module:"001-form"},
-    		"001-form":      	  			{url:"$A/modules/zz/001-form.html",Table:"test"},
-            "002-data":      	  			{url:"$A/modules/zz/002-data.html",Table:"test",form_module:"002-form"},
-    		"002-form":      	  			{url:"$A/modules/zz/002-form.html",Table:"test"},
-            "003-data":      	  			{url:"$A/modules/zz/003-data.html",Table:"test",form_module:"003-form",router:1},
-    		"003-form":      	  			{url:"$A/modules/zz/003-form.html",Table:"test",router:1},
-            "004-data":      	  			{url:"$A/modules/zz/004-data.html",Table:"test",form_module:"004-form"},
-    		"004-form":      	  			{url:"$A/modules/zz/004-form.html",Table:"test"},
-            "005-data":      	  			{url:"$A/modules/zz/005-data.html",Table:"test",form_module:"005-form",router:1},
-    		"005-form":      	  			{url:"$A/modules/zz/005-form.html",Table:"test",router:1},
-            "006-data":      	  			{url:"$A/modules/zz/006-data.html",Table:"test",form_module:"006-form"},
-    		"006-form":      	  			{url:"$A/modules/zz/006-form.html",Table:"test"},
-            "007-data":      	  			{url:"$A/modules/zz/007-data.html",Table:"test",form_module:"007-form"},
-    		"007-form":      	  			{url:"$A/modules/zz/007-form.html",Table:"test"},
-            "008-data":      	  			{url:"$A/modules/zz/008-data.html",Table:"test",form_module:"008-form"},
-    		"008-form":      	  			{url:"$A/modules/zz/008-form.html",Table:"test"},
-            "009-data":      	  			{url:"$A/modules/zz/009-data.html",Table:"test",form_module:"009-form"},
-    		"009-form":      	  			{url:"$A/modules/zz/009-form.html",Table:"test"},
-            "010-data":      	  			{url:"$A/modules/zz/010-data.html",Table:"test",form_module:"010-form"},
-    		"010-form":      	  			{url:"$A/modules/zz/010-form.html",Table:"test"},
-            "011-data":      	  			{url:"$A/modules/zz/011-data.html",Table:"test",form_module:"011-form"},
-    		"011-form":      	  			{url:"$A/modules/zz/011-form.html",Table:"test",router:1},
-            "021":      	  			    {url:"$A/modules/zz/021.html",router:1},
-            "022":      	  			    {url:"$A/modules/zz/022.html",router:1},
-            "023":      	  			    {url:"$A/modules/zz/023.html",Table:"room","booking_form":"room-booking-record-form",router:1},
-
         }
         //------------------------------------
         for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
@@ -383,7 +354,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bg008.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk031.jpg);}
         #content{
         }
         #vm-logo-label-A{

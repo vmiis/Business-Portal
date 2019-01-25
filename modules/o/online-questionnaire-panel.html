@@ -7,23 +7,6 @@
 <script>
 	function F__ID(){
 		//--------------------------------------------------------
-        var q_list={
-            "Screening":[
-                {"module_id":"consent-form","task_name":"Consent"},
-                {"module_id":"ess-form",    "task_name":"Epworth Sleepiness Scale"},
-                {"module_id":"psqi-form",    "task_name":"Pittsburgh sleep quality index"},
-                {"module_id":"dass-form",    "task_name":"Depression anxiety stress scales"},
-                {"module_id":"ffs-form",    "task_name":"Flinders fatigue scale"},
-                {"module_id":"fss-form",    "task_name":"Fatigue severity scale"},
-                {"module_id":"isi-form",    "task_name":"Insomnia severity index"},
-            ],
-            "Visit 1":[
-                {"module_id":"visit-date-form","task_name":"Data of visit"},
-                {"module_id":"anthropometry-form","task_name":"Anthropometry"},
-                {"module_id":"medical-history-form","task_name":"Medical history"},
-                {"module_id":"social-history-form","task_name":"Social history"},
-            ],
-        }
         var id_list;
 		//--------------------------------------------------------
 		$('#D__ID').on('load',function(){
@@ -41,29 +24,22 @@
 		//--------------------------------------------------------
 		var status=[]
 		//---------------------------------
-		var get_task_name=function(m){
-			for(visit in q_list){
-				var sublist=q_list[visit];
-                for(i in sublist){
-					if(m==sublist[i].module_id){
-						return sublist[i].task_name;
-					}
-				}
-			}
-			return "not found";
-		}
-		//---------------------------------
 		var setup_panel=function(){
 			//----------------------------------
 		    var ids=id_list.split(',');
 		    var txt="<ul>";
 		    //----------------------------------
 		    for(var i=0;i<ids.length;i++){
-		        var m=ids[i];
+				var m=ids[i];
 		        if(status[m]==undefined){
 		            status[m]={rid:0}
-		        }
-				var task_name=get_task_name(m);
+				}
+				var task_name="not found";
+				var mm=$vm.module_list[m];
+				if(mm!=undefined){
+					task_name=mm.task_name;
+					status[m].Table=mm.Table;
+				}
 				txt+="<li m="+m+">"+task_name+"</li>";
 		    }
             txt+"</ul>";
@@ -79,20 +55,35 @@
 		        var $li=$(this);
 		        var m=$li.attr('m');
 		        if(status[m].rid==0){
-                    var query={App:$vm.module_list[m].App,Table:$vm.module_list[m].Table}
-                    jQuery.ajaxSetup({async:false});
-                    $vm.request({cmd:"find-s",query:query,options:{}},function(res){
-                        if(res.permission==false){
-                            alert("No permission");
-                            return;
-                        }
-                        if(res.result.length==0){
-		                }
-		                else{
-		                    status[m].rid=1;
-		                }
-                    })
-                    jQuery.ajaxSetup({async:true});
+					if($vm.api_type=="sqlserver"){
+						//-----------------
+						var req={cmd:'read-s2',qid:$vm.qid,db_pid:status[m].Table};
+						//-----------------
+						jQuery.ajaxSetup({async:false});
+						$VmAPI.request({data:req,callback:function(res){
+							if(res.records.length==0){
+							}
+							else{
+								status[m].rid=1;
+							}
+						}})
+						jQuery.ajaxSetup({async:true});
+					}
+					else{
+						jQuery.ajaxSetup({async:false});
+						$vm.request({cmd:"find-s",table:$vm.module_list[m].Table,options:{}},function(res){
+							if(res.permission==false){
+								alert("No permission");
+								return;
+							}
+							if(res.result.length==0){
+							}
+							else{
+								status[m].rid=1;
+							}
+						})
+						jQuery.ajaxSetup({async:true});
+					}
 		        }
 		        if(status[m].rid==0){
 					$li.removeClass('li_not_allowed__ID')
