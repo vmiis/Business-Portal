@@ -26,36 +26,6 @@
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
-        //list all your modules used in your application
-        //Setup each module's App and Table (you can create your own tables in backoffice)
-        $vm.module_list={
-            "home":                             {"url":"$A/modules/o/online-questionnaire-login.html","Table":"apap-participant",
-                                                    questionnaire_panel:"online-questionnaire-panel"
-                                                }   ,
-            "online-questionnaire-panel":  {url:"$A/modules/o/online-questionnaire-panel.html"},
-            
-            "ess-data-apap":       			{url:"$A/modules/e/epworth-sleepiness-scale-data-apap.html",Table:"ess",form_module:"ess-form-apap"},
-    		"ess-form-apap":       			{url:"$A/modules/e/epworth-sleepiness-scale-form-apap.html",Table:"ess",task_name:"Visit 1 - Epworth Sleepiness Scale"},
-            "ess-data-3m-apap":     		{url:"$A/modules/e/epworth-sleepiness-scale-data-apap.html",Table:"ess-3m-apap",form_module:"ess-form-3m-apap"},
-    		"ess-form-3m-apap":     		{url:"$A/modules/e/epworth-sleepiness-scale-form-apap.html",Table:"ess-3m-apap",task_name:"3 Month - Epworth Sleepiness Scale"},
-            "fosq-data-apap":  	  			{url:"$A/modules/f/functional-outcome-of-sleepquestionnaire-data-apap.html",Table:"fosq-apap",form_module:"fosq-form-apap"},
-    		"fosq-form-apap":  	  			{url:"$A/modules/f/functional-outcome-of-sleepquestionnaire-form-apap.html",Table:"fosq-apap",task_name:"Visit 1 - Functional Outcomes of Sleep Questionnaire"},
-            "fosq-data-3m-apap":  	  		{url:"$A/modules/f/functional-outcome-of-sleepquestionnaire-data-apap.html",Table:"fosq-3m-apap",form_module:"fosq-form-3m-apap"},
-    		"fosq-form-3m-apap":  	  		{url:"$A/modules/f/functional-outcome-of-sleepquestionnaire-form-apap.html",Table:"fosq-3m-apap",task_name:"3 Month - Functional Outcomes of Sleep Questionnaire"},
-            "sri-data-apap":      	        {url:"$A/modules/s/sri-data-apap.html",Table:"sri-apap",form_module:"sri-form-apap"},
-    		"sri-form-apap":      	        {url:"$A/modules/s/sri-form-apap.html",Table:"sri-apap",task_name:"Visit 1 - Severe Respiratory Insufficiency Questionnaire"},
-            "sri-data-3m-apap":             {url:"$A/modules/s/sri-data-apap.html",Table:"sri-3m-apap",form_module:"sri-form-3m-apap"},
-    		"sri-form-3m-apap":             {url:"$A/modules/s/sri-form-apap.html",Table:"sri-3m-apap",task_name:"3 Month - Severe Respiratory Insufficiency Questionnaire"},
-        }
-        //------------------------------------
-        //only used for local development and debug
-        $vm.local_url=function(url){
-            var urlR=url.replace("$A","https://www.vmiis.com");
-            if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com','http://127.0.0.1:8000/vmiis/business-portal');
-            return urlR;
-        }
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
-        //------------------------------------
         //Set your default web page title and footer text
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";

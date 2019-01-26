@@ -32,21 +32,6 @@
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
-        $vm.module_list={
-            "home":                         {"url":"$A/modules/h/home.html","router":1},
-            "about-vmiis":    			    {"url":"$A/modules/a/about-vmiis.html","router":1},
-            "room-booking-record-data":    	{"url":"$A/modules/r/room-booking-record-data.html","App":"module","Table":"room-booking-record","form_module":"room-booking-record-form","router":1},
-    		"room-booking-record-form":    	{"url":"$A/modules/r/room-booking-record-form.html","App":"module","Table":"room-booking-record"},
-            "room-data":      	  			{"url":"$A/modules/r/room-data.html","App":"module","Table":"room","form_module":"room-form","router":1},
-    		"room-form":      	  			{"url":"$A/modules/r/room-form.html","App":"module","Table":"room"},
-            "room-booking":   			    {"url":"$A/modules/r/room-booking.html","App":"module","Table":"room","booking_form":"room-booking-record-form","router":1},
-            "room-booking-calendar": 	    {"url":"$A/modules/r/room-booking-calendar.html","App":"module","Table":"room-booking-record",
-                                            "booking":"room-booking","booking_form":"room-booking-record-form","router":1},
-            "room-booking-app":   			{"url":"$A/apps/r/room-booking-index.html"},
-        }
-        //------------------------------------
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-        //------------------------------------
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
         $('#text_0').html(txt);

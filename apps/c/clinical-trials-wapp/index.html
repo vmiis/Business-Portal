@@ -15,17 +15,28 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.39,0.31]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.50,0.50]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
         $vm.local_url_$A='http://127.0.0.1:8000/vmiis/business-portal';
         //------------------------------------
-        //where are your frame and app modules
+        //where are your start modules
+        $vm.start_modules=[
+            "$A/apps/c/clinical-trials-wapp/app.html",
+            "$A/modules/f/frame.html",
+        ]
+        //------------------------------------
+        //modules used in this app
         $vm.module_list={
-            "app":     {"url":"$A/apps/c/clinical-trials-wapp/app.html"},
-            "frame":   {"url":"$A/modules/f/frame.html"},
-        }
+        };
+        //------------------------------------
+        //where are your all other modules
+        $vm.app_modules=[
+            "$A/modules/home.js",
+            "$A/modules/common.js",
+            "$A/modules/wapp.js",
+        ]
         //------------------------------------
         
         
@@ -33,7 +44,7 @@
         
         //------------------------------------
         //Do not need to chang the following code in most cases
-        //The following code will load a framework module and your application module
+        //The following code will load a framework module and your application modules
         //------------------------------------
         $VmAPI={};$vm.start_time=new Date().getTime();
         //------------------------------------
@@ -45,21 +56,22 @@
         }
         //------------------------------------
         if(window.location.hostname=='127.0.0.1' || window.location.hostname=='localhost') $vm.localhost=true;
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
+        for(p in $vm.start_modules) $vm.start_modules[p]=$vm.replace_url($vm.start_modules[p]);
+        for(p in $vm.app_modules) $vm.app_modules[p]=$vm.replace_url($vm.app_modules[p]);
         //------------------------------------
-        $vm._I=0; $vm._boot=function(){
+        $vm._I=0; $vm._N=$vm.start_modules.length+$vm.app_modules.length;
+        $vm._boot=function(){
             $vm._I++;
-            if($vm._I==2){
+            if($vm._I==$vm._N){
+                for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
                 $vm._start();
             }
         }
         //------------------------------------------
-        var url1=$vm.module_list["app"].url;
-        var url2=$vm.module_list["frame"].url;
-        var urls=[url1,url2]; $vm._id=2;
+        $vm._id=2;
         //---------------------------------------------
         var apppath=window.location.href.substring(0, window.location.href.lastIndexOf('/')).split('\/?')[0];
-        $(urls).each(function(index,url){
+        $($vm.start_modules).each(function(index,url){
             var ver=localStorage.getItem(apppath+url+"ver");
             var txt=localStorage.getItem(apppath+url+"txt");
             if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
@@ -74,6 +86,25 @@
             else{
                 console.log('loading from storage. '+url);
                 $('#content').append(txt.replace(/__ID/g,'_'+(index+1)));
+                $vm._boot();
+            }
+        })
+        //---------------------------------------------
+        $($vm.app_modules).each(function(index,url){
+            var ver=localStorage.getItem(apppath+url+"ver");
+            var txt=localStorage.getItem(apppath+url+"txt");
+            if(ver!=$vm.ver[0] || txt==null || $vm.localhost==true){
+                $.get(url+'?_='+new Date().getTime(),function(new_txt){
+                    localStorage.setItem(apppath+url+"txt",new_txt);
+                    localStorage.setItem(apppath+url+"ver",$vm.ver[0]);
+                    console.log('loading from url. '+url);
+                    eval(new_txt);
+                    $vm._boot();
+                },'text');
+            }
+            else{
+                console.log('loading from storage. '+url);
+                eval(txt);
                 $vm._boot();
             }
         })

@@ -26,26 +26,6 @@
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
-        //list all your modules used in your application
-        //Setup each module's App and Table (you can create your own tables in backoffice)
-        $vm.module_list={
-            "home":                             {"url":"$A/modules/o/online-questionnaire-login.html","Table":"participant",
-                                                    questionnaire_panel:"online-questionnaire-panel"
-                                                }   ,
-            "online-questionnaire-panel":       {url:"$A/modules/o/online-questionnaire-panel.html"},
-            
-    		"consent-form-wapp":  			    {url:"$A/modules/c/consent-form-wapp.html",Table:"consent-wapp",task_name:"Consent"},
-    		"background-information-form-wapp": {url:"$A/modules/b/background-information-form-wapp.html",Table:"background-information-wapp",task_name:"Background information"},
-        }
-        //------------------------------------
-        //only used for local development and debug
-        $vm.local_url=function(url){
-            var urlR=url.replace("$A","https://www.vmiis.com");
-            if($vm.localhost==true) urlR=urlR.replace('https://www.vmiis.com','http://127.0.0.1:8000/vmiis/business-portal');
-            return urlR;
-        }
-        for(p in $vm.module_list) $vm.module_list[p].url=$vm.local_url($vm.module_list[p].url);
-        //------------------------------------
         //Set your default web page title and footer text
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
