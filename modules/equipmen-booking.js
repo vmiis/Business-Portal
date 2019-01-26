@@ -1,13 +1,13 @@
 (function(){
     var modules={
-        "equipmen-booking-record-data":    	{url:"$A/modules/e/equipmen-booking-record-data.html",Table:"equipmen-booking-record",form_module:"equipmen-booking-record-form",router:1},
-        "equipmen-booking-record-form":    	{url:"$A/modules/e/equipmen-booking-record-form.html",Table:"equipmen-booking-record"},
-        "equipmen-data":      	  			{url:"$A/modules/e/equipmen-data.html",Table:"equipmen",form_module:"equipmen-form",router:1},
-        "equipmen-form":      	  			{url:"$A/modules/e/equipmen-form.html",Table:"equipmen"},
-        "equipmen-booking":   			    {url:"$A/modules/e/equipmen-booking.html",Table:"equipmen","booking_form":"equipmen-booking-record-form",router:1},
-        "equipmen-booking-calendar": 	    {url:"$A/modules/e/equipmen-booking-calendar.html",Table:"equipmen-booking-record",
-                                                "booking":"equipmen-booking","booking_form":"equipmen-booking-record-form",router:1},
-        "equipmen-booking-app":   			{url:"$A/apps/e/equipmen-booking/index.html"},
+        "equipment-booking-record-data":   	{url:"$A/modules/e/equipment-booking-record-data.html",Table:"equipment-booking-record",form_module:"equipment-booking-record-form",router:1},
+        "equipment-booking-record-form":   	{url:"$A/modules/e/equipment-booking-record-form.html",Table:"equipment-booking-record"},
+        "equipment-data":      	  			{url:"$A/modules/e/equipment-data.html",Table:"equipment",form_module:"equipment-form",router:1},
+        "equipment-form":      	  			{url:"$A/modules/e/equipment-form.html",Table:"equipment"},
+        "equipment-booking":   			    {url:"$A/modules/e/equipment-booking.html",Table:"equipment","booking_form":"equipment-booking-record-form",router:1},
+        "equipment-booking-calendar": 	    {url:"$A/modules/e/equipment-booking-calendar.html",Table:"equipment-booking-record",
+                                                "booking":"equipment-booking","booking_form":"equipment-booking-record-form",router:1},
+        "equipment-booking-app":   			{url:"$A/apps/e/equipment-booking/index.html"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
