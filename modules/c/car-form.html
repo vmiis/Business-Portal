@@ -1,7 +1,7 @@
 <div id=D__ID>
     <section id=form_container__ID>
     	<div id=header__ID>
-    		Equipment
+    		Car
     	</div>
     	<form id=F__ID>
     		<div class="container">
@@ -9,24 +9,28 @@
     				<div class="col">
     					<span>Image</span>
 						<div class="form-control">
-							<img style='cursor:pointer' id=Image__ID></img>
+							<img style='width:220px;cursor:pointer' id=Image__ID></img>
 							<br>
 							<input type="file" name=Image style="margin-top:6px" /> <button type="button" id=x_Image__ID>Remove</button>
 						</div>
 					</div>
     			</div>
-    			<div class="row row__ID">
-                    <div class="col">
-                        <span>Name</span>
-                        <input type=text class="form-control" name="Name" required>
-                    </div>
-                </div>
-                <div class="row row__ID">
-                    <div class="col">
-                        <span>Description</span>
-                        <textarea class="form-control" name="Description" style='min-height:200px'></textarea>
-                    </div>
-                </div>
+				<div class="row row__ID">
+					<div class="col-sm col-lg-6">
+						<span>Plate Number</span>
+						<input type=text class="form-control" name="Number" required>
+					</div>
+					<div class="col-sm col-lg-6">
+						<span>Model</span>
+						<input type=text class="form-control" name="Model" required>
+					</div>
+				</div>
+				<div class="row row__ID">
+					<div class="col">
+						<span>Description</span>
+						<textarea class="form-control" name="Description" style='min-height:200px'></textarea>
+					</div>
+				</div>
                 <br>
     			<div class="row">
     				<div class=col>
@@ -41,7 +45,7 @@
     	function F__ID(){
     		//-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
-			//-------------------------------------
+    		//-------------------------------------
 			var load2=m.load;
 			m.load=function(){
 				load2();
@@ -51,6 +55,6 @@
     	}
     </script>
     <style>
-		VmInclude:__COMPONENT__/f/form.01.css
+        VmInclude:__COMPONENT__/f/form.01.css
     </style>
 </div>
