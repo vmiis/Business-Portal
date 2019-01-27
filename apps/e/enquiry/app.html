@@ -14,8 +14,13 @@
             </div>
             <div menu id="vm-menu">
                 <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/short-page">Short</a>
-                <a href="?/long-page">Long</a>
+                <a href="?/enquiry-form">Enquiry</a>
+                <div class="vm-dropdown">
+                    <span class="vm-dropbtn">Administrator <i class="fa fa-caret-down"></i></span>
+                    <div class="vm-dropdown-content">
+                        <a href="?/enquiry-data">Enquiry data</a>
+                    </div>
+                </div>
                 <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
                 <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
                 <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
@@ -99,7 +104,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk001.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk016.jpg);}
         #content{
         }
         #vm-logo-label-A{

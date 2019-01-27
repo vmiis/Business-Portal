@@ -15,7 +15,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.50,0.50]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.51,0.51]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -23,19 +23,22 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/apps/a/a-basic-application-framework/app.html",
-            "$A/modules/f/frame.html",
+            "$A/apps/a/a-basic-application-framework/app.html",         //app menu, title, footer etc
+            "$A/modules/f/frame.html",                                  //app frame work
         ]
         //------------------------------------
         //modules used in this app
         $vm.module_list={
+            //you can add modules here directly
+            "home":         {url:"$A/modules/h/home.html",router:1},
+            "about-vmiis":  {url:"$A/modules/a/about-vmiis.html",router:1},
+            "long-page":  	{url:"$A/modules/l/long-page.html",router:1},
+            "short-page":  	{url:"$A/modules/s/short-page.html",router:1},
         };
         //------------------------------------
         //where are your all other modules
         $vm.app_modules=[
-            "$A/modules/home.js",
-            "$A/modules/common.js",
-            "$A/modules/others.js",
+            //you can add a js file that will add mmodules to the $vm.module_list
         ]
         //------------------------------------
         

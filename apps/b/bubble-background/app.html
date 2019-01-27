@@ -59,7 +59,7 @@
             $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
             $("body").removeClass();
             $("body").addClass('body_background_default');
-
+            
             $vm.active_id=undefined;
             if(m_name!=undefined) $vm.active_id=$vm.module_list[m_name].id;
             if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
@@ -78,6 +78,7 @@
                $vm.init_status=1;
                $vm.show_user();
            })
+           $vm.load_module('background','app_background',{});
         }
         //------------------------------------
     </script>
@@ -99,7 +100,7 @@
         }
         html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bk001.jpg);}
+        .body_background_default{ }
         #content{
         }
         #vm-logo-label-A{

@@ -10,6 +10,7 @@
 
 
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
+        "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
         
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
@@ -31,6 +32,7 @@
 
         "enquiry-data":      	  		{url:"$A/modules/e/enquiry-data.html",Table:"vm-enquiry",form_module:"enquiry-form"},
         "enquiry-form":      	  		{url:"$A/modules/e/enquiry-form.html",Table:"vm-enquiry"},         
+        "enquiry-app":      	  		{url:"$A/apps/e/enquiry/index.html"},         
 
         "ffs-data":      	  			{url:"$A/modules/f/flinders-fatigue-scale-data.html",Table:"ffs",form_module:"ffs-form"},
         "ffs-form":      	  			{url:"$A/modules/f/flinders-fatigue-scale-form.html",Table:"ffs"},
@@ -40,6 +42,7 @@
         "fss-form":      	  			{url:"$A/modules/f/fatigue-severity-scale-form.html",Table:"fss"},
         "form-maker":                   {url:"$A/modules/f/form-maker.html",router:1},
         "fountains-illumination":		{url:"$A/modules/f/fountains-illumination.html",router:1},
+        "fountains-illumination-app":	{url:"$A/apps/f/fountains-illumination-background/index.html"},
         "frame":                        {url:"$A/modules/f/frame.html"},
         "form-text-input-fields":       {url:"$A/modules/f/form-text-input-fields.html",router:1},
 
@@ -69,14 +72,17 @@
 
 
         "nasa":  		  	  			{url:"$A/modules/n/nasa.html",router:1},
+        "nasa-background-app":		    {url:"$A/apps/n/nasa-background/index.html"},
         "not-ready": 		            {url:"$A/modules/u/under-construction.html",text:"Not Ready",router:1},
         "nyan":  		  	  			{url:"$A/modules/n/nyan.html",router:1},
+        "nyan-background-app":		    {url:"$A/apps/n/nyan-background/index.html"},
 
         "online-questionnaire-setup": 	    {url:"$A/modules/o/online-questionnaire-setup.html",Table:"participant"},
         
 
         "panel":    		  			{url:"$A/modules/p/panel.html",router:1},
         "particle":  		  			{url:"$A/modules/p/particle.html",router:1},
+        "particle-background-app":      {url:"$A/apps/p/particle-background/index.html"},
         "prices":  		  	  			{url:"$A/modules/p/prices.html",router:1},
         "psqi-data":                    {url:"$A/modules/p/pittsburgh-sleep-quality-index-data.html",Table:"psqi",form_module:"psqi-form"},
         "psqi-form":   			        {url:"$A/modules/p/pittsburgh-sleep-quality-index-form.html",Table:"psqi"},
@@ -98,6 +104,10 @@
         "services":  	  	  			{url:"$A/modules/s/services.html",router:1},
         "short-page":  		  	 		{url:"$A/modules/s/short-page.html",router:1},
         "snow":  		  	  			{url:"$A/modules/s/snow.html",router:1},
+        "snow-background-app":		    {url:"$A/apps/s/snow-background/index.html"},
+        "survey-data":      	  		{url:"$A/modules/s/survey-data.html",Table:"survey-vm",form_module:"survey-form"},
+        "survey-form":      	  		{url:"$A/modules/s/survey-form.html",Table:"survey-vm"},         
+        "survey-app":      	  		    {url:"$A/apps/s/survey/index.html"},         
 
         "text-input-data":    			{url:"$A/modules/t/text-input-data.html",Table:"text-input",form_module:"text-input-form",router:1},
         "text-input-form":    			{url:"$A/modules/t/text-input-form.html",Table:"text-input"},
