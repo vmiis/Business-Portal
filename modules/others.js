@@ -21,6 +21,12 @@
         "color-data":      	  			{url:"$A/modules/c/color-data.html",Table:"color",form_module:"color-form",router:1},
         "color-form":      	  			{url:"$A/modules/c/color-form.html",Table:"color"},
         "coming-soon": 		            {url:"$A/modules/u/under-construction.html",text:"Coming soon...",router:1},
+        "contact-us-data":  			{url:"$A/modules/c/contact-us-data.html",Table:"ccontact-us-vm",form_module:"contact-us-form"},
+        "contact-us-form":  			{url:"$A/modules/c/contact-us-form.html",Table:"ccontact-us-vm"},
+        "contact-us-form-01":  			{url:"$A/modules/c/contact-us-form-01.html",Table:"ccontact-us-vm"},
+        "contact-us-form-02":  			{url:"$A/modules/c/contact-us-form-02.html",Table:"ccontact-us-vm"},
+        "contact-us-form-03":  			{url:"$A/modules/c/contact-us-form-03.html",Table:"ccontact-us-vm"},
+        "contact-us-app":  			    {url:"$A/apps/c/contact-us/index.html"},
 
 
         "d-c-t-data":      	  			{url:"$A/modules/d/data-collection-template-data.html","App":"demo",Table:"template",form_module:"d-c-t-form",router:1},
@@ -45,9 +51,12 @@
         "fountains-illumination-app":	{url:"$A/apps/f/fountains-illumination-background/index.html"},
         "frame":                        {url:"$A/modules/f/frame.html"},
         "form-text-input-fields":       {url:"$A/modules/f/form-text-input-fields.html",router:1},
+        "fitness":                      {url:"$A/modules/f/fitness.html",router:1},
+        "fitness-app":                  {url:"$A/apps/f/fitness/index.html"},
 
         
 
+        "home-woolcock": 		  		{url:"$A/modules/h/home-woolcock.html",router:1},
         "hello-world": 		  			{url:"$A/modules/h/hello-world.html",router:1},
 
         "incosact-data":   	  			{url:"$A/modules/i/incosact-data.html",Table:"incosact",form_module:"incosact-english-form",router:1},
@@ -68,6 +77,7 @@
         "medication-form":              {url:"$A/modules/m/medication-form.html",Table:"medication"},
         "medical-practitioners-data":  	{url:"$A/modules/m/medical-practitioners-data.html",Table:"vm-medical-practitioners",form_module:"medical-practitioners-form",router:1},
         "medical-practitioners-form":  	{url:"$A/modules/m/medical-practitioners-form.html",Table:"vm-medical-practitioners"},
+        "medical-practitioner-app":     {url:"$A/apps/m/medical-practitioner/index.html"},
 
 
 
@@ -84,6 +94,7 @@
         "particle":  		  			{url:"$A/modules/p/particle.html",router:1},
         "particle-background-app":      {url:"$A/apps/p/particle-background/index.html"},
         "prices":  		  	  			{url:"$A/modules/p/prices.html",router:1},
+        "price-02":  		  	 		{url:"$A/modules/p/price-02.html",router:1},
         "psqi-data":                    {url:"$A/modules/p/pittsburgh-sleep-quality-index-data.html",Table:"psqi",form_module:"psqi-form"},
         "psqi-form":   			        {url:"$A/modules/p/pittsburgh-sleep-quality-index-form.html",Table:"psqi"},
 
@@ -108,6 +119,9 @@
         "survey-data":      	  		{url:"$A/modules/s/survey-data.html",Table:"survey-vm",form_module:"survey-form"},
         "survey-form":      	  		{url:"$A/modules/s/survey-form.html",Table:"survey-vm"},         
         "survey-app":      	  		    {url:"$A/apps/s/survey/index.html"},         
+        "success":  		  	  		{url:"$A/modules/s/success.html",router:1},
+        "success-app":  		  	  	{url:"$A/apps/s/success/index.html"},
+        "simple-app":  		  	  	    {url:"$A/apps/s/simple/index.html"},
 
         "text-input-data":    			{url:"$A/modules/t/text-input-data.html",Table:"text-input",form_module:"text-input-form",router:1},
         "text-input-form":    			{url:"$A/modules/t/text-input-form.html",Table:"text-input"},
@@ -121,6 +135,8 @@
 
         "visit-date-data":    			{url:"$A/modules/v/visit-date-data.html",Table:"visit-date",form_module:"visit-date-form"},
         "visit-date-form":    			{url:"$A/modules/v/visit-date-form.html",Table:"visit-date"},
+        
+        "woolcock-template-app":		{url:"$A/apps/w/woolcock-template/index.html"},
     
     }
     for(m in modules){$vm.module_list[m]=modules[m];}

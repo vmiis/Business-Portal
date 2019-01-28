@@ -15,7 +15,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.53,0.51]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.51,0.51]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -23,28 +23,25 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/app.html",              //app menu, title, footer etc
-            "$A/modules/f/frame.html",  //app frame work
+            "$A/apps/c/contact-us/app.html",         //app menu, title, footer etc
+            "$A/modules/f/frame.html",               //app frame work
         ]
         //------------------------------------
         //modules used in this app
         $vm.module_list={
             //you can add modules here directly
-            "home":             {url:"$A/modules/h/home.html",router:1},
-            "panel-modules":	{url:"$A/modules/p/panel-modules.html",router:1},
-            "panel-apps":	  	{url:"$A/modules/p/panel-apps.html",router:1},
+            "home":                 {url:"$A/modules/h/home.html",router:1},
+            "about-vmiis":          {url:"$A/modules/a/about-vmiis.html",router:1},
+            "contact-us-data":  	{url:"$A/modules/c/contact-us-data.html",Table:"ccontact-us-vm",form_module:"contact-us-form"},
+            "contact-us-form":  	{url:"$A/modules/c/contact-us-form.html",Table:"ccontact-us-vm"},
+            "contact-us-form-01":  	{url:"$A/modules/c/contact-us-form-01.html",Table:"ccontact-us-vm"},
+            "contact-us-form-02":  	{url:"$A/modules/c/contact-us-form-02.html",Table:"ccontact-us-vm"},
+            "contact-us-form-03":  	{url:"$A/modules/c/contact-us-form-03.html",Table:"ccontact-us-vm"},
         };
         //------------------------------------
         //where are your all other modules
         $vm.app_modules=[
             //you can add a js file that will add mmodules to the $vm.module_list
-            "$A/modules/common.js",
-            "$A/modules/car-booking.js",
-            "$A/modules/room-booking.js",
-            "$A/modules/equipmen-booking.js",
-            "$A/modules/apap.js",
-            "$A/modules/wapp.js",
-            "$A/modules/others.js",
         ]
         //------------------------------------
         
@@ -53,7 +50,7 @@
         
         //------------------------------------
         //Do not need to chang the following code in most cases
-        //The following code will load a framework module and your application modules
+        //The following code will load a framework module and your application module
         //------------------------------------
         $VmAPI={};$vm.start_time=new Date().getTime();
         //------------------------------------
@@ -73,7 +70,6 @@
             $vm._I++;
             if($vm._I==$vm._N){
                 for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-                console.log((new Date().getTime()-$vm.start_time)+'ms');
                 $vm._start();
             }
         }
