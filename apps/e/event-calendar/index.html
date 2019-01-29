@@ -15,7 +15,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.55,0.51]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.51,0.51]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -23,28 +23,30 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/app.html",              //app menu, title, footer etc
-            "$A/modules/f/frame.html",  //app frame work
+            "$A/apps/e/event-calendar/app.html",
+            "$A/modules/f/frame.html",
         ]
         //------------------------------------
         //modules used in this app
         $vm.module_list={
-            //you can add modules here directly
             "home":             {url:"$A/modules/h/home.html",router:1},
-            "panel-modules":	{url:"$A/modules/p/panel-modules.html",router:1},
-            "panel-apps":	  	{url:"$A/modules/p/panel-apps.html",router:1},
+            "about-vmiis":      {url:"$A/modules/a/about-vmiis.html",router:1},
+            "event-data":       {url:"$A/modules/e/event-data.html",Table:"event-vm",form_module:"event-form"},
+            "event-form":       {url:"$A/modules/e/event-form.html",Table:"event-vm"},         
+            "event-daily":      {url:"$A/modules/e/event-daily.html",Table:"event-vm",router:1,
+                                   event_form:"event-form"
+                                },         
+            "event-monthly":    {url:"$A/modules/e/event-monthly.html",Table:"event-vm",router:1,
+                                   event_daily:"event-daily",
+                                   event_form:"event-form"
+                                },         
         };
         //------------------------------------
         //where are your all other modules
         $vm.app_modules=[
-            //you can add a js file that will add mmodules to the $vm.module_list
+            "$A/modules/home.js",
             "$A/modules/common.js",
-            "$A/modules/car-booking.js",
             "$A/modules/room-booking.js",
-            "$A/modules/equipmen-booking.js",
-            "$A/modules/apap.js",
-            "$A/modules/wapp.js",
-            "$A/modules/others.js",
         ]
         //------------------------------------
         
@@ -73,7 +75,6 @@
             $vm._I++;
             if($vm._I==$vm._N){
                 for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-                console.log((new Date().getTime()-$vm.start_time)+'ms');
                 $vm._start();
             }
         }

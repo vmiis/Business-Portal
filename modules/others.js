@@ -39,6 +39,16 @@
         "enquiry-data":      	  		{url:"$A/modules/e/enquiry-data.html",Table:"vm-enquiry",form_module:"enquiry-form"},
         "enquiry-form":      	  		{url:"$A/modules/e/enquiry-form.html",Table:"vm-enquiry"},         
         "enquiry-app":      	  		{url:"$A/apps/e/enquiry/index.html"},         
+        "event-data":      	  		    {url:"$A/modules/e/event-data.html",Table:"event-vm",form_module:"event-form"},
+        "event-form":      	  		    {url:"$A/modules/e/event-form.html",Table:"event-vm"},         
+        "event-daily":      	 	    {url:"$A/modules/e/event-daily.html",Table:"event-vm",router:1,
+                                            event_form:"event-form"
+                                        },         
+        "event-monthly":      	 	    {url:"$A/modules/e/event-monthly.html",Table:"event-vm",router:1,
+                                            event_daily:"event-daily",
+                                            event_form:"event-form"
+                                        },         
+        "event-calendar-app":  		    {url:"$A/apps/e/event-calendar/index.html"},
 
         "ffs-data":      	  			{url:"$A/modules/f/flinders-fatigue-scale-data.html",Table:"ffs",form_module:"ffs-form"},
         "ffs-form":      	  			{url:"$A/modules/f/flinders-fatigue-scale-form.html",Table:"ffs"},
