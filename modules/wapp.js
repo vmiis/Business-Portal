@@ -31,6 +31,15 @@
         
         "ess-data-wapp":       			{url:"$A/modules/e/ess-data-wapp.html",Table:"ess-wapp",form_module:"ess-form-wapp"},
         "ess-form-wapp":       			{url:"$A/modules/e/ess-form-wapp.html",Table:"ess-wapp"},
+        
+        "ethnicity-data-wapp":    		{url:"$A/modules/e/ethnicity-self-data-wapp.html",Table:"ethnicity-wapp",form_module:"ethnicity-form-wapp"},
+        "ethnicity-form-wapp":    		{url:"$A/modules/e/ethnicity-self-form-wapp.html",Table:"ethnicity-wapp"},
+
+        "family-sleep-history-data-wapp":{url:"$A/modules/f/family-sleep-history-data-wapp.html",Table:"family-sleep-history-wapp",form_module:"family-sleep-history-form-wapp"},
+        "family-sleep-history-form-wapp":{url:"$A/modules/f/family-sleep-history-form-wapp.html",Table:"family-sleep-history-wapp"},
+
+        "fosq-data-wapp":      	  		{url:"$A/modules/f/fosq-data-wapp.html",Table:"fosq-wapp",form_module:"fosq-form-wapp"},
+        "fosq-form-wapp":      	  		{url:"$A/modules/f/fosq-form-wapp.html",Table:"fosq-wapp"},
 
         "isi-data-wapp":      	  		{url:"$A/modules/i/isi-data-wapp.html",Table:"isi-wapp",form_module:"isi-form-wapp"},
         "isi-form-wapp":      	  		{url:"$A/modules/i/isi-form-wapp.html",Table:"isi-wapp"},
