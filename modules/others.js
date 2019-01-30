@@ -144,6 +144,7 @@
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
         
+        "transaction-y-q-data":    		{url:"$A/modules/t/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
         "transaction-data":    			{url:"$A/modules/t/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
         "transaction-form":    			{url:"$A/modules/t/transaction-form.html",Table:"transaction",
                                             item_table:'predefined-transaction-item'
