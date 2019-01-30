@@ -108,6 +108,9 @@
         "psqi-data":                    {url:"$A/modules/p/pittsburgh-sleep-quality-index-data.html",Table:"psqi",form_module:"psqi-form"},
         "psqi-form":   			        {url:"$A/modules/p/pittsburgh-sleep-quality-index-form.html",Table:"psqi"},
 
+        "predefined-transaction-item-data": {url:"$A/modules/p/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
+        "predefined-transaction-item-form": {url:"$A/modules/p/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
+
         "quest-panel":                  {url:"$A/modules/o/online-questionnaire-panel.html"},
 
         "radio-data":      	  			{url:"$A/modules/r/radio-data.html",Table:"radio",form_module:"radio-form",router:1},
@@ -140,6 +143,11 @@
         "text-input-form":    			{url:"$A/modules/t/text-input-form.html",Table:"text-input"},
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
+        
+        "transaction-data":    			{url:"$A/modules/t/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-form":    			{url:"$A/modules/t/transaction-form.html",Table:"transaction",
+                                            item_table:'predefined-transaction-item'
+                                        },
 
         "under-construction": 		    {url:"$A/modules/u/under-construction.html",text:"Under Construction",router:1},
 
