@@ -59,6 +59,8 @@
 							1B GST on purchase: $<input type="text" name=1B_GST readonly class=no_border__ID /><br>
 							W1 salary: $<input type="text" name=W1_salary readonly class=no_border__ID /><br>
 							W2 withheld: $<input type="text" name=W2_withheld readonly class=no_border__ID /><br>
+							W4 withheld no ABN: $<input type="text" name=W4_withheld_no_ABN readonly class=no_border__ID /><br>
+							W3 withheld other: $<input type="text" name=W3_withheld_other readonly class=no_border__ID /><br>
 						</div>
 					</div>
 					<br>
@@ -109,6 +111,8 @@
 				data['1B_GST']=parseFloat(data['1B_GST']);	
 				data.W1_salary=parseFloat(data.W1_salary);
 				data.W2_withheld=parseFloat(data.W2_withheld);
+				data.W4_withheld_no_ABN=parseFloat(data.W4_withheld_no_ABN);
+				data.W3_withheld_other=parseFloat(data.W3_withheld_other);
 				data.Other_sales=parseFloat(data.Other_sales);
 				data.Gross_interest=parseFloat(data.Gross_interest);
 				data.Salary_expenses=parseFloat(data.Salary_expenses);

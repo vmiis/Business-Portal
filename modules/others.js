@@ -13,6 +13,7 @@
                                                 },
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
+        "bookkeeping-app":  			        {url:"$A/apps/b/bookkeeping/index.html"},
         
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
@@ -146,7 +147,12 @@
         
         "trainers":  		  			{url:"$A/modules/t/trainers.html",router:1},
         
-        "transaction-y-q-data":    		{url:"$A/modules/t/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-tax-return-data":  {url:"$A/modules/t/transaction-year-quarter-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-bas-data":    		{url:"$A/modules/t/transaction-year-quarter-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-y-q-data":    		    {url:"$A/modules/t/transaction-year-quarter-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        
+        "transaction-bas-data":   		{url:"$A/modules/t/transaction-bas-data.html",Table:"transaction",form_module:"transaction-form",router:1},
+        "transaction-tax-return-data":  {url:"$A/modules/t/transaction-tax-return-data.html",Table:"transaction",form_module:"transaction-form",router:1},
         "transaction-data":    			{url:"$A/modules/t/transaction-data.html",Table:"transaction",form_module:"transaction-form",router:1},
         "transaction-form":    			{url:"$A/modules/t/transaction-form.html",Table:"transaction",
                                             item_table:'predefined-transaction-item'

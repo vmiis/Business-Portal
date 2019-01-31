@@ -19,7 +19,7 @@
 				<div class="row">
 					<div class=col>
 						<button style='margin-left:6px' id=agregate__ID type="button" class="btn btn-secondary">Aggregate</button>
-						<input type="text" name=Performed_on class=no_border__ID />
+						<span style='padding-left:30px'></span>Last performed: <input type="text" name=Last_performed class=no_border__ID />
     				</div>
 				</div>
 				<br>
@@ -90,9 +90,9 @@
 				var req={cmd:"export",table:m.transaction_table,query:query,projection:{"Data.G1_sales":1,"Data.1A_GST":1,"Data.1B_GST":1,"Data.W1_salary":1,"Data.W2_withheld":1}}
 				open_model__ID();
 				$vm.request(req,function(N,i,txt){
-					if( isNaN(N) || N==0){
-					//if(N=="NaN" || N==0){
+					if(N==0){
 						close_model__ID();
+						m.cal_and_set([]);
 						return;
 					}
 					console.log(i+"/"+N);
@@ -108,7 +108,7 @@
 			})
 			//-------------------------------------
 			m.cal_and_set=function(d){
-				console.log(d)
+				$('#F__ID input[name=Last_performed]').val($vm.date_to_string_yyyymmdd(new Date()))
 				var G1_sales=0; 
 				var v1A_GST=0; 
 				var v1B_GST=0;
@@ -124,6 +124,12 @@
 				$('#F__ID input[name=G1_sales]').val(G1_sales.toFixed(2))
 				$('#F__ID input[name=W1_salary]').val(W1_salary.toFixed(2))
 				$('#F__ID input[name=W2_withheld]').val(W2_withheld.toFixed(2))
+			}
+			//-------------------------------------
+			m.before_submit=function(data,index){
+				index.I1=data.Year;
+				index.I2=data.Quarter;
+				return true;
 			}
 			//-------------------------------------
     	}
