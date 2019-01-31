@@ -51,19 +51,19 @@
 				<div class='row row__ID row_participant__ID'>
 					<div class="col">
 						<span>Low CO2 Randomisation Number</span>
-						<input type=text class=form-control name=Low_CO2_Randomisation_Number readonly>
+						<input type=text class=form-control name=Low_CO2_Randomisation_Number readonly placeholder='click here to randomise' >
 					</div>
 				</div>
 				<div class='row row__ID row_participant__ID'>
 					<div class="col">
 						<span>High CO2 Randomisation Number</span>
-						<input type=text class=form-control name=High_CO2_Randomisation_Number readonly>
+						<input type=text class=form-control name=High_CO2_Randomisation_Number readonly placeholder='click here to randomise' >
 					</div>
 				</div>
 				<div class='row row__ID row_participant__ID'>
 					<div class="col">
 						<span>Randomised by</span>
-						<input type=text class=form-control name=Randomised_by readonly>
+						<input type=text class=form-control name=Randomised_by readonly >
 					</div>
 				</div>
 
@@ -97,16 +97,13 @@
             $('#F__ID input[name=Low_CO2_Randomisation_Number]').on('click',function(){   
 				var I1=$('#F__ID input[name=Low_CO2_Randomisation_Number').val();
 				if(I1==''){
-					$vm.request({cmd:"aggregate",table:m.Table,aggregate:[
-						{$group: {_id:null,max_I1: {$max: "$I1"}}},
-					]},function(res){
-						console.log(res.result);
+					$vm.request({cmd:"find",table:m.Table,sort:{I1:-1},skip:0,limit:1},function(res){
 						if(res.sys.permission==false){
 							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
 							return;
 						}
 						var max_I1=0;
-						if(res.result.length>0) max_I1=res.result[0].max_I1
+						if(res.result.length>0) max_I1=res.result[0].I1
 						max_I1++;
 						$('#F__ID input[name=Low_CO2_Randomisation_Number').val(max_I1);
 						$('#F__ID input[name=High_CO2_Randomisation_Number').val('-');
@@ -118,16 +115,13 @@
             $('#F__ID input[name=High_CO2_Randomisation_Number]').on('click',function(){   
 				var I2=$('#F__ID input[name=High_CO2_Randomisation_Number').val();
 				if(I2==''){
-					$vm.request({cmd:"aggregate",table:m.Table,aggregate:[
-						{$group: {_id:null,max_I2: {$max: "$I2"}}},
-					]},function(res){
-						console.log(res.result);
+					$vm.request({cmd:"find",table:m.Table,sort:{I2:-1},skip:0,limit:1},function(res){
 						if(res.sys.permission==false){
 							$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
 							return;
 						}
 						var max_I2=0;
-						if(res.result.length>0) max_I2=res.result[0].max_I2
+						if(res.result.length>0) max_I2=res.result[0].I2
 						max_I2++;
 						$('#F__ID input[name=Low_CO2_Randomisation_Number').val('-');
 						$('#F__ID input[name=High_CO2_Randomisation_Number').val(max_I2);

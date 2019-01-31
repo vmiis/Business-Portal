@@ -54,8 +54,9 @@
 					<b>BAT Items</b>
 					<div class="row">
 						<div class=col>
-							GST sales: $<input type="text" name=GST_sales readonly class=no_border__ID /><br>
-							GST purchase: $<input type="text" name=GST_purchase readonly class=no_border__ID /><br>
+							G1 sales: $<input type="text" name=G1_sales readonly class=no_border__ID /><br>
+							1A GST on sales: $<input type="text" name=1A_GST readonly class=no_border__ID /><br>
+							1B GST on purchase: $<input type="text" name=1B_GST readonly class=no_border__ID /><br>
 							W1 salary: $<input type="text" name=W1_salary readonly class=no_border__ID /><br>
 							W2 withheld: $<input type="text" name=W2_withheld readonly class=no_border__ID /><br>
 						</div>
@@ -103,8 +104,9 @@
 			//-------------------------------------
 			m.before_submit=function(data,index){
 				data.Amount=parseFloat(data.Amount);
-				data.GST_sales=parseFloat(data.GST_sales);
-				data.GST_purchase=parseFloat(data.GST_purchase);	
+				data.G1_sales=parseFloat(data.G1_sales);
+				data['1A_GST']=parseFloat(data['1A_GST']);
+				data['1B_GST']=parseFloat(data['1B_GST']);	
 				data.W1_salary=parseFloat(data.W1_salary);
 				data.W2_withheld=parseFloat(data.W2_withheld);
 				data.Other_sales=parseFloat(data.Other_sales);
@@ -126,8 +128,9 @@
 			m.cal=function(){
 				var Amount=$('#F__ID input[name=Amount]').val();
 				Amount=parseFloat(Amount);
-				if(tax.GST_sales=='on') $('#F__ID input[name=GST_sales]').val((0.1*Amount).toFixed(2));
-				if(tax.GST_purchase=='on') $('#F__ID input[name=GST_purchase]').val((0.1*Amount).toFixed(2));
+				if(tax.G1_sales=='on') $('#F__ID input[name=G1_sales]').val(Amount.toFixed(2));
+				if(tax['1A_GST']=='on') $('#F__ID input[name=1A_GST]').val((0.1*Amount).toFixed(2));
+				if(tax['1B_GST']=='on') $('#F__ID input[name=1B_GST]').val((0.1*Amount).toFixed(2));
 				if(tax.W1_salary=='on') $('#F__ID input[name=W1_salary]').val((Amount).toFixed(2));
 				if(tax.W2_withheld=='on') $('#F__ID input[name=W2_withheld]').val((Amount).toFixed(2));
 				if(tax.Other_sales=='on') $('#F__ID input[name=Other_sales]').val((Amount).toFixed(2));

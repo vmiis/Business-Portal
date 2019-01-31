@@ -2,13 +2,15 @@
     var modules={
         "2-columns-contents": 			{url:"$A/modules/2/2-columns-contents.html",router:1},
 
-        "about":  		  	  			       {url:"$A/modules/a/about.html",router:1},
-        "autocomplete-data":  			       {url:"$A/modules/a/autocomplete-data.html",Table:"autocomplete",form_module:"autocomplete-form",router:1},
-        "autocomplete-form":  			       {url:"$A/modules/a/autocomplete-form.html",Table:"autocomplete"},
-        "a-basic-application-framework-index": {url:"$A/apps/a/a-basic-application-framework/index.html"},
-        "angularjs-hello-world":	           {url:"$A/modules/a/angularjs-hello-world.html",router:1},
-
-
+        "about":  		  	  			        {url:"$A/modules/a/about.html",router:1},
+        "autocomplete-data":  			        {url:"$A/modules/a/autocomplete-data.html",Table:"autocomplete",form_module:"autocomplete-form",router:1},
+        "autocomplete-form":  			        {url:"$A/modules/a/autocomplete-form.html",Table:"autocomplete"},
+        "a-basic-application-framework-index":  {url:"$A/apps/a/a-basic-application-framework/index.html"},
+        "angularjs-hello-world":	            {url:"$A/modules/a/angularjs-hello-world.html",router:1},
+        "ato-bas-quarter-aggregation-data":     {url:"$A/modules/a/ato-bas-quarter-aggregation-data.html",Table:"ato-bas-quarter-aggregation",form_module:"ato-bas-quarter-aggregation-form",router:1},
+        "ato-bas-quarter-aggregation-form":     {url:"$A/modules/a/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation",
+                                                    transaction_table:'transaction'
+                                                },
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
         
