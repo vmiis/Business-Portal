@@ -95,7 +95,7 @@
                 },'text');
             }
             else{
-                console.log('loading from storage. '+url);
+                console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[0]);
                 $('#content').append(txt.replace(/__ID/g,'_'+(index+1)));
                 $vm._boot();
             }
@@ -114,7 +114,7 @@
                 },'text');
             }
             else{
-                console.log('loading from storage. '+url);
+                console.log('loading from storage. '+url+' '+ver+'/'+$vm.ver[0]);
                 eval(txt);
                 $vm._boot();
             }
