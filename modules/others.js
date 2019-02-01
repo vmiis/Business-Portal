@@ -14,6 +14,7 @@
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
         "bookkeeping-app":  			        {url:"$A/apps/b/bookkeeping/index.html"},
+        "bookkeeping-app-wappsystem":  		    {url:"$A/apps/b/bookkeeping-wappsystem/index.html"},
         
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
@@ -113,6 +114,10 @@
 
         "predefined-transaction-item-data": {url:"$A/modules/p/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
         "predefined-transaction-item-form": {url:"$A/modules/p/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
+
+        "purchase-order-data-f1": {url:"$A/modules/p/purchase-order-data-f1.html",Table:"purchase-order",form_module:"purchase-order-form-f1",router:1},
+        "purchase-order-form-f1": {url:"$A/modules/p/purchase-order-form-f1.html",Table:"purchase-order"},
+
 
         "quest-panel":                  {url:"$A/modules/o/online-questionnaire-panel.html"},
 
