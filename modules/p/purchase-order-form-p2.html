@@ -53,11 +53,21 @@
                 		<input type=text class=form-control name=Supplier_Fax>
                 	</div>
                 </div>
+                <div class='row row__ID'>
+                	<div class=col-lg-6>
+                		<span>Your contact email</span>
+                		<input type=text class=form-control name=Contact_Email>
+                	</div>
+                	<div class=col-lg-6>
+                		<span>Your contact phone</span>
+                		<input type=text class=form-control name=Contact_Phone>
+                	</div>
+                </div>
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
                 <br>
                 <div class="row">
                     <div class=col>
-                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add an item</u>
+                        <!--<u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add an item</u>-->
     				    <table id=grid_item_a__ID></table>
     				    <div id=total__ID style='text-align: right'>
                                 GST Amount: <input type=text name=GST_Amount style="width:120px;margin-bottom:1px" readonly><br>
@@ -66,11 +76,11 @@
                     </div>
                 </div>
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
-    			<div class="row" id=row_submit__ID>
+    			<div class="row c_print" id=row_submit__ID>
     				<div class=col>
                         <button id=submit0__ID type="submit" style='display:none'></button>
-            			<button id=submit1__ID type="button" class="btn btn-secondary">Submit (draft)</button>
-            			<button id=submit2__ID type="button" class="btn btn-secondary">Submit (completed, send alert email to the manager for approval</button>
+            			<button id=submit1__ID type="button" class="btn btn-secondary">Processing</button>
+            			<button id=submit2__ID type="button" class="btn btn-secondary">Withdraw</button>
     				</div>
     			</div>
     		</div>
@@ -81,6 +91,7 @@
             //-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
             VmInclude:__COMPONENT__/f/form-item-a.01.js
+            m.cmd_type='p2';
             //-------------------------------------
             //get manager list;
             jQuery.ajaxSetup({async:false});
@@ -95,7 +106,7 @@
                     var list_managers=';';
                     for(var i=0;i<res.result.length;i++){
                         if(list_managers!='') list_managers+=','
-                        list_managers+=res.result[i].Data.Name+";"+res.result[i].Data.Name+"/"+res.result[i].Email+"/"+res.result[i].Data.Login_Name;
+                        list_managers+=res.result[i].Data.Name+";"+res.result[i].Data.Name+"/"+res.result[i].Data.Email+"/"+res.result[i].Data.Login_Name;
                     }
                     $vm.set_dropdown_list_from_text($('#manager__ID'),list_managers);
                 }
@@ -110,27 +121,19 @@
                     var list_managers=';';
                     for(var i=0;i<res.result.length;i++){
                         if(list_managers!='') list_managers+=','
-                        list_managers+=res.result[i].Data.Name+";"+res.result[i].Data.Name+"/"+res.result[i].Email+"/"+res.result[i].Data.Login_Name;
+                        list_managers+=res.result[i].Data.Name+";"+res.result[i].Data.Name+"/"+res.result[i].Data.Email+"/"+res.result[i].Data.Login_Name;
                     }
                     $vm.set_dropdown_list_from_text($('#accountant__ID'),list_managers);
                 }
             })
             jQuery.ajaxSetup({async:true});
             //-------------------------------------
-            $('#submit1__ID').on('click',function(event){	m.draft=1;	$('#submit0__ID').trigger('click'); 	});
-    		$('#submit2__ID').on('click',function(event){   m.draft=0;	$('#submit0__ID').trigger('click');		});
+            $('#submit1__ID').on('click',function(event){	m.processing=1;	$('#submit0__ID').trigger('click'); 	});
+    		$('#submit2__ID').on('click',function(event){   m.processing=0;	$('#submit0__ID').trigger('click');		});
     		//--------------------------------------------------------
             m.before_submit=function(data,index){
-                /*
-                index.I1=data.Short_Description;
-                index.I2=data.Manager_for_Approval.split('/')[0];
-                index.I3=data.Accountant_for_Processing.split('/')[0];
-                dbv.V1=data.Total_Amount;
-                dbv.V2=record.GST_Amount;
-                record.Requester=$vm.user;
-                record.items=m.item_a_get_data();
-                */
-                data.items=m.item_a_get_data();
+                if(m.processing==1)  index.L2="Approved by "+$vm.user_name+" on "+new Date().toLocaleString();
+                else                 index.L2="";
                 return true;
             }
             //--------------------------------------------------------
@@ -143,21 +146,19 @@
                     $('#order__ID').show();
                 }
 
-                /*
-                if(m.input.record!=undefined && m.input.record.UID!=undefined){
-                    $('#uid__ID').val(m.input.record.UID);
-
-                    $('#row_submit__ID').show();
-                    if(m.input.record!=undefined && m.input.record.PUID!=undefined && m.input.record.PUID!=""){
-                        $('#row_submit__ID').hide();
-                    }
-
-                }
-                */
                 //-------item a part
                 m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.Data.items;
                 m.item_a_render();
                 //-------
+                
+                if(m.input.record.L2!=undefined && m.input.record.L2!=""){
+                    $('#submit1__ID').attr("disabled", "disabled");
+                    $('#submit2__ID').removeAttr("disabled");
+                }
+                else{
+                    $('#submit2__ID').attr("disabled", "disabled");
+                    $('#submit1__ID').removeAttr("disabled");
+                }
                 
             }
             //--------------------------------------------------------
@@ -165,9 +166,8 @@
             m.after_update=function(data,res){  after_submit(data); }
             //--------------------------------------------------------
             var after_submit=function(data){
-alert(m.draft)                
                 $vm.refresh=1;
-                if(m.draft==0) $vm.load_module(m.email_to_manager,'',{record:{data:data}})
+                if(m.processing==0) $vm.load_module(m.email_to_manager,'',{record:{Data:data}})
                 else{
                     var rid=undefined; if(m.input.record!=undefined) rid=m.input.record._id;
                     if(rid!=undefined) window.history.go(-1);                       //modify
@@ -181,15 +181,12 @@ alert(m.draft)
 
             //----------------------------------
             //item a part
-            m.item_a_fields="Description,Unit_Price,Quantity,GST,Amount,_Remove";
+            m.item_a_fields="Description,Unit_Price,Quantity,GST,Amount";
             //----------------------------------
-            $('#item_a_add__ID').on('click',function(){ m.item_a_add(); })
+            //$('#item_a_add__ID').on('click',function(){ m.item_a_add(); })
             //----------------------------------
             m.item_a_cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
-                    case "Amount":
-                        td.find('div:first').removeAttr('contenteditable');
-                        break;
     				case "GST":
                         var html='<input type=checkbox />';
                         $vm.render_checkbox_field(records[I],'__ID',td,html)
@@ -197,50 +194,19 @@ alert(m.draft)
     						cal();
     					})
                         break;
-                }
-            }
-            //----------------------------------
-            m.item_a_after_change=function(records,I,field,td,set_value,source){
-                switch(field){
-    				case "Unit_Price":
-                    case "Quantity":
-    				case "GST":
-                        cal();
+                    default:
+                    td.find('div:first').removeAttr('contenteditable');
                         break;
                 }
-            }
-            //----------------------------------
-            m.item_a_after_remove=function(){
-                cal();
-            }
-            //----------------------------------
-            var cal=function(){
-                var total=0,gst=0;
-                for(var i=0;i<m.item_a_records.length;i++){
-                    var p=parseFloat(m.item_a_records[i].Unit_Price);
-                    var q=parseFloat(m.item_a_records[i].Quantity);
-                    if(m.item_a_records[i].Unit_Price=='') p=0;
-                    if(m.item_a_records[i].Quantity=='') q=0;
-                    var a=p*q;
-    				if(m.item_a_records[i].GST=='1'){
-    					gst+=a*0.1;
-    					a=a*1.1;
-    				}
-                    m.item_a_records[i].Amount=a.toFixed(2);
-                    total+=a;
-                }
-                $('#F__ID input[name=GST_Amount]').val(gst.toFixed(2));
-                $('#F__ID input[name=Total_Amount]').val(total.toFixed(2));
-                m.item_a_render();
             }
             //----------------------------------
         }
     </script>
     <style>
-        VmInclude:__COMPONENT__/f/form.01.css
-        VmInclude:__COMPONENT__/f/form-item-a.01.css
         #form_container__ID{
             max-width:800px;
         }
+        VmInclude:__COMPONENT__/f/form.01.css
+        VmInclude:__COMPONENT__/f/form-item-a.01.css
     </style>
 </div>

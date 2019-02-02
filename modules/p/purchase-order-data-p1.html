@@ -6,9 +6,11 @@
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
+            $('#new__ID').hide();
             //-------------------------------------
             var fields="Purchase_Order_ID|UID,_Notes,Short_Description,GST_Amount,Total_Amount,_Approved_by,_Processed_by";
-            m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+            m.fields="_Form,"+fields+",Submit_date,Submitted_by";
+            m.cmd_type='p1';
             //-------------------------------------
             m.cell_render=function(records,I,field,td){
                 switch(field){

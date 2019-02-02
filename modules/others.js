@@ -42,6 +42,8 @@
         "dass-data":	 	            {url:"$A/modules/d/depression-anxiety-stress-scales-data.html",Table:"dass",form_module:"dass-form"},
         "dass-form":	 	            {url:"$A/modules/d/depression-anxiety-stress-scales-form.html",Table:"dass"},
 
+        "email-setup-data":      	  	{url:"$A/modules/e/email-setup-data.html",Table:"email-setup",form_module:"email-setup-form"},
+        "email-setup-form":      	  	{url:"$A/modules/e/email-setup-form.html",Table:"email-setup"},         
         "enquiry-data":      	  		{url:"$A/modules/e/enquiry-data.html",Table:"vm-enquiry",form_module:"enquiry-form"},
         "enquiry-form":      	  		{url:"$A/modules/e/enquiry-form.html",Table:"vm-enquiry"},         
         "enquiry-app":      	  		{url:"$A/apps/e/enquiry/index.html"},         
@@ -119,15 +121,31 @@
         "predefined-transaction-item-data": {url:"$A/modules/p/predefined-transaction-item-data.html",Table:"predefined-transaction-item",form_module:"predefined-transaction-item-form"},
         "predefined-transaction-item-form": {url:"$A/modules/p/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
 
-        "purchase-order-data-f1": {url:"$A/modules/p/purchase-order-data-f1.html",Table:"purchase-order",form_module:"purchase-order-form-f1",router:1},
-        "purchase-order-form-f1": {url:"$A/modules/p/purchase-order-form-f1.html",Table:"purchase-order",
+        "purchase-order-data-s": {url:"$A/modules/p/purchase-order-data-s.html",Table:"purchase-order",form_module:"purchase-order-form-s",router:1},
+        "purchase-order-form-s": {url:"$A/modules/p/purchase-order-form-s.html",Table:"purchase-order",
                                         "manager_list_table":"manager-list",
                                         "accountant_list_table":"accountant-list",
                                         "email_to_manager":"purchase-order-email-to-manager"
                                     },
 
+        "purchase-order-data-p1": {url:"$A/modules/p/purchase-order-data-p1.html",Table:"purchase-order",form_module:"purchase-order-form-p1",router:1},
+        "purchase-order-form-p1": {url:"$A/modules/p/purchase-order-form-p1.html",Table:"purchase-order",
+                                        "manager_list_table":"manager-list",
+                                        "accountant_list_table":"accountant-list",
+                                        "email_to_accountant":"purchase-order-email-to-accountant"
+                                    },
 
-        "purchase-order-email-to-manager": {url:"$A/modules/p/purchase-order-email-to-manager.html"},
+        "purchase-order-data-p2": {url:"$A/modules/p/purchase-order-data-p2.html",Table:"purchase-order",form_module:"purchase-order-form-p2",router:1},
+        "purchase-order-form-p2": {url:"$A/modules/p/purchase-order-form-p2.html",Table:"purchase-order",
+                                        "manager_list_table":"manager-list",
+                                        "accountant_list_table":"accountant-list",
+                                        "email_to_requester":"purchase-order-email-to-requester"
+                                    },
+                                                                
+
+        "purchase-order-email-to-manager":      {url:"$A/modules/p/purchase-order-email-to-manager.html",Table:"email-setup"},
+        "purchase-order-email-to-accountant":   {url:"$A/modules/p/purchase-order-email-to-accountant.html",Table:"email-setup"},
+        "purchase-order-email-to-requester":    {url:"$A/modules/p/purchase-order-email-to-requester.html",Table:"email-setup"},
 
 
         "quest-panel":                  {url:"$A/modules/o/online-questionnaire-panel.html"},

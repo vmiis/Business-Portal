@@ -5,7 +5,7 @@
         Dear <span id=manager__ID>[MANAGER]</span>,
         <br><br>
         <div style='max-width:500px'>
-            There is a new purchase order request need to be approved.
+            Your purchase order request has been processed.
             <br>
             <br>
         </div>
@@ -20,13 +20,13 @@
             var m=$vm.module_list['__MODULE__'];
             //-----------------------------------------------
             var email_to;
-            var email_subject="Purchase order request for approving";
+            var email_subject="Purchase order has been processed";
             var email_body;
             //-----------------------------------------------
             $('#D__ID').on('load',function(){
                 //$('#dev_password__ID').hide();
                 var record=m.input.record;
-                $('#manager__ID').text(record.Data.Manager_for_Approval.split('/')[0]);
+                $('#manager__ID').text(record.Data.Accountant_for_Processing.split('/')[0]);
                 email_to=record.Data.Manager_for_Approval.split('/')[1];
                 email_body=$('#email__ID').html();
             })
