@@ -11,6 +11,8 @@
         "ato-bas-quarter-aggregation-form":     {url:"$A/modules/a/ato-bas-quarter-aggregation-form.html",Table:"ato-bas-quarter-aggregation",
                                                     transaction_table:'transaction'
                                                 },
+        "accountant-list-data":  	            {url:"$A/modules/e/email-list-data.html",Table:"accountant-list",form_module:"accountant-list-form",router:1},
+        "accountant-list-form":  	            {url:"$A/modules/e/email-list-form.html",Table:"accountant-list"},
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
         "bookkeeping-app":  			        {url:"$A/apps/b/bookkeeping/index.html"},
@@ -93,6 +95,8 @@
         "medical-practitioners-form":  	{url:"$A/modules/m/medical-practitioners-form.html",Table:"vm-medical-practitioners"},
         "medical-practitioner-app":     {url:"$A/apps/m/medical-practitioner/index.html"},
 
+        "manager-list-data":  	        {url:"$A/modules/e/email-list-data.html",Table:"manager-list",form_module:"manager-list-form",router:1},
+        "manager-list-form":  	        {url:"$A/modules/e/email-list-form.html",Table:"manager-list"},
 
 
         "nasa":  		  	  			{url:"$A/modules/n/nasa.html",router:1},
@@ -116,7 +120,14 @@
         "predefined-transaction-item-form": {url:"$A/modules/p/predefined-transaction-item-form.html",Table:"predefined-transaction-item"},
 
         "purchase-order-data-f1": {url:"$A/modules/p/purchase-order-data-f1.html",Table:"purchase-order",form_module:"purchase-order-form-f1",router:1},
-        "purchase-order-form-f1": {url:"$A/modules/p/purchase-order-form-f1.html",Table:"purchase-order"},
+        "purchase-order-form-f1": {url:"$A/modules/p/purchase-order-form-f1.html",Table:"purchase-order",
+                                        "manager_list_table":"manager-list",
+                                        "accountant_list_table":"accountant-list",
+                                        "email_to_manager":"purchase-order-email-to-manager"
+                                    },
+
+
+        "purchase-order-email-to-manager": {url:"$A/modules/p/purchase-order-email-to-manager.html"},
 
 
         "quest-panel":                  {url:"$A/modules/o/online-questionnaire-panel.html"},

@@ -5,7 +5,7 @@
     	</div>
     	<form id=F__ID>
     		<div class="container">
-                <div class='row row__ID'>
+                <div class='row row__ID' id=order__ID>
                     <div class="col-sm col-lg-6">
                 		<span>Purchase Order ID</span>
                 		<input type="text" class="form-control" id="uid__ID" readonly>
@@ -80,54 +80,70 @@
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
-            //Vm Include:__COMPONENT__/module/form-item-a.v1.js
+            VmInclude:__COMPONENT__/f/form-item-a.01.js
             //-------------------------------------
-            /*
             //get manager list;
             jQuery.ajaxSetup({async:false});
-            var list_m_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-20009687]";
-            var req_m={cmd:'read',qid:$vm.qid,sql:list_m_sql};
-            $VmAPI.request({data:req_m,callback:function(res){
-                if(res.records.length>0){
+            
+			var list_m_req={cmd:"find",table:m.manager_list_table,skip:0,limit:30}
+            $vm.request(list_m_req,function(res){
+                if(res.sys.permission==false){
+                    //$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+                    return;
+                }
+                if(res.result.length>0){
                     var list_managers=';';
-                    for(var i=0;i<res.records.length;i++){
+                    for(var i=0;i<res.result.length;i++){
                         if(list_managers!='') list_managers+=','
-                        list_managers+=res.records[i].Name+";"+res.records[i].Name+"/"+res.records[i].Email+"/"+res.records[i].Login_Name;
+                        list_managers+=res.result[i].Data.Name+";"+res.result[i].Data.Name+"/"+res.result[i].Email+"/"+res.result[i].Data.Login_Name;
                     }
                     $vm.set_dropdown_list_from_text($('#manager__ID'),list_managers);
                 }
-            }});
-            var list_a_sql="select Name=S1,Email=S2,Login_Name=S3 from [TABLE-20003837]";
-            var req_a={cmd:'read',qid:$vm.qid,sql:list_a_sql};
-    		$VmAPI.request({data:req_a,callback:function(res){
-                if(res.records.length>0){
-                    var list_accountants=';';
-                    for(var i=0;i<res.records.length;i++){
-                        if(list_accountants!='') list_accountants+=','
-                        list_accountants+=res.records[i].Name+";"+res.records[i].Name+"/"+res.records[i].Email+"/"+res.records[i].Login_Name;
-                    }
-                    $vm.set_dropdown_list_from_text($('#accountant__ID'),list_accountants);
+            })
+			var list_a_req={cmd:"find",table:m.accountant_list_table,skip:0,limit:30}
+            $vm.request(list_a_req,function(res){
+                if(res.sys.permission==false){
+                    //$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
+                    return;
                 }
-            }});
+                if(res.result.length>0){
+                    var list_managers=';';
+                    for(var i=0;i<res.result.length;i++){
+                        if(list_managers!='') list_managers+=','
+                        list_managers+=res.result[i].Data.Name+";"+res.result[i].Data.Name+"/"+res.result[i].Email+"/"+res.result[i].Data.Login_Name;
+                    }
+                    $vm.set_dropdown_list_from_text($('#accountant__ID'),list_managers);
+                }
+            })
             jQuery.ajaxSetup({async:true});
             //-------------------------------------
             $('#submit1__ID').on('click',function(event){	m.draft=1;	$('#submit0__ID').trigger('click'); 	});
     		$('#submit2__ID').on('click',function(event){   m.draft=0;	$('#submit0__ID').trigger('click');		});
     		//--------------------------------------------------------
-            m.before_submit=function(record,dbv){
-                dbv.S1=record.Short_Description;
-                dbv.S2=record.Manager_for_Approval.split('/')[0];
-                dbv.S3=record.Accountant_for_Processing.split('/')[0];
-                dbv.V1=record.Total_Amount;
+            m.before_submit=function(data,index){
+                /*
+                index.I1=data.Short_Description;
+                index.I2=data.Manager_for_Approval.split('/')[0];
+                index.I3=data.Accountant_for_Processing.split('/')[0];
+                dbv.V1=data.Total_Amount;
                 dbv.V2=record.GST_Amount;
                 record.Requester=$vm.user;
                 record.items=m.item_a_get_data();
+                */
+                data.items=m.item_a_get_data();
                 return true;
             }
             //--------------------------------------------------------
             var load=m.load;
             m.load=function(){
                 load();
+                $('#order__ID').hide(); 
+                if(m.input.record!=undefined){
+                    $('#uid__ID').val(m.input.record.UID);
+                    $('#order__ID').show();
+                }
+
+                /*
                 if(m.input.record!=undefined && m.input.record.UID!=undefined){
                     $('#uid__ID').val(m.input.record.UID);
 
@@ -137,27 +153,29 @@
                     }
 
                 }
+                */
                 //-------item a part
-                m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.items;
+                m.item_a_records=[]; if(m.input.record!=undefined) m.item_a_records=m.input.record.Data.items;
                 m.item_a_render();
                 //-------
+                
             }
             //--------------------------------------------------------
-            m.after_add=function(data,dbv,res){   after_submit(data); }
-            m.after_modify=function(data,dbv,res){after_submit(data);}
+            m.after_insert=function(data,res){  after_submit(data); }
+            m.after_update=function(data,res){  after_submit(data); }
             //--------------------------------------------------------
             var after_submit=function(data){
+alert(m.draft)                
                 $vm.refresh=1;
-                if(m.draft==0) $vm.load_module_v2('email-to-manager','',{record:data})
+                if(m.draft==0) $vm.load_module(m.email_to_manager,'',{record:{data:data}})
                 else{
-                    var rid=undefined; if(m.input.record!=undefined) rid=m.input.record.ID;
+                    var rid=undefined; if(m.input.record!=undefined) rid=m.input.record._id;
                     if(rid!=undefined) window.history.go(-1);                       //modify
                     else if(m.input.goback!=undefined) window.history.go(-1);       //from grid
                     else $vm.alert('Your data has been successfully submitted');    //standalone
                 }
             }
             //--------------------------------------------------------
-
 
 
 
@@ -170,7 +188,7 @@
             m.item_a_cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
                     case "Amount":
-                        records[I].vm_readonly[field]=true;
+                        td.find('div:first').removeAttr('contenteditable');
                         break;
     				case "GST":
                         var html='<input type=checkbox />';
@@ -216,11 +234,11 @@
                 m.item_a_render();
             }
             //----------------------------------
-            */
         }
     </script>
     <style>
         VmInclude:__COMPONENT__/f/form.01.css
+        VmInclude:__COMPONENT__/f/form-item-a.01.css
         #form_container__ID{
             max-width:800px;
         }
