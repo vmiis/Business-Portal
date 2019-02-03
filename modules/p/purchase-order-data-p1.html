@@ -28,6 +28,9 @@
                             $vm.load_module('notes','',{record:records[I]});
                         });
                         break;
+                    case '_Approved_by':
+                        if(records[I].L1!=undefined) td.html(records[I].L1.split(',')[0]);
+                        break;
                 }
             }
             //-------------------------------------

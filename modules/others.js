@@ -147,6 +147,7 @@
         "purchase-order-email-to-accountant":   {url:"$A/modules/p/purchase-order-email-to-accountant.html",Table:"email-setup"},
         "purchase-order-email-to-requester":    {url:"$A/modules/p/purchase-order-email-to-requester.html",Table:"email-setup"},
 
+        "purchase-order-request-app":           {url:"$A/apps/p/purchase-order-request/index.html"},
 
         "quest-panel":                  {url:"$A/modules/o/online-questionnaire-panel.html"},
 
