@@ -13,6 +13,10 @@
                                                 },
         "accountant-list-data":  	            {url:"$A/modules/e/email-list-data.html",Table:"accountant-list",form_module:"accountant-list-form",router:1},
         "accountant-list-form":  	            {url:"$A/modules/e/email-list-form.html",Table:"accountant-list"},
+        
+        "bar-data":  	            {url:"$A/modules/b/bar-data.html",Table:"bar",form_module:"bar-form",router:1},
+        "bar-form":  	            {url:"$A/modules/b/bar-form.html",Table:"bar"},
+        "bar-chart":  	            {url:"$A/modules/b/bar-chart.html",Table:"bar",router:1},
         "bubble":  		  	  			        {url:"$A/modules/b/bubble.html",router:1},
         "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
         "bookkeeping-app":  			        {url:"$A/apps/b/bookkeeping/index.html"},
