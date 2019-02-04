@@ -8,7 +8,7 @@
     		//-------------------------------------
             VmInclude:__COMPONENT__/c/chart.01.js
     		//-------------------------------------
-			m.fields="City,2010_Population,2000_Population";
+			m.fields="Task,Hours_per_Day";
 			m.sort={'I1':-1};
 			m.data_process=function(){
 				if(m.google==0) return;
@@ -19,7 +19,7 @@
 			var draw_chart=function(){
 				//----------------------------------
 				var ds=[]
-				ds.push(['City', '2010 Population', '2000 Population'])
+				ds.push(['Task', 'Hours per Day'])
 				var fd=m.fields.split(',')
 				for(var i=0;i<m.records.length;i++){
 					var row=[];
@@ -32,18 +32,10 @@
 				//----------------------------------
 				var data = google.visualization.arrayToDataTable(ds);
 				var options = {
-					title: 'Population of Largest U.S. Cities',
-					chartArea: {width: '50%'},
-					colors: ['#b0120a', '#ffab91'],
-					hAxis: {
-						title: 'Total Population',
-						minValue: 0
-					},
-					vAxis: {
-						title: 'City'
-					}
+				  	title: 'My Daily Activities',
+					is3D: true,
 				};
-				var chart = new google.visualization.BarChart(document.getElementById('chart_div__ID'));
+				var chart = new google.visualization.PieChart(document.getElementById('chart_div__ID'));
 				chart.draw(data, options);				
 			}
 			//-------------------------------------
@@ -53,6 +45,7 @@
     <style>
 		VmInclude:__COMPONENT__/c/chart.01.css
 		#chart_div__ID{
+			max-width:1100px;
 			height:500px;
 		}
     </style>

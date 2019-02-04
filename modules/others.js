@@ -152,6 +152,11 @@
         "purchase-order-email-to-requester":    {url:"$A/modules/p/purchase-order-email-to-requester.html",Table:"email-setup"},
 
         "purchase-order-request-app":           {url:"$A/apps/p/purchase-order-request/index.html"},
+        "pie-data":  	            {url:"$A/modules/p/pie-data.html",Table:"pie",form_module:"pie-form",router:1},
+        "pie-form":  	            {url:"$A/modules/p/pie-form.html",Table:"pie"},
+        "pie-chart":  	            {url:"$A/modules/p/pie-chart.html",Table:"pie",router:1},
+        "pie-chart-3d": 	        {url:"$A/modules/p/pie-chart-3d.html",Table:"pie",router:1},
+        "pie-chart-donut": 	        {url:"$A/modules/p/pie-chart-donut.html",Table:"pie",router:1},
 
         "quest-panel":                  {url:"$A/modules/o/online-questionnaire-panel.html"},
 
