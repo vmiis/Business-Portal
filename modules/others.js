@@ -37,8 +37,14 @@
         "contact-us-form-02":  			{url:"$A/modules/c/contact-us-form-02.html",Table:"ccontact-us-vm"},
         "contact-us-form-03":  			{url:"$A/modules/c/contact-us-form-03.html",Table:"ccontact-us-vm"},
         "contact-us-app":  			    {url:"$A/apps/c/contact-us/index.html"},
+        "column-data":  	            {url:"$A/modules/c/column-data.html",Table:"column",form_module:"column-form",router:1},
+        "column-form":  	            {url:"$A/modules/c/column-form.html",Table:"column"},
+        "column-chart":  	            {url:"$A/modules/c/column-chart.html",Table:"column",router:1},
+        "column-chart-group":           {url:"$A/modules/c/column-chart-group.html",Table:"column",router:1},
+        "column-chart-stack":           {url:"$A/modules/c/column-chart-stack.html",Table:"column",router:1},
 
 
+        "doctor":      	 		 	    {url:"$A/modules/d/doctor.html",router:1},          
         "d-c-t-data":      	  			{url:"$A/modules/d/data-collection-template-data.html","App":"demo",Table:"template",form_module:"d-c-t-form",router:1},
         "d-c-t-form":      	 		 	{url:"$A/modules/d/data-collection-template-form.html","App":"demo",Table:"template"},
         "date-data":      	  			{url:"$A/modules/d/date-data.html",Table:"Notes",form_module:"date-form",router:1},
@@ -86,6 +92,11 @@
         "incosact-thanks-english":      {url:"$A/modules/i/incosact-thanks-english.html",router:1},
         "isi-data":      	  			{url:"$A/modules/i/insomnia-severity-index-data.html",Table:"isi",form_module:"isi-form"},
         "isi-form":      	  			{url:"$A/modules/i/insomnia-severity-index-form.html",Table:"isi"},
+
+
+        "image-with-title-on-hover": 	                            {url:"$A/modules/i/image-with-title-on-hover.html",router:1},
+        "image-and-title-with-scale-rotate-effect-on-hover": 	    {url:"$A/modules/i/image-and-title-with-scale-rotate-effect-on-hover.html",router:1},
+        "image-with-title-and-subtitle-on-hover": 	                {url:"$A/modules/i/image-with-title-and-subtitle-on-hover.html",router:1},
 
         "layout-with-fixed-header-and-footer-index":                {url:"$A/apps/l/layout-with-fixed-header-and-footer/index.html"},
         "layout-with-fixed-header-and-scrollable-footer-index":     {url:"$A/apps/l/layout-with-fixed-header-and-scrollable-footer/index.html"},
