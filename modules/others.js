@@ -179,6 +179,18 @@
         "reactjs-hello-world":                  {url:"$A/modules/r/reactjs-hello-world.html",router:1},
         "reactjs-tic-tac-toe-passing-value":    {url:"$A/modules/r/reactjs-tic-tac-toe-passing-value.html",router:1},
         "reactjs-tic-tac-toe-starter":          {url:"$A/modules/r/reactjs-tic-tac-toe-starter.html",router:1},
+        
+        "sales-data":        			{url:"$A/modules/s/sales-data.html",Table:"sales-vm",form_module:"sales-form",router:1},
+        "sales-form":        			{url:"$A/modules/s/sales-form.html",Table:"sales-vm"},
+        "sales-item-data":       		{url:"$A/modules/s/sales-item-data.html",Table:"sales-item-vm",form_module:"sales-item-form",router:1},
+        "sales-item-form":       		{url:"$A/modules/s/sales-item-form.html",Table:"sales-item-vm"},
+        "sales-region-data":     		{url:"$A/modules/s/sales-region-data.html",Table:"sales-region-vm",form_module:"sales-region-form",router:1},
+        "sales-region-form":     		{url:"$A/modules/s/sales-region-form.html",Table:"sales-region-vm"},
+        "sales-rep-data":      			{url:"$A/modules/s/sales-rep-data.html",Table:"sales-rep-vm",form_module:"sales-rep-form",router:1},
+        "sales-rep-form":      			{url:"$A/modules/s/sales-rep-form.html",Table:"sales-rep-vm"},
+        "sales-monthly-aggregation-data":  {url:"$A/modules/s/sales-monthly-aggregation-data.html",Table:"sales-monthlt-aggegation-vm",form_module:"sales-monthly-aggregation-form",router:1},
+        "sales-monthly-aggregation-form":  {url:"$A/modules/s/sales-monthly-aggregation-form.html",Table:"sales-monthlt-aggegation-vm",data_table:"sales-vm"},
+        "sales-monthly-aggregation-chart": {url:"$A/modules/s/sales-monthly-aggregation-chart.html",Table:"sales-monthlt-aggegation-vm",router:1},
 
         "screen-failure":      			{url:"$A/modules/s/screen-failure-thank-you-page.html",router:1},
         "select-data":        			{url:"$A/modules/s/select-data.html",Table:"select",form_module:"select-form",router:1},
