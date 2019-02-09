@@ -14,10 +14,10 @@
         "notes":  		  	  			{url:"$A/modules/n/notes.html"},
 
 
-        "actiwatch-data-wapp":	               {url:"$A/modules/a/actiwatch-data-wapp.html",Table:"actiwatch-wapp",form_module:"actiwatch-form-wapp"},
-        "actiwatch-form-wapp":	               {url:"$A/modules/a/actiwatch-form-wapp.html",Table:"actiwatch-wapp"},
-        "adverse-event-data-wapp":	           {url:"$A/modules/a/adverse-event-data-wapp.html",Table:"adverse-eevent-wapp",form_module:"adverse-eevent-form-wapp"},
-        "adverse-eevent-form-wapp":	           {url:"$A/modules/a/adverse-event-form-wapp.html",Table:"adverse-eevent-wapp"},
+        "actiwatch-data-wapp":	               {url:"$A/modules/w/wapp-tasks/actiwatch-data.html",Table:"actiwatch-wapp",form_module:"actiwatch-form-wapp"},
+        "actiwatch-form-wapp":	               {url:"$A/modules/w/wapp-tasks/actiwatch-form.html",Table:"actiwatch-wapp"},
+        "adverse-event-data-wapp":	           {url:"$A/modules/w/wapp-tasks/adverse-event-data.html",Table:"adverse-eevent-wapp",form_module:"adverse-eevent-form-wapp"},
+        "adverse-eevent-form-wapp":	           {url:"$A/modules/w/wapp-tasks/adverse-event-form.html",Table:"adverse-eevent-wapp"},
     
         "background-information-data-wapp":     {url:"$A/modules/b/background-information-data-wapp.html",Table:"background-information-wapp",form_module:"background-information-form-wapp"},
         "background-information-form-wapp":     {url:"$A/modules/b/background-information-form-wapp.html",Table:"background-information-wapp",task_name:"Background information"},
