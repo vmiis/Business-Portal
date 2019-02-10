@@ -1,14 +1,14 @@
 <div id=D__ID>
-    <section>
+    <div>
         VmInclude:__COMPONENT__/g/grid.01.html
-    </section>
+    </div>
     <script>
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
-            VmInclude:__CURRENT_PATH__/../../s/shared-task-data-wapp.js
+            VmInclude:__CURRENT_PATH__/task-data.js
             //-------------------------------------
-            var fields="father_diagnosed,father_OSA,father_insomn,father_narco,father_RLS,father_brux,father_RBD,father_para,father_hypo,father_DSPD,mother_diagnosed,mother_OSA,mother_insomn,mother_narco,mother_RLS,mother_brux,mother_RBD,mother_para,mother_hypo,mother_DSPD";
+            var fields="australia,between_18_65,english,smartphone,baby,shift,disease,mental_health,time_difference_2h,time_difference_1h,phq_9,ISI_1a, ISI_1b, ISI_1c, ISI_2, ISI_3, ISI_4, ISI_5,ISI|V1,Eligible";
             m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
         }

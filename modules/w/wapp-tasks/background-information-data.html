@@ -1,14 +1,14 @@
 <div id=D__ID>
-  <section>
+  <div>
       VmInclude:__COMPONENT__/g/grid.01.html
-  </section>
+  </div>
   <script>
       function F__ID(){
           //-------------------------------------
           VmInclude:__COMPONENT__/g/grid.01.js
-          VmInclude:__CURRENT_PATH__/../../s/shared-task-data-wapp.js
+          VmInclude:__CURRENT_PATH__/task-data.js
           //-------------------------------------
-          var fields="ethnicity_0,ethnicity_1,ethnicity_2,ethnicity_3,ethnicity_4,ethnicity_5,ethnicity_6,ethnicity_7,ethnicity_8,ethnicity_9,ethnicity_10,ethnicity_11,ethnicity_other,COB";
+          var fields="AGE,gender,Weight,Height,BMI,handedness";
           m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
           //-------------------------------------
       }

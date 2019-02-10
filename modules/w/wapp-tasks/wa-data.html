@@ -1,14 +1,15 @@
+
 <div id=D__ID>
-  <div>
+  <section>
       VmInclude:__COMPONENT__/g/grid.01.html
-  </div>
+  </section>
   <script>
       function F__ID(){
           //-------------------------------------
           VmInclude:__COMPONENT__/g/grid.01.js
-          VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-data.js
+          VmInclude:__CURRENT_PATH__/task-data.js
           //-------------------------------------
-          var fields="AGE,gender,Weight,Height,BMI,handedness";
+          var fields="work_accident,workacc_num,workacc_sleep,work_nearmiss,worknmiss_num,worknmiss_sleep,work_injuries,injuries_days";
           m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
           //-------------------------------------
       }

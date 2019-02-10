@@ -1,15 +1,16 @@
+
 <div id=D__ID>
-    <div>
+    <section>
         VmInclude:__COMPONENT__/g/grid.01.html
-    </div>
+    </section>
     <script>
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
-            VmInclude:__CURRENT_PATH__/../../s/shared-clinical-trials-task-data.js
+            VmInclude:__CURRENT_PATH__/task-data.js
             //-------------------------------------
-            var fields="Adverse_Event,Onset_Date,Onset_Time,Resolution_Date,Resolution_Time,Was AE Serious?|Serious_AE,Intensity,Frequency,Treatment_Required,Other_Treatment,Outcome";
-            m.fields="_Form,_Status,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
+            var fields="FOSQ_1,FOSQ_2,FOSQ_3,FOSQ_4,FOSQ_5,FOSQ_6,FOSQ_7,FOSQ_8,FOSQ_9,FOSQ_10,FOSQ";
+            m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
             //-------------------------------------
         }
     </script>
@@ -17,5 +18,3 @@
         VmInclude:__COMPONENT__/g/grid.01.css
     </style>
 </div>
-  
-

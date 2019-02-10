@@ -42,7 +42,9 @@
         "column-chart":  	            {url:"$A/modules/c/column-chart.html",Table:"column",router:1},
         "column-chart-group":           {url:"$A/modules/c/column-chart-group.html",Table:"column",router:1},
         "column-chart-stack":           {url:"$A/modules/c/column-chart-stack.html",Table:"column",router:1},
-
+        
+        "client-data-wapp":             {url:"$A/modules/c/client-data-wapp.html",Table:"client-wapp",form_module:"client-form-wapp",router:1},
+        "client-form-wapp":             {url:"$A/modules/c/client-form-wapp.html",Table:"client-wapp"},
 
         "doctor":      	 		 	    {url:"$A/modules/d/doctor.html",router:1},          
         "d-c-t-data":      	  			{url:"$A/modules/d/data-collection-template-data.html","App":"demo",Table:"template",form_module:"d-c-t-form",router:1},
