@@ -12,12 +12,12 @@
 
         "notes":  		  	  			{url:"$A/modules/n/notes.html"},
 
-        "anthropometry-data-apap":		    {url:"$A/modules/a/anthropometry-data-apap.html",Table:"anthropometry",form_module:"anthropometry-form-apap"},
-        "anthropometry-form-apap":		    {url:"$A/modules/a/anthropometry-form-apap.html",Table:"anthropometry"},
-        "adverseevents-data-apap":	        {url:"$A/modules/a/adverseevents-data-apap.html",Table:"cpap-adverseevents",form_module:"adverseevents-form-apap"},
-        "adverseevents-form-apap":	        {url:"$A/modules/a/adverseevents-form-apap.html",Table:"cpap-adverseevents"},
-        "adverseevents-data-3m-apap":	    {url:"$A/modules/a/adverseevents-data-apap.html",Table:"cpap-adverseevents-3m",form_module:"adverseevents-form-3m-apap"},
-        "adverseevents-form-3m-apap":	    {url:"$A/modules/a/adverseevents-form-apap.html",Table:"cpap-adverseevents-3m"},
+        "anthropometry-data-apap":		    {url:"$A/modules/a/apap-tasks/anthropometry-data.html",Table:"anthropometry",form_module:"anthropometry-form-apap"},
+        "anthropometry-form-apap":		    {url:"$A/modules/a/apap-tasks/anthropometry-form.html",Table:"anthropometry"},
+        "adverseevents-data-apap":	        {url:"$A/modules/a/apap-tasks/adverseevents-data.html",Table:"cpap-adverseevents",form_module:"adverseevents-form-apap"},
+        "adverseevents-form-apap":	        {url:"$A/modules/a/apap-tasks/adverseevents-form.html",Table:"cpap-adverseevents"},
+        "adverseevents-data-3m-apap":	    {url:"$A/modules/a/apap-tasks/adverseevents-data.html",Table:"cpap-adverseevents-3m",form_module:"adverseevents-form-3m-apap"},
+        "adverseevents-form-3m-apap":	    {url:"$A/modules/a/apap-tasks/adverseevents-form.html",Table:"cpap-adverseevents-3m"},
 
         "bloodgas-data-apap":                   {url:"$A/modules/b/bloodgas-data-apap.html",Table:"bloodgas-apap",form_module:"bloodgas-form-apap"},
         "bloodgas-form-apap":                   {url:"$A/modules/b/bloodgas-form-apap.html",Table:"bloodgas-apap"},

@@ -1,15 +1,25 @@
 <div id=D__ID>
-    <section>
+    <div>
         VmInclude:__COMPONENT__/g/grid.01.html
-    </section>
+    </div>
     <script>
         function F__ID(){
             //-------------------------------------
             VmInclude:__COMPONENT__/g/grid.01.js
-            VmInclude:__CURRENT_PATH__/../../s/shared-task-data-apap.js
+            VmInclude:__CURRENT_PATH__/task-data.js
             //-------------------------------------
-            var fields="ae_num,AE,last_dose,date_onset,time_onset,date_resol,time_resol,sae,intensity,Relationship to study treatment|relation,Treatment Required|treatment,other_text,Outcome";
+            var fields="Consent_form";
             m.fields="_Form,_Status,_Notes,_Participant_ID,"+fields+",Submit_date,Submitted_by,_Delete";
+            //-------------------------------------
+            var cell_render=m.cell_render;
+            m.cell_render=function(records,I,field,td){
+                cell_render(records,I,field,td);
+                switch(field){
+                    case 'Consent_form':
+                        m.set_file_link(records,I,field,td)
+                        break;
+                }
+            }
             //-------------------------------------
         }
     </script>
