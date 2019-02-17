@@ -96,6 +96,9 @@
         "isi-form":      	  			{url:"$A/modules/i/insomnia-severity-index-form.html",Table:"isi"},
 
 
+        "invoice-data": 	            {url:"$A/modules/i/invoice-data.html",Table:"invoice-vm",form_module:"invoice-form",router:1},
+        "invoice-form": 	            {url:"$A/modules/i/invoice-form.html",Table:"invoice-vm"},
+
         "image-with-title-on-hover": 	                            {url:"$A/modules/i/image-with-title-on-hover.html",router:1},
         "image-and-title-with-scale-rotate-effect-on-hover": 	    {url:"$A/modules/i/image-and-title-with-scale-rotate-effect-on-hover.html",router:1},
         "image-with-title-and-subtitle-on-hover": 	                {url:"$A/modules/i/image-with-title-and-subtitle-on-hover.html",router:1},
