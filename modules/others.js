@@ -21,7 +21,8 @@
         "bubble-background-app":		        {url:"$A/apps/b/bubble-background/index.html"},
         "bookkeeping-app":  			        {url:"$A/apps/b/bookkeeping/index.html"},
         "bookkeeping-app-wappsystem":  		    {url:"$A/apps/b/bookkeeping-wappsystem/index.html"},
-        
+
+
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
         "checkbox-data":      			{url:"$A/modules/c/checkbox-data.html",Table:"checkbox",form_module:"checkbox-form",router:1},
@@ -81,6 +82,7 @@
         "fountains-illumination-app":	{url:"$A/apps/f/fountains-illumination-background/index.html"},
         "frame":                        {url:"$A/modules/f/frame.html"},
         "form-text-input-fields":       {url:"$A/modules/f/form-text-input-fields.html",router:1},
+        "form-sql-fields":              {url:"$A/modules/f/form-sql-fields.html",router:1},
         "fitness":                      {url:"$A/modules/f/fitness.html",router:1},
         "fitness-app":                  {url:"$A/apps/f/fitness/index.html"},
 
@@ -131,6 +133,17 @@
         
 
         "panel":    		  			{url:"$A/modules/p/panel.html",router:1},
+        "panel-main-biomarkers-ii":     {url:"$A/modules/p/panel-biomarkers-ii/panel-main.html",router:1},
+        
+        "participant-data-biomarkers-ii":   {url:"$A/modules/p/participant-data-biomarkers-ii.html", Table:"T91000570",
+                                                form_module:"participant-form-biomarkers-ii",
+                                                panel_child:"panel-child--biomarkers-ii",
+                                                online_questionnaire_setup:"online-questionnaire-setup"
+                                            },
+        "participant-form-biomarkers-ii":   {url:"$A/modules/p/participant-form-biomarkers-ii.html", Table:"T91000570"},
+
+
+
         "particle":  		  			{url:"$A/modules/p/particle.html",router:1},
         "particle-background-app":      {url:"$A/apps/p/particle-background/index.html"},
         "prices":  		  	  			{url:"$A/modules/p/prices.html",router:1},
