@@ -1,6 +1,6 @@
 <div id=D__ID>
-    <div style='padding:6px;'>
-        Filter: <input id=filter__ID> <button id=apply__ID>Apply</button>
+    <div style='padding:10px 0 0 20px;'>
+        <input id=filter__ID placeholder=Filter> <button id=apply__ID class="btn btn-secondary btn-sm">Apply</button>
     </div>
     <div style='font-size:11px;cplor:#555;padding:10px 0 0 20px'>
         Hover the mouse over the link to see where the module is hosted.
@@ -25,6 +25,7 @@
                 <li><a app href=?/online-questionnaire-app-apap>APAP - online questionnaire</a></li>
                 <li><a href=?/about>About</a></li>               
                 <li><a href=?/actiwatch-data-wapp>Actiwatch (wapp)</a></li>
+                <li><a href=?/actigraphy-laboratory-data-biomarkers-ii>Actigraphy (biomarkers-ii)</a></li>
                 <li><a href=?/adverseevents-data-apap>Adverse events (apap)</a></li>
                 <li><a href=?/adverse-event-data-wapp>Adverse events (wapp)</a></li>
                 <li><a href=?/anthropometry-data-apap>Anthropometry (apap)</a></li>
@@ -158,12 +159,16 @@
         <div class='nav__ID'>
             <span>N</span>
             <ul>
+                <li><a app href=?/nasa-background-app>Nasa background</a></li>
+                <li><a app href=?/nyan-background-app>Nyan background</a></li>
                 <li><a href=?/nasa>Nasa</a></li>
                 <li><a href=?/not-ready>Not ready</a></li>
                 <li><a href=?/nyan>Nyan</a></li>
             </ul>
             <span>P</span>
             <ul>
+                <li><a app href=?/particle-background-app>Particle background</a></li>
+                <li><a app href=?/purchase-order-request-app>Purchase order request</a></li>
                 <li><a app href=?/particle-background-app>Particle background</a></li>
                 <li><a app href=?/purchase-order-request-app>Purchase order request</a></li>
                 <li>Pie: <a href=?/pie-data>data</a>, <a href=?/pie-form>form</a>, <a href=?/pie-chart>chart</a>, <a href=?/pie-chart-3d>chart-3d</a>, <a href=?/pie-chart-donut>chart-donut</a></li>
@@ -182,6 +187,8 @@
                 <li><a href=?/purchase-order-data-s>Purchase order request (requester)</a></li>
                 <li><a href=?/purchase-order-data-p1>Purchase order request (manager)</a></li>
                 <li><a href=?/purchase-order-data-p2>Purchase order request (accountant)</a></li>
+                <li><a href=?/project-shq-data>Project (ASTN SHQ)</a></li>
+                <li><a href=?/pvt-data-biomarkers-ii>Psychomotor Vigilance Task (biomarkers-ii)</a></li>
             </ul>
             <span>R</span>
             <ul>
@@ -290,12 +297,14 @@
             if($vm.localhost==true) $('#builder__ID').show();
             //--------------------------------------------------------
             $('#apply__ID').on('click',function(){
+                $('#panel__ID span').hide();
                 var word=$('#filter__ID').val().toUpperCase();
                 $('#panel__ID a').each(function(){
                     var href=$(this).attr('href');
                     var name=$(this).html().toUpperCase();
                     if(name.indexOf(word)!=-1){
                         $(this).parent().show();
+                        $(this).parent().parent().prev().show();
                     }
                     else{
                         console.log(word)

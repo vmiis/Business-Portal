@@ -7,7 +7,7 @@
         "room-booking":   			    {url:"$A/modules/r/room-booking.html",Table:"room","booking_form":"room-booking-record-form",router:1},
         "room-booking-calendar": 	    {url:"$A/modules/r/room-booking-calendar.html",Table:"room-booking-record",
                                         "booking":"room-booking","booking_form":"room-booking-record-form",router:1},
-        "room-booking-app":   			{url:"$A/apps/r/room-booking/index.html"},
+        "room-booking-app":   			{url:"$A/modules/r/room-booking/index.html"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();

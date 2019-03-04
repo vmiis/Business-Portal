@@ -1,6 +1,6 @@
 (function(){
     var modules={
-        "clinical-trials-app-wapp":         {url:"$A/apps/c/clinical-trials-wapp/index.html"},
+        "clinical-trials-app-wapp":         {url:"$A/modules/c/clinical-trials-wapp/index.html"},
 
         "panel-main-wapp":    			    {url:"$A/modules/p/panel-wapp/panel-main.html",router:1},
         "panel-child-wapp":    			    {url:"$A/modules/p/panel-wapp/panel-child.html"},
@@ -14,7 +14,7 @@
 
         "notes":  		  	  			    {url:"$A/modules/n/notes.html"},
         "online-questionnaire-setup-wapp": 	{url:"$A/modules/w/wapp-tasks/online-questionnaire-setup.html",Table:"participant"},
-        "online-questionnaire-app-wapp":    {url:"$A/apps/o/online-questionnaire-wapp/index.html"},
+        "online-questionnaire-app-wapp":    {url:"$A/modules/o/online-questionnaire-wapp/index.html"},
 
         "actiwatch-data-wapp":	               {url:"$A/modules/w/wapp-tasks/actiwatch-data.html",Table:"actiwatch-wapp",form_module:"actiwatch-form-wapp"},
         "actiwatch-form-wapp":	               {url:"$A/modules/w/wapp-tasks/actiwatch-form.html",Table:"actiwatch-wapp"},

@@ -30,7 +30,7 @@
         "blood-data-3m-apap":                   {url:"$A/modules/b/blood-data-apap.html",Table:"blood-3m-apap",form_module:"blood-form-3m-apap"},
         "blood-form-3m-apap":                   {url:"$A/modules/b/blood-form-apap.html",Table:"blood-3m-apap"},
 
-        "clinical-trials-app-apap":     {url:"$A/apps/c/clinical-trials-apap/index.html"},
+        "clinical-trials-app-apap":     {url:"$A/modules/c/clinical-trials-apap/index.html"},
         "consent-form-upload-data-apap":{url:"$A/modules/c/consent-form-upload-data-apap.html",Table:"consent-form",form_module:"consent-form-upload-form-apap"},
         "consent-form-upload-form-apap":{url:"$A/modules/c/consent-form-upload-form-apap.html",Table:"consent-form"},
         "contact-details-data":   		{url:"$A/modules/c/contact-details-data.html",Table:"contact-details",form_module:"contact-details-form",router:1},
@@ -61,7 +61,7 @@
         "medication-form-apap":         {url:"$A/modules/m/medication-form-apap.html",Table:"medication-apap"},
         
         "online-questionnaire-setup-apap": 	{url:"$A/modules/o/online-questionnaire-setup-apap.html",Table:"apap-participant"},
-        "online-questionnaire-app-apap":    {url:"$A/apps/o/online-questionnaire-apap/index.html"},
+        "online-questionnaire-app-apap":    {url:"$A/modules/o/online-questionnaire-apap/index.html"},
         
 
         "pwa-data-apap":	            {url:"$A/modules/p/pwa-data-apap.html",Table:"pwa-apap",form_module:"pwa-form-apap"},

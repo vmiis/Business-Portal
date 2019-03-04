@@ -7,7 +7,7 @@
         "car-booking":   			    {url:"$A/modules/c/car-booking.html",Table:"car","booking_form":"car-booking-record-form",router:1},
         "car-booking-calendar": 	    {url:"$A/modules/c/car-booking-calendar.html",Table:"car-booking-record",
                                             "booking":"car-booking","booking_form":"car-booking-record-form",router:1},
-        "car-booking-app":   			{url:"$A/apps/c/car-booking/index.html"},
+        "car-booking-app":   			{url:"$A/modules/c/car-booking/index.html"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
