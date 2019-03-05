@@ -66,14 +66,14 @@
     color: black;
 }
 
-h1 {
+#D__ID h1 {
     text-transform: uppercase;
     font-size: 12pt;
     font-weight: bold;
     border-top: rgba(60,60,60,1) solid 1px;
     padding: 5px;
 }
-h2 {
+#D__ID h2 {
     text-transform: uppercase;
     font-size: 10pt;
     font-weight: bold;
