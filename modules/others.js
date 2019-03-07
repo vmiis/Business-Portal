@@ -85,6 +85,8 @@
         "form-sql-fields":              {url:"$A/modules/f/form-sql-fields.html",router:1},
         "fitness":                      {url:"$A/modules/f/fitness.html",router:1},
         "fitness-app":                  {url:"$A/modules/f/fitness/index.html"},
+        "formio-data":                  {url:"$A/modules/f/formio-data.html",Table:"formio-vm",form_module:"formio-form",router:1},
+        "formio-form":                  {url:"$A/modules/f/formio-form.html",Table:"formio-vm"},
 
         
 
