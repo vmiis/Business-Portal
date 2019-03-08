@@ -232,6 +232,8 @@
         "success":  		  	  		{url:"$A/modules/s/success.html",router:1},
         "success-app":  		  	  	{url:"$A/modules/s/success/index.html"},
         "simple-app":  		  	  	    {url:"$A/modules/s/simple/index.html"},
+        "surveyjs-data":                {url:"$A/modules/s/surveyjs-data.html",Table:"surveyjs-vm",form_module:"surveyjs-form",router:1},
+        "surveyjs-form":                {url:"$A/modules/s/surveyjs-form.html",Table:"surveyjs-vm"},
 
         "text-input-data":    			{url:"$A/modules/t/text-input-data.html",Table:"text-input",form_module:"text-input-form",router:1},
         "text-input-form":    			{url:"$A/modules/t/text-input-form.html",Table:"text-input"},
