@@ -21,8 +21,8 @@
                 <li>
                     Create, modify, view and submit purchase order requests.
                     <br>Users can only see the records created by themself.
-                    <br>Need to select a manager for Approving and an accountant for processing.
-                    <br>The purchase order requests can only be vied once approved.
+                    <br>Need to select a manager for approving and an accountant for processing.
+                    <br>The purchase order requests can only be viewed once approved.
                     <br>you can test with login
                     <br>user1 (password:123) 
                     <br>user2 (password:123) 
@@ -52,7 +52,9 @@
         </div>
         <h1>Setup</h1>
         <br>
-        <button type=button id=smtp__ID class="btn btn-secondary">Email SMTP setup</button> <button type=button id=manager__ID class="btn btn-secondary">Manager list setup</button> <button type=button id=accountant__ID class="btn btn-secondary">Accountant list setup</button>
+        <div id=btn__ID>
+            <button type=button id=smtp__ID class="btn btn-secondary">Email SMTP setup</button> <button type=button id=manager__ID class="btn btn-secondary">Manager list setup</button> <button type=button id=accountant__ID class="btn btn-secondary">Accountant list setup</button>
+        </div>
         <br>
         <br>
         <br>
@@ -118,6 +120,9 @@
         }
         #app__ID:hover{
             color:red;
+        }
+        #btn__ID *{
+            margin:3px;
         }
         @media screen and (max-width:768px){
             #container__ID{

@@ -21,66 +21,22 @@
 						<input type=text name="Client_uid" class=form-control readonly />
 					</div>
 					<hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
-				</div>
-                
-                
-                <div class='row row__ID'>
-                    <div class="col-sm col-lg-6">
-                		<span>Manager for Approval</span>
-                		<select class=form-control name=Manager_for_Approval id=manager__ID></select>
-                	</div>
-                    <div class="col-sm col-lg-6">
-                		<span>Accountant for Processing</span>
-                		<select class=form-control name=Accountant_for_Processing id=accountant__ID></select>
-                	</div>
-                </div>
-                <div class='row row__ID'>
-                	<div class=col>
-                		<span>Short Description</span>
-                		<input type="text" class="form-control" name="Short_Description" >
-                	</div>
                 </div>
                 <div class='row row__ID'>
                     <div class="col-sm col-lg-6">
-                		<span>Supplier Name</span>
-                		<input type=text class=form-control name=Supplier_Name>
+                		<span>Issue Date</span>
+                		<input type=date class=form-control name=Issue_Date required />
                 	</div>
                     <div class="col-sm col-lg-6">
-                		<span>Supplier Account No (if applicable)</span>
-                		<input type=text class=form-control name=Supplier_Account_No>
-                	</div>
-                </div>
-                <div class='row row__ID'>
-                	<div class=col>
-                		<span>Supplier Address</span>
-                		<textarea class="form-control" name="Supplier_Address"></textarea>
-                	</div>
-                </div>
-                <div class='row row__ID'>
-                    <div class="col-sm col-lg-6">
-                		<span>Supplier Phone</span>
-                		<input type=text class=form-control name=Supplier_Phone>
-                	</div>
-                    <div class="col-sm col-lg-6">
-                		<span>Supplier Fax</span>
-                		<input type=text class=form-control name=Supplier_Fax>
-                	</div>
-                </div>
-                <div class='row row__ID'>
-                	<div class=col-lg-6>
-                		<span>Your contact email</span>
-                		<input type=text class=form-control name=Contact_Email>
-                	</div>
-                	<div class=col-lg-6>
-                		<span>Your contact phone</span>
-                		<input type=text class=form-control name=Contact_Phone>
+                		<span>Due Date</span>
+                		<input type=date class=form-control name=Due_Date required />
                 	</div>
                 </div>
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
                 <br>
                 <div class="row">
                     <div class=col>
-                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add an item</u>
+                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add an invoice item</u>
     				    <table id=grid_item_a__ID></table>
     				    <div id=total__ID style='text-align: right'>
                                 GST Amount: <input type=text name=GST_Amount style="width:120px;margin-bottom:1px" readonly><br>
@@ -89,7 +45,19 @@
                     </div>
                 </div>
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
-				<br>
+                <div class="row">
+                    <div class=col>
+                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_b_add__ID><i class="fa fa-plus"></i> Add a payment item</u>
+                        <table id=grid_item_b__ID></table>
+                        <div id=total__ID style='text-align: right'>
+                                Total Paid: <input type=text name=Total_Paid style="width:120px;margin-bottom:1px" readonly><br>
+                                Balance: <input type=text name=Balance style="width:120px" readonly>
+                        </div>
+                    </div>
+                </div>
+                <input type=text name=Client_info style='display:none'>
+                <br>
+                <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
 				<div class="row">
 					<div class=col>
 						<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
@@ -103,11 +71,66 @@
             //-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
             VmInclude:__COMPONENT__/f/form-item-a.01.js
+            VmInclude:__COMPONENT__/f/form-item-b.01.js
             //-------------------------------------
+            //auto select client
+            var get_name=function(record){
+                var name=record.Data.Business_name;
+                if(name==""){
+                    name=record.Data.First_name+" "+record.Data.Last_name;
+                }
+                return name;
+            }
+            var get_client_info=function(record){
+                var ABN=""; if(record.Data.ABN_number!="") ABN="ABN Number: "+record.Data.ABN_number;
+                var name=record.Data.Business_name+"|"+ABN
+                name+="|"+record.Data.First_name+" "+record.Data.Last_name;
+                name+="|"+record.Data.Address;
+                name+="|"+record.Data.Suburb;
+                name+="|"+record.Data.State+' '+record.Data.Postcode;
+                return name;
+            }
+            var autocomplete_req_1={cmd:"find",table:m.client_table,options:{},skip:0,limit:10}
+            var autocomplete_req_1={cmd:"find",table:m.client_table,options:{},skip:0,limit:10}
+            var autocomplete_callback_1=function(items){ $("#F__ID input[name=Client_uid]").val(items["UID"]); $("#F__ID input[name=Client_info]").val(get_client_info(items.record)); }
+            var autocomplete_list_1=function(records){
+                var items=[];
+                for(var i=0;i<records.length;i++){
+                    var obj={};
+                    obj.label=get_name(records[i]);
+                    obj['UID']=records[i].UID;
+                    obj['record']=records[i];
+                    items.push(obj);
+                }
+                return items;
+            }
+            var wait1=function(){
+                $vm.autocomplete($('#Client__ID'),autocomplete_req_1,autocomplete_list_1,autocomplete_callback_1);
+            }
+            var I=0; var loop_1=setInterval(function (){
+                if($vm['jquery-ui-min-js']!=undefined){  clearInterval(loop_1); wait1(); }
+                I++; if(I>50){ clearInterval(loop_1); alert("jquery-ui.min.js is not installed."); }
+            },100);
+            //-------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+            /*
+
             //get manager list;
             jQuery.ajaxSetup({async:false});
             
-			var list_m_req={cmd:"find",table:m.manager_list_table,skip:0,limit:30}
+			var list_m_req={cmd:"find",table:m.client_table,skip:0,limit:30}
             $vm.request(list_m_req,function(res){
                 if(res.sys.permission==false){
                     //$vm.alert("No permission. Private database table, ask the table's owner for permissions.");
@@ -138,6 +161,7 @@
                 }
             })
             jQuery.ajaxSetup({async:true});
+            */
             //-------------------------------------
             $('#submit1__ID').on('click',function(event){	m.draft=1;	$('#submit0__ID').trigger('click'); 	});
     		$('#submit2__ID').on('click',function(event){   m.draft=0;	$('#submit0__ID').trigger('click');		});
@@ -152,9 +176,12 @@
                 record.Requester=$vm.user;
                 record.items=m.item_a_get_data();
                 */
-                index.P1=data.Manager_for_Approval.split('/')[2];
-                index.P2=data.Accountant_for_Processing.split('/')[2];
+                //index.P1=data.Manager_for_Approval.split('/')[2];
+                //index.P2=data.Accountant_for_Processing.split('/')[2];
+                index.I1=new Date(data.Issue_date).toJSON();
+                index.I2=new Date(data.Due_date).toJSON();
                 data.items=m.item_a_get_data();
+                data.payments=m.item_b_get_data();
                 return true;
             }
             //--------------------------------------------------------
@@ -183,6 +210,10 @@
                 m.item_a_render();
                 //-------
                 
+                //-------item b part
+                m.item_b_records=[]; if(m.input.record!=undefined) m.item_b_records=m.input.record.Data.payments;
+                m.item_b_render();
+                //-------
             }
             //--------------------------------------------------------
             m.after_insert=function(data,res){  after_submit(data); }
@@ -237,6 +268,39 @@
                 cal();
             }
             //----------------------------------
+
+            //----------------------------------
+            //item b part
+            m.item_b_fields="Payment_Date,Method,Notes,Amount,_Remove";
+            //----------------------------------
+            $('#item_b_add__ID').on('click',function(){ m.item_b_add(); })
+            //----------------------------------
+            m.item_b_cell_render=function(records,I,field,td,set_value,source){
+                switch(field){
+                    case "Payment_Date":
+                        td.html("<input type=date />");
+                        td.find('input').val(records[I][field]);
+                        td.find('input').on('input', function(){
+                            var value=$(this).val();
+                            if(value==="" && records[I][field]===undefined) return;
+                            records[I][field]=value;
+                        });
+                        break;
+                }
+            }
+            //----------------------------------
+            m.item_b_after_change=function(records,I,field,td,set_value,source){
+                switch(field){
+    				case "Amount":
+                        cal();
+                        break;
+                }
+            }
+            //----------------------------------
+            m.item_b_after_remove=function(){
+                cal();
+            }
+            //----------------------------------
             var cal=function(){
                 var total=0,gst=0;
                 for(var i=0;i<m.item_a_records.length;i++){
@@ -255,6 +319,15 @@
                 $('#F__ID input[name=GST_Amount]').val(gst.toFixed(2));
                 $('#F__ID input[name=Total_Amount]').val(total.toFixed(2));
                 m.item_a_render();
+
+                var total_b=0;
+                for(var i=0;i<m.item_b_records.length;i++){
+                    var a=parseFloat(m.item_b_records[i].Amount);
+                    m.item_b_records[i].Amount=a.toFixed(2);
+                    total_b+=a;
+                }
+                $('#F__ID input[name=Total_Paid]').val(total_b.toFixed(2));
+                $('#F__ID input[name=Balance]').val((total_b-total).toFixed(2));
             }
             //----------------------------------
         }
@@ -265,5 +338,6 @@
         }
         VmInclude:__COMPONENT__/f/form.01.css
         VmInclude:__COMPONENT__/f/form-item-a.01.css
+        VmInclude:__COMPONENT__/f/form-item-b.01.css
     </style>
 </div>

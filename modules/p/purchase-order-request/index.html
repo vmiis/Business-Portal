@@ -15,7 +15,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.52,0.52]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.53,0.53]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -32,6 +32,7 @@
             //you can add modules here directly
             "home":         {url:"$A/modules/h/home2.html",router:1},
             "about-vmiis":  {url:"$A/modules/a/about-vmiis.html",router:1},
+            "notes":  		{url:"$A/modules/n/notes.html"},
             
             "purchase-order-data-s": {url:"$A/modules/p/purchase-order-data-s.html",Table:"purchase-order",form_module:"purchase-order-form-s",router:1},
             "purchase-order-form-s": {url:"$A/modules/p/purchase-order-form-s.html",Table:"purchase-order",

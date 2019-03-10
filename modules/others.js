@@ -50,8 +50,8 @@
         "doctor":      	 		 	    {url:"$A/modules/d/doctor.html",router:1},          
         "d-c-t-data":      	  			{url:"$A/modules/d/data-collection-template-data.html","App":"demo",Table:"template",form_module:"d-c-t-form",router:1},
         "d-c-t-form":      	 		 	{url:"$A/modules/d/data-collection-template-form.html","App":"demo",Table:"template"},
-        "date-data":      	  			{url:"$A/modules/d/date-data.html",Table:"Notes",form_module:"date-form",router:1},
-        "date-form":      	 		 	{url:"$A/modules/d/date-form.html",Table:"Notes"},          
+        "date-data":      	  			{url:"$A/modules/d/date-data.html",Table:"date-vm",form_module:"date-form",router:1},
+        "date-form":      	 		 	{url:"$A/modules/d/date-form.html",Table:"date-vm"},          
         "dass-data":	 	            {url:"$A/modules/d/depression-anxiety-stress-scales-data.html",Table:"dass",form_module:"dass-form"},
         "dass-form":	 	            {url:"$A/modules/d/depression-anxiety-stress-scales-form.html",Table:"dass"},
 
@@ -100,9 +100,14 @@
         "isi-form":      	  			{url:"$A/modules/i/insomnia-severity-index-form.html",Table:"isi"},
 
 
+        "invoice-management-workflow":  {url:"$A/modules/i/invoice-management-workflow.html",router:1},
         "invoice-data": 	            {url:"$A/modules/i/invoice-data.html",Table:"invoice-vm",form_module:"invoice-form",router:1},
-        "invoice-form": 	            {url:"$A/modules/i/invoice-form.html",Table:"invoice-vm"},
-
+        "invoice-form": 	            {url:"$A/modules/i/invoice-form.html",Table:"invoice-vm",
+                                            client_table:"client-wapp"
+                                        },
+        "invoice-print": 	            {url:"$A/modules/i/invoice-print.html",Table:"invoice-vm",
+                                            client_table:"client-wapp"
+                                        },
         "image-with-title-on-hover": 	                            {url:"$A/modules/i/image-with-title-on-hover.html",router:1},
         "image-and-title-with-scale-rotate-effect-on-hover": 	    {url:"$A/modules/i/image-and-title-with-scale-rotate-effect-on-hover.html",router:1},
         "image-with-title-and-subtitle-on-hover": 	                {url:"$A/modules/i/image-with-title-and-subtitle-on-hover.html",router:1},
