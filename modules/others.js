@@ -21,7 +21,9 @@
         "bubble-background-app":		        {url:"$A/modules/b/bubble-background/index.html"},
         "bookkeeping-app":  			        {url:"$A/modules/b/bookkeeping/index.html"},
         "bookkeeping-app-wappsystem":  		    {url:"$A/modules/b/bookkeeping-wappsystem/index.html"},
-
+        "bookkeeping-workflow":  			    {url:"$A/modules/b/bookkeeping-workflow.html",router:1},
+        "bookkeeping-workflow-wapp":  	        {url:"$A/modules/b/bookkeeping-workflow-wapp.html",router:1},
+        
 
         "clinical-trials-data-entry": 	{url:"$A/modules/c/clinical-trials-data-entry.html"},
         "carousel":  		  			{url:"$A/modules/c/carousel.html",router:1},
