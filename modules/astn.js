@@ -81,19 +81,12 @@
         "wa-astn-form": { url: "$A/modules/wa-astn-form.html", Table: "wa-astn-20002422", task_name:"Workplace Accidents" },
         "thank-you-astn-form": { url: "$A/modules/thank-you-astn-form.html", task_name:"Thank You" }
     }
-    //var $A="https://astn.wappsystem.com.au/"
-    var $A="http://127.0.0.1:8000/wappsystem/astn/"
+    var $A="https://astn.wappsystem.com.au/";
+    if($vm.localhost==true) $A="http://127.0.0.1:8000/wappsystem/astn/";
     var prefix="astn-";
     for(m in modules){
         $vm.module_list[prefix+m]=modules[m];
         $vm.module_list[prefix+m].prefix=prefix;
         $vm.module_list[prefix+m].url=$vm.module_list[prefix+m].url.replace("$A",$A);
-        /*
-        if($vm.module_list[m+_app].form_module!=undefined){
-            $vm.module_list[m+_app].form_module+=_app;
-            $vm.module_list[m+_app].child_panel+=_app;
-            $vm.module_list[m+_app].app=_app;
-        }
-        */
     }
 })();

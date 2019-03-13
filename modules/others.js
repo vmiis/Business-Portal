@@ -208,6 +208,7 @@
 
         "radio-data":      	  			{url:"$A/modules/r/radio-data.html",Table:"radio",form_module:"radio-form",router:1},
         "radio-form":      	  			{url:"$A/modules/r/radio-form.html",Table:"radio"},
+        "room-booking-workflow":  		{url:"$A/modules/r/room-booking-workflow.html",router:1},
         
 
         
