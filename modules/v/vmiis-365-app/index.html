@@ -4,7 +4,7 @@
         <!-- The meta data are changed by the active module-->
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel="icon" href="data:,">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
     </head>
     <body>
         <!-- Typical website layout, the contents are dynamiclly updated by modules-->
@@ -12,10 +12,11 @@
         <div id=content></div>
         <div id=footer></div>
     </body>
-    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.17/js/adal.min.js"></script>  
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.71,0.62]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.53,0.53]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://www.vmiis.com';
@@ -23,33 +24,24 @@
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/app.html",              //app menu, title, footer etc
-            "$A/modules/f/frame.html",  //app frame work
+            "$A/modules/v/vmiis-365-app/app.html",      //app menu, title, footer etc
+            "$A/modules/f/frame.html",              //app frame work
         ]
         //------------------------------------
         //modules used in this app
         $vm.module_list={
             //you can add modules here directly
-            "home":             {url:"$A/modules/h/home.html",router:1},
-            "panel-portal":	    {url:"$A/modules/p/panel-portal.html",router:1},
-            "panel-modules":	{url:"$A/modules/p/panel-modules.html",router:1},
-            "vmiis-365-app":	{url:"$A/modules/v/vmiis-365-app/index.html",router:1},
+            "home":                     {url:"$A/modules/v/vm365-home.html"},
+            "about-vmiis":              {url:"$A/modules/a/about-vmiis.html",router:1},
+            "vm365-entity-data":   	    {url:"$A/modules/v/vm365-entity-data.html",Table:"EntityDefinitions",form_module:"vm365-entity-form"},
+            "vm365-entity-form":   	    {url:"$A/modules/v/vm365-entity-form.html",Table:"EntityDefinitions"},
+            "vm365-table1-data":   	    {url:"$A/modules/v/vm365-table1-data.html",Table:"new_table1s",form_module:"vm365-table1-form"},
+            "vm365-table1-form":   	    {url:"$A/modules/v/vm365-table1-form.html",Table:"new_table1s"},
         };
         //------------------------------------
         //where are your all other modules
         $vm.app_modules=[
             //you can add a js file that will add mmodules to the $vm.module_list
-            "$A/modules/common.js",
-            "$A/modules/car-booking.js",
-            "$A/modules/room-booking.js",
-            "$A/modules/equipmen-booking.js",
-            "$A/modules/apap.js",
-            "$A/modules/wapp.js",
-            "$A/modules/biomarkers-ii.js",
-            "$A/modules/bookkeeping-wapp.js",
-            "$A/modules/others.js",
-            "$A/modules/astn.js",
-            "$A/modules/isleephealth.js",
         ]
         //------------------------------------
         
@@ -58,7 +50,7 @@
         
         //------------------------------------
         //Do not need to chang the following code in most cases
-        //The following code will load a framework module and your application modules
+        //The following code will load a framework module and your application module
         //------------------------------------
         $VmAPI={};$vm.start_time=new Date().getTime();
         //------------------------------------
@@ -78,7 +70,6 @@
             $vm._I++;
             if($vm._I==$vm._N){
                 for(p in $vm.module_list) $vm.module_list[p].url=$vm.replace_url($vm.module_list[p].url);
-                console.log((new Date().getTime()-$vm.start_time)+'ms');
                 $vm._start();
             }
         }

@@ -3,7 +3,6 @@
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Nunito|Nunito+Sans|Roboto+Slab' />
     <!-------->
     <div id=components style='display:none'>
-        <!-- header and manu -->
         <div id=c_header>
             <div class=vm-mobile>
                 <span id=vm-mobile_title class=vm-mobile-title>Business Portal</span>
@@ -14,14 +13,10 @@
                 <span id=vm-logo-label-B>Modular distributed web application</span>
             </div>
             <div menu id="vm-menu">
-                <a href="?/home"><i class="fa fa-home"></i> Home</a>
-                <a href="?/panel-portal">Portal</a>
-                <a href="?/panel-modules">Modules</a>
-                <!--<a href="?/panel-apps">Apps</a>-->
-                <a href="https://backoffice.wappsystem.com.au">Backoffice</a>
-                <a href="?/about-vmiis">About</a>
-                <a id=vm_signin onclick="$vm.signin();"><i class="fa fa-user"></i> Sign In</a>
-                <a class=vm-hide id=vm_signout onclick=$vm.signout()><i class="fa fa-user"></i> Sign Out</a>
+                <a href="?/home"><i class="fa fa-home"></i> Portal</a>
+                <a href="?/about-vmiis"><i class="fa fa-info-circle"></i> About</a>
+                <a id=vm_signin ><i class="fa fa-user"></i> VMIIS 365 Sign In</a>
+                <a class=vm-hide id=vm_signout ><i class="fa fa-user"></i> Sign Out</a>
             </div>
         </div>
         <div id=c_footer>
@@ -30,11 +25,9 @@
     </div>
     <script main-code>
         //------------------------------------
-        //database api service address
         $vm.api_address="https://api.wappsystem.com";
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
-        //Set your default web page title and footer text
         $vm.default_title="Modular distributed web application";
         var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
         $('#text_0').html(txt);
@@ -64,7 +57,7 @@
             $("meta[name='description']").attr("content", "A single page application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills!");
             $("body").removeClass();
             $("body").addClass('body_background_default');
-            
+
             $vm.active_id=undefined;
             if(m_name!=undefined) $vm.active_id=$vm.module_list[m_name].id;
             if(m_name!=undefined && $vm.module_list[m_name].show!=undefined) $vm.module_list[m_name].show();
@@ -78,10 +71,89 @@
         $vm.show();
         window.onresize=function(){set_layout();}
         //------------------------------------
+        /*
         $vm.start=function(){
+            if(window.opener){
+                sessionStorage.clear();
+                window.opener=null;
+            }
             $vm.init(function(){
                $vm.init_status=1;
                $vm.show_user();
+
+           })
+        }
+        //------------------------------------
+        */
+
+
+
+
+
+        //------------------------------------
+        $vm.o365={};
+        $vm.o365.organizationURI = "https://vmiis.crm6.dynamics.com";
+        $vm.o365.tenant          = "vmiis.onmicrosoft.com";
+        $vm.o365.clientId        = "82698c57-0152-44cb-ab2f-5c4a33064201";
+        $vm.o365.pageUrl         = "http://127.0.0.1:8000/vmiis/business-portal/modules/v/vmiis-365-app/index.html";
+        //------------------------------------
+        var user, message, errorMessage, loginButton, logoutButton, getAccountsButton, accountsTable, accountsTableBody;  
+        
+        $vm.o365.endpoints = {  
+            orgUri: $vm.o365.organizationURI,
+            'https://woolcockmed.sharepoint.com/_api/': 'https://woolcockmed.sharepoint.com',  
+        };
+        $vm.o365.config = {  
+            tenant: $vm.o365.tenant,  
+            clientId: $vm.o365.clientId,  
+            postLogoutRedirectUri: $vm.o365.pageUrl,  
+            endpoints: $vm.o365.endpoints,  
+            cacheLocation: 'localStorage', 
+        };
+         
+        $vm.o365.authenticate=function() {  
+            //OAuth context  
+            $vm.o365.authContext=new AuthenticationContext($vm.o365.config);  
+            // Check For & Handle Redirect From AAD After Login  
+            var isCallback = $vm.o365.authContext.isCallback(window.location.hash);  
+            if (isCallback) {  
+                $vm.o365.authContext.handleWindowCallback();  
+            }  
+            var loginError = $vm.o365.authContext.getLoginError();  
+
+            if (isCallback && !loginError) {  
+                window.location = $vm.o365.authContext._getItem($vm.o365.authContext.CONSTANTS.STORAGE.LOGIN_REQUEST);  
+            }  
+            else {  
+                //errorMessage.textContent = loginError;  
+                //alert(loginError)
+            }  
+            $vm.o365.user=$vm.o365.authContext.getCachedUser();  
+            if($vm.o365.user!=null){
+                $vm.user_name=$vm.o365.user.profile.given_name+' '+$vm.o365.user.profile.family_name;
+                $vm.show_user();
+            }
+        }  
+        //------------------------------------
+        $('#vm_signin').on('click',function(){
+            $vm.o365.authContext.login();  
+        })
+        //------------------------------------
+        $('#vm_signout').on('click',function(){
+            $vm.o365.authContext.logOut();  
+            $vm.user_name="";
+            $vm.show_user();
+        })
+        //------------------------------------
+        $vm.start=function(){
+            if(window.opener){
+                sessionStorage.clear();
+                window.opener=null;
+            }
+            $vm.init(function(){
+               $vm.init_status=1;
+               //$vm.show_user();
+               $vm.o365.authenticate();  
            })
         }
         //------------------------------------
@@ -102,9 +174,9 @@
             --mobile-hamburger-color:#fff;
             --mobile-menu-background-color:#1c3144;
         }
-        html,body{ margin:0; padding:0; height:100%; font-family:Arial;overflow: hidden;}
+        html,body{ margin:0; padding:0; height:100%; font-family:Arial;}
         body{background-size: cover; background-repeat: repeat-x; background-position: center top; background-attachment: fixed;}
-        .body_background_default{ background-image: url(https://image.vmiis.com/bg008.jpg);}
+        .body_background_default{ background-image: url(https://image.vmiis.com/bk001.jpg);}
         #content{
         }
         #vm-logo-label-A{
@@ -158,7 +230,8 @@
         $('#vm-menu a').on('click',function(e){
             e.preventDefault();
             var href=$(this).attr('href');
-            if(href!=undefined && href!='' && href.substring(0,8)=="https://"){ window.open(href); return;}
+            if(href==undefined) return;
+            if(href.substring(0,8)=="https://"){ window.open(href); return;}
             if(href!=undefined && href!=''){
                 if($vm.menu_click!=undefined) $vm.menu_click(href);
             }
