@@ -1,18 +1,73 @@
 <div id=D__ID>
     <div id=panel__ID>
     	<div class='nav__ID'>
-            <span>Finance</span>
+            <span><i class="fas fa-hand-holding-usd"></i>Finance</span>
             <hr>
             <ul>
                 <li><a href=?/bookkeeping-workflow>Bookkeeping workflow</a></li>
-                <li><a href=?/transaction-data>Transactions</a></li>
+                <li><a href=?/transaction-data>Transactions search...</a></li>
+                <br>
+                <li><a href=?/invoice-management-workflow>Invoice management workflow</a></li>
+                <li><a href=?/invoice-data>Invoice search...</a></li>
+                <br>
+                <li><a href=?/purchase-order-workflow>Purchase order request workflow</a></li>
+                <li><a href=?/purchase-order-data-s>Purchase order request (requester)</a></li>
+                <li><a href=?/purchase-order-data-p1>Purchase order request (manager)</a></li>
+                <li><a href=?/purchase-order-data-p2>Purchase order request (accountant)</a></li>
             </ul>
-            <span>Office 365</span>
+            <span><i class="fab fa-windows"></i>Office 365</span>
+            <hr>
             <ul>
                 <li><a app href=?/vmiis-365-app>VMIIS</a></li>
             </ul>
         </div>
+    	<div class='nav__ID'>
+            <span><i class="fas fa-cogs"></i>Facility</span>
+            <hr>
+            <ul>
+                <li><a href=?/room-booking-workflow>Room booking workflow</a></li>
+                <li><a href=?/room-booking-calendar>Room booking calendar</a></li>
+                <li><a href=?/room-booking-record-data>Room booking search...</a></li>
+                <br>
+                <li><a href=?/car-booking-calendar>Car booking calendar</a></li>
+                <li><a href=?/car-booking-record-data>Car booking search...</a></li>
+                <br>
+                <li><a href=?/equipment-booking-calendar>Equipment booking calendar</a></li>
+                <li><a href=?/equipment-booking-record-data>Equipment booking search...</a></li>
+            </ul>
+        </div>
+    	<div class='nav__ID'>
+            <span><i class="far fa-lightbulb"></i>Marketing</span>
+            <hr>
+            <ul>
+                <li><a href=?/services>Clinic services</a></li>
+                <li><a href=?/trainers>Gym Trainers</a></li>
+                <li><a href=?/price-02>Our clinic prices</a></li>
+                <li><a href=?/prices>Our gym prices</a></li>
+                <li><a href=?/contact-us-form-01>Send us a message</a></li>
+                <li><a href=?/contact-us-form-02>Contact us</a></li>
+                <li><a href=?/contact-us-form-03>Location</a></li>
+                <li><a href=?/success>Success</a></li>
+            </ul>
+        </div>
+    	<div class='nav__ID'>
+            <span><i class="fas fa-clone"></i>Application templates</span>
+            <hr>
+            <ul>
+                <li><a app href=?/a-basic-application-framework-index>A basic application framework</a></li>
+                <li><a app href=?/layout-with-fixed-header-and-footer-index>Layout with fixed header and footer</a></li>
+                <li><a app href=?/layout-with-fixed-header-and-scrollable-footer-index>Layout with fixed header scrollable footer</a></li>
+                <li><a app href=?/layout-with-scrollable-header-and-footer-index>Layout with scrollable header and footer</a></li>
+                <li><a app href=?/layout-with-side-nav-and-fixed-footer-index>Layout with nav and fixed footer</a></li>
+                <li><a app href=?/woolcock-template-app>Woolcock template</a></li>
+                <li><a app href=?/survey-app>Survey</a></li>
+                <li><a app href=?/success-app>Success</a></li>
+            </ul>
+        </div>
     </div>
+
+
+    
     <script>
         function F__ID(){
             //--------------------------------------------------------
@@ -100,11 +155,12 @@
     		color:#555;
     	}
         .nav__ID{
-	        padding:6px 26px 6px 6px;
+	        padding:6px 56px 6px 6px;
 	        float:left;
+            min-width:20%;
 	    }
 	    .nav__ID span{
-			color:#283f55;
+			color:#138478;
 			font-size: 160%;
 			/*font-weight: bold;*/
 			margin:3px 10px;
@@ -112,8 +168,27 @@
         .nav__ID ul{
 	        padding-bottom:50px;
 	    }
+        /*
+        .nav__ID li {
+            list-style-type: none;
+            position: relative;
+            padding-left: 10px;
+        }
+        .nav__ID li:before {
+            content: "\25BA \0020";
+            font-size: 10px;
+            position: absolute;
+            top: 5px;
+            left: -10px;
+        }        
+        */
+        .nav__ID i{
+	        padding-right:12px;
+	    }
         .nav__ID hr{
+            height:1px;
 	        margin: 3px 0 12px 0;
+            background-image: linear-gradient(to right, #f03314, #dcea46);
 	    }
     	@media screen and (max-width:768px){
     		#panel__ID{
