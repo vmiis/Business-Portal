@@ -72,7 +72,7 @@
             </ul>
         </div>
     </div>
-
+    <iframe id=iframe__ID></iframe>
 
     
     <script>
@@ -130,33 +130,83 @@
             })
             //--------------------------------------------------------
             var get_world_news=function(){
-                var feed="https://news.google.com/rss/search?q=world+news&hl=en-US&gl=US&ceid=US:en";
-                var feed = "http://feeds.feedburner.com/raymondcamdensblog?format=xml";
+                var feed="https://www.news.com.au/content-feeds/latest-news-world/";
+                $('#iframe__ID').attr("src",feed);
 
-                $.ajax(feed, {
-                    accepts:{
-                        xml:"application/rss+xml"
-                    },
-                    dataType:"xml",
-                    success:function(data) {
-                        //Credit: http://stackoverflow.com/questions/10943544/how-to-parse-an-rss-feed-using-javascript
 
-                        $(data).find("item").each(function () { // or "item" or whatever suits your feed
-                            var el = $(this);
-                            console.log("------------------------");
-                            console.log("title      : " + el.find("title").text());
-                            console.log("link       : " + el.find("link").text());
-                            console.log("description: " + el.find("description").text());
-                        });
-                
+                var ifrm = document.getElementById('iframe__ID');
+                var doc = ifrm.contentDocument? ifrm.contentDocument: ifrm.contentWindow.document;
+                alert(doc);
+                doc.getElementById('body');
 
-                    }	
-                });
+                //$('#iframe__ID')document.getElementsByTagName('body')[0].innerHTML;
+                /*
+                $('#iframe__ID')[0].onload = function(){
+                    var c=$('#iframe__ID')document.getElementsByTagName('body')[0].innerHTML;
+                    console.log (c);
+                }
+                */
+                //$('#iframe__ID')[0].onload();                
+                //$('#iframe__ID').attr("src",feed);
+
+                //window.onload = function () { alert("It's loaded!") }
+
+/*
+// in sender.com
+var iframe = $('<iframe/>').attr('src', feed).hide().appendTo('body');
+//var iframe = $('<iframe/>').attr('src', 'http://reciver.com/cross-domain').hide().appendTo('body');
+iframe.crossDomainRequest('/some/page', 'get', {}, function(response) {
+    console.log(response);
+});
+// in reciver.com
+$.crossDomainResponse('sender.com');
+*/
 
 
             }
             get_world_news();
         }
+
+/*
+$.fn.crossDomainRequest = function(url, method, data, fn) {
+    var self = this;
+    var receiver = self.attr('src').replace(/\/.*$/, '').replace(/^https?::\/\//, '');
+    function get(event) {
+        if (event.origin.match(receiver)) {
+            // event.data is response from POST
+            fn(event.data);
+        }
+    }
+    if (window.addEventListener){
+        addEventListener("message", get, false)
+    } else {
+        attachEvent("onmessage", get)
+    }
+    var payload = JSON.stringify({url: url, method: method, data: data});
+    self[0].contentWindow.postMessage(payload, self.attr('src'));
+};
+$.crossDomainResponse = function(domain) {
+    function listener(event) {
+        if (event.origin.match(domain.replace(/\./g, '\\.'))) {
+            var data = JSON.parse(event.data);
+            $[data.method](data.url, data.data, function(reponse) {
+                window.parent.postMessage(reponse, "*");
+            });
+        }
+    }
+    if (window.addEventListener){
+        addEventListener("message", listener, false)
+    } else {
+        attachEvent("onmessage", listener)
+    }
+};
+*/
+
+
+
+
+
+        
     </script>
     <style>
         #D__ID{
