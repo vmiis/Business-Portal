@@ -93,6 +93,7 @@
         //------------------------------------
         $vm.o365={};
         $vm.o365.organizationURI = "https://vmiis.crm6.dynamics.com";
+        $vm.o365.sharepointURI   = "https://vmiis.sharepoint.com";
         $vm.o365.tenant          = "vmiis.onmicrosoft.com";
         $vm.o365.clientId        = "82698c57-0152-44cb-ab2f-5c4a33064201";
         $vm.o365.pageUrl         = "http://127.0.0.1:8000/vmiis/business-portal/modules/v/vmiis-365-app/index.html";
@@ -101,7 +102,7 @@
         
         $vm.o365.endpoints = {  
             orgUri: $vm.o365.organizationURI,
-            'https://woolcockmed.sharepoint.com/_api/': 'https://woolcockmed.sharepoint.com',  
+            sharePointUri: $vm.o365.sharepointURI,  
         };
         $vm.o365.config = {  
             tenant: $vm.o365.tenant,  
