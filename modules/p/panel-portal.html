@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <div id=D__ID>
-    <div style="padding:30px 0 0 70px;font-size:130%;font-family: 'Indie Flower', cursive;color: #78a965;">
+    <div class=top__ID>
         Fork your own copy of this simple, powerful and elegant open source code project on GitHub, change as you want and make your own business portal
     </div>
     <div class=panel__ID>
@@ -71,25 +71,14 @@
                 
             </ul>
         </div>
-    </div>
-    <div class=panel__ID style='clear:left;padding:30px 50px;'>
-        <!--
-    	<div class='nav__ID' style='max-width:33%'>
-            <span class=hd__ID><i class="fas fa-clone"></i>Company News</span>
-            <hr>
-            <div id=cnews__ID>
-
-            </div>
-        </div>
-    -->
-    	<div class='nav__ID' style='max-width:33%'>
+    	<div class='nav__ID max_33__ID'>
             <span class=hd__ID><i class="fas fa-globe-asia"></i></i>National News</span>
             <hr>
             <div id=nnews__ID>
 
             </div>
         </div>
-    	<div class='nav__ID' style='max-width:33%'>
+    	<div class='nav__ID max_33__ID'>
             <span class=hd__ID><i class="fas fa-globe"></i>World News</span>
             <hr>
             <div id=wnews__ID>
@@ -154,11 +143,6 @@
             })
             //--------------------------------------------------------
             var get_world_news=function(sid,feed){
-                /*
-                var feed="https://news.google.com/rss?hl=en-AU&gl=AU&ceid=AU:en";
-                var feed="https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pCVlNnQVAB?hl=en-AU&gl=AU&ceid=AU%3Aen";
-                var feed="https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNR05vWjJoNUVnSmxiaWdBUAE?hl=en-AU&gl=AU&ceid=AU%3Aen";
-                */
                 $vm.request({cmd:'proxy',url:feed},function(res){
                     var $xml=$($.parseXML(res.result));     
                     $channel = $xml.find( "channel" );
@@ -240,7 +224,8 @@
 			margin:3px 10px;
 	    }
         .nav__ID ul{
-	        padding-bottom:50px;
+            padding-left: 20px;
+	        padding-bottom:30px;
 	    }
         /*
         .nav__ID li {
@@ -257,7 +242,6 @@
         }        
         */
         .nav__ID ul{
-            padding-left: 20px;
         }
         .nav__ID li {
             list-style-type: none;
@@ -270,7 +254,21 @@
 	        margin: 3px 0 12px 0;
             background-image: linear-gradient(to right, #f03314, #dcea46);
 	    }
+        .max_33__ID{
+            max-width:33%;
+        }
+        .top__ID{
+            padding:30px 0 0 70px;
+            font-size:130%;font-family: 'Indie Flower', cursive;
+            color: #78a965;
+        }
     	@media screen and (max-width:768px){
+            .top__ID{
+                padding:10px 0 0 10px;
+            }
+            .max_33__ID{
+                max-width:100%;
+            }
     		.panel__ID{
     			padding:10px 0 0 10px;
     		}
