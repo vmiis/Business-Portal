@@ -3,9 +3,9 @@
     <div style="padding:30px 0 0 70px;font-size:130%;font-family: 'Indie Flower', cursive;color: #78a965;">
         Fork your own copy of this simple, powerful and elegant open source code project on GitHub, change as you want and make your own business portal
     </div>
-    <div id=panel__ID>
+    <div class=panel__ID>
     	<div class='nav__ID'>
-            <span><i class="fas fa-hand-holding-usd"></i>Finance</span>
+            <span class=hd__ID><i class="fas fa-hand-holding-usd"></i>Finance</span>
             <hr>
             <ul>
                 <li><a href=?/bookkeeping-workflow><i class="fas fa-caret-right"></i>Bookkeeping workflow</a></li>
@@ -19,14 +19,14 @@
                 <li><a href=?/purchase-order-data-p1><i class="fas fa-caret-right"></i>Purchase order request (manager)</a></li>
                 <li><a href=?/purchase-order-data-p2><i class="fas fa-caret-right"></i>Purchase order request (accountant)</a></li>
             </ul>
-            <span><i class="fab fa-windows"></i>Office 365</span>
+            <span class=hd__ID><i class="fab fa-windows"></i>Office 365</span>
             <hr>
             <ul>
                 <li><a app href=?/vmiis-365-app><i class="fas fa-caret-right"></i>VMIIS</a></li>
             </ul>
         </div>
     	<div class='nav__ID'>
-            <span><i class="fas fa-cogs"></i>Facility</span>
+            <span class=hd__ID><i class="fas fa-cogs"></i>Facility</span>
             <hr>
             <ul>
                 <li><a href=?/room-booking-workflow><i class="fas fa-caret-right"></i>Room booking workflow</a></li>
@@ -41,7 +41,7 @@
             </ul>
         </div>
     	<div class='nav__ID'>
-            <span><i class="far fa-lightbulb"></i>Marketing</span>
+            <span class=hd__ID><i class="far fa-lightbulb"></i>Marketing</span>
             <hr>
             <ul>
                 <li><a href=?/services><i class="far fa-handshake fa-fw"></i>Clinic services</a></li>
@@ -56,7 +56,7 @@
             </ul>
         </div>
     	<div class='nav__ID'>
-            <span><i class="fas fa-clone"></i>Application Templates</span>
+            <span class=hd__ID><i class="fas fa-clone"></i>Application Templates</span>
             <hr>
             <ul>
                 <li><a app href=?/a-basic-application-framework-index><i class="fas fa-caret-right fa-fw"></i>A basic application framework</a></li>
@@ -72,9 +72,25 @@
             </ul>
         </div>
     </div>
-    <div id=_panel__ID style='clear:left;padding:30px 50px;'>
-    	<div class='nav__ID' style='max-width:50%'>
-            <span><i class="fas fa-clone"></i>World News</span>
+    <div class=panel__ID style='clear:left;padding:30px 50px;'>
+        <!--
+    	<div class='nav__ID' style='max-width:33%'>
+            <span class=hd__ID><i class="fas fa-clone"></i>Company News</span>
+            <hr>
+            <div id=cnews__ID>
+
+            </div>
+        </div>
+    -->
+    	<div class='nav__ID' style='max-width:33%'>
+            <span class=hd__ID><i class="fas fa-globe-asia"></i></i>National news News</span>
+            <hr>
+            <div id=nnews__ID>
+
+            </div>
+        </div>
+    	<div class='nav__ID' style='max-width:33%'>
+            <span class=hd__ID><i class="fas fa-globe"></i>World News</span>
             <hr>
             <div id=wnews__ID>
 
@@ -91,7 +107,7 @@
             //--------------------------------------------------------
             var this_module=$vm.module_list[$vm.vm['__ID'].name];
             //--------------------------------------------------------
-            $('#panel__ID a').on('click',function(e){
+            $('.panel__ID a').on('click',function(e){
                 var rss=$(this).attr('rss');
                 if(rss!=undefined) return;
                 e.preventDefault();
@@ -106,7 +122,7 @@
                 }
             })
             //--------------------------------------------------------
-            $('#panel__ID a').each(function(){
+            $('.panel__ID a').each(function(){
                 var href=$(this).attr('href');
                 if(href!=undefined){
                     href=href.replace('?\/','');
@@ -121,9 +137,9 @@
             if($vm.localhost==true) $('#builder__ID').show();
             //--------------------------------------------------------
             $('#apply__ID').on('click',function(){
-                $('#panel__ID span').hide();
+                $('.panel__ID span').hide();
                 var word=$('#filter__ID').val().toUpperCase();
-                $('#panel__ID a').each(function(){
+                $('.panel__ID a').each(function(){
                     var href=$(this).attr('href');
                     var name=$(this).html().toUpperCase();
                     if(name.indexOf(word)!=-1){
@@ -137,30 +153,48 @@
                 })
             })
             //--------------------------------------------------------
-            var get_world_news=function(){
+            var get_world_news=function(sid,feed){
+                /*
                 var feed="https://news.google.com/rss?hl=en-AU&gl=AU&ceid=AU:en";
+                var feed="https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pCVlNnQVAB?hl=en-AU&gl=AU&ceid=AU%3Aen";
+                var feed="https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNR05vWjJoNUVnSmxiaWdBUAE?hl=en-AU&gl=AU&ceid=AU%3Aen";
+                */
                 $vm.request({cmd:'proxy',url:feed},function(res){
-                    var $xml=$(res.result.replace(/link/g,'linka'));     
+                    var $xml=$($.parseXML(res.result));     
                     $channel = $xml.find( "channel" );
                     var txt="";
                     var I=0;
+                    var dt1=new Date().getTime();
                     $channel.find("item").each(function(index){ 
                         if(I>2) return false;
-                        var lk=$(this).find('linka').text();
+                        var lk=$(this).find('link').text();
+                        var sc=$(this).find('source').text();
                         var t=$(this).find('title').text();
-                        var m=$(this).find('media\\:content,content').attr("url");//find('media:content').text();
-                        if(m!=undefined){
-                            console.log($(this))                    
-                            alert(lk)
+                        var pd=$(this).find('pubDate').text();
+                        var dt2=new Date(pd).getTime();
+                        t=t.replace(' - '+sc,'');
+                        var im=$(this).find('media\\:content,content').attr("url");
+                        if(im!=undefined){
+                            var m=Math.floor((dt1-dt2)/1000/60);
+                            var h=Math.floor(m/60);
+                            var d=Math.floor(h/24);
+                            var tt="";
+                            if(d==1) tt="1 day ago "
+                            else if(d>1) tt=d+" days ago "
+                            else if(h==1) tt="1 hour ago "
+                            else if(h>1) tt=h+" hours ago "
+                            else if(m==1) tt="1 minute ago "
+                            else if(m>1) tt=m+" minutes ago "
                             I++
-                            txt+="<a rss target=_blank href="+lk+"><div style='padding:6px; display:flex'><img height=70 src="+m+" style='float:left' />";
-                            txt+="<p style='display:inline-block;padding-left:6px; float:left'>"+t+"</p></div></a>";
+                            txt+="<a rss target=_blank href="+lk+"><div style='padding:6px; display:flex'><img height=70 src="+im+" style='float:left' />";
+                            txt+="<div style='display:inline-block;padding-left:8px; float:left'><span>"+t+"</span><br><span style='color:#aaa'>"+sc+"<br>"+tt+"</span></div></div></a>";
                         }
                     });
-                    $('#wnews__ID').html(txt);   
+                    $('#'+sid+'__ID').html(txt);   
                 });
             }
-            get_world_news();
+            get_world_news("nnews","https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNR05vWjJoNUVnSmxiaWdBUAE?hl=en-AU&gl=AU&ceid=AU%3Aen");
+            get_world_news("wnews","https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pCVlNnQVAB?hl=en-AU&gl=AU&ceid=AU%3Aen");
             //--------------------------------------------------------
         }
     </script>
@@ -171,27 +205,27 @@
     		overflow: auto;
     		animation: vm_module_fadein 1.0s;
     	}
-        #panel__ID{
+        .panel__ID{
     		padding:30px 50px;
             font-size:14px;
     	}
-    	#panel__ID a {
+    	.panel__ID a {
     		text-decoration: none;
     	}
-    	#panel__ID li {
-			font-size: 120%;
+    	.panel__ID li {
+			font-size: 100%;
     		color:#555;
     	}
-    	#panel__ID a:link {
+    	.panel__ID a:link {
     		color:#555;
     	}
-    	#panel__ID a:visited {
+    	.panel__ID a:visited {
     		color:#555;
     	}
-    	#panel__ID a:hover {
+    	.panel__ID a:hover {
     		color:red;
     	}
-    	#panel__ID a:active {
+    	.panel__ID a:active {
     		color:#555;
     	}
         .nav__ID{
@@ -199,7 +233,7 @@
 	        float:left;
             min-width:20%;
 	    }
-	    .nav__ID span{
+	    .hd__ID{
 			color:#138478;
 			font-size: 160%;
 			/*font-weight: bold;*/
@@ -237,7 +271,7 @@
             background-image: linear-gradient(to right, #f03314, #dcea46);
 	    }
     	@media screen and (max-width:768px){
-    		#panel__ID{
+    		.panel__ID{
     			padding:10px 0 0 10px;
     		}
     	}
