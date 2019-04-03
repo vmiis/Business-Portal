@@ -5,7 +5,7 @@
     </div>
     <div class=panel__ID>
     	<div class='nav__ID news__ID' style="float:right;padding-right:10px">
-            <span class=hd__ID><i class="fas fa-globe-asia"></i></i>National News</span>
+            <span class=hd__ID><i class="fas fa-globe-asia"></i>National News</span>
             <hr>
             <div id=nnews__ID style='margin-bottom:20px'></div>
             <span class=hd__ID><i class="fas fa-globe"></i>World News</span>
@@ -13,19 +13,21 @@
             <div id=wnews__ID></div>
         </div>
     	<div class='nav__ID'>
-            <span class=hd__ID><i class="fas fa-hand-holding-usd"></i>Finance</span>
+            <span class=hd__ID style='margin-left:1px'><img id=w_i__ID width=32 height=32> Sydeny Weather</span>
             <hr>
-            <ul>
-                <li><a href=?/bookkeeping-workflow><i class="fas fa-caret-right"></i>Bookkeeping workflow</a></li>
-                <li><a href=?/transaction-data><i class="fas fa-caret-right"></i>Transactions search...</a></li>
-                <br>
-                <li><a href=?/invoice-management-workflow><i class="fas fa-caret-right"></i>Invoice management workflow</a></li>
-                <li><a href=?/invoice-data><i class="fas fa-caret-right"></i>Invoice search...</a></li>
-                <br>
-                <li><a href=?/purchase-order-workflow><i class="fas fa-caret-right"></i>Purchase order request workflow</a></li>
-                <li><a href=?/purchase-order-data-s><i class="fas fa-caret-right"></i>Purchase order request (requester)</a></li>
-                <li><a href=?/purchase-order-data-p1><i class="fas fa-caret-right"></i>Purchase order request (manager)</a></li>
-                <li><a href=?/purchase-order-data-p2><i class="fas fa-caret-right"></i>Purchase order request (accountant)</a></li>
+            <ul class=weather__ID style='padding-bottom:0px'>
+                <label>Temperature</label><b><span id=w_t__ID></span></b>
+                <br><label>Wind</label><b><span id=w_w__ID></span></b>
+                <br><label>Humidity</label><b><span id=w_h__ID></span></b>
+                <br><label>Clouds</label><b><span id=w_c__ID></span></b>
+            </ul>
+            <span class=hd__ID><i class="fas fa-dollar-sign"></i>Forex Markets</span>
+            <hr>
+            <ul class=weather__ID style='padding-bottom:0px'>
+                <label>AUD/USD</label><b><span id=f_aud__ID></span></b>    
+                <br><label>EUR/USD</label><b><span id=f_eur__ID></span></b>
+                <br><label>GBP/USD</label><b><span id=f_gbp__ID></span></b>    
+                <br><label>USD/JPY</label><b><span id=f_jpy__ID></span></b>
             </ul>
             <span class=hd__ID><i class="fab fa-windows"></i>Office 365</span>
             <hr>
@@ -56,6 +58,20 @@
             </ul>
         </div>
     	<div class='nav__ID'>
+            <span class=hd__ID><i class="fas fa-hand-holding-usd"></i>Finance</span>
+            <hr>
+            <ul>
+                <li><a href=?/bookkeeping-workflow><i class="fas fa-caret-right"></i>Bookkeeping workflow</a></li>
+                <li><a href=?/transaction-data><i class="fas fa-caret-right"></i>Transactions search...</a></li>
+                <br>
+                <li><a href=?/invoice-management-workflow><i class="fas fa-caret-right"></i>Invoice management workflow</a></li>
+                <li><a href=?/invoice-data><i class="fas fa-caret-right"></i>Invoice search...</a></li>
+                <br>
+                <li><a href=?/purchase-order-workflow><i class="fas fa-caret-right"></i>Purchase order request workflow</a></li>
+                <li><a href=?/purchase-order-data-s><i class="fas fa-caret-right"></i>Purchase order request (requester)</a></li>
+                <li><a href=?/purchase-order-data-p1><i class="fas fa-caret-right"></i>Purchase order request (manager)</a></li>
+                <li><a href=?/purchase-order-data-p2><i class="fas fa-caret-right"></i>Purchase order request (accountant)</a></li>
+            </ul>
             <span class=hd__ID><i class="far fa-lightbulb"></i>Marketing</span>
             <hr>
             <ul>
@@ -90,16 +106,6 @@
                 <li><i class="far fa-chart-bar"></i>Column: <a href=?/column-data>Data</a>&nbsp; <i class="fas fa-long-arrow-alt-right"></i><a href=?/column-chart>Chart</a>, 
                     <a href=?/column-chart-group>Chart-group</a>, <a href=?/column-chart-stack>Chart-stack</a></li>
             </ul>
-            <span class=hd__ID><i class="fab fa-js"></i>Technology</span>
-            <hr>
-            <ul>
-                <li><a href=?/angularjs-hello-world><i class="fas fa-caret-right"></i>AngularJS hello world</a></li>
-                <li><a href=?/formio-data><i class="fas fa-caret-right"></i>Form.io</a></li>
-                <li><a href=?/reactjs-hello-world><i class="fas fa-caret-right"></i>ReactJS hello world</a></li>
-                <li><a href=?/reactjs-tic-tac-toe-starter><i class="fas fa-caret-right"></i>ReactJS tac toe starter</a></li> 
-                <li><a href=?/reactjs-tic-tac-toe-passing-value><i class="fas fa-caret-right"></i>ReactJS tic tac toe passing value</a></li>
-                <li><a href=?/surveyjs-data><i class="fas fa-caret-right"></i>ServeyJS</a></li>
-            </ul>
         </div>
     	<div class='nav__ID'>
             <span class=hd__ID><i class="fas fa-clone"></i>Application Templates</span>
@@ -129,7 +135,16 @@
                 <li><a app href=?/purchase-order-request-app><i class="fas fa-external-link-alt fa-fw"></i>Purchase order request</a></li>
                 <li><a app href=?/room-booking-app><i class="fas fa-external-link-alt fa-fw"></i>Room booking</a></li>
                 <li><a app href=?/snow-background-app><i class="fas fa-external-link-alt fa-fw"></i>Snow background</a></li>
-                
+            </ul>
+            <span class=hd__ID><i class="fab fa-js"></i>Technology</span>
+            <hr>
+            <ul>
+                <li><a href=?/angularjs-hello-world><i class="fas fa-caret-right"></i>AngularJS hello world</a></li>
+                <li><a href=?/formio-data><i class="fas fa-caret-right"></i>Form.io</a></li>
+                <li><a href=?/reactjs-hello-world><i class="fas fa-caret-right"></i>ReactJS hello world</a></li>
+                <li><a href=?/reactjs-tic-tac-toe-starter><i class="fas fa-caret-right"></i>ReactJS tac toe starter</a></li> 
+                <li><a href=?/reactjs-tic-tac-toe-passing-value><i class="fas fa-caret-right"></i>ReactJS tic tac toe passing value</a></li>
+                <li><a href=?/surveyjs-data><i class="fas fa-caret-right"></i>ServeyJS</a></li>
             </ul>
         </div>
     </div>
@@ -227,6 +242,34 @@
             get_news("nnews","https://news.google.com/rss/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNR05vWjJoNUVnSmxiaWdBUAE?hl=en-AU&gl=AU&ceid=AU%3Aen");
             get_news("wnews","https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YlY4U0FtVnVHZ0pCVlNnQVAB?hl=en-AU&gl=AU&ceid=AU%3Aen");
             //--------------------------------------------------------
+            $vm.request({cmd:'weather'},function(res){
+                var a=JSON.parse(res.result)
+                $('#w_t__ID').text( (parseFloat(a.main.temp)-273).toFixed(1));
+                $('#w_w__ID').text( a.wind.speed+" m/s");
+                $('#w_h__ID').text( a.main.humidity+"%");
+                $('#w_c__ID').text( a.clouds.all+"%");
+                $('#w_i__ID').attr("src","https://openweathermap.org/img/w/"+a.weather[0].icon+".png");
+            })
+            $vm.request({cmd:'forex'},function(res){
+                var a=JSON.parse(res.result)
+                console.log(a);
+                for(var i=0;i<a.length;i++){
+                    var s=a[i].symbol;
+                    switch(s){
+                        case "EURUSD": $('#f_eur__ID').text(a[i].bid); break;
+                        case "GBPUSD": $('#f_gbp__ID').text(a[i].bid); break;
+                        case "USDJPY": $('#f_jpy__ID').text(a[i].bid); break;
+                        case "AUDUSD": $('#f_aud__ID').text(a[i].bid); break;
+                    }
+                }
+                /*
+                $('#w_t__ID').text( (parseFloat(a.main.temp)-273).toFixed(1));
+                $('#w_w__ID').text( a.wind.speed+" m/s");
+                $('#w_h__ID').text( a.main.humidity+"%");
+                $('#w_c__ID').text( a.clouds.all+"%");
+                $('#w_i__ID').attr("src","https://openweathermap.org/img/w/"+a.weather[0].icon+".png");
+                */
+            })
         }
     </script>
     <style>
@@ -308,6 +351,10 @@
             padding:30px 0 0 70px;
             font-size:130%;font-family: 'Indie Flower', cursive;
             color: #78a965;
+        }
+        .weather__ID label{
+            display:inline-block;
+            width:100px;
         }
     	@media screen and (max-width:768px){
             .top__ID{

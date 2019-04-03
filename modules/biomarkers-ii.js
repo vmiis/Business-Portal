@@ -90,6 +90,8 @@
     }
     var prefix=""
     for(m in modules){
-        $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+        if($vm.module_list[prefix+m]!=undefined){
+            $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+        }
     }
 })();
