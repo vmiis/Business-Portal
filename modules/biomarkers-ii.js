@@ -88,4 +88,8 @@
             $vm.module_list[m+_app].form_module+=_app;
         }
     }
+    var prefix=""
+    for(m in modules){
+        $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+    }
 })();

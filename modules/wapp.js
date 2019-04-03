@@ -54,4 +54,8 @@
         "wa-form-wapp":    			    {url:"$A/modules/w/wapp-tasks/wa-form.html",Table:"wa-wapp"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
+    var prefix=""
+    for(m in modules){
+        $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+    }
 })();

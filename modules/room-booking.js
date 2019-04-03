@@ -10,4 +10,8 @@
         "room-booking-app":   			{url:"$A/modules/r/room-booking/index.html"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
+    var prefix=""
+    for(m in modules){
+        $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+    }
 })();

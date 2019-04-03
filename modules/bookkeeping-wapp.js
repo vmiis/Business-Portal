@@ -19,6 +19,7 @@
                                                     transaction_table:'transaction-wappsystem'
                                                 },
     }
+    /*
     var _app="-wapp"
     for(m in modules){
         $vm.module_list[m+_app]=modules[m];
@@ -26,4 +27,15 @@
             $vm.module_list[m+_app].form_module+=_app;
         }
     }
+    */
+   var prefix="wapp-bookkeeping-"
+   for(m in modules){
+       $vm.module_list[prefix+m]=modules[m];
+       if($vm.module_list[prefix+m].form_module!=undefined){
+           $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
+       }
+   }
+   for(m in modules){
+       $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+   }
 })();
