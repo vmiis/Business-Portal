@@ -19,23 +19,14 @@
                                                     transaction_table:'transaction-wappsystem'
                                                 },
     }
-    /*
-    var _app="-wapp"
+    var prefix="wapp-bookkeeping-"
     for(m in modules){
-        $vm.module_list[m+_app]=modules[m];
-        if($vm.module_list[m+_app].form_module!=undefined){
-            $vm.module_list[m+_app].form_module+=_app;
+        $vm.module_list[prefix+m]=modules[m];
+        if($vm.module_list[prefix+m].form_module!=undefined){
+            $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
         }
     }
-    */
-   var prefix="wapp-bookkeeping-"
-   for(m in modules){
-       $vm.module_list[prefix+m]=modules[m];
-       if($vm.module_list[prefix+m].form_module!=undefined){
-           $vm.module_list[prefix+m].form_module=prefix+$vm.module_list[prefix+m].form_module;
-       }
-   }
-   for(m in modules){
-       $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
-   }
+    for(m in modules){
+        $vm.module_list[prefix+m].url=$vm.replace_url($vm.module_list[prefix+m].url);
+    }
 })();

@@ -46,23 +46,24 @@
     </div>
     <script>
         function F__ID(){
+            var prefix="wapp-bookkeeping-";
             $('#btn1__ID').on('click',function(){
-                $vm.load_module('predefined-transaction-item-data-wapp','',{})
+                $vm.load_module(prefix+'predefined-transaction-item-data','',{})
             })
             $('#btn2__ID').on('click',function(){
-                $vm.load_module('transaction-data-wapp','',{})
+                $vm.load_module(prefix+'transaction-data','',{})
             })
             $('#btn3__ID').on('click',function(){
-                $vm.load_module('transaction-y-q-data-wapp','',{})
+                $vm.load_module(prefix+'transaction-y-q-data','',{})
             })
             $('#btn4__ID').on('click',function(){
-                $vm.load_module('transaction-y-q-bas-data-wapp','',{})
+                $vm.load_module(prefix+'transaction-y-q-bas-data','',{})
             })
             $('#btn5__ID').on('click',function(){
-                $vm.load_module('transaction-y-q-tax-return-data-wapp','',{})
+                $vm.load_module(prefix+'transaction-y-q-tax-return-data','',{})
             })
             $('#btn6__ID').on('click',function(){
-                $vm.load_module('ato-bas-quarter-aggregation-data-wapp','',{})
+                $vm.load_module(prefix+'ato-bas-quarter-aggregation-data','',{})
             })
         }
     </script>
