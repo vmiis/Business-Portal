@@ -6,6 +6,10 @@
                                                 online_questionnaire:"online-questionnaire-app-wapp"
                                             },
         "participant-form":   		        {url:"$A/modules/c/clinical-trials/participant-form.html",Table:"participant"},
+        
+        "actigraphy-data":	                {url:"$A/modules/c/clinical-trials/tasks/actigraphy-data.html",Table:"actigraphy-wapp",form_module:"actigraphy-form"},
+        "actigraphy-form":	                {url:"$A/modules/c/clinical-trials/tasks/actigraphy-form.html",Table:"actigraphy-wapp"},
+        
         "actiwatch-data":	                {url:"$A/modules/c/clinical-trials/tasks/actiwatch-data.html",Table:"actiwatch-wapp",form_module:"actiwatch-form"},
         "actiwatch-form":	                {url:"$A/modules/c/clinical-trials/tasks/actiwatch-form.html",Table:"actiwatch-wapp"},
         "adverse-event-data":	            {url:"$A/modules/c/clinical-trials/tasks/adverse-event-data.html",Table:"adverse-eevent-wapp",form_module:"adverse-eevent-form"},
@@ -26,6 +30,8 @@
         "fosq-form":      	  		        {url:"$A/modules/c/clinical-trials/tasks/fosq-form.html",Table:"fosq-wapp"},
         "isi-data":      	  		        {url:"$A/modules/c/clinical-trials/tasks/isi-data.html",Table:"isi-wapp",form_module:"isi-form"},
         "isi-form":      	  		        {url:"$A/modules/c/clinical-trials/tasks/isi-form.html",Table:"isi-wapp"},
+        "isi2-data":      	  		        {url:"$A/modules/c/clinical-trials/tasks/insomnia-severity-index-data.html",Table:"isi-wapp",form_module:"isi2-form"},
+        "isi2-form":      	  		        {url:"$A/modules/c/clinical-trials/tasks/insomnia-severity-index-form.html",Table:"isi-wapp"},
         "screening-data": 			        {url:"$A/modules/c/clinical-trials/tasks/screening-data.html",Table:"screening",form_module:"screening-form"},
         "screening-form": 			        {url:"$A/modules/c/clinical-trials/tasks/screening-form.html",Table:"screening"},
         "sdp-data":     		            {url:"$A/modules/c/clinical-trials/tasks/sleep-disorder-patterns-data.html",Table:"sdp-wapp",form_module:"sdp-form"},
@@ -42,6 +48,16 @@
         "wa-form":    			            {url:"$A/modules/c/clinical-trials/tasks/wa-form.html",Table:"wa-wapp"},
         "visit-date-data":    			    {url:"$A/modules/c/clinical-trials/tasks/visit-date-data.html",Table:"visit-date-wapp",form_module:"visit-date-form"},
         "visit-date-form":    			    {url:"$A/modules/c/clinical-trials/tasks/visit-date-form.html",Table:"visit-date-wapp"},
+        
+        "demographics-data":    		    {url:"$A/modules/c/clinical-trials/tasks/demographics-data.html",Table:"demographics-wapp",form_module:"demographics-form"},
+        "demographics-form":    		    {url:"$A/modules/c/clinical-trials/tasks/demographics-form.html",Table:"demographics-wapp"},
+        
+        "anthropometry-data":    		    {url:"$A/modules/c/clinical-trials/tasks/anthropometry-data.html",Table:"anthropometry-wapp",form_module:"anthropometry-form"},
+        "anthropometry-form":    		    {url:"$A/modules/c/clinical-trials/tasks/anthropometry-form.html",Table:"anthropometry-wapp"},
+        
+        "ecg-report-upload-data":    	    {url:"$A/modules/c/clinical-trials/tasks/ecg-report-upload-data.html",Table:"ecg-report-upload-wapp",form_module:"ecg-report-upload-form"},
+        "ecg-report-upload-form":    	    {url:"$A/modules/c/clinical-trials/tasks/ecg-report-upload-form.html",Table:"ecg-report-upload-wapp"},
+        
         /*
         "clinical-trials-app-wapp":         {url:"$A/modules/c/clinical-trials-wapp/index.html"},
 
