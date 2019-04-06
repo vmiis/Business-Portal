@@ -269,7 +269,11 @@
         "visit-date-form":    			{url:"$A/modules/v/visit-date-form.html",Table:"visit-date"},
         
         "woolcock-template-app":		{url:"$A/modules/w/woolcock-template/index.html"},
-    
+        
+        "portfolio":	                {url:"$A/modules/c/components/portfolio.html",router:1},
+        "structure":	                {url:"$A/modules/c/components/structure.html",router:1},
+        "c_services":  	  	  			{url:"$A/modules/c/components/services.html",router:1},
+
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
     var prefix=""

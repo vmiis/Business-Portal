@@ -3,7 +3,7 @@
     <div class='container-fluid top__ID'>
         Fork your own copy of this simple, powerful and elegant open source code project on <a target=_blank href=https://github.com/vmiis> GitHub</a>, change as you want and make your own business portal
     </div>
-    <div class='container-fluid panel__ID'>
+    <div id=p__ID class='container-fluid panel__ID'>
         <div class=row>
             <div class="col-lg-6" style='margin:0;padding:0'>
                 <img src="__CURRENT_PATH__/portal.html.01.jpg" alt="" style='object-fit: cover;height: 490px; width: 100%;'>
@@ -271,27 +271,6 @@
                 </ul>
             </div>
         </div>
-        <hr class=hr2__ID></hr>
-        <div class=row style='padding-bottom:50px'>
-            <div class="col-lg-6" style='margin:0;padding:0'>
-                <img src="__CURRENT_PATH__/portal.html.03.png" alt="" style='object-fit:cover; width: 100%;'>
-            </div>
-            <div class="col-lg-6" style='align-self: center;'>
-                <div class="item" style='max-width: 100%;margin-left:auto;margin-right:auto'>
-                    <div style='padding:20px'>
-                        <br>
-                        <h4>Modular Distributed Web Application</h4>
-                        <h6>Simple, powerful and elegant</h6>
-                        <hr style='border-top:1px solid #f05f40;'></hr>
-                        <p>A web application with shared reusable modules distributed on different static web servers around the world and maintained by different people with different skills.</p>
-                        <p>Each module can be connected to the module owner's individual database and file storage and the accesses are fully controlled by the module's owner.</p>
-            
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id=c1__ID></div>
     </div>
     <script>
         function F__ID(){
@@ -391,7 +370,28 @@
                     }
                 }
             })
-            $vm.load_component("portfolio","c1__ID");
+            //$vm.load_component("portfolio","c1__ID");
+            var c_I=0,ls=0;
+            var c_list=['structure','portfolio','image-with-title-on-hover','image-and-title-with-scale-rotate-effect-on-hover',
+            'image-with-title-and-subtitle-on-hover','c_services'];
+            //-----------------
+            $vm.portal_scroll_fun=function(){
+                var v1=$('#D__ID').outerHeight();
+                var v1=document.getElementById('D__ID').offsetHeight;
+                var v2=document.getElementById('D__ID').scrollTop;
+                var v3=document.getElementById('D__ID').scrollHeight;
+                if (v1 + v2 >= v3 && ls==0) {
+                    ls=1;
+                    if(c_I>=c_list.length) return;
+                    $('#p__ID').append('<div id=c'+c_I+'__ID></div>');
+                    $vm.load_component(c_list[c_I],"c"+c_I+"__ID");
+                    //setTimeout(function(){ ls=0; }, 3000);
+                    ls=0;
+                    c_I++;
+                }
+            }
+            $('#D__ID').attr('onscroll','$vm.portal_scroll_fun()');
+            //-----------------
         }
     </script>
     <style>
@@ -455,11 +455,13 @@
 	        margin: 3px 0 12px 0;
             background-image: linear-gradient(to right, #f03314, #dcea46);
 	    }
+        /*
         .hr2__ID{
             height:1px;
 	        margin: 3px 0 12px 0;
             background-image: unset;
 	    }
+        */
         .weather__ID label{
             display:inline-block;
             width:100px;
