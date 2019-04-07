@@ -11,7 +11,7 @@
 						<div class="form-control">
 							<img style='cursor:pointer' id=Photo__ID></img>
 							<br>
-							<input type="file" name=Photo style="margin-top:6px" /> <button type="button" id=x_Photo__ID>Remove</button>
+							<input class=rd__ID type="file" name=Photo style="margin-top:6px" /> <button class=rd__ID type="button" id=x_Photo__ID>Remove</button>
 						</div>
 					</div>
     			</div>
@@ -47,7 +47,7 @@
                         <input type=text class="form-control" name="Email">
                     </div>
                 </div>
-    			<div class="row row__ID">
+    			<div class="row row__ID rd__ID">
                     <div class="col">
                         <span>Order</span>
                         <input type=text class="form-control" name="Order">
@@ -56,7 +56,7 @@
                 <br>
     			<div class="row">
     				<div class=col>
-    					<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+    					<button id=submit__ID type="submit" class="btn btn-secondary rd__ID">Submit</button>
     				</div>
     			</div>
     		</div>
@@ -71,7 +71,12 @@
 			var load2=m.load;
 			m.load=function(){
 				load2();
-                m.set_image_url("Photo");
+				m.set_image_url("Photo");
+				
+				$('#D__ID .rd__ID').show();
+				if(m.input.readonly!=undefined){
+					$('#D__ID .rd__ID').hide();
+				}
 			}
 			//-------------------------------------
 			m.before_submit=function(data,index){

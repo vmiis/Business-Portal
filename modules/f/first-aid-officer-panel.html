@@ -2,43 +2,45 @@
 <div id=D__ID>
 	<div id="section__ID">
 		<div class="container">
-			<div style='float:right'><u id=first_aid_officer_admin__ID style='cursor:pointer'>Administrator</u></div>
-			<div class="section-title">
-				<h2>First Aid Officer</h2>
+			<div class=row style='display:flow-root'><u style='float:right;cursor:pointer' id=first_aid_officer_admin__ID >Admini</u></div>
+			<div class="row section-title">
+				<h2 style="font-family: 'Indie Flower', cursive;">First Aid Officer</h2>
 				<hr>
 				<div class="clearfix"></div>
 			</div>
-			<div class=row>
-				<!--<figure class="col-sm-12 col-md-6 col-lg-3 item__ID">-->
-				<figure id=item00__ID class="col-sm col-lg-3 item__ID">
-					<img alt="" />
+			<div class="row href__ID">
+				<figure id=item00__ID class="col-sm col-md-6 col-lg-3 item__ID">
+					<a><img alt="" /></a>
 					<figcaption>
-						<h3>Bodrum Salvador</h3>
-						<h4>Luxery</h4>
+						<h3></h3>
+						<h4 class=e1__ID></h4>
+						<h4 class=e2__ID></h4>
+					</figcaption>
+				</figure>
+				<figure id=item01__ID class="col-sm col-md-6 col-lg-3 item__ID">
+					<a><img alt="" /></a>
+					<figcaption>
+						<h3></h3>
+						<h4 class=e1__ID></h4>
+						<h4 class=e2__ID></h4>
 					</figcaption>
 					<a href="?/about-vmiis"></a>
 				</figure>
-				<figure id=item01__ID class="col-sm col-lg-3 item__ID">
-					<img alt="" />
+				<figure id=item02__ID class="col-sm col-md-6 col-lg-3 item__ID">
+					<a><img alt="" /></a>
 					<figcaption>
-						<h3>Bodrum Salvador</h3>
-						<h4>Luxery</h4>
+						<h3></h3>
+						<h4 class=e1__ID></h4>
+						<h4 class=e2__ID></h4>
 					</figcaption>
 					<a href="?/about-vmiis"></a>
 				</figure>
-				<figure id=item02__ID class="col-sm col-lg-3 item__ID">
-					<img alt="" />
+				<figure id=item03__ID class="col-sm col-md-6 col-lg-3 item__ID">
+					<a><img alt="" /></a>
 					<figcaption>
-						<h3>Bodrum Salvador</h3>
-						<h4>Luxery</h4>
-					</figcaption>
-					<a href="?/about-vmiis"></a>
-				</figure>
-				<figure id=item03__ID class="col-sm col-lg-3 item__ID">
-					<img alt="" />
-					<figcaption>
-						<h3>Bodrum Salvador</h3>
-						<h4>Luxery</h4>
+						<h3></h3>
+						<h4 class=e1__ID></h4>
+						<h4 class=e2__ID></h4>
 					</figcaption>
 					<a href="?/about-vmiis"></a>
 				</figure>
@@ -51,26 +53,33 @@
 				console.log(i);
 				$vm.get_image_url('Photo',records[i],7*24*3600,function(url){ 
 					console.log(url);
-					$("#item0"+i+"__ID a").attr("href",url) 
 					$("#item0"+i+"__ID img").attr("src",url) 
 				});
 			}
+			var records;
 			var request_url=function(){
 				$vm.request({cmd:'find',table:'first-aid-officer-demo',skip:0,limit:8,sort:{I1:1}},function(res){
-					var records=res.result;
+					records=res.result;
 					for(var i=0;i<records.length;i++){
-						var Photo=records[i].Data.Photo;
-						var Name=records[i].Data.Name;
-						var Price=records[i].Data.Price;
+						var rid=records[i]._id;
+						var Name=records[i].Data.Firstname+' '+records[i].Data.Lastname;
+						var Department=records[i].Data.Department;
+						var Phone=records[i].Data.Phone;
 						set_url(i,records);
-						$(id="#item0"+i+"__ID label").text("$"+Price) 
-						$(id="#item0"+i+"__ID h4").text(Name) 
-						$(id="#item0"+i+"__ID small").text("$"+Price) 
+						$("#item0"+i+"__ID a").attr('href',i); 
+						$("#item0"+i+"__ID h3").text(Name) 
+						$("#item0"+i+"__ID .e1__ID").text(Department) 
+						$("#item0"+i+"__ID .e2__ID").text(Phone) 
 					}
 				})
 			}
 			$('#first_aid_officer_admin__ID').on('click',function(){
-				$vm.load_module('first_aid_officer-data','',{});
+				$vm.load_module('first-aid-officer-data','',{});
+			})
+			$('#D__ID .href__ID a').on('click',function(e){
+				e.preventDefault();
+				var i=$(this).attr('href');
+				$vm.load_module('first-aid-officer-form','',{ record:records[i],readonly:1});
 			})
 			//---------------------------------------
 			$('#D__ID').on('load',function(){
@@ -92,21 +101,21 @@
 			overflow:auto;
 			animation: vm_module_fadein 1.0s;
 			/*background-color:#fff;*/
-			/*background: url(__CURRENT_PATH__/first_aid_officer-special.jpg) no-repeat center center;*/
+			background: url(__CURRENT_PATH__/first-aid-officer.png) no-repeat center center;
 			background-size: cover;
 	    }
 	    #section__ID{
 			padding: 100px 0;
-    		background:rgba(216,247,247,0.45);
+    		background:rgba(255,255,255,0.95);
 			height: 100%;
 	    }
 		#D__ID hr {
-		    height: 2px;
-		    /*width: 60px;*/
+		    height: 1px;
+		    width: 100%;
 		    background: #71bd46;
-		    position: relative;
+		    /*position: relative;*/
 		    border: 0;
-		    margin: 30px 0 0 0;
+		    margin: 0 0 10px 0;
 		}
 
         @import url(https://fonts.googleapis.com/css?family=Montserrat:200);
@@ -130,7 +139,7 @@
         }
 
         .item__ID img {
-            max-width: 100%;
+            width: 100%;
             backface-visibility: hidden;
             vertical-align: top;
         }
@@ -173,9 +182,9 @@
 
         .item__ID h4 {
             font-size: .8em;
-            text-transform: uppercase;
+            /*text-transform: uppercase;*/
         }
-
+		/*
         .item__ID a {
             position: absolute;
             top: 0;
@@ -184,7 +193,7 @@
             right: 0;
             z-index: 1;
         }
-
+		*/
         .item__ID:hover img,
         .item__ID.hover img {
             zoom: 1;
