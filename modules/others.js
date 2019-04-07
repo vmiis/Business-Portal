@@ -277,6 +277,10 @@
         "food-data":    			    {url:"$A/modules/f/food-data.html",Table:"food-demo",form_module:"food-form"},
         "food-form":    			    {url:"$A/modules/f/food-form.html",Table:"food-demo"},
         "food-special":    			    {url:"$A/modules/f/food-special.html",router:1},
+        
+        "first-aid-officer-data":    	{url:"$A/modules/f/first-aid-officer-data.html",Table:"first-aid-officer-demo",form_module:"first-aid-officer-form",router:1},
+        "first-aid-officer-form":    	{url:"$A/modules/f/first-aid-officer-form.html",Table:"first-aid-officer-demo"},
+        "first-aid-officer-panel":      {url:"$A/modules/f/first-aid-officer-panel.html",router:1},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
     var prefix=""
