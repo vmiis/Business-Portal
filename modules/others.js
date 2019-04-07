@@ -274,6 +274,9 @@
         "structure":	                {url:"$A/modules/c/components/structure.html",router:1},
         "c_services":  	  	  			{url:"$A/modules/c/components/services.html",router:1},
 
+        "food-data":    			    {url:"$A/modules/f/food-data.html",Table:"food-demo",form_module:"food-form"},
+        "food-form":    			    {url:"$A/modules/f/food-form.html",Table:"food-demo"},
+        "food-special":    			    {url:"$A/modules/f/food-special.html",router:1},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
     var prefix=""
