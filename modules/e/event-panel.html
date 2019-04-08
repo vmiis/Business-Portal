@@ -48,7 +48,7 @@
             var event="<div style='background-color:"+color+"' class=event__ID id=event__ID"+id+">"+info+"</div>";
             $div.append(event);
             $('#event__ID'+id).on('click',function(){
-                $vm.load_module(m.event_form,'',{record:record});
+                $vm.load_module(m.prefix+m.form_module,'',{record:record});
             });
         }
         //--------------------------------------------------------
@@ -56,7 +56,16 @@
             m.request_and_render();
         });
         //--------------------------------------------------------
-        $('#D__ID').on('show',function(){  if($vm.refresh==1){$vm.refresh=0; m.request_and_render();}    });
+        $('#D__ID').on('show',function(){
+            if($vm.module_list[m.prefix+m.form_module]!=undefined){
+                var s=$vm.module_list[m.prefix+m.form_module].change_status;
+                if(m.change_status!=s){
+                    m.change_status=s;
+                    m.request_and_render();
+                }
+            }
+            //else if($vm.refresh==1){$vm.refresh=0; m.request_and_render();}    
+        });
         //--------------------------------------------------------
     }
     </script>

@@ -62,6 +62,15 @@
     			</div>
 				<br>
 				<div id=items__ID style='font-size:9px;color:#555'>
+					<b>Type</b>
+					<div class="row">
+						<div class=col>
+							Income: $<input type="text" name=Income readonly class=no_border__ID /><br>
+							Expense: $<input type="text" name=Expense readonly class=no_border__ID /><br>
+							Other: $<input type="text" name=Other readonly class=no_border__ID /><br>
+						</div>
+					</div>
+					<br>
 					<b>BAT Items</b>
 					<div class="row">
 						<div class=col>
@@ -123,6 +132,9 @@
 				data.Salary_expenses=parseFloat(data.Salary_expenses);
 				data.Super_expenses=parseFloat(data.Super_expenses);
 				data.All_other_expenses=parseFloat(data.All_other_expenses);		
+				data.Income=parseFloat(data.Income);		
+				data.Expense=parseFloat(data.Expense);		
+				data.Other=parseFloat(data.Other);		
 				index.I1=data.Date;
 				index.I2=data.Amount;
 				index.I3=data.Group;
@@ -151,6 +163,9 @@
 				if(tax.Salary_expenses=='on') $('#F__ID input[name=Salary_expenses]').val((Amount).toFixed(2));
 				if(tax.Super_expenses=='on') $('#F__ID input[name=Super_expenses]').val((Amount).toFixed(2));
 				if(tax.All_other_expenses=='on') $('#F__ID input[name=All_other_expenses]').val((Amount).toFixed(2));
+				if(tax.Type=='Income') $('#F__ID input[name=Income]').val((Amount).toFixed(2));
+				if(tax.Type=='Expense') $('#F__ID input[name=Expense]').val((Amount).toFixed(2));
+				if(tax.Type=='Other') $('#F__ID input[name=Other]').val((Amount).toFixed(2));
 			}
 			//-------------------------------------
 			//auto select predefined item

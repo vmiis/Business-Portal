@@ -54,7 +54,16 @@
             m.request_and_render();
         });
         //--------------------------------------------------------
-        $('#D__ID').on('show',function(){  if($vm.refresh==1){$vm.refresh=0; m.request_and_render();}    });
+        $('#D__ID').on('show',function(){  
+            if($vm.module_list[m.prefix+m.form_module]!=undefined){
+                var s=$vm.module_list[m.prefix+m.event_form].change_status;
+                if(m.change_status!=s){
+                    m.change_status=s;
+                    m.request_and_render();
+                }
+            }
+            //if($vm.refresh==1){$vm.refresh=0; m.request_and_render();}    
+        });
         //--------------------------------------------------------
     }
     </script>

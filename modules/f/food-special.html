@@ -124,6 +124,9 @@
 	</div>
 	<script>
 		function F__ID(){
+			var m=$vm.module_list['__MODULE__'];
+			if(m.prefix==undefined) m.prefix="";
+			m.change_status=0;
 			var wait1=function(){
 				var y=($(window).height()-420)/2;
 				lightbox.option({
@@ -166,10 +169,19 @@
 			})
 			//---------------------------------------
 			$('#D__ID').on('show',function(){
+				if($vm.module_list[m.prefix+m.form_module]!=undefined){
+					var s=$vm.module_list[m.prefix+m.form_module].change_status;
+					if(m.change_status!=s){
+						m.change_status=s;
+						request_url();
+					}
+				}
+				/*
 				if($vm.g_portal_food_special_section_refresh==1){
 					$vm.g_portal_food_special_section_refresh=0;
 					request_url();
 				}
+				*/
 			})
 			//---------------------------------------
 		}
@@ -354,6 +366,12 @@
 			position: absolute;
 			top:3px;
 			left:3px;
+		}
+
+    	@media screen and (max-width:768px){
+			#D__ID h2 {
+				font-size: 28px;
+			}
 		}
 	</style>
 </div>

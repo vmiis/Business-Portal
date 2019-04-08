@@ -73,7 +73,7 @@
                                         },         
         "event-panel":      	 	    {url:"$A/modules/e/event-panel.html",Table:"event-vm",router:1,
                                             event_daily:"event-daily",
-                                            event_form:"event-form"
+                                            form_module:"event-form"
                                         },         
         "event-calendar-app":  		    {url:"$A/modules/e/event-calendar/index.html"},
 
@@ -280,7 +280,7 @@
 
         "food-data":    			    {url:"$A/modules/f/food-data.html",Table:"food-demo",form_module:"food-form"},
         "food-form":    			    {url:"$A/modules/f/food-form.html",Table:"food-demo"},
-        "food-special":    			    {url:"$A/modules/f/food-special.html",router:1},
+        "food-special":    			    {url:"$A/modules/f/food-special.html",form_module:"food-form",router:1},
         
         "first-aid-officer-data":    	{url:"$A/modules/f/first-aid-officer-data.html",Table:"first-aid-officer-demo",form_module:"first-aid-officer-form",router:1},
         "first-aid-officer-form":    	{url:"$A/modules/f/first-aid-officer-form.html",Table:"first-aid-officer-demo"},
