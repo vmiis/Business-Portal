@@ -138,9 +138,7 @@
 			},100);
 
 			var set_url=function(i,records){
-				console.log(i);
 				$vm.get_image_url('Image',records[i],7*24*3600,function(url){ 
-					console.log(url);
 					$("#item0"+i+"__ID a").attr("href",url) 
 					$("#item0"+i+"__ID img").attr("src",url) 
 				});

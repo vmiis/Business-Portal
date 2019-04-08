@@ -71,6 +71,10 @@
                                             event_daily:"event-daily",
                                             event_form:"event-form"
                                         },         
+        "event-panel":      	 	    {url:"$A/modules/e/event-panel.html",Table:"event-vm",router:1,
+                                            event_daily:"event-daily",
+                                            event_form:"event-form"
+                                        },         
         "event-calendar-app":  		    {url:"$A/modules/e/event-calendar/index.html"},
 
         "ffs-data":      	  			{url:"$A/modules/f/flinders-fatigue-scale-data.html",Table:"ffs",form_module:"ffs-form"},
