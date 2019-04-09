@@ -193,7 +193,7 @@
                     <li><i class="fas fa-caret-right"></i>Sales: <a href=?/sales-data>Data</a>, <a href=?/sales-monthly-aggregation-data>Aggregation</a>, <a href=?/sales-monthly-aggregation-chart>Chart</a></li>
                     
                     <li style='display:none' class=builder__ID><a href=?/panel-modules><i class="fas fa-caret-right"></i>Module library</a></li>
-                    <li style='display:none' class=builder__ID><a href=?/flat-trial><i class="fas fa-caret-right"></i>test</a></li>
+                    <li style='display:none' class=builder__ID><a href=?/aaxsys-panel><i class="fas fa-caret-right"></i>test</a></li>
                 </ul>
 
             </div>
@@ -373,22 +373,23 @@
                 }
             })
             //$vm.load_component("portfolio","c1__ID");
-            var c_I=0,ls=0;
-            var c_list=['structure','contact-us-panel','event-panel','survey-panel','food-special','particle-panel','first-aid-officer-panel','image-with-title-on-hover','image-and-title-with-scale-rotate-effect-on-hover',
-            'c_services'];
+            var c_I=0;
+            var c_list=[
+                'structure','contact-us-panel','aaxsys-panel','event-panel','survey-panel','flat-trial',
+                'food-special','particle-panel','first-aid-officer-panel','image-with-title-on-hover',
+                'image-and-title-with-scale-rotate-effect-on-hover',
+                'c_services'
+            ];
             //-----------------
             $vm.portal_scroll_fun=function(){
                 var v1=$('#D__ID').outerHeight();
                 var v1=document.getElementById('D__ID').offsetHeight;
                 var v2=document.getElementById('D__ID').scrollTop;
                 var v3=document.getElementById('D__ID').scrollHeight;
-                if (v1 + v2 >= v3 && ls==0) {
-                    ls=1;
+                if (Math.ceil(v1 + v2) >= v3) {
                     if(c_I>=c_list.length) return;
                     $('#p__ID').append('<div id=c'+c_I+'__ID></div>');
                     $vm.load_component(c_list[c_I],"c"+c_I+"__ID");
-                    //setTimeout(function(){ ls=0; }, 3000);
-                    ls=0;
                     c_I++;
                 }
             }

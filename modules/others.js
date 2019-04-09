@@ -289,6 +289,7 @@
         "first-aid-officer-form":    	{url:"$A/modules/f/first-aid-officer-form.html",Table:"first-aid-officer-demo"},
         "first-aid-officer-panel":      {url:"$A/modules/f/first-aid-officer-panel.html",router:1},
         "flat-trial":    			    {url:"$A/modules/f/flat-trial.html",router:1},
+        "aaxsys-panel":                 {url:"$A/modules/a/aaxsys-panel.html",router:1},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
     var prefix=""
