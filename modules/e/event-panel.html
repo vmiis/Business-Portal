@@ -1,11 +1,18 @@
 <div id=D__ID>
     <div id=color__ID>
+        <u id=admin__ID style='float:right;cursor:pointer'>Admin</u>
         VmInclude:__COMPONENT__/m/month.01.html
+        click the number with circle -> day calendar, then click the time bar to create an event.
     </div>
     <script>
     function F__ID(){
         //--------------------------------------------------------
         VmInclude:__COMPONENT__/m/month.01.js
+        $('#elapsed__ID').hide();     
+        $("#admin__ID").appendTo("#toolbar__ID");
+        $("#admin__ID").on('click',function(){
+            $vm.load_module('event-data','',{})
+        })
         //--------------------------------------------------------
         $('#name__ID').text("Research Team Event Calendar");
         $('#name__ID').css({"font-size":"120%","margin-left":"30px"});

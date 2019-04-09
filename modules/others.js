@@ -39,6 +39,7 @@
         "contact-us-form-01":  			{url:"$A/modules/c/contact-us-form-01.html",Table:"ccontact-us-vm"},
         "contact-us-form-02":  			{url:"$A/modules/c/contact-us-form-02.html",Table:"ccontact-us-vm"},
         "contact-us-form-03":  			{url:"$A/modules/c/contact-us-form-03.html",Table:"ccontact-us-vm"},
+        "contact-us-panel":  			{url:"$A/modules/c/contact-us-panel.html",Table:"ccontact-us-vm"},
         "contact-us-app":  			    {url:"$A/modules/c/contact-us/index.html"},
         "column-data":  	            {url:"$A/modules/c/column-data.html",Table:"column",form_module:"column-form",router:1},
         "column-form":  	            {url:"$A/modules/c/column-form.html",Table:"column"},
@@ -158,6 +159,7 @@
 
 
         "particle":  		  			{url:"$A/modules/p/particle.html",router:1},
+        "particle-panel":  	  			{url:"$A/modules/p/particle-panel.html",router:1},
         "particle-background-app":      {url:"$A/modules/p/particle-background/index.html"},
         "prices":  		  	  			{url:"$A/modules/p/prices.html",router:1},
         "price-02":  		  	 		{url:"$A/modules/p/price-02.html",router:1},
@@ -241,6 +243,7 @@
         "snow-background-app":		    {url:"$A/modules/s/snow-background/index.html"},
         "survey-data":      	  		{url:"$A/modules/s/survey-data.html",Table:"survey-vm",form_module:"survey-form"},
         "survey-form":      	  		{url:"$A/modules/s/survey-form.html",Table:"survey-vm"},         
+        "survey-panel":      	  		{url:"$A/modules/s/survey-panel.html",Table:"survey-vm"},         
         "survey-app":      	  		    {url:"$A/modules/s/survey/index.html"},         
         "success":  		  	  		{url:"$A/modules/s/success.html",router:1},
         "success-app":  		  	  	{url:"$A/modules/s/success/index.html"},
@@ -285,6 +288,7 @@
         "first-aid-officer-data":    	{url:"$A/modules/f/first-aid-officer-data.html",Table:"first-aid-officer-demo",form_module:"first-aid-officer-form",router:1},
         "first-aid-officer-form":    	{url:"$A/modules/f/first-aid-officer-form.html",Table:"first-aid-officer-demo"},
         "first-aid-officer-panel":      {url:"$A/modules/f/first-aid-officer-panel.html",router:1},
+        "flat-trial":    			    {url:"$A/modules/f/flat-trial.html",router:1},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
     var prefix=""
