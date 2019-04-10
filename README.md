@@ -1,6 +1,6 @@
 # Business Portal
 
-https://www.vmiis.com  
+https://portal.vmiis.com  
 
 
 <b>Modular distributed web application - simple, powerful and elegant</b>
