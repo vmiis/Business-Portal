@@ -1,6 +1,8 @@
 <div id=D__ID>
     <div id=background__ID></div>
     <span id=text__ID>Relax for a while</span>
+    <span id=text2__ID>Do you like dynamic background for your landing page? Try these links. 
+        <u>Particle</u> <u>Snow</u> <u>Nasa</u> <u>Snow</u> <u>Bubble</u></span>
     <script>
         function F__ID(){
             $.getScript('https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js',function(){
@@ -116,6 +118,15 @@
                 });
             });
             //------------------------------------
+            $('#text2__ID u').on('click',function(){
+                var t=$(this).text();
+                switch(t){
+                    case 'Particle':window.open($vm.module_list['particle-background-app'].url); break;
+                    case 'Snow':window.open($vm.module_list['snow-background-app'].url); break;
+                    case 'Snow':window.open($vm.module_list['snow-background-app'].url); break;
+                    case 'Snow':window.open($vm.module_list['snow-background-app'].url); break;
+                }
+            })
         }
     </script>
     <style>
@@ -126,7 +137,7 @@
         #background__ID{
             overflow: hidden;
             width: 100%;
-            height: 300px;
+            height: 100%;
             background-color: #1d1e33;
             background-image: url("");
             background-repeat: no-repeat;
@@ -141,6 +152,17 @@
             top:50%;
             left:50%;
             transform: translateX(-50%) translateY(-50%);
+        }
+        #text2__ID{
+            position:absolute;
+            color:#fff;
+            font-size:160%;
+            z-index:1000;
+            bottom:3px;
+            left:3px;
+        }
+        #text2__ID u{
+            cursor:pointer;
         }
     </style>
 </div>
