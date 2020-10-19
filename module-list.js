@@ -11,7 +11,7 @@
     }
     //-------------------------------------------------------------------------------------
     var prefix='equipment-booking-';
-    var $H="https://portal.vmiis.com/eqipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/equipment-booking";
+    var $H="https://portal.vmiis.com/modules/eqipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/equipment-booking";
     var modules={
         panel:         {url:$H+"/panel.html",router:1},
         diagram:       {url:$H+"/diagram.html"},
@@ -27,7 +27,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     prefix='room-booking-';
-    $H="https://portal.vmiis.com/room-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/room-booking";
+    $H="https://portal.vmiis.com/modules/room-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/room-booking";
     modules={
         panel:         {url:$H+"/panel.html",router:1},
         diagram:       {url:$H+"/diagram.html"},
@@ -43,7 +43,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='car-booking-';
-    var $H="https://portal.vmiis.com/car-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/car-booking";
+    var $H="https://portal.vmiis.com/modules/car-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/car-booking";
     var modules={
         panel:          {url:$H+"/panel.html",router:1},
         diagram:        {url:$H+"/diagram.html"},
@@ -59,7 +59,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     prefix='bookkeeping-';
-    $H="https://portal.vmiis.com/bookkeeping"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/bookkeeping";
+    $H="https://portal.vmiis.com/modules/bookkeeping"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/bookkeeping";
     var pre_item="vm-demo-predefined-transaction-item";
     var transaction="vm-demo-transaction-records";
     var aggregation="vm-demo-ato-bas-quarter";
@@ -110,7 +110,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='marketing-';
-    var $H="https://portal.vmiis.com/marketing"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/marketing";
+    var $H="https://portal.vmiis.com/modules/marketing"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/marketing";
     var modules={
         "panel":                                    {url:$H+"/panel.html",router:1},
         "contact_us_1":                             {url:$H+"/contact-us-1/form.html",Table:"demo-vm-ccontact-us",router:1},
@@ -127,7 +127,7 @@
     //-------------------------------------------------------------------------------------
     set_prefix(prefix,modules);
     var prefix='spardac-'
-    var $H="https://portal.vmiis.com/spardac"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/spardac";
+    var $H="https://portal.vmiis.com/modules/spardac"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/spardac";
     var modules={
         "panel":                                {url:$H+"/panel.html",router:1},
         "participant-data":   		            {url:"xxx",Table:"spardac-participant",participant_id:{field1:"Subject_ID",field2:"Subject_Initials"}, not_install:1},
@@ -295,7 +295,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='research-projects-'
-    var $H="https://portal.vmiis.com/research-projects"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/research-projects";
+    var $H="https://portal.vmiis.com/modules/research-projects"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/research-projects";
     var modules={
         "panel":                     {url:$H+"/panel.html",router:1},
         "sleep-research":            {url:$H+"/sleep-research/sleep-research.html",router:1,has_child:1, first:'p1'},
@@ -308,7 +308,7 @@
     //-------------------------------------------------------------------------------------
     
     var prefix='modules-'
-    var $H="https://portal.vmiis.com/modules"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8080/modules";
+    var $H="https://portal.vmiis.com/modules"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules";
     var modules={
         "data-sharing-and-management":              {url:$H+"/data-sharing-and-management.html",router:1, not_install:1},
         "musicxml":                                 {url:$H+"/musicxml-player/musicxml.html",router:1, not_install:1},
