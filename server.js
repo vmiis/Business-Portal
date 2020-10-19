@@ -3,7 +3,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
-const baseDir = path.join(__dirname, '../');
+const baseDir = path.join(__dirname, './');
 const httpServer = http.createServer((request, response) => {
     if(request.method=='GET'){
         const parsedUrl = url.parse(request.url, true);
