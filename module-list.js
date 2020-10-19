@@ -11,7 +11,7 @@
     }
     //-------------------------------------------------------------------------------------
     var prefix='equipment-booking-';
-    var $H="https://portal.vmiis.com/modules/eqipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/equipment-booking";
+    var $H="https://portal.vmiis.com/modules/equipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/equipment-booking";
     var modules={
         panel:         {url:$H+"/panel.html",router:1},
         diagram:       {url:$H+"/diagram.html"},
