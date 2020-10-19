@@ -1,0 +1,15 @@
+{
+    "name": "micro-node-app",
+    "version": "1.0.0",
+    "description": "Microservices application",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server\\server.js"
+    },
+    "author": "Zhiming Zhou",
+    "engines": {
+      "node": "12.x"
+    },
+    "license": "ISC"
+}
+  
