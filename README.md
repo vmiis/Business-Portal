@@ -10,7 +10,7 @@ https://portal.vmiis.com
 
 
 
-How to run this business portal on a local computer  
+<b>How to run this business portal on a local computer</b>  
 
 1. [download and unzip](https://github.com/vmiis/business-portal/archive/master.zip)
 2. Install NodeJS if haven't (https://nodejs.org/)  
@@ -18,9 +18,9 @@ How to run this business portal on a local computer
 4. In your browser, type http://localhost:8000/  
 
   
-How to clone this business portal to Glitch and run over there 
+<b>How to clone this business portal to Glitch and run over there</b> 
 
 1. goto glitch.com (not necessary to have an account)
 2. click 'Get Started'-> 'hello-webpage' to create a new app
 3. once the app is started, click 'tools'->'import and export'->'Import from GitHub'
-4. use this address vmiis/business-portal to import
+4. use this address <b>vmiis/business-portal</b> to import
