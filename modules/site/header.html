@@ -114,6 +114,7 @@
                     var r=[]; 
                     for(var i=0; i<result.length && i<35; i++){
                         var t=result[i].title; if(t=="") t=result[i].id;
+                        t=t.replace(/-/g,' ').replace(/_/g,' ')
                         r.push({label:t,value:result[i].id})
                     }
                     response(r);
