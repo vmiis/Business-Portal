@@ -4,7 +4,7 @@
     "description": "Microservices application",
     "main": "server.js",
     "scripts": {
-      "start": "node server\\server.js"
+      "start": "node server.js"
     },
     "author": "Zhiming Zhou",
     "engines": {
