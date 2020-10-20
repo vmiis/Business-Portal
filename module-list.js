@@ -306,7 +306,6 @@
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
-    
     var prefix='modules-'
     var $H="https://portal.vmiis.com/modules"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules";
     var modules={
@@ -317,4 +316,16 @@
         "underdevelopment":                         {url:$H+"/underdevelopment.html",router:1},
     }
     set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
+    var prefix='ud-'
+    var $H="https://portal.vmiis.com/modules/under-development"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/under-development";
+    var modules={
+        "panel":                                    {url:$H+"/panel.html",router:1},
+        "client-data":                              {url:$H+"/invoice/client-data.html",Table:'vm-demo-invoice-client',form_module:'client-form',router:1},
+        "client-form":                              {url:$H+"/invoice/client-form.html",Table:'vm-demo-invoice-client',router:1},
+        "invoice-data":                             {url:$H+"/invoice/invoice-data.html",Table:'vm-demo-invoice',form_module:'invoice-form',router:1},
+        "invoice-form":                             {url:$H+"/invoice/invoice-form.html",Table:'vm-demo-invoice',client_table:'vm-demo-invoice-client',router:1},
+    }
+    set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
 })();
