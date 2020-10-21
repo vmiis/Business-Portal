@@ -309,16 +309,15 @@
     var prefix='modules-'
     var $H="https://portal.vmiis.com/modules"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules";
     var modules={
-        "data-sharing-and-management":              {url:$H+"/data-sharing-and-management.html",router:1, not_install:1},
-        "musicxml":                                 {url:$H+"/musicxml-player/musicxml.html",router:1, not_install:1},
-        "arpeggios":                                {url:$H+"/arpeggios.html",router:1, not_install:1},
-        "chords":                                   {url:$H+"/chords.html",router:1, not_install:1},
-        "underdevelopment":                         {url:$H+"/underdevelopment.html",router:1},
+        "data-sharing-and-management":              {url:$H+"/unclassified/data-sharing-and-management.html",router:1, not_install:1},
+        "musicxml":                                 {url:$H+"/music/musicxml-player/musicxml.html",router:1, not_install:1},
+        "arpeggios":                                {url:$H+"/music/arpeggios.html",router:1, not_install:1},
+        "chords":                                   {url:$H+"/music/chords.html",router:1, not_install:1},
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
-    var prefix='ud-'
-    var $H="https://portal.vmiis.com/modules/under-development"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/under-development";
+    var prefix='invoice-'
+    var $H="https://portal.vmiis.com/modules/invoice"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/invoice";
     var invoice_client_table="vm-demo-invoice-client";
     var invoice_record_table="vm-demo-invoice";
     var invoice_print_module="invoice-print-demo";
@@ -334,13 +333,22 @@
     }
     var modules={
         "panel":                          {url:$H+"/panel.html",router:1},
-        "client-data":                    {url:$H+"/invoice/client-data.html",          Table:invoice_client_table, form_module:'client-form',  router:1},
-        "client-form":                    {url:$H+"/invoice/client-form.html",          Table:invoice_client_table, router:1},
-        "invoice-data":                   {url:$H+"/invoice/invoice-data.html",         Table:invoice_record_table, form_module:'invoice-form', print_module:invoice_print_module,router:1},
-        "invoice-form":                   {url:$H+"/invoice/invoice-form.html",         Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
-        "invoice-print-demo":             {url:$H+"/invoice/invoice-print-demo.html",   Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
-        "invoice-print-wapp":             {url:$H+"/invoice/invoice-print-wapp.html",   Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
-        "invoice-print-vm":               {url:$H+"/invoice/invoice-print-vm.html",     Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
+        "diagram":                        {url:$H+"/diagram/diagram.html"},
+        "client-data":                    {url:$H+"/client/data.html",      Table:invoice_client_table, form_module:'client-form',  router:1},
+        "client-form":                    {url:$H+"/client/form.html",      Table:invoice_client_table, router:1},
+        "invoice-data":                   {url:$H+"/invoice/data.html",     Table:invoice_record_table, form_module:'invoice-form', print_module:invoice_print_module,router:1},
+        "invoice-form":                   {url:$H+"/invoice/form.html",     Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
+        "invoice-print-demo":             {url:$H+"/print/demo.html",       Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
+        "invoice-print-wapp":             {url:$H+"/print/wapp.html",       Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
+        "invoice-print-vm":               {url:$H+"/print/vm.html",         Table:invoice_record_table,   client_table:invoice_client_table,  router:1},
+    }
+    set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
+    var prefix='ud-'
+    var $H="https://portal.vmiis.com/modules/under-development"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/under-development";
+    var modules={
+        "panel":                          {url:$H+"/panel.html",router:1},
+        "test1":                          {url:$H+"/1/test1.html",router:1},
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------

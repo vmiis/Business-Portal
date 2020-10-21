@@ -1,21 +1,31 @@
 <div id=D__ID>
+    <select id=select__ID style='float:right'>
+        <option >demo</option>
+        <option >vm</option>
+        <option >wapp</option>
+    </select>
     <div class=h_img__ID>
-        <div class=h_txt__ID><h4>Under Development</h4></div>
+        <div class=h_txt__ID><h4>Invoice</h4></div>
     </div>
     <div id=panel__ID>
-        <ul>
-            <div style='display:inline-block'>
-                <li><a target=_blank href='?/spardac-participant-data'>Test1</a></li>
-            </div>
-        </ul>
-    </div>
+        <div>
+            <span class=LT__ID>Invoice Records</span>
+            <li><a href='invoice-data'>Invoices</a></li>
+        </div>
+        <div>
+            <span class=LT__ID>Client Setup</span>
+            <li><a href='client-data'>Clients</a></li>
+        </div>
+        <div>
+            <span class=LT__ID >Diagrams</span>
+            <li><a href='diagram'>System diagram</a></li>
+        </div>
+</div>
     <script>
         function F__ID(){
             //--------------------------------------------------------
-            $vm.module_list["__MODULE__"].show=function(){
-                document.title="Panel | "+$vm.default_title;
-                $("meta[name='description']").attr("content","Control Panel");
-            }
+            var prefix=$vm.module_list["__MODULE__"].prefix;
+            if(prefix==undefined) prefix="";
             //--------------------------------------------------------
             $('#panel__ID a').on('click',function(e){
                 e.preventDefault();
@@ -25,15 +35,21 @@
             //--------------------------------------------------------
             $('#panel__ID a').each(function(){
                 var href=$(this).attr('href');
+                $(this).attr('href','?/'+prefix+href);
                 if(href!=undefined){
-                    href=href.replace('?\/','');
-                    href=href.replace(/\//g,'_');
-                    if($vm.module_list[href]!=undefined){
-                        var url=$vm.module_list[href].url;
+                    if($vm.module_list[prefix+href]!=undefined){
+                        var url=$vm.module_list[prefix+href].url;
                         $(this).attr('title',url);
                     }
                 }
             })
+            //--------------------------------------------------------
+            $('#select__ID').on('change',function(){
+                window.location=$vm.hosting_path+"/?/"+prefix+"panel&tables="+$(this).val();
+            })
+            //--------------------------------------------------------
+            if(window.location.toString().indexOf('tables=wapp')!=-1) $('#select__ID').val('wapp')
+            else if(window.location.toString().indexOf('tables=vm')!=-1) $('#select__ID').val('vm')
             //--------------------------------------------------------
         }
     </script>
@@ -52,7 +68,7 @@
             padding:0px 50px 10px 50px;
             font-size:14px;
     		column-count: 4;
-    		column-width: 600px;
+    		column-width: 300px;
     		column-gap: 30px;
             font-size:14px;
     	}
@@ -71,7 +87,7 @@
             max-width:1400px;          
             height:200px;
             background-size: cover; background-position: center center; 
-            background-image: url(https://images.unsplash.com/photo-1593434820349-0ca11844c957?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80);
+            background-image: url(https://images.unsplash.com/photo-1602947208752-ad145df23516?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
             padding-top:60px;
             margin-top:50px;
             margin-bottom:50px;
@@ -87,7 +103,6 @@
             border-radius: 10px;
 			text-shadow: 2px 2px 2px #000;
         }
-
         .LT__ID{
             display:inline-block;
             margin-top:10px;
@@ -96,20 +111,13 @@
             border-bottom: 2px solid #479824;
             font-size: 18px;
         }
-        .LB__ID{
-            break-before:column;
-            display:block;            
+        #panel__ID div{
+            break-inside: avoid;
         }
         @media screen and (max-width: 1000px) {
             .h_img__ID{
                 margin-top:0px;
-            }
-            #panel__ID{
-                column-count: 1;
-                column-width: 100%;
-            }
-            .LB__ID{
-                display:none;            
+                border-radius: 0px;
             }
         }
     </style>
