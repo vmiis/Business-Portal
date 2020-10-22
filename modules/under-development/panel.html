@@ -6,6 +6,7 @@
         <ul>
             <div style='display:inline-block'>
                 <li><a href='test1'>test1</a></li>
+                <li><a href='event-calendar-panel' g='1' >Event Calendar</a></li>
             </div>
         </ul>
     </div>
@@ -23,12 +24,18 @@
             //--------------------------------------------------------
             $('#panel__ID a').each(function(){
                 var href=$(this).attr('href');
-                $(this).attr('href','?/'+prefix+href);
-                if(href!=undefined){
+                var g=$(this).attr('g');
+                if(href!=undefined && g!='1'){
+                    $(this).attr('href','?/'+prefix+href);
                     if($vm.module_list[prefix+href]!=undefined){
                         var url=$vm.module_list[prefix+href].url;
                         $(this).attr('title',url);
                     }
+                }
+                else if(href!=undefined && g=='1'){
+                    $(this).attr('href','?/'+href);
+                    var url=$vm.module_list[href].url;
+                    $(this).attr('title',url);
                 }
             })
             //--------------------------------------------------------

@@ -14,7 +14,7 @@
     var $H="https://portal.vmiis.com/modules/equipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/equipment-booking";
     var modules={
         panel:         {url:$H+"/panel.html",router:1},
-        diagram:       {url:$H+"/diagram.html"},
+        diagram:       {url:$H+"/diagram/diagram.html"},
         booking_data:  {url:$H+"/equipment-list-and-equipment-booking-records/booking-data.html",  Table:"demo-vm-19091811",  form_module:"booking_form"},
         booking_form:  {url:$H+"/equipment-list-and-equipment-booking-records/booking-form.html",  Table:"demo-vm-19091811",  lookup:"demo-vm-19091812"},
         booking_form_2:{url:$H+"/equipment-list-and-equipment-booking-records/booking-form-2.html",Table:"demo-vm-19091811",  lookup:"demo-vm-19091812"},
@@ -30,7 +30,7 @@
     $H="https://portal.vmiis.com/modules/room-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/room-booking";
     modules={
         panel:         {url:$H+"/panel.html",router:1},
-        diagram:       {url:$H+"/diagram.html"},
+        diagram:       {url:$H+"/diagram/diagram.html"},
         booking_data:  {url:$H+"/room-list-and-room-booking-records/booking-data.html",  Table:"demo-vm-19091805",  form_module:"booking_form"},
         booking_form:  {url:$H+"/room-list-and-room-booking-records/booking-form.html",  Table:"demo-vm-19091805",  lookup:"demo-vm-19091806"},
         booking_form_2:{url:$H+"/room-list-and-room-booking-records/booking-form-2.html",Table:"demo-vm-19091805",  lookup:"demo-vm-19091806"},
@@ -46,7 +46,7 @@
     var $H="https://portal.vmiis.com/modules/car-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/car-booking";
     var modules={
         panel:          {url:$H+"/panel.html",router:1},
-        diagram:        {url:$H+"/diagram.html"},
+        diagram:        {url:$H+"/diagram/diagram.html"},
         booking_data:   {url:$H+"/car-list-and-car-booking-records/booking-data.html",  Table:"demo-vm-19091807",  form_module:"booking_form"},
         booking_form:   {url:$H+"/car-list-and-car-booking-records/booking-form.html",  Table:"demo-vm-19091807",  lookup:"demo-vm-19091808"},
         booking_form_2: {url:$H+"/car-list-and-car-booking-records/booking-form-2.html",Table:"demo-vm-19091807",  lookup:"demo-vm-19091808"},
@@ -349,6 +349,21 @@
     var modules={
         "panel":                          {url:$H+"/panel.html",router:1},
         "test1":                          {url:$H+"/1/test1.html",router:1},
+    }
+    set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
+    var prefix='event-calendar-';
+    var $H="https://portal.vmiis.com/modules/event-task-reminder-calendar"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/event-task-reminder-calendar";
+    var modules={
+        "panel":         {url:$H+"/panel.html",router:1},
+        "diagram":       {url:$H+"/diagram.html"},
+        "record_data":   {url:$H+"/category-and-records/record-data.html",   Table:"demo-vm-19100103",  form_module:"record_form"},
+        "record_form":   {url:$H+"/category-and-records/record-form.html",   Table:"demo-vm-19100103",  lookup:"demo-vm-19100104"},
+        "list_data":     {url:$H+"/category-and-records/list-data.html",     Table:"demo-vm-19100104",  form_module:"list_form"},
+        "list_form":     {url:$H+"/category-and-records/list-form.html",     Table:"demo-vm-19100104"},
+        "month":         {url:$H+"/calendar/calendar-month.html",            Table:"demo-vm-19100103","record":"record_form",lookup:"demo-vm-19100104"},
+        "week":          {url:$H+"/calendar/calendar-week.html",             Table:"demo-vm-19100103","record":"record_form","record2":"record_form_2",lookup:"demo-vm-19100104"},
+        "day":           {url:$H+"/calendar/calendar-day.html",              Table:"demo-vm-19100103","record":"record_form",lookup:"demo-vm-19100104"},
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
