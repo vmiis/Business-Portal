@@ -356,7 +356,7 @@
     var $H="https://portal.vmiis.com/modules/event-task-reminder-calendar"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/event-task-reminder-calendar";
     var modules={
         "panel":         {url:$H+"/panel.html",router:1},
-        "diagram":       {url:$H+"/diagram.html"},
+        "diagram":       {url:$H+"/diagram/diagram.html"},
         "record_data":   {url:$H+"/category-and-records/record-data.html",   Table:"demo-vm-19100103",  form_module:"record_form"},
         "record_form":   {url:$H+"/category-and-records/record-form.html",   Table:"demo-vm-19100103",  lookup:"demo-vm-19100104"},
         "list_data":     {url:$H+"/category-and-records/list-data.html",     Table:"demo-vm-19100104",  form_module:"list_form"},
