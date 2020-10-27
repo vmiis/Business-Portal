@@ -367,4 +367,66 @@
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
+    var prefix='purchase-order-';
+    var $H="https://portal.vmiis.com/modules/purchase-order-request-approval-process"; if(window.location.toString().indexOf('_l=1')!=-1) 
+    $H="http://localhost:8000/vmiis/business-portal/modules/purchase-order-request-approval-process";
+    var modules={
+        "panel":         {url:$H+"/panel.html",router:1},
+        "diagram":       {url:$H+"/diagram/diagram.html"},
+        "my-request-data": {url:$H+"/request/my-request-data.html",
+            Table: "purchase-order-request-demo190712",
+            Table2:"purchase-order-approval-demo190712",
+            Table3:"purchase-order-process-demo190712",
+            form_module:"my-request-form",router:1,title:"My requests"},
+
+        "my-request-form": {url:$H+"/request/my-request-form.html",
+            Table:"purchase-order-request-demo190712",
+            manager_list_table:"email-list-demo-001",
+            processor_list_table:"email-list-demo-002",
+            email_to_manager:"email-to-manager"},
+        "my-approval-data":  	{url:$H+"/request/my-approval-data.html",
+            Table: "purchase-order-request-demo190712",
+            Table2:"purchase-order-approval-demo190712",
+            Table3:"purchase-order-process-demo190712",
+            form_module:"my-approval-form",router:1,title:"My approvals"},
+        "my-approval-form":  	{url:$H+"/request/my-approval-form.html",
+            Table:"purchase-order-approval-demo190712",
+            manager_list_table:"email-list-demo-001",
+            processor_list_table:"email-list-demo-002",
+            email_to_processor:"email-to-processor"},
+
+        "my-process-data":  	{url:$H+"/request/my-process-data.html",
+            Table: "purchase-order-request-demo190712",
+            Table2:"purchase-order-approval-demo190712",
+            Table3:"purchase-order-process-demo190712",
+            form_module:"my-process-form",router:1,title:"My processes"},
+        "my-process-form":  	{url:$H+"/request/my-process-form.html",
+            Table:"purchase-order-process-demo190712",
+            manager_list_table:"email-list-demo-001",
+            processor_list_table:"email-list-demo-002",
+            email_to_requester:"email-to-requester"},
+
+        "all-request-data":  	{url:$H+"/request/all-request-data.html",
+            Table: "purchase-order-request-demo190712",
+            Table2:"purchase-order-approval-demo190712",
+            Table3:"purchase-order-process-demo190712",
+            form_module:"all-request-form",router:1,title:"All requests"},
+        "all-request-form":  	{url:$H+"/request/all-request-form.html",
+            Table:"purchase-order-request-demo190712",
+            manager_list_table:"email-list-demo-001",
+            processor_list_table:"email-list-demo-002"},
+
+
+        "email-to-manager":     {url:$H+"/email-template/to-manager.html"},
+        "email-to-processor":   {url:$H+"/email-template/to-processor.html"},
+        "email-to-requester":   {url:$H+"/email-template/to-requester.html"},
+        
+        "manager-list-data":  	{url:$H+"/email-list/data.html",Table:"email-list-demo-001",form_module:"manager-list-form",router:1,title:'Manager List'},
+        "manager-list-form":  	{url:$H+"/email-list/form.html",Table:"email-list-demo-001",title:'Manager List'},
+        
+        "processor-list-data":  {url:$H+"/email-list/data.html",Table:"email-list-demo-002",form_module:"processor-list-form",router:1,title:'Processor List'},
+        "processor-list-form":  {url:$H+"/email-list/form.html",Table:"email-list-demo-002",title:'Processor List'},
+    }
+    set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
 })();
