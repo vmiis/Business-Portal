@@ -79,7 +79,7 @@
         transaction="transaction-vmautomation";
         aggregation="ato-bas-quarter-aggregation-vmautomation";
         aggregation_ie="income-expense-month-aggregation-vmautomation";
-        aggregation_item="item-month-aggregation-automation";
+        aggregation_item="item-month-aggregation-vmautomation";
         aggregation_tax="ato-tax-return-yearly-aggregation-vmautomation";
     }
     var modules={
