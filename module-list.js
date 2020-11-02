@@ -421,11 +421,24 @@
         "email-to-processor":   {url:$H+"/email-template/to-processor.html"},
         "email-to-requester":   {url:$H+"/email-template/to-requester.html"},
         
-        "manager-list-data":  	{url:$H+"/email-list/data.html",Table:"email-list-demo-001",form_module:"manager-list-form",router:1,title:'Manager List'},
-        "manager-list-form":  	{url:$H+"/email-list/form.html",Table:"email-list-demo-001",title:'Manager List'},
+        //"manager-list-data":  	{url:$H+"/email-list/data.html",Table:"email-list-demo-001",form_module:"manager-list-form",router:1,title:'Manager List'},
+        //"manager-list-form":  	{url:$H+"/email-list/form.html",Table:"email-list-demo-001",title:'Manager List'},
         
         "processor-list-data":  {url:$H+"/email-list/data.html",Table:"email-list-demo-002",form_module:"processor-list-form",router:1,title:'Processor List'},
         "processor-list-form":  {url:$H+"/email-list/form.html",Table:"email-list-demo-002",title:'Processor List'},
+    }
+    set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
+    var prefix='purchase-order-';
+    var $H="https://portal.vmiis.com/modules/under-development/purchase-order"; //if(window.location.toString().indexOf('_l=1')!=-1) 
+    $H="http://localhost:8000/vmiis/business-portal/modules/under-development/purchase-order";
+    var modules={
+        "request-data":             {url:$H+"/request/data.html",   Table:"purchase-order-request-demo",  form_module:"request-form", router:1},
+        "request-form":             {url:$H+"/request/form.html",   Table:"purchase-order-request-demo",  lookup:"purchase-order-manager-demo"},
+        "manager-list-data":        {url:$H+"/list/data.html",      Table:"purchase-order-manager-demo",  form_module:"manager-list-form",router:1,title:'Manager List'},
+        "manager-list-form":        {url:$H+"/list/form.html",      Table:"purchase-order-manager-demo",  title:'Manager List'},
+        "accountant-list-data":     {url:$H+"/list/data.html",      Table:"accountant-order-processor-demo",  form_module:"accountant-list-form",router:1,title:'Accountant List'},
+        "accountant-list-form":     {url:$H+"/list/form.html",      Table:"accountant-order-processor-demo",  title:'Accountant List'},
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------

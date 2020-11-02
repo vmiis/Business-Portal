@@ -88,7 +88,7 @@
             m.before_submit=function(data,index){
 				data.request_data=m.request_record.Data;
 				index.I2=m.request_record.UID; //relation: reuest.UID
-                index.P1=","+m.request_record.Data.Manager_for_Approval.split('|')[2]+","+m.request_record.Data.Processor.split('|')[2]+",";
+                index.P1=","+m.request_record.Data.Manager_for_Approval.split('|')[2]+","+m.request_record.Data.Processor.split('|')[2]+","; //add some users to permission list
                 return true;
             }
             //--------------------------------------------------------
