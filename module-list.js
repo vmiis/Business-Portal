@@ -349,6 +349,7 @@
     var modules={
         "panel":                          {url:$H+"/panel.html",router:1},
         "test1":                          {url:$H+"/1/test1.html",router:1},
+        "flat":                          {url:$H+"/1/flat.html",router:1},
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
