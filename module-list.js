@@ -443,4 +443,77 @@
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
+    var prefix='wk-';
+    var $H="https://portal.vmiis.com/modules/communal-ordering"; 
+    //if(window.location.toString().indexOf('_l=1')!=-1) 
+    $H="http://localhost:8000/vmiis/business-portal/modules/communal-ordering";
+    var modules={
+        "communal-ordering-panel":{url:$H+"/panel.html",router:1},
+        "communal-ordering-data":{
+            url:$H+"/request-data.html",
+            Table:"communal-ordering",
+            form_module:"communal-ordering-form", 
+            approval:prefix+'communal-ordering-approval-form',
+            approval_table:"communal-ordering-approval",
+            process:prefix+'communal-ordering-process-form',
+            process_table:"communal-ordering-process",
+            follow_up:prefix+'communal-ordering-follow-up-data',
+            follow_up_table:"communal-ordering-follow-up",
+            description:"Communal ordering data"
+        },
+        "communal-ordering-form":{
+            url:$H+"/request-form.html",
+            Table:"communal-ordering",
+            description:"Communal ordering form",
+        },
+        "communal-ordering-data-self":{
+            url:$H+"/request-data.html",
+            Table:"communal-ordering",
+            form_module:"communal-ordering-form-self", 
+            approval:prefix+'communal-ordering-approval-form',
+            approval_table:"communal-ordering-approval",
+            process:prefix+'communal-ordering-process-form',
+            process_table:"communal-ordering-process",
+            follow_up:prefix+'communal-ordering-follow-up-data',
+            follow_up_table:"communal-ordering-follow-up",
+            self:1,
+            description:"Communal ordering data"
+        },
+        "communal-ordering-form-self":{
+            url:$H+"/request-form.html",
+            Table:"communal-ordering",
+            description:"Communal ordering form",
+            self:1,
+        },
+        "communal-ordering-approval-form":{
+            url:$H+"/approval-form.html",
+            Table:"communal-ordering-approval",
+            parent_table:"communal-ordering",
+            description:"Communal ordering approval",
+        },
+        "communal-ordering-process-form":{
+            url:$H+"/process-form.html",
+            Table:"communal-ordering-process",
+            parent_table:"communal-ordering",
+            description:"Communal ordering process",
+        },
+        "communal-ordering-follow-up-data":{
+            url:$H+"/follow-up-data.html",
+            Table:"communal-ordering-follow-up",
+            form_module:"communal-ordering-follow-up-form", 
+            parent_table:"communal-ordering",
+            description:"Communal ordering data"
+        },
+        "communal-ordering-follow-up-form":{
+            url:$H+"/follow-up-form.html",
+            Table:"communal-ordering-follow-up",
+            parent_table:"communal-ordering",
+            description:"Communal ordering form",
+        },
+    }
+    set_prefix(prefix,modules);
+    //-------------------------------------------------------------------------------------
+
+
+
 })();

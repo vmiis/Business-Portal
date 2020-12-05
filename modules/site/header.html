@@ -23,6 +23,7 @@
                             <li><a href="?/marketing-panel">Marketing</a></li>
                             <li><a href='?/event-calendar-panel' >Event Calendar</a></li>
                             <li><a href='?/purchase-order-panel' >Purchase order</a></li>
+                            <li><a href='?/wk-communal-ordering-panel' >Communal ordering</a></li>
                         </ul>
                     </li>
                     <li><a href="?/dropdown">Medical Research <i class="fa fa-caret-down"></i></a>
@@ -77,7 +78,10 @@
                 if(module_name=='dropdown'){
                     var w=$(this).closest('li').width();
                     var mh=$(this).closest('li').find('ul').first().css('max-height');
-                    if(mh=='0px') $(this).closest('li').find('ul').first().css('max-height','600px');
+                    if(mh=='0px'){
+                        close_all_dropdown();
+                        $(this).closest('li').find('ul').first().css('max-height','600px');
+                    }
                     else $(this).closest('li').find('ul').first().css('max-height','0px');
                     $(this).closest('li').find('ul').first().css('min-width',w+'px');
                     return;
