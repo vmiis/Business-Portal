@@ -1,28 +1,31 @@
 <div id=D__ID>
     <div class=h_img__ID>
-        <div class=h_txt__ID><h4>Communal Ordering</h4></div>
+        <div class=h_txt__ID><h4>Business Data Collection</h4></div>
     </div>
     <div id=panel__ID>
         <div>
-            <span class=LT__ID>My Ordering</span>
-            <li><a href='communal-ordering-data-self'>Communal Ordering</a></li>
+            <span class=LT__ID>Vaccination</span>
+            <li><a href='vaccination-form-self'>Form</a></li>
+            <li><a href='vaccination-data-self'>My records</a></li>
+            <li><a href='vaccination-data'>Management</a></li>
         </div>
         <div>
-            <span class=LT__ID>Manager</span>
-            <li><a href='communal-ordering-data'>Communal Ordering</a></li>
+            <span class=LT__ID>Communal Ordering</span>
+            <li><a href='communal-ordering-form-self'>Request Form</a></li>
+            <li><a href='communal-ordering-data-self'>My Ordering</a></li>
+            <li><a href='communal-ordering-data'>Management</a></li>
+            <li><a href='communal-ordering-diagram'>Diagram</a></li>
+
         </div>
-        <!--
-        <div>
-            <span class=LT__ID >Diagrams</span>
-            <li><a href='diagram'>System diagram</a></li>
-        </div>
-    -->
     </div>
     <script>
         function F__ID(){
             //--------------------------------------------------------
             var prefix=$vm.module_list["__MODULE__"].prefix;
             if(prefix==undefined) prefix="";
+            $('#D__ID').on('load',function(){
+                $vm.nav="__MODULE__"+"|Panel";
+            })
             //--------------------------------------------------------
             $('#panel__ID a').on('click',function(e){
                 e.preventDefault();
@@ -77,7 +80,7 @@
             max-width:1400px;          
             height:200px;
             background-size: cover; background-position: center center; 
-            background-image: url(https://images.unsplash.com/photo-1482531007909-192ac913980a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80);
+            background-image: url(https://images.unsplash.com/photo-1526466483073-b3522682e9cf?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1362&q=80);
             padding-top:60px;
             margin-top:50px;
             margin-bottom:50px;

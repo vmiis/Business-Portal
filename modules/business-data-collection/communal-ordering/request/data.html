@@ -6,12 +6,13 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Requestor_Name, Date, Type, Status";
+        var fields="Requestor_Name, Date, Type,Chemical_requested,Quantity_requested,Preferred_supplier,Notes,Consumable_requested, Status";
         m.fields="_Form,_Request_ID,_Approved_by,_Processed_by,_Follow_Up,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
         m.load=function(){
             if(m.self==1) m.options={self:1};
         }
+        //-------------------------------------
         m.before_submit=function(data,index){
             if(m.input==undefined){
                 index.A=$vm.user_name; 
@@ -139,5 +140,8 @@
     }
 </script>
 <style>
+    #nav__ID a{
+        text-decoration-line: underline;
+    }
     VmInclude:__COMPONENT__/g/grid.01.css
 </style>

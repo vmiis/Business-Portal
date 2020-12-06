@@ -1,0 +1,54 @@
+﻿<section>
+    VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        //-------------------------------------
+        var fields=`
+            Full name, 
+            Supervisor's Name|Supervisor_Name,
+            Email_ID,
+            Vaccination,
+            Vaccination_file,
+            Hepatitis_B,
+            Confirmed,
+            Confirm_date,
+            Status
+        `;
+        m.fields="_Form,_Record_ID,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        m.load=function(){
+            if(m.self==1) m.options={self:1};
+        }
+        //-------------------------------------
+        m.before_submit=function(data,index){
+            if(m.input==undefined){
+                index.A=$vm.user_name; 
+            }
+            return true;
+        }
+        //-------------------------------------
+        m.cell_render=function(records,I,field,td){
+            switch(field){
+                case '_Record_ID':
+                    td.html(records[I].UID);
+                    break;
+                case "_Delete":
+                    if(records[I].Data.Status=='Submit') td.html('');
+                    break;
+                case 'Vaccination_file':
+                    if(records[I].Data[field] !=undefined) m.set_file_link_s0(records,I,field,td);
+                    break;
+            }
+        }
+        //-------------------------------------
+    }
+</script>
+<style>
+    #nav__ID a{
+        text-decoration-line: underline;
+    }
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

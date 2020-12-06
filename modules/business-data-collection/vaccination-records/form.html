@@ -1,0 +1,223 @@
+﻿<div id=D__ID>
+    <section id=form_container__ID bp=576 style='display:flow-root;'>
+    	<div id=header__ID>
+    		Vaccination
+    	</div>
+    	<form id=F__ID>
+			<div>
+				<div w='100|100'>
+					<span><b>1. Full name</b></span>
+					<input type="text" class="form-control" name=Full_name required />
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>2. Supervisor's Name</b></span>
+					<input type=text class="form-control" name=Supervisor_Name required ></input>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>3. Email ID (if known)</b></span>
+					<input type=text class="form-control" name=Email_ID ></input>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>4. Have you received Vaccination for Diptheria, tetanus and pertussis (whooping cough)</b></span><br>
+					<div style="padding-left:20px">
+						<label><input type=radio name=Vaccination value=Yes required></input> Yes</label><br>
+						<label><input type=radio name=Vaccination value=No></input> No</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>5. Please upload the vaccination record of 'One adult dose of diptheria-tetanus-pertussis vaccine (dTpa - NOT ADT)</b></span>
+					<div class="form-control" style='height: 80px; padding-top:6px'>
+						<u style='cursor:pointer' id=link_Vaccination_file__ID></u>
+						<br>
+						<input type="file" name=Vaccination_file  style="margin-top:6px" /> <button type="button" id=x_Vaccination_file__ID style='margin-left:30px'>Remove</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>6. Have you received vaccination for Hepatitis B?</b></span><br>
+					<div style="padding-left:20px">
+						<label><input type=radio name=Hepatitis_B value=Yes required></input> Yes</label><br>
+						<label><input type=radio name=Hepatitis_B value=No></input> No</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span>
+						<b>7. Please provide evidence for at least one of the following :</b><br>
+						<ul style="list-style-type:decimal;">
+							<li>History of completed age-appropriate course of Hepatitis B vacccine (not the accelerated course)</li>
+							<li>Serology test results showing Anti-HBs greater than or equal to 10 mIU/mL</li>
+							<li>Documented evidence of anti-HBc indicating past Hepatitis B infection</li>
+						</ul>
+					</span>
+					<div class="form-control" style='height: 80px; padding-top:6px'>
+						<u style='cursor:pointer' id=link_Hepatitis_B_file__ID></u>
+						<br>
+						<input type="file" name=Hepatitis_B_file  style="margin-top:6px" /> <button type="button" id=x_Hepatitis_B_file__ID style='margin-left:30px'>Remove</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>8. Have you received vaccination for Measles, Mumps and Rubella (MMR)?</b></span><br>
+					<div style="padding-left:20px">
+						<label><input type=radio name=MMR value=Yes required></input> Yes</label><br>
+						<label><input type=radio name=MMR value=No></input> No</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span>
+						<b>9. Please provide evidence for at least one of the following :</b><br>
+						<ul style="list-style-type:decimal;">
+							<li>Evidence of 2 doses of MMR vaccine taken at least one month apart.</li>
+							<li>Serology results showing positive IgG antibodies for Measles, Mumps and Rubella.</li>
+							<li>Evidence of Birth date being before 1966.</li>
+						</ul>
+					</span>
+					<div class="form-control" style='height: 80px; padding-top:6px'>
+						<u style='cursor:pointer' id=link_MMR_file__ID></u>
+						<br>
+						<input type="file" name=MMR_file  style="margin-top:6px" /> <button type="button" id=x_MMR_file__ID style='margin-left:30px'>Remove</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>10. Have you received vaccination for Varicella?</b></span><br>
+					<div style="padding-left:20px">
+						<label><input type=radio name=Varicella value=Yes required></input> Yes</label><br>
+						<label><input type=radio name=Varicella value=No></input> No</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span>
+						<b>11. Please provide evidence for at least one of the following :</b><br>
+						<ul style="list-style-type:decimal;">
+							<li>Vaccination evidence of 2 doses of Varicella vaccine done at least one month apart (evidence of one dose is sufficient if the person was vaccinated before 14 years of age)</li>
+							<li>Serology report showing positve IgG antibodies for Varicella</li>
+							<li>Evidence showing history of chickenpox or physician diagnosed shingles (please perform serotest if uncertain)</li>
+						</ul>
+					</span>
+					<div class="form-control" style='height: 80px; padding-top:6px'>
+						<u style='cursor:pointer' id=link_Varicella_file__ID></u>
+						<br>
+						<input type="file" name=Varicella_file  style="margin-top:6px" /> <button type="button" id=x_Varicella_file__ID style='margin-left:30px'>Remove</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span><b>12. Have you received vaccination for Hepatitis A?</b></span><br>
+					<div style="padding-left:20px">
+						<label><input type=radio name=Hepatitis_A value=Yes required></input> Yes</label><br>
+						<label><input type=radio name=Hepatitis_A value=No></input> No</label>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span>
+						<b>11. Please provide evidence for at least one of the following :</b><br>
+						<ul style="list-style-type:decimal;">
+							<li>Evidence of completed age appropriate Hepatitis A vaccination course.</li>
+							<li>Serology results showing positive IgG antibodies for Hepatitis A</li>
+						</ul>
+					</span>
+					<div class="form-control" style='height: 80px; padding-top:6px'>
+						<u style='cursor:pointer' id=link_Hepatitis_A_file__ID></u>
+						<br>
+						<input type="file" name=Hepatitis_A_file  style="margin-top:6px" /> <button type="button" id=x_Hepatitis_A_file__ID style='margin-left:30px'>Remove</button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<label><input type="checkbox" id=confirm__ID name=Confirmed value='Yes' required /> I confirm that all the above information relating to my vaccination records is accurate to the best of my knowledge</label>
+					<br>Confirm Date: <input type=date name=Confirm_date id=c_date__ID />
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<button id=draft__ID type="button" class="btn btn-secondary">Save and Return Later</button>
+					<button id=submit__ID type="button" class="btn btn-secondary">Submit</button>
+					<button id=trigger__ID style='display:none'></button>
+				</div>
+			</div>
+			<input type="text" name=Status style='display:none'/>
+
+    	</form>
+    </section>
+	VmInclude:__COMPONENT__/m/model.01.html
+    <script>
+    	function F__ID(){
+    		//-------------------------------------
+			VmInclude:__COMPONENT__/f/form.01.js
+			new ResizeObserver($vm.responsive).observe(form_container__ID);
+			m.storage_type='s0';
+			//-------------------------------------
+			var old_m_load=m.load;
+			m.load=function(){
+                m.set_file_link_s0("Vaccination_file");
+                m.set_file_link_s0("Hepatitis_B_file");
+                m.set_file_link_s0("MMR_file");
+                m.set_file_link_s0("Varicella_file");
+                m.set_file_link_s0("Hepatitis_A_file");
+				old_m_load();
+				if(m.input.record!=undefined && m.input.record.Data.Status=="Submit"){
+					$('#draft__ID').hide();
+					$('#submit__ID').hide();
+				}
+			}      
+			$('#draft__ID').on('click',function(){	$("#F__ID input[name='Status']").val('Draft');  m.options.lock=0; $('#trigger__ID').trigger( "click" ); })
+			$('#submit__ID').on('click',function(){	$("#F__ID input[name='Status']").val('Submit'); m.options.lock=1; $('#trigger__ID').trigger( "click" ); })
+			/*
+			$('#confirm__ID').on('click',function(){	
+				var v=$("input[name='Confirmed']:checked").val();
+				console.log(v)
+				if(v=='Yes') $('#c_date__ID').val( new Date().toLocaleDateString() );
+				else $('#c_date__ID').val('');
+			})
+			*/
+			//-------------------------------------
+            m.before_submit=function(data,index){
+				if(m.input.record==undefined){ //only for add
+					index.A=$vm.user_name; 
+				}
+                return true;
+            }
+			//-------------------------------------
+		}
+    </script>
+    <style>
+        #form_container__ID{
+            max-width:900px;
+        }
+		
+		#F__ID > div{
+			padding:15px 5px;
+		}
+		#F__ID > div:hover{
+    		background-color: #ddd;
+		}
+		#F__ID > div div{
+			padding: 0px 15px;
+		}
+		
+		
+		VmInclude:__COMPONENT__/f/form.01.css
+    </style>
+</div>
