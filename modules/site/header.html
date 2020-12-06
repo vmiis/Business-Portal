@@ -46,6 +46,8 @@
                             <li><a href="?/ud-panel">Under development</a></li>
                         </ul>
                     </li>
+                    <li><a href="?/microservices">Microservices</a></li>
+                    <li><a href="https://vmiis.com">About</a></li>
                     <li><a href="" id=signin__ID onclick=$vm.signin() ><i class="fa fa-user"></i> Sigin</a></li>
                     <li><a href="" id=signout__ID onclick=$vm.signout() ><i class="fa fa-user"></i> Sigout</a></li>
                 </ul>
@@ -87,6 +89,10 @@
                     return;
                 }
                 //if(module_name!="") $vm.load_module(module_name,'content',{})
+                if(module_name=='https://vmiis.com'){
+                    window.open(module_name);
+                    return;
+                }
                 if(module_name!="") $vm.show_module(module_name,{})
                 close_all_dropdown();
                 $('#hamburger__ID').prop("checked", false);
