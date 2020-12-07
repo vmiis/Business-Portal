@@ -445,12 +445,9 @@
     //-------------------------------------------------------------------------------------
     var prefix='Business-data-collection-';
     var $H="https://portal.vmiis.com/modules/business-data-collection"; 
-    //if(window.location.toString().indexOf('_l=1')!=-1) 
-    $H="http://localhost:8000/vmiis/business-portal/modules/business-data-collection";
+    if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/business-data-collection";
     var modules={
         "panel":{url:$H+"/panel.html",router:1},
-        
-        
         "communal-ordering-diagram":{url:$H+"/communal-ordering/diagram/diagram.html",router:1},
         "communal-ordering-data":{
             url:$H+"/communal-ordering/request/data.html",
