@@ -14,7 +14,7 @@
     var $H="https://portal.vmiis.com/modules/equipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/equipment-booking";
     var modules={
         panel:         {url:$H+"/panel.html",router:1},
-        diagram:       {url:$H+"/diagram/diagram.html"},
+        diagram:       {url:$H+"/diagram/diagram.html",title:"Equipment booking diagram"},
         booking_data:  {url:$H+"/equipment-list-and-equipment-booking-records/booking-data.html",  Table:"demo-vm-19091811",  form_module:"booking_form"},
         booking_form:  {url:$H+"/equipment-list-and-equipment-booking-records/booking-form.html",  Table:"demo-vm-19091811",  lookup:"demo-vm-19091812"},
         booking_form_2:{url:$H+"/equipment-list-and-equipment-booking-records/booking-form-2.html",Table:"demo-vm-19091811",  lookup:"demo-vm-19091812"},
@@ -443,7 +443,7 @@
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
-    var prefix='bdc-';
+    var prefix='Business-data-collection-';
     var $H="https://portal.vmiis.com/modules/business-data-collection"; 
     //if(window.location.toString().indexOf('_l=1')!=-1) 
     $H="http://localhost:8000/vmiis/business-portal/modules/business-data-collection";
@@ -520,29 +520,29 @@
             url:$H+"/vaccination-records/data.html",
             Table:"vaccination",
             form_module:"vaccination-form", 
+            title:"All vaccination records",
             description:"data"
         },
         "vaccination-form":{
             url:$H+"/vaccination-records/form.html",
             Table:"vaccination",
-            description:"form",
-            router:1,
         },
         "vaccination-data-self":{
             url:$H+"/vaccination-records/data.html",
             Table:"vaccination",
             form_module:"vaccination-form-self", 
+            title:"My vaccination records",
             description:"data",
             self:1
         },
         "vaccination-form-self":{
             url:$H+"/vaccination-records/form.html",
             Table:"vaccination",
+            title:"Vaccination form",
             description:"form",
             self:1,
             router:1,
         },
-        
     }
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
