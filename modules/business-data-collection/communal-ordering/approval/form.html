@@ -27,7 +27,7 @@
 			var old_m_load=m.load;
 			m.load=function(){
 				var nm=$vm.displayname;
-				if(nm==undefined) nm=$vm.user_name;
+				if(nm==undefined || nm=="") nm=$vm.user_name;
 				$('#name__ID').text(nm);
 				old_m_load();
 			}      

@@ -52,9 +52,8 @@
                     <li><a href="" id=signout__ID onclick=$vm.signout() ><i class="fa fa-user"></i> Sigout</a></li>
                 </ul>
             </div>
-
             <div id=search__ID style='padding-left:200px'><input id=search_box__ID type=text class=form-control style='height:26px;width:300px;' placeholder="Search"> </div>
-        </div>    
+        </div>
         <div id=right__ID style='margin: auto 15px auto 0'>
             <div id=menu_right__ID>
                 <a href="sys_editor" id=edit__ID >Content Edit</a>
@@ -67,6 +66,7 @@
             </div>
         </div>
     </div>    
+    <div style='padding:3px 0 4px 10px;background-color: #e5e9ec;font-size:13px;' id=nav__ID></div>
     <script>
         function F__ID(){
             //--------------------------------------
@@ -88,7 +88,6 @@
                     $(this).closest('li').find('ul').first().css('min-width',w+'px');
                     return;
                 }
-                //if(module_name!="") $vm.load_module(module_name,'content',{})
                 if(module_name=='https://vmiis.com'){
                     window.open(module_name);
                     return;
@@ -164,10 +163,39 @@
                 $vm.show_user();
             })
             //------------------------------------
+            $vm.sys_nav_path=function(){
+                var L=$vm.page_stack.length;
+                var I=L-5;
+                if(I<0) I=0;
+                var txt="";
+                for(var i=I;i<L;i++){
+                    if(txt!="") txt+=" -> ";
+                    var nm=$vm.page_stack[i].m_name;
+                    var title=$vm.module_list[nm].title;
+                    if(title==undefined) title=nm.replace(/_/g,' ').replace(/-/g,' ');
+                    if(i==L-1 || L==1) txt+=title;
+                    else txt+="<u nm="+nm+" style='cursor:pointer'>"+title+"</u>";
+                }
+                $('#nav__ID').html(txt);
+                $('#nav__ID u').on('click',function(){
+                    var nm=$(this).attr("nm");
+                    var K=$vm.page_stack.length-1;
+                    var N=0;
+                    for(var j=K;j>=0;j--){
+                        if(nm==$vm.page_stack[j].m_name) break;
+                        N++;
+                    }
+                    for(var j=0;j<N;j++) window.history.go(-1);
+                })
+            }
+            //------------------------------------
         }
         //--------------------------------------
     </script>
     <style>
+        #nav__ID u:hover{
+            color: red;
+        }
         #D__ID{
             background-color: lightslategray;
         }

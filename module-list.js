@@ -11,7 +11,7 @@
     }
     //-------------------------------------------------------------------------------------
     var prefix='equipment-booking-';
-    var $H="https://portal.vmiis.com/modules/equipment-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/equipment-booking";
+    var $H=$vm.hosting_path+"/modules/equipment-booking";
     var modules={
         panel:         {url:$H+"/panel.html",router:1},
         diagram:       {url:$H+"/diagram/diagram.html",title:"Equipment booking diagram"},
@@ -27,7 +27,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     prefix='room-booking-';
-    $H="https://portal.vmiis.com/modules/room-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/room-booking";
+    $H=$vm.hosting_path+"/modules/room-booking";
     modules={
         panel:         {url:$H+"/panel.html",router:1},
         diagram:       {url:$H+"/diagram/diagram.html"},
@@ -43,7 +43,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='car-booking-';
-    var $H="https://portal.vmiis.com/modules/car-booking"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/car-booking";
+    var $H=$vm.hosting_path+"/modules/car-booking";
     var modules={
         panel:          {url:$H+"/panel.html",router:1},
         diagram:        {url:$H+"/diagram/diagram.html"},
@@ -59,7 +59,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     prefix='bookkeeping-';
-    $H="https://portal.vmiis.com/modules/bookkeeping"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/bookkeeping";
+    $H=$vm.hosting_path+"/modules/bookkeeping";
     var pre_item="vm-demo-predefined-transaction-item";
     var transaction="vm-demo-transaction-records";
     var aggregation="vm-demo-ato-bas-quarter";
@@ -110,7 +110,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='marketing-';
-    var $H="https://portal.vmiis.com/modules/marketing"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/marketing";
+    var $H=$vm.hosting_path+"/modules/marketing";
     var modules={
         "panel":                                    {url:$H+"/panel.html",router:1},
         "contact_us_1":                             {url:$H+"/contact-us-1/form.html",Table:"demo-vm-ccontact-us",router:1},
@@ -127,7 +127,7 @@
     //-------------------------------------------------------------------------------------
     set_prefix(prefix,modules);
     var prefix='spardac-'
-    var $H="https://portal.vmiis.com/modules/spardac"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/spardac";
+    var $H=$vm.hosting_path+"/modules/spardac";
     var modules={
         "panel":                                {url:$H+"/panel.html",router:1},
         "participant-data":   		            {url:"xxx",Table:"spardac-participant",participant_id:{field1:"Subject_ID",field2:"Subject_Initials"}, not_install:1},
@@ -295,7 +295,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='research-projects-'
-    var $H="https://portal.vmiis.com/modules/research-projects"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/research-projects";
+    var $H=$vm.hosting_path+"/modules/research-projects";
     var modules={
         "panel":                     {url:$H+"/panel.html",router:1},
         "sleep-research":            {url:$H+"/sleep-research/sleep-research.html",router:1,has_child:1, first:'p1'},
@@ -307,7 +307,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='modules-'
-    var $H="https://portal.vmiis.com/modules"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules";
+    var $H=$vm.hosting_path+"/modules";
     var modules={
         "data-sharing-and-management":              {url:$H+"/unclassified/data-sharing-and-management.html",router:1, not_install:1},
         "musicxml":                                 {url:$H+"/music/musicxml-player/musicxml.html",router:1, not_install:1},
@@ -317,7 +317,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='invoice-'
-    var $H="https://portal.vmiis.com/modules/invoice"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/invoice";
+    var $H=$vm.hosting_path+"/modules/invoice";
     var invoice_client_table="vm-demo-invoice-client";
     var invoice_record_table="vm-demo-invoice";
     var invoice_print_module="invoice-print-demo";
@@ -345,7 +345,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='ud-'
-    var $H="https://portal.vmiis.com/modules/under-development"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/under-development";
+    var $H=$vm.hosting_path+"/modules/under-development";
     var modules={
         "panel":                          {url:$H+"/panel.html",router:1},
         "test1":                          {url:$H+"/1/test1.html",router:1},
@@ -354,7 +354,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='event-calendar-';
-    var $H="https://portal.vmiis.com/modules/event-task-reminder-calendar"; if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/event-task-reminder-calendar";
+    var $H=$vm.hosting_path+"/modules/event-task-reminder-calendar";
     var modules={
         "panel":         {url:$H+"/panel.html",router:1},
         "diagram":       {url:$H+"/diagram/diagram.html"},
@@ -369,8 +369,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='purchase-order-';
-    var $H="https://portal.vmiis.com/modules/purchase-order-request-approval-process"; if(window.location.toString().indexOf('_l=1')!=-1) 
-    $H="http://localhost:8000/vmiis/business-portal/modules/purchase-order-request-approval-process";
+    var $H=$vm.hosting_path+"/modules/purchase-order-request-approval-process"; 
     var modules={
         "panel":         {url:$H+"/panel.html",router:1},
         "diagram":       {url:$H+"/diagram/diagram.html"},
@@ -431,8 +430,7 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='purchase-order-';
-    var $H="https://portal.vmiis.com/modules/under-development/purchase-order"; //if(window.location.toString().indexOf('_l=1')!=-1) 
-    $H="http://localhost:8000/vmiis/business-portal/modules/under-development/purchase-order";
+    var $H=$vm.hosting_path+"/modules/under-development/purchase-order"; 
     var modules={
         "request-data":             {url:$H+"/request/data.html",   Table:"purchase-order-request-demo",  form_module:"request-form", router:1},
         "request-form":             {url:$H+"/request/form.html",   Table:"purchase-order-request-demo",  lookup:"purchase-order-manager-demo"},
@@ -444,12 +442,12 @@
     set_prefix(prefix,modules);
     //-------------------------------------------------------------------------------------
     var prefix='Business-data-collection-';
-    var $H="https://portal.vmiis.com/modules/business-data-collection"; 
-    if(window.location.toString().indexOf('_l=1')!=-1) $H="http://localhost:8000/vmiis/business-portal/modules/business-data-collection";
+    var $H=$vm.hosting_path+"/modules/business-data-collection"; 
     var modules={
-        "panel":{url:$H+"/panel.html",router:1},
+        "panel":{url:$H+"/panel.html",title:'Business data collection panel',router:1},
         "communal-ordering-diagram":{url:$H+"/communal-ordering/diagram/diagram.html",router:1},
         "communal-ordering-data":{
+            title:'Communal ordering records',
             url:$H+"/communal-ordering/request/data.html",
             Table:"communal-ordering",
             form_module:"communal-ordering-form", 
@@ -462,11 +460,13 @@
             description:"Communal ordering data"
         },
         "communal-ordering-form":{
+            title:'Communal ordering form',
             url:$H+"/communal-ordering/request/form.html",
             Table:"communal-ordering",
             description:"Communal ordering form",
         },
         "communal-ordering-data-self":{
+            title:'My communal ordering records',
             url:$H+"/communal-ordering/request/data.html",
             Table:"communal-ordering",
             form_module:"communal-ordering-form-self", 
@@ -480,6 +480,7 @@
             description:"Communal ordering data"
         },
         "communal-ordering-form-self":{
+            title:'Communal ordering form',
             url:$H+"/communal-ordering/request/form.html",
             Table:"communal-ordering",
             description:"Communal ordering form",
@@ -496,6 +497,7 @@
             Table:"communal-ordering-process",
             parent_table:"communal-ordering",
             description:"Communal ordering process",
+            router:1,
         },
         "communal-ordering-follow-up-data":{
             url:$H+"/communal-ordering/follow-up/data.html",
@@ -505,13 +507,11 @@
             description:"Communal ordering data"
         },
         "communal-ordering-follow-up-form":{
-            url:$H+"/follow-up/form.html",
+            url:$H+"/communal-ordering/follow-up/form.html",
             Table:"communal-ordering-follow-up",
             parent_table:"communal-ordering",
             description:"Communal ordering form",
         },
-        
-        
         
         "vaccination-data":{
             url:$H+"/vaccination-records/data.html",
