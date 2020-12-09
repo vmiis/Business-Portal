@@ -6,14 +6,14 @@
         <div>
             <span class=LT__ID>Vaccination</span>
             <li><a href='vaccination-form-self'>Form</a></li>
-            <li><a href='vaccination-data-self'>My records</a></li>
-            <li><a href='vaccination-data'>Management</a></li>
+            <li><a href='vaccination-data-self'>My records <span id=T1__ID></span></a></li>
+            <li><a href='vaccination-data'>Management <span id=T2__ID></span></a></li>
         </div>
         <div>
             <span class=LT__ID>Communal Ordering</span>
             <li><a href='communal-ordering-form-self'>Request Form</a></li>
-            <li><a href='communal-ordering-data-self'>My Ordering</a></li>
-            <li><a href='communal-ordering-data'>Management</a></li>
+            <li><a href='communal-ordering-data-self'>My Ordering <span id=T3__ID></span></a></li>
+            <li><a href='communal-ordering-data'>Management <span id=T4__ID></span></a></li>
             <li><a href='communal-ordering-diagram'>Diagram</a></li>
 
         </div>
@@ -23,9 +23,6 @@
             //--------------------------------------------------------
             var prefix=$vm.module_list["__MODULE__"].prefix;
             if(prefix==undefined) prefix="";
-            $('#D__ID').on('load',function(){
-                $vm.nav="__MODULE__"+"|Panel";
-            })
             //--------------------------------------------------------
             $('#panel__ID a').on('click',function(e){
                 e.preventDefault();
@@ -44,6 +41,46 @@
                 }
             })
             //--------------------------------------------------------
+            var I=1;
+            $('#D__ID').on('show',function(){
+                console.log(I++);
+                //--------------------------------------------------------
+                var cmd="facet"; //find count
+                var pipeline={ 
+                    "T1" :[
+                        { "$match" : {"Table":"vaccination","self":1}},
+                        {"$count": "c"}
+                    ],
+                    "T2" :[
+                        { "$match" : {"Table":"vaccination"}},
+                        {"$count": "c"}
+                    ],
+                    "T3" :[
+                        { "$match" : {"Table":"communal-ordering","self":1}},
+                        {"$count": "c"}
+                    ],
+                    "T4" :[
+                        { "$match" : {"Table":"communal-ordering"}},
+                        {"$count": "c"}
+                    ]
+                };
+                var req={cmd:cmd,pipeline:pipeline}
+                $('#T1__ID').text('');
+                $('#T2__ID').text('');
+                $('#T3__ID').text('');
+                $('#T4__ID').text('');
+                $vm.request(req,function(res){
+                    console.log(res.result)
+                    if(res.result.length!=0){
+                        $('#T1__ID').text('('+res.result[0].T1[0].c+')');
+                        $('#T2__ID').text('('+res.result[0].T2[0].c+')');
+                        $('#T3__ID').text('('+res.result[0].T3[0].c+')');
+                        $('#T4__ID').text('('+res.result[0].T4[0].c+')');
+                    }
+                });
+                //--------------------------------------------------------
+            })
+            //-------------------------------------
         }
     </script>
     <style>
@@ -71,10 +108,6 @@
         #panel__ID a:hover{
             color:red;
         }
-	    #panel__ID span{
-			color:#283f55;
-			font-weight: bold;
-	    }
         .h_img__ID{
             margin:0 auto;
             max-width:1400px;          
@@ -97,6 +130,8 @@
 			text-shadow: 2px 2px 2px #000;
         }
         .LT__ID{
+			color:#283f55;
+			font-weight: bold;
             display:inline-block;
             margin-top:10px;
             margin-left:-30px;

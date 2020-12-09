@@ -109,7 +109,7 @@
                 });
             });
             //--------------------------------------------------------
-            var cmd="aggregate"; //find follow up
+            var cmd="group"; //find follow up
             var pipeline=[{ $group : {_id:"$I2", count:{$sum:1}}}];
             var req={cmd:cmd,table:m.follow_up_table,pipeline:pipeline,options:options}
             $vm.request(req,function(res){

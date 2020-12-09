@@ -4,120 +4,117 @@
     		Communal ordering form
     	</div>
     	<form id=F__ID>
-    		<div class="container">
-    			<div class="row row__ID">
-    				<div class=col>
-    					<span>1. Full name of the requestor</span>
-    					<input type="text" class="form-control" name=Requestor_Name required />
-    				</div>
-    			</div>
-    			<div class="row row__ID">
-    				<div class=col>
-    					<span>2. Date Requested</span>
-    					<input type=date class="form-control" name=Date ></input>
-    				</div>
-    			</div>
-    			<div class="row row__ID">
-    				<div class=col>
-    					<span>3. What are you requesting</span><br>
-						<div style="padding-left:20px" id=c__ID>
-							<label><input type=radio name=Type value=Chemical required></input> Chemical</label><br>
-							<label><input type=radio name=Type value=Consumable></input> Consumable</label>
-						</div>
-    				</div>
+			<div>
+				<div w='100|100'>
+					<span>1. Full name of the requestor</span>
+					<input type="text" name=Requestor_Name required />
 				</div>
-				<div id=part_1__ID style='display:none'>
-					<div class="row row__ID">
-						<div class=col>
-							<span>4. Chemical requested</span>
-							<select class="form-control" name=Chemical_requested>
-								<option value="" disabled selected>Select your answer</option>
-								<option>Glacial acetic acid</option>
-								<option>Agarose (Molecular Biology Grade)</option>
-								<option>APS (ammonium persulfate)</option>
-								<option>Beta Mercaptoethanol</option>
-								<option>Calcium Chloride</option>
-								<option>Citric acid</option>
-								<option>Conc HCl (molecular biology grade)</option>
-								<option>D (+) Glucose monohydrate</option>
-								<option>D (+) Galactose</option>
-								<option>Dextrandi-sodium hydrogen orthophosphate</option>
-								<option>EDTA</option>
-								<option>100% Ethanol (molecular biology grade)</option>
-								<option>Ethylene glycolGelatin</option>
-								<option>GlycineGuanidine hydrochloride</option>
-								<option>HEPES</option>
-								<option>Hydroxyethyl cellulose</option>
-								<option>Hydroxypropyl cellulose</option>
-								<option>Hydroxypropyl methyl cellulose</option>
-								<option>Imidazole</option>
-								<option>Isopropanol (Mol Bio Grade)</option>
-								<option>Magnesium chloride (Anhydrous)</option>
-								<option>Methanol (molecular biology grade)</option>
-								<option>Methyl Cellulose</option>
-								<option>Phenylmethylsulfonyl fluoride</option>
-								<option>Sodium phosphate (Dibasics - Molecular biology grade)</option>
-								<option>Phosphate buffered Saline (PBS)</option>
-								<option>Postassium chloride</option>
-								<option>Sodium biocarbonate (Molecular biology grade - powder)</option>
-								<option>Sodium carbonate</option>
-								<option>Sodium chloride</option>
-							</select>
-						</div>
-					</div>
-					<div class="row row__ID">
-						<div class=col>
-							<span>5. Quantity requested</span>
-							<br><span style='font-size: 11px; font-style: italic;'>Please mention number of bags / carton for consumables and volume / weight of chemicals</span>
-							<input type="text" class="form-control" name=Quantity_requested />
-						</div>
-					</div>
-					<div class="row row__ID">
-						<div class=col>
-							<span>6. Preferred supplier</span>
-							<br><span style='font-size: 11px; font-style: italic;'>Please write NA if no preference</span>
-							<input type="text" class="form-control" name=Preferred_supplier />
-						</div>
-					</div>
-					<div class="row row__ID">
-						<div class=col>
-							<span>7. Notes</span>
-							<textarea class="form-control" name=Notes ></textarea>
-						</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span>2. Date Requested</span>
+					<input type=date name=Date ></input>
+				</div>
+			</div>
+			<div>
+				<div w='100|100'>
+					<span>3. What are you requesting</span><br>
+					<div style="padding-left:20px" id=c__ID>
+						<label class=r__ID><input type=radio name=Type value=Chemical required></input><span></span> Chemical</label><br>
+						<label class=r__ID><input type=radio name=Type value=Consumable></input><span></span> Consumable</label>
 					</div>
 				</div>
-				<div id=part_2__ID style='display:none'>
-					<div class="row row__ID">
-						<div class=col>
-							<span>4. Consumable requested</span>
-							<select class="form-control" name=Consumable_requested >
-								<option value="" disabled selected>Select your answer</option>
-								<option>1.5mL Eppendorf tube</option>
-								<option>15mL Falcon tube</option>
-								<option>50mL Falcon tube</option>
-								<option>5mL serological pipette</option>
-								<option>10mL serological pipette</option>
-								<option>25mL serological pipette</option>
-							</select>
-						</div>
+			</div>
+			<section id=part_1__ID style='display:none'>
+				<div>
+					<div w='100|100'>
+						<span>4. Chemical requested</span>
+						<select name=Chemical_requested>
+							<option value="" disabled selected>Select your answer</option>
+							<option>Glacial acetic acid</option>
+							<option>Agarose (Molecular Biology Grade)</option>
+							<option>APS (ammonium persulfate)</option>
+							<option>Beta Mercaptoethanol</option>
+							<option>Calcium Chloride</option>
+							<option>Citric acid</option>
+							<option>Conc HCl (molecular biology grade)</option>
+							<option>D (+) Glucose monohydrate</option>
+							<option>D (+) Galactose</option>
+							<option>Dextrandi-sodium hydrogen orthophosphate</option>
+							<option>EDTA</option>
+							<option>100% Ethanol (molecular biology grade)</option>
+							<option>Ethylene glycolGelatin</option>
+							<option>GlycineGuanidine hydrochloride</option>
+							<option>HEPES</option>
+							<option>Hydroxyethyl cellulose</option>
+							<option>Hydroxypropyl cellulose</option>
+							<option>Hydroxypropyl methyl cellulose</option>
+							<option>Imidazole</option>
+							<option>Isopropanol (Mol Bio Grade)</option>
+							<option>Magnesium chloride (Anhydrous)</option>
+							<option>Methanol (molecular biology grade)</option>
+							<option>Methyl Cellulose</option>
+							<option>Phenylmethylsulfonyl fluoride</option>
+							<option>Sodium phosphate (Dibasics - Molecular biology grade)</option>
+							<option>Phosphate buffered Saline (PBS)</option>
+							<option>Postassium chloride</option>
+							<option>Sodium biocarbonate (Molecular biology grade - powder)</option>
+							<option>Sodium carbonate</option>
+							<option>Sodium chloride</option>
+						</select>
 					</div>
 				</div>
-				<input type="text" name=Status style='display:none'/>
-    			<br>
-    			<div class="row">
-    				<div class=col>
-    					<button id=draft__ID type="button" class="btn btn-secondary">Save and Return Later</button>
-    					<button id=submit__ID type="button" class="btn btn-secondary">Submit</button>
-    					<button id=trigger__ID style='display:none'></button>
-    				</div>
-    			</div>
-    		</div>
+				<div>
+					<div w='100|100'>
+						<span>5. Quantity requested</span>
+						<br><span style='font-size: 11px; font-style: italic;'>Please mention number of bags / carton for consumables and volume / weight of chemicals</span>
+						<input type="text" name=Quantity_requested />
+					</div>
+				</div>
+				<div>
+					<div w='100|100'>
+						<span>6. Preferred supplier</span>
+						<br><span style='font-size: 11px; font-style: italic;'>Please write NA if no preference</span>
+						<input type="text" name=Preferred_supplier />
+					</div>
+				</div>
+				<div>
+					<div w='100|100'>
+						<span>7. Notes</span>
+						<textarea name=Notes style='height:200px' ></textarea>
+					</div>
+				</div>
+			</section>
+			<section id=part_2__ID style='display:none'>
+				<div>
+					<div w='100|100'>
+						<span>4. Consumable requested</span>
+						<select name=Consumable_requested >
+							<option value="" disabled selected>Select your answer</option>
+							<option>1.5mL Eppendorf tube</option>
+							<option>15mL Falcon tube</option>
+							<option>50mL Falcon tube</option>
+							<option>5mL serological pipette</option>
+							<option>10mL serological pipette</option>
+							<option>25mL serological pipette</option>
+						</select>
+					</div>
+				</div>
+			</section>
+			<div>
+				<div w='100|100'>
+					<button id=draft__ID type="button" class="btn btn-secondary">Save and Return Later</button>
+					<button id=submit__ID type="button" class="btn btn-secondary">Submit</button>
+					<button id=trigger__ID style='display:none'></button>
+				</div>
+			</div>
     	</form>
     </section>
     <script>
     	function F__ID(){
     		//-------------------------------------
 			VmInclude:__COMPONENT__/f/form.01.js
+			new ResizeObserver($vm.responsive).observe(form_container__ID);
 			m.storage_type=='s0'
 			//-------------------------------------
 			var old_m_load=m.load;
@@ -174,12 +171,8 @@
         #form_container__ID{
             max-width:800px;
         }
+		VmInclude:__CURRENT_PATH__form.css
         VmInclude:__COMPONENT__/f/form.01.css
-		#form_container__ID .row__ID{
-			padding-top:15px;
-			padding-bottom:15px;
-		}
-
 		#D__ID{
 			background-size: cover; 
 			background-repeat: repeat-x; 
