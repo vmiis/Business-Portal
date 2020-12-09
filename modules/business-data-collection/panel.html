@@ -43,8 +43,8 @@
             //--------------------------------------------------------
             var I=1;
             $('#D__ID').on('show',function(){
-                console.log(I++);
                 //--------------------------------------------------------
+                /*
                 var cmd="facet"; //find count
                 var pipeline={ 
                     "T1" :[
@@ -72,13 +72,14 @@
                 $vm.request(req,function(res){
                     console.log(res.result)
                     if(res.result.length!=0){
-                        $('#T1__ID').text('('+res.result[0].T1[0].c+')');
-                        $('#T2__ID').text('('+res.result[0].T2[0].c+')');
-                        $('#T3__ID').text('('+res.result[0].T3[0].c+')');
-                        $('#T4__ID').text('('+res.result[0].T4[0].c+')');
+                        if(res.result[0].T1.length!=0) $('#T1__ID').text('('+res.result[0].T1[0].c+')');
+                        if(res.result[0].T2.length!=0) $('#T2__ID').text('('+res.result[0].T2[0].c+')');
+                        if(res.result[0].T3.length!=0) $('#T3__ID').text('('+res.result[0].T3[0].c+')');
+                        if(res.result[0].T4.length!=0) $('#T4__ID').text('('+res.result[0].T4[0].c+')');
                     }
                 });
                 //--------------------------------------------------------
+                */
             })
             //-------------------------------------
         }
