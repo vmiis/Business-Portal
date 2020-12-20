@@ -38,7 +38,6 @@
             m.before_submit=function(data,index){
 				$vm["_sys_refresh_"+m.parent_table]=1; 		//force parent module to refresh
 				if(m.input!=undefined){
-					index.A=m.input.A; 						//parent A -> A, transfer self permission
 					index.I2=m.input.UID; 					//parent UID -> I2, build relation
 				}
                 return true;
